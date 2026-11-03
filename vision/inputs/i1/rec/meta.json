@@ -1,0 +1,126 @@
+{
+  "app_build" : "14",
+  "app_version" : "1.4.7",
+  "baro" : {
+    "abs_available" : true,
+    "abs_columns" : "t · alt_m: 절대 고도 m(해수면 기준, GPS+기압) · accuracy_m · precision_m · t_recv",
+    "abs_file" : "baro_abs.csv",
+    "abs_samples" : 356,
+    "authorization" : "authorized",
+    "available" : true,
+    "clock" : "t = CMLogItem.timestamp (motion.csv·frames.jsonl t와 같은 호스트 시계)",
+    "columns" : "t: 호스트 시계 s · pressure_kpa: 기압 kPa · rel_alt_m: 시작부터 상대 높이 m · t_recv: 받은 시각(호스트 시계 s)",
+    "error" : null,
+    "file" : "baro.csv",
+    "recorded" : true,
+    "samples" : 111
+  },
+  "battery_end" : 70,
+  "battery_start" : 70,
+  "camera" : {
+    "device_type" : "AVCaptureDeviceTypeBuiltInWideAngleCamera",
+    "fps_requested" : 30,
+    "frame_duration_s" : [
+      0.033333333333333333,
+      0.033333333333333333
+    ],
+    "geometric_distortion_correction" : false,
+    "intrinsics_delivery" : true,
+    "mirrored" : false,
+    "mount_orientation" : "landscape_right",
+    "pixel_format" : "420v",
+    "position" : "back",
+    "preset" : "hd1920x1080",
+    "rotation" : "videoRotationAngle=0",
+    "sensor_format" : [
+      1920,
+      1080
+    ],
+    "stabilization_active" : 0,
+    "stabilization_preferred" : 0,
+    "video_fov_deg" : 70.652297973632812
+  },
+  "device" : "iPhone18,3",
+  "ended_wall" : "2026-10-30T11:49:49Z",
+  "format" : "capstone-recording",
+  "format_version" : "0.2",
+  "frames" : {
+    "clock" : "t = PTS를 호스트 시계 초로 (motion.csv t와 같음)",
+    "file" : "frames.jsonl",
+    "K" : "3x3 행 우선, 카메라 내부값 전달(프레임마다). 회전 0이라 버퍼(1920x1080) 기준",
+    "picker" : "창 안에서 gyro_norm 최소 = picked",
+    "picker_window_s" : 0.20000000000000001,
+    "pose" : "명세 2절: pitch 렌즈가 위 +, roll 화면 시계 방향 +; 중력으로 계산. 가로(landscape_right): pitch = asin(g_z), roll = atan2(-g_y, -g_x)"
+  },
+  "ios" : "26.2.1",
+  "marks" : {
+    "clock" : "t = 호스트 시계 s (frames.jsonl·motion.csv t와 같음)",
+    "file" : "marks.jsonl",
+    "kinds" : "stop(멈춘 지점) · stop_edit(지점 정보 나중에) · board\/alight(에스컬레이터·엘리베이터 탐\/내림) · memo"
+  },
+  "motion" : {
+    "columns" : "t: 호스트 시계 s · g: 중력(기기 좌표, g) · a: 사용자 가속도(g) · w: 회전 속도(rad\/s) · q: 자세 사원수 · m: 보정된 자기장(μT), m_acc: 정확도(-1 모름 ~ 2 높음)",
+    "file" : "motion.csv",
+    "hz" : 100,
+    "reference_frame" : "xArbitraryCorrectedZVertical"
+  },
+  "mount" : {
+    "image_right_device" : [
+      0,
+      -1,
+      0
+    ],
+    "image_up_device" : [
+      1,
+      0,
+      0
+    ],
+    "note" : "가로, 화면을 볼 때 폰 윗부분(카메라 쪽)이 왼쪽 (UIInterfaceOrientationLandscapeRight, 센서 기본 방향·회전 0)",
+    "orientation" : "landscape_right"
+  },
+  "recording" : {
+    "baro" : {
+      "abs_available" : true,
+      "abs_samples" : 356,
+      "authorization" : "authorized",
+      "available" : true,
+      "error" : null,
+      "samples" : 111
+    },
+    "dropped" : 0,
+    "duration_s" : 118.55751791701186,
+    "error" : null,
+    "first_t" : 651441.18844704097,
+    "frames" : 3558,
+    "last_t" : 651559.74596495798,
+    "motion_samples" : 11819,
+    "size" : [
+      1920,
+      1080
+    ]
+  },
+  "started_host_s" : 651441.19030708296,
+  "started_uptime_s" : 651441.19030937506,
+  "started_wall" : "2026-10-30T11:47:50Z",
+  "survey" : {
+    "hhmmss" : "204750",
+    "kind" : "walk",
+    "note" : "",
+    "opened_from" : "tab",
+    "purpose" : "demo",
+    "purpose_ko" : "시연 경로",
+    "route" : "2번출구->원인재방면 에스컬레이터->내려서 바로 가까운 승강장 문",
+    "route_key" : "route-2",
+    "run" : "1",
+    "survey_folder" : "답사_20261030"
+  },
+  "thermal_end" : "nominal",
+  "thermal_start" : "nominal",
+  "video" : {
+    "bitrate" : 12000000,
+    "codec" : "h264",
+    "file" : "video.mov",
+    "movie_fragment_s" : 2,
+    "rotation_metadata" : "none (버퍼가 이미 거치 방향, 가로 1920x1080)"
+  }
+}

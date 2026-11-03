@@ -1,0 +1,3236 @@
+{
+ "format": "dongchun_station v1 (localization_design cv_test/pf/export_station.py)",
+ "floors": {
+  "B01": -1,
+  "B02": -2
+ },
+ "cam_h": 1.4,
+ "coords": {
+  "enu": "동·북 m, 메시 원점 (관측 모델·랜드마크·에스컬레이터 끝)",
+  "grid": "st = (ENU - T) @ R (가시성 표 격자)",
+  "aligned": "팀장 aligned = Rot(aligned_from_enu_rot_deg) · ENU, 원점 그대로",
+  "compass": "나침반(북 0°, 시계 +) = wrap360(90 + aligned_from_enu_rot_deg - deg(th)), th = aligned 수학각"
+ },
+ "aligned_from_enu_rot_deg": -52.73,
+ "computed_note": "computed = 가시성 표를 계산한 칸(지금은 우리 보행칸 walk). 그 밖 칸의 nan은 '모름'",
+ "escalators": [
+  {
+   "name": "동막 방면",
+   "top_key": "ESC_P1_B1",
+   "bottom_key": "ESC_P1_B2",
+   "top": [
+    15.133,
+    6.71
+   ],
+   "bottom": [
+    24.828,
+    19.28
+   ],
+   "top_floor": -1,
+   "bottom_floor": -2,
+   "top_aligned": [
+    14.5039,
+    -7.9793
+   ],
+   "bottom_aligned": [
+    30.378,
+    -8.0825
+   ]
+  },
+  {
+   "name": "원인재 방면",
+   "top_key": "ESC_P2_B1",
+   "bottom_key": "ESC_P2_B2",
+   "top": [
+    30.169,
+    -4.907
+   ],
+   "bottom": [
+    39.906,
+    7.885
+   ],
+   "top_floor": -1,
+   "bottom_floor": -2,
+   "top_aligned": [
+    14.3646,
+    -26.9797
+   ],
+   "bottom_aligned": [
+    30.4408,
+    -26.9819
+   ]
+  }
+ ],
+ "lm_json": {
+  "B01": [
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳·타는 곳",
+    "unique": false,
+    "center": [
+     -25.291,
+     -23.706,
+     10.25
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "_______5",
+    "id": "B01_exit_sign_00",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 2,
+     "result": "다름",
+     "before": "exit_sign 나가는 곳",
+     "note": "한 판에 타는 곳·나가는 곳이 같이 있음(현장 메모)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -25.15,
+     -23.814,
+     10.25
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "_______5",
+    "id": "B01_exit_sign_01",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 3,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -4.427,
+     -31.524,
+     10.25
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "_______4",
+    "id": "B01_exit_sign_02",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 9,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -4.319,
+     -31.382,
+     10.25
+    ],
+    "normal": [
+     0.606,
+     0.796,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "_______4",
+    "id": "B01_exit_sign_03",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 10,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     9.305,
+     -7.457,
+     10.561
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     8.336,
+     0.377
+    ],
+    "height_above_floor": 3.25,
+    "poi_object": "IFFC_01_03",
+    "id": "B01_exit_sign_04",
+    "source": "공공데이터",
+    "survey1": {
+     "seq": 15,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": "개찰구 안쪽이라 직접 대조 안 함(카드 비용). 지도상 나가는 곳이고 개찰구 줄 위 긴 판의 안쪽 면(안 → 밖으로 볼 때 보이는 면)이라 나가는 곳이 맞다고 보고 맞음 처리(사용자 결정 10-31). 같은 판의 대합실 쪽 면 16번(타는 곳)은 직접 대조에서 맞음"
+    },
+    "assumed": [],
+    "todo2": "들어가면 눈으로 확인(선택)"
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     12.648,
+     -13.216,
+     10.411
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     3.624,
+     0.43
+    ],
+    "height_above_floor": 3.1,
+    "poi_object": "_______3",
+    "id": "B01_exit_sign_05",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 13,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     12.766,
+     -13.305,
+     10.411
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     3.624,
+     0.43
+    ],
+    "height_above_floor": 3.1,
+    "poi_object": "_______3",
+    "id": "B01_exit_sign_06",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 14,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     16.08,
+     -18.523,
+     10.561
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     8.336,
+     0.377
+    ],
+    "height_above_floor": 3.25,
+    "poi_object": "IFFC_01_06",
+    "id": "B01_exit_sign_07",
+    "source": "공공데이터",
+    "survey1": {
+     "seq": 11,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": "개찰구 안쪽이라 직접 대조 안 함(카드 비용). 지도상 나가는 곳이고 개찰구 줄 위 긴 판의 안쪽 면(안 → 밖으로 볼 때 보이는 면)이라 나가는 곳이 맞다고 보고 맞음 처리(사용자 결정 10-31). 같은 판의 대합실 쪽 면 12번(타는 곳)은 직접 대조에서 맞음"
+    },
+    "assumed": [],
+    "todo2": "들어가면 눈으로 확인(선택)"
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     18.776,
+     -5.166,
+     10.411
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     3.624,
+     0.43
+    ],
+    "height_above_floor": 3.1,
+    "poi_object": "_______2",
+    "id": "B01_exit_sign_08",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 21,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     18.893,
+     -5.255,
+     10.411
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     3.624,
+     0.43
+    ],
+    "height_above_floor": 3.1,
+    "poi_object": "_______2",
+    "id": "B01_exit_sign_09",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 22,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     19.91,
+     28.172,
+     10.25
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "_______6",
+    "id": "B01_exit_sign_10",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": 33,
+     "result": "다름",
+     "before": "exit_sign 나가는 곳",
+     "note": "지도는 나가는 곳이나 실제 판 글자는 타는 곳(현장 메모, 33번 사진으로 확인) / 위치 옮김 +3.2 m: 천장판 실제 위치가 공공데이터보다 통로 안쪽. 가로 점자블록 위로 옮김(33·34번 사진, 사용자 10-31·11-03)"
+    },
+    "assumed": [
+     "위치"
+    ],
+    "todo2": "줄자로 판 위치 측정"
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     20.052,
+     28.064,
+     10.25
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "_______6",
+    "id": "B01_exit_sign_11",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": 34,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": "위치 옮김 +3.2 m: 천장판 실제 위치가 공공데이터보다 통로 안쪽. 가로 점자블록 위로 옮김(33·34번 사진, 사용자 10-31·11-03)"
+    },
+    "assumed": [
+     "위치"
+    ],
+    "todo2": "줄자로 판 위치 측정"
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     24.763,
+     -7.116,
+     10.561
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     8.336,
+     0.377
+    ],
+    "height_above_floor": 3.25,
+    "poi_object": "IFFC_01_02",
+    "id": "B01_exit_sign_12",
+    "source": "공공데이터",
+    "survey1": {
+     "seq": 23,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": "개찰구 안쪽이라 직접 대조 안 함(카드 비용). 지도상 나가는 곳이고 개찰구 줄 위 긴 판의 안쪽 면(안 → 밖으로 볼 때 보이는 면)이라 나가는 곳이 맞다고 보고 맞음 처리(사용자 결정 10-31). 같은 판의 대합실 쪽 면 24번(타는 곳)은 직접 대조에서 맞음"
+    },
+    "assumed": [],
+    "todo2": "들어가면 눈으로 확인(선택)"
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     22.951,
+     32.167,
+     10.25
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "_______7",
+    "id": "B01_exit_sign_13",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": 35,
+     "result": "다름",
+     "before": "exit_sign 나가는 곳",
+     "note": "지도는 나가는 곳이나 실제 판 글자는 타는 곳(현장 메모, 33번 사진으로 확인) / 위치 옮김 +3.2 m: 10·11번 판과 같은 줄에 있어 함께 옮김(사용자 11-03)"
+    },
+    "assumed": [
+     "위치"
+    ],
+    "todo2": "줄자로 판 위치 측정"
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     23.093,
+     32.059,
+     10.25
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "_______7",
+    "id": "B01_exit_sign_14",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": 36,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": "위치 옮김 +3.2 m: 10·11번 판과 같은 줄에 있어 함께 옮김(사용자 11-03)"
+    },
+    "assumed": [
+     "위치"
+    ],
+    "todo2": "줄자로 판 위치 측정"
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     33.16,
+     21.33,
+     10.211
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     2.392,
+     0.254
+    ],
+    "height_above_floor": 2.9,
+    "poi_object": "_______1",
+    "id": "B01_exit_sign_15",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 31,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     33.249,
+     21.447,
+     10.211
+    ],
+    "normal": [
+     0.606,
+     0.796,
+     0.0
+    ],
+    "size": [
+     2.392,
+     0.254
+    ],
+    "height_above_floor": 2.9,
+    "poi_object": "_______1",
+    "id": "B01_exit_sign_16",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 32,
+     "result": "다름",
+     "before": "exit_sign 나가는 곳",
+     "note": "지도는 나가는 곳이나 실제 판 글자는 타는 곳(현장 메모, 33번 사진으로 확인)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     -9.968,
+     -36.699,
+     10.455
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     2.336,
+     0.557
+    ],
+    "height_above_floor": 3.14,
+    "poi_object": "IFFC_03_01",
+    "id": "B01_info_monitor_17",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 5,
+     "result": "맞음",
+     "before": "info_monitor ",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     -9.794,
+     -36.831,
+     10.455
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     2.336,
+     0.557
+    ],
+    "height_above_floor": 3.14,
+    "poi_object": "IFFC_03_01",
+    "id": "B01_info_monitor_18",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 6,
+     "result": "맞음",
+     "before": "info_monitor ",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     40.419,
+     16.018,
+     10.223
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     2.317,
+     0.465
+    ],
+    "height_above_floor": 2.91,
+    "poi_object": "IFFC_03___",
+    "id": "B01_info_monitor_19",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 29,
+     "result": "맞음",
+     "before": "info_monitor ",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     40.697,
+     15.807,
+     10.223
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     2.317,
+     0.465
+    ],
+    "height_above_floor": 2.91,
+    "poi_object": "IFFC_03___",
+    "id": "B01_info_monitor_20",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 30,
+     "result": "맞음",
+     "before": "info_monitor ",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "route_map",
+    "label": "노선도",
+    "unique": false,
+    "center": [
+     -9.284,
+     -30.493,
+     9.492
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     3.504,
+     0.753
+    ],
+    "height_above_floor": 2.18,
+    "poi_object": "______2",
+    "id": "B01_route_map_21",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 4,
+     "result": "맞음",
+     "before": "route_map 노선도",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "route_map",
+    "label": "노선도",
+    "unique": false,
+    "center": [
+     21.587,
+     7.169,
+     9.492
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     3.504,
+     0.753
+    ],
+    "height_above_floor": 2.18,
+    "poi_object": "______1",
+    "id": "B01_route_map_22",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 25,
+     "result": "맞음",
+     "before": "route_map 노선도",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "area_map",
+    "label": "주변지역 안내도",
+    "unique": false,
+    "center": [
+     -61.22,
+     2.96,
+     9.419
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     3.943,
+     1.902
+    ],
+    "height_above_floor": 2.11,
+    "poi_object": "_____2",
+    "id": "B01_station_map_23",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 1,
+     "result": "다름",
+     "before": "station_map 종합안내도",
+     "note": "종합안내도가 아니라 주변지역 안내도(현장 메모)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "station_map",
+    "label": "종합안내도",
+    "unique": false,
+    "center": [
+     27.498,
+     7.199,
+     8.94
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     3.103,
+     1.521
+    ],
+    "height_above_floor": 1.63,
+    "poi_object": "_____1",
+    "id": "B01_station_map_25",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 26,
+     "result": "맞음",
+     "before": "station_map 종합안내도",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     -5.386,
+     -36.991,
+     10.385
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     2.388,
+     0.368
+    ],
+    "height_above_floor": 3.08,
+    "poi_object": "IFFC_01_1_",
+    "id": "B01_track_sign_26",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 7,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     -5.249,
+     -37.095,
+     10.385
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     2.388,
+     0.368
+    ],
+    "height_above_floor": 3.08,
+    "poi_object": "IFFC_01_1_",
+    "id": "B01_track_sign_27",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 8,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     9.561,
+     -7.652,
+     10.561
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     8.336,
+     0.377
+    ],
+    "height_above_floor": 3.25,
+    "poi_object": "IFFC_01_03",
+    "id": "B01_track_sign_28",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 16,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     14.112,
+     -7.087,
+     10.262
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     2.365,
+     0.374
+    ],
+    "height_above_floor": 2.95,
+    "poi_object": "IFFC_01_04",
+    "id": "B01_track_sign_29",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 17,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     14.216,
+     -6.95,
+     10.262
+    ],
+    "normal": [
+     0.606,
+     0.796,
+     0.0
+    ],
+    "size": [
+     2.365,
+     0.374
+    ],
+    "height_above_floor": 2.95,
+    "poi_object": "IFFC_01_04",
+    "id": "B01_track_sign_30",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 18,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     15.839,
+     -18.339,
+     10.561
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     8.336,
+     0.377
+    ],
+    "height_above_floor": 3.25,
+    "poi_object": "IFFC_01_06",
+    "id": "B01_track_sign_31",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 12,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     18.442,
+     -11.401,
+     10.283
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     2.389,
+     0.374
+    ],
+    "height_above_floor": 2.97,
+    "poi_object": "IFFC_01_07",
+    "id": "B01_track_sign_32",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 19,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     18.546,
+     -11.264,
+     10.283
+    ],
+    "normal": [
+     0.606,
+     0.796,
+     0.0
+    ],
+    "size": [
+     2.389,
+     0.374
+    ],
+    "height_above_floor": 2.97,
+    "poi_object": "IFFC_01_07",
+    "id": "B01_track_sign_33",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 20,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     24.522,
+     -6.932,
+     10.561
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     8.336,
+     0.377
+    ],
+    "height_above_floor": 3.25,
+    "poi_object": "IFFC_01_02",
+    "id": "B01_track_sign_34",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 24,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     36.921,
+     18.823,
+     10.283
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     2.389,
+     0.374
+    ],
+    "height_above_floor": 2.97,
+    "poi_object": "IFFC_01_08",
+    "id": "B01_track_sign_35",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 27,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": "보행 녹화 경로에 있어 영상으로 확인(사용자 복기 2)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     37.057,
+     18.718,
+     10.283
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     2.389,
+     0.374
+    ],
+    "height_above_floor": 2.97,
+    "poi_object": "IFFC_01_08",
+    "id": "B01_track_sign_36",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 28,
+     "result": "맞음",
+     "before": "track_sign 타는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "ticket_machine",
+    "label": "발권기",
+    "unique": false,
+    "center": [
+     -9.464,
+     -30.737,
+     8.31
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     0.8,
+     1.6
+    ],
+    "height_above_floor": 1.0,
+    "poi_object": "",
+    "id": "B01_ticket_machine_77",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 4,
+     "result": "신규",
+     "before": "",
+     "note": "노선도 4번(B01_route_map_21) 바로 아래 발권기. 위치는 앱이 4번 면에 붙인 점, 벽에서 0.5 m 앞",
+     "rid": "new_002",
+     "photos": [
+      "B01_custom_002/photo_195212.jpg"
+     ]
+    },
+    "assumed": [
+     "높이",
+     "크기"
+    ],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "ticket_machine",
+    "label": "발권기",
+    "unique": false,
+    "center": [
+     21.828,
+     6.986,
+     8.31
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     0.8,
+     1.6
+    ],
+    "height_above_floor": 1.0,
+    "poi_object": "",
+    "id": "B01_ticket_machine_78",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 25,
+     "result": "신규",
+     "before": "",
+     "note": "노선도 25번(B01_route_map_22) 바로 아래 발권기. 위치는 앱이 25번 면에 붙인 점, 벽에서 0.5 m 앞",
+     "rid": "new_003",
+     "photos": [
+      "B01_custom_003/photo_200548.jpg",
+      "B01_custom_003/photo_200548_2.jpg",
+      "B01_custom_003/photo_200553.jpg",
+      "B01_custom_003/photo_200554.jpg"
+     ]
+    },
+    "assumed": [
+     "높이",
+     "크기"
+    ],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     19.0,
+     28.217,
+     8.61
+    ],
+    "normal": [
+     0.991,
+     0.134,
+     0.0
+    ],
+    "size": [
+     0.6,
+     2.0
+    ],
+    "height_above_floor": 1.3,
+    "poi_object": "",
+    "id": "B01_exit_sign_79",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 34,
+     "result": "신규",
+     "before": "",
+     "note": "이마트 쪽 긴 통로 갈림목, 왼쪽 출구와 통로 벽이 만나는 대각선 모서리에 비스듬하게 붙은 세로 판(\"2 ↖ 나가는 곳\"). 34번 천장판과 다른 판. 앱 점은 34번 면에 잘못 붙어 쓰지 않고 사용자가 평면도에 표시한 모서리(10-31)에 둠. 글자 면은 대합실·통로 쪽 대각선",
+     "rid": "new_004",
+     "photos": [
+      "B01_exit_sign_001/photo_201408.jpg"
+     ]
+    },
+    "assumed": [
+     "높이",
+     "크기"
+    ],
+    "todo2": ""
+   },
+   {
+    "floor": "B01",
+    "type": "door",
+    "label": "철문",
+    "unique": true,
+    "center": [
+     16.383,
+     37.41,
+     8.31
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     0.9,
+     2.0
+    ],
+    "height_above_floor": 1.0,
+    "poi_object": "",
+    "id": "B01_door_80",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "이마트 쪽 긴 통로 오른쪽 벽(x 142.9). 사용자가 표시한 빨간 점 두 개(역 y 약 43~56) 중간 y 50 m로 가정. 크기는 현장 눈대중 90×200 cm",
+     "rid": "new_005",
+     "photos": [
+      "B01_custom_004/photo_201658.jpg"
+     ]
+    },
+    "assumed": [
+     "위치(통로 길이 방향)"
+    ],
+    "todo2": "줄자로 위치 측정"
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -17.684,
+     57.21,
+     8.51
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     0.65,
+     2.0
+    ],
+    "height_above_floor": 1.2,
+    "poi_object": "",
+    "id": "B01_exit_sign_81",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 37,
+     "result": "신규",
+     "before": "",
+     "note": "이마트 쪽 긴 통로 끝 벽의 세로 판 2개 중 왼쪽(\"5 ↖ 나가는 곳\"). 사진상 두 판 사이 약 4 m, 통로 가운데 기준 좌우 2 m로 가정. 앱 점은 없어진 37번 자리",
+     "rid": "new_006",
+     "photos": [
+      "B01_exit_sign_002/photo_202034.jpg",
+      "B01_exit_sign_002/photo_202036.jpg"
+     ]
+    },
+    "assumed": [
+     "벽 위 위치(좌우)",
+     "높이",
+     "크기"
+    ],
+    "todo2": "두 판 위치 측정"
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -15.262,
+     60.392,
+     8.51
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     0.65,
+     2.0
+    ],
+    "height_above_floor": 1.2,
+    "poi_object": "",
+    "id": "B01_exit_sign_82",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 37,
+     "result": "신규",
+     "before": "",
+     "note": "이마트 쪽 긴 통로 끝 벽의 세로 판 2개 중 오른쪽(\"6 ↗ 나가는 곳\", 오른쪽에 6번 출구 계단). 사진상 두 판 사이 약 4 m, 통로 가운데 기준 좌우 2 m로 가정",
+     "rid": "new_006",
+     "photos": [
+      "B01_exit_sign_002/photo_202034.jpg",
+      "B01_exit_sign_002/photo_202036.jpg"
+     ]
+    },
+    "assumed": [
+     "벽 위 위치(좌우)",
+     "높이",
+     "크기"
+    ],
+    "todo2": "두 판 위치 측정"
+   },
+   {
+    "floor": "B01",
+    "type": "toilet",
+    "label": "화장실",
+    "unique": false,
+    "center": [
+     25.629,
+     -13.842,
+     9.51
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     0.6,
+     0.6
+    ],
+    "height_above_floor": 2.2,
+    "poi_object": "",
+    "id": "B01_toilet_83",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "화장실 입구(왼쪽 여자·오른쪽 남자 그림). 앱 평면도 점에서 바로 뒤 벽(0.6 m)에 붙임",
+     "rid": "new_007",
+     "photos": [
+      "B01_toilet_001/photo_202240.jpg",
+      "B01_toilet_001/photo_202241.jpg"
+     ]
+    },
+    "assumed": [
+     "높이",
+     "크기"
+    ],
+    "todo2": "new_008과 같은 입구인지 확인"
+   },
+   {
+    "floor": "B01",
+    "type": "toilet",
+    "label": "화장실",
+    "unique": false,
+    "center": [
+     23.123,
+     -17.3,
+     9.51
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     0.6,
+     0.6
+    ],
+    "height_above_floor": 2.2,
+    "poi_object": "",
+    "id": "B01_toilet_84",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "화장실 그림. 앱에 방향 없음 → new_007과 같은 방향으로 가정. new_007과 약 4.3 m 떨어짐. 앱 평면도 점에서 바로 뒤 벽(0.4 m)에 붙임",
+     "rid": "new_008",
+     "photos": []
+    },
+    "assumed": [
+     "높이",
+     "크기",
+     "방향"
+    ],
+    "todo2": "new_007과 같은 입구인지 확인"
+   },
+   {
+    "floor": "B01",
+    "type": "ticket_sign",
+    "label": "표 사는 곳",
+    "unique": false,
+    "center": [
+     24.057,
+     6.546,
+     9.91
+    ],
+    "normal": [
+     0.606,
+     0.796,
+     0.0
+    ],
+    "size": [
+     1.2,
+     0.35
+    ],
+    "height_above_floor": 2.6,
+    "poi_object": "",
+    "id": "B01_ticket_sign_85",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": 26,
+     "result": "신규",
+     "before": "",
+     "note": "발권기 new_003에서 벽을 따라 종합안내도(26번) 쪽 1 m, 천장에 매단 판. 판 가운데는 세로 점자블록(y 25.16~25.46) 가운데에서 기둥 쪽 10 cm(사용자 11-03, 보행 영상 26~40초). 양면(같은 글자로 가정). 글자 면 하나는 26번 쪽에서 오는 사람을 봄(보행 영상 33~39초에 보임)",
+     "rid": "new_010",
+     "photos": [
+      "B01_custom_006/photo_204302.jpg"
+     ]
+    },
+    "assumed": [
+     "위치",
+     "높이",
+     "크기"
+    ],
+    "todo2": "발권기까지 거리 측정"
+   },
+   {
+    "floor": "B01",
+    "type": "ticket_sign",
+    "label": "표 사는 곳",
+    "unique": false,
+    "center": [
+     24.057,
+     6.546,
+     9.91
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     1.2,
+     0.35
+    ],
+    "height_above_floor": 2.6,
+    "poi_object": "",
+    "id": "B01_ticket_sign_86",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": 26,
+     "result": "신규",
+     "before": "",
+     "note": "발권기 new_003에서 벽을 따라 종합안내도(26번) 쪽 1 m, 천장에 매단 판. 판 가운데는 세로 점자블록(y 25.16~25.46) 가운데에서 기둥 쪽 10 cm(사용자 11-03, 보행 영상 26~40초). 양면(같은 글자로 가정). 글자 면 하나는 26번 쪽에서 오는 사람을 봄(보행 영상 33~39초에 보임)",
+     "rid": "new_010",
+     "photos": [
+      "B01_custom_006/photo_204302.jpg"
+     ]
+    },
+    "assumed": [
+     "위치",
+     "높이",
+     "크기",
+     "뒷면"
+    ],
+    "todo2": "발권기까지 거리 측정"
+   },
+   {
+    "floor": "B01",
+    "type": "ticket_sign",
+    "label": "표 사는 곳",
+    "unique": false,
+    "center": [
+     -9.888,
+     -31.294,
+     9.91
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     0.0
+    ],
+    "size": [
+     1.2,
+     0.35
+    ],
+    "height_above_floor": 2.6,
+    "poi_object": "",
+    "id": "B01_ticket_sign_87",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "현장에서 기록을 빠뜨린 판(사용자 기억). 노선도 4번·발권기 new_002에서 평면도 왼쪽 1 m, 양면(평면도 위·아래)",
+     "rid": "fix_add_001",
+     "photos": []
+    },
+    "assumed": [
+     "위치",
+     "높이",
+     "크기"
+    ],
+    "todo2": "위치·사진·거리 측정, 학습 촬영"
+   },
+   {
+    "floor": "B01",
+    "type": "ticket_sign",
+    "label": "표 사는 곳",
+    "unique": false,
+    "center": [
+     -9.888,
+     -31.294,
+     9.91
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     1.2,
+     0.35
+    ],
+    "height_above_floor": 2.6,
+    "poi_object": "",
+    "id": "B01_ticket_sign_88",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "현장에서 기록을 빠뜨린 판(사용자 기억). 노선도 4번·발권기 new_002에서 평면도 왼쪽 1 m, 양면(평면도 위·아래)",
+     "rid": "fix_add_001",
+     "photos": []
+    },
+    "assumed": [
+     "위치",
+     "높이",
+     "크기"
+    ],
+    "todo2": "위치·사진·거리 측정, 학습 촬영"
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     19.97,
+     31.06,
+     10.25
+    ],
+    "normal": [
+     0.606,
+     0.796,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "",
+    "id": "B01_exit_sign_89",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "이마트 쪽 긴 통로 입구 천장판. 글자 면이 통로 양쪽 벽(주변지역 안내도)을 봄. 양면 가정(양쪽 출구로 안내). 사진·평면도로 위치 찍음(11-03)",
+     "rid": "fix_add_002",
+     "photos": []
+    },
+    "assumed": [
+     "위치",
+     "높이",
+     "크기",
+     "뒷면"
+    ],
+    "todo2": "위치 측정, 양면인지 확인, 학습 촬영"
+   },
+   {
+    "floor": "B01",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     19.97,
+     31.06,
+     10.25
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "",
+    "id": "B01_exit_sign_90",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "이마트 쪽 긴 통로 입구 천장판. 글자 면이 통로 양쪽 벽(주변지역 안내도)을 봄. 양면 가정(양쪽 출구로 안내). 사진·평면도로 위치 찍음(11-03)",
+     "rid": "fix_add_002",
+     "photos": []
+    },
+    "assumed": [
+     "위치",
+     "높이",
+     "크기",
+     "뒷면"
+    ],
+    "todo2": "위치 측정, 양면인지 확인, 학습 촬영"
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     23.073,
+     28.698,
+     10.25
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "",
+    "id": "B01_track_sign_91",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "2번 출구 계단 아래 갈림목 천장판 \"타는 곳 →\"(회색). 2번 출구로 들어오는 사람을 봄. 사진·평면도로 위치 찍음(11-03)",
+     "rid": "fix_add_003",
+     "photos": []
+    },
+    "assumed": [
+     "위치",
+     "높이",
+     "크기"
+    ],
+    "todo2": "위치 측정, 학습 촬영"
+   },
+   {
+    "floor": "B01",
+    "type": "track_sign",
+    "label": "타는 곳",
+    "unique": false,
+    "center": [
+     23.073,
+     28.698,
+     10.25
+    ],
+    "normal": [
+     0.606,
+     0.796,
+     0.0
+    ],
+    "size": [
+     2.45,
+     0.43
+    ],
+    "height_above_floor": 2.94,
+    "poi_object": "",
+    "id": "B01_track_sign_92",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "2번 출구 계단 아래 갈림목 천장판 \"타는 곳 →\"의 뒷면. 양면 가정(양쪽 출구로 안내). 사진·평면도로 위치 찍음(11-03)",
+     "rid": "fix_add_003",
+     "photos": []
+    },
+    "assumed": [
+     "위치",
+     "높이",
+     "크기",
+     "뒷면"
+    ],
+    "todo2": "위치 측정, 양면인지 확인, 학습 촬영"
+   },
+   {
+    "floor": "B01",
+    "type": "area_map",
+    "label": "주변지역 안내도",
+    "unique": false,
+    "center": [
+     16.818,
+     29.727,
+     8.91
+    ],
+    "normal": [
+     0.606,
+     0.796,
+     0.0
+    ],
+    "size": [
+     2.4,
+     1.9
+    ],
+    "height_above_floor": 1.6,
+    "poi_object": "",
+    "id": "B01_area_map_93",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "이마트 쪽 긴 통로 입구 왼쪽 벽(평면도 기준, 벽면 x 137.03). 오른쪽 벽 안내도와 같은 y로 마주 보게 둠(이 벽 사진 없음). 크기는 양옆 노란 판 포함, 사진 비율로 어림(11-03)",
+     "rid": "fix_add_004",
+     "photos": []
+    },
+    "assumed": [
+     "위치",
+     "높이",
+     "크기"
+    ],
+    "todo2": "위치·크기 측정, 학습 촬영"
+   },
+   {
+    "floor": "B01",
+    "type": "area_map",
+    "label": "주변지역 안내도",
+    "unique": false,
+    "center": [
+     20.392,
+     34.421,
+     8.91
+    ],
+    "normal": [
+     -0.606,
+     -0.796,
+     0.0
+    ],
+    "size": [
+     2.4,
+     1.9
+    ],
+    "height_above_floor": 1.6,
+    "poi_object": "",
+    "id": "B01_area_map_94",
+    "source": "위치 가정",
+    "survey1": {
+     "seq": null,
+     "result": "신규",
+     "before": "",
+     "note": "이마트 쪽 긴 통로 입구 오른쪽 벽(평면도 기준, 벽면 x 142.93). 보행 영상 출발 때 왼쪽에 보이는 안내도. 사진상 통로 모서리(y 43.46)에서 작은 타일 1장(약 0.3 m) 뒤에 판 끝 → 판 43.8~46.2. 크기는 양옆 노란 판 포함, 사진 비율로 어림(11-03)",
+     "rid": "fix_add_004",
+     "photos": []
+    },
+    "assumed": [
+     "위치",
+     "높이",
+     "크기"
+    ],
+    "todo2": "위치·크기 측정, 학습 촬영"
+   }
+  ],
+  "B02": [
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -31.045,
+     -61.073,
+     5.154
+    ],
+    "normal": [
+     -0.606,
+     -0.795,
+     0.002
+    ],
+    "size": [
+     1.188,
+     0.37
+    ],
+    "height_above_floor": 2.61,
+    "poi_object": "_______372",
+    "id": "B02_exit_sign_37",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 63,
+     "result": "대칭",
+     "before": "exit_sign 나가는 곳",
+     "note": "짝 = 56번(B02_exit_sign_38) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -22.622,
+     -67.484,
+     5.152
+    ],
+    "normal": [
+     -0.606,
+     -0.795,
+     0.002
+    ],
+    "size": [
+     1.188,
+     0.37
+    ],
+    "height_above_floor": 2.61,
+    "poi_object": "_______368",
+    "id": "B02_exit_sign_38",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 56,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "원인재 검단호수공원",
+    "unique": false,
+    "center": [
+     -22.527,
+     -67.359,
+     5.152
+    ],
+    "normal": [
+     0.606,
+     0.795,
+     -0.002
+    ],
+    "size": [
+     1.188,
+     0.37
+    ],
+    "height_above_floor": 2.61,
+    "poi_object": "_______368",
+    "id": "B02_exit_sign_39",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 57,
+     "result": "다름",
+     "before": "exit_sign 나가는 곳",
+     "note": "지도는 나가는 곳이나 실제는 방면 판. 나가는 곳 판이 있을 자리가 아님 → 공공데이터 오류 추정(사용자 복기 4)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -16.509,
+     -41.973,
+     5.198
+    ],
+    "normal": [
+     -0.606,
+     -0.795,
+     0.002
+    ],
+    "size": [
+     1.188,
+     0.37
+    ],
+    "height_above_floor": 2.66,
+    "poi_object": "________1_",
+    "id": "B02_exit_sign_40",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 61,
+     "result": "대칭",
+     "before": "exit_sign 나가는 곳",
+     "note": "짝 = 54번(B02_exit_sign_41) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -7.919,
+     -48.191,
+     5.154
+    ],
+    "normal": [
+     -0.606,
+     -0.795,
+     0.002
+    ],
+    "size": [
+     1.188,
+     0.37
+    ],
+    "height_above_floor": 2.61,
+    "poi_object": "_______370",
+    "id": "B02_exit_sign_41",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 54,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "원인재 검단호수공원",
+    "unique": false,
+    "center": [
+     -7.824,
+     -48.066,
+     5.154
+    ],
+    "normal": [
+     0.606,
+     0.795,
+     -0.002
+    ],
+    "size": [
+     1.188,
+     0.37
+    ],
+    "height_above_floor": 2.61,
+    "poi_object": "_______370",
+    "id": "B02_exit_sign_42",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 55,
+     "result": "다름",
+     "before": "exit_sign 나가는 곳",
+     "note": "지도는 나가는 곳이나 실제는 방면 판. 나가는 곳 판이 있을 자리가 아님 → 공공데이터 오류 추정(사용자 복기 4)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -4.638,
+     -25.428,
+     5.218
+    ],
+    "normal": [
+     -0.59,
+     -0.807,
+     0.002
+    ],
+    "size": [
+     2.4,
+     0.327
+    ],
+    "height_above_floor": 2.68,
+    "poi_object": "_______367",
+    "id": "B02_exit_sign_43",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 65,
+     "result": "대칭",
+     "before": "exit_sign 나가는 곳",
+     "note": "짝 = 49번(B02_exit_sign_45) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     -4.533,
+     -25.285,
+     5.218
+    ],
+    "normal": [
+     0.59,
+     0.807,
+     -0.002
+    ],
+    "size": [
+     2.4,
+     0.327
+    ],
+    "height_above_floor": 2.68,
+    "poi_object": "_______367",
+    "id": "B02_exit_sign_44",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 66,
+     "result": "대칭",
+     "before": "exit_sign 나가는 곳",
+     "note": "짝 = 50번(B02_exit_sign_46) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     4.751,
+     -32.492,
+     5.246
+    ],
+    "normal": [
+     -0.59,
+     -0.807,
+     0.002
+    ],
+    "size": [
+     2.475,
+     0.327
+    ],
+    "height_above_floor": 2.71,
+    "poi_object": "_______371",
+    "id": "B02_exit_sign_45",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 49,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     4.856,
+     -32.348,
+     5.246
+    ],
+    "normal": [
+     0.59,
+     0.807,
+     -0.002
+    ],
+    "size": [
+     2.475,
+     0.327
+    ],
+    "height_above_floor": 2.71,
+    "poi_object": "_______371",
+    "id": "B02_exit_sign_46",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 50,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     25.882,
+     14.536,
+     5.195
+    ],
+    "normal": [
+     -0.59,
+     -0.807,
+     0.002
+    ],
+    "size": [
+     2.475,
+     0.327
+    ],
+    "height_above_floor": 2.66,
+    "poi_object": "_______369",
+    "id": "B02_exit_sign_47",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 69,
+     "result": "대칭",
+     "before": "exit_sign 나가는 곳",
+     "note": "짝 = 45번(B02_exit_sign_49) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     25.987,
+     14.68,
+     5.195
+    ],
+    "normal": [
+     0.59,
+     0.807,
+     -0.002
+    ],
+    "size": [
+     2.475,
+     0.327
+    ],
+    "height_above_floor": 2.65,
+    "poi_object": "_______369",
+    "id": "B02_exit_sign_48",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 70,
+     "result": "대칭",
+     "before": "exit_sign 나가는 곳",
+     "note": "짝 = 46번(B02_exit_sign_50) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     35.141,
+     7.493,
+     5.195
+    ],
+    "normal": [
+     -0.59,
+     -0.807,
+     0.002
+    ],
+    "size": [
+     2.475,
+     0.327
+    ],
+    "height_above_floor": 2.66,
+    "poi_object": "________2_",
+    "id": "B02_exit_sign_49",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 45,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     35.246,
+     7.637,
+     5.195
+    ],
+    "normal": [
+     0.59,
+     0.807,
+     -0.002
+    ],
+    "size": [
+     2.475,
+     0.327
+    ],
+    "height_above_floor": 2.65,
+    "poi_object": "________2_",
+    "id": "B02_exit_sign_50",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 46,
+     "result": "맞음",
+     "before": "exit_sign 나가는 곳",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     -11.479,
+     -35.31,
+     5.105
+    ],
+    "normal": [
+     -0.619,
+     -0.785,
+     0.002
+    ],
+    "size": [
+     1.971,
+     0.528
+    ],
+    "height_above_floor": 2.57,
+    "poi_object": "IFFC_03___",
+    "id": "B02_info_monitor_51",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 58,
+     "result": "맞음",
+     "before": "info_monitor ",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     -11.196,
+     -34.951,
+     5.104
+    ],
+    "normal": [
+     0.619,
+     0.785,
+     -0.002
+    ],
+    "size": [
+     1.971,
+     0.528
+    ],
+    "height_above_floor": 2.56,
+    "poi_object": "IFFC_03___",
+    "id": "B02_info_monitor_52",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 59,
+     "result": "대칭",
+     "before": "info_monitor ",
+     "note": "짝 = 52번(B02_info_monitor_54) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     -2.977,
+     -41.83,
+     5.105
+    ],
+    "normal": [
+     -0.619,
+     -0.785,
+     0.002
+    ],
+    "size": [
+     1.971,
+     0.528
+    ],
+    "height_above_floor": 2.57,
+    "poi_object": "IFFC_03_03",
+    "id": "B02_info_monitor_53",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 51,
+     "result": "맞음",
+     "before": "info_monitor ",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     -2.694,
+     -41.472,
+     5.104
+    ],
+    "normal": [
+     0.619,
+     0.785,
+     -0.002
+    ],
+    "size": [
+     1.971,
+     0.528
+    ],
+    "height_above_floor": 2.56,
+    "poi_object": "IFFC_03_03",
+    "id": "B02_info_monitor_54",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 52,
+     "result": "맞음",
+     "before": "info_monitor ",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     33.03,
+     23.147,
+     5.077
+    ],
+    "normal": [
+     -0.619,
+     -0.785,
+     0.002
+    ],
+    "size": [
+     1.971,
+     0.528
+    ],
+    "height_above_floor": 2.54,
+    "poi_object": "IFFC_03_02",
+    "id": "B02_info_monitor_55",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 71,
+     "result": "대칭",
+     "before": "info_monitor ",
+     "note": "짝 = 38번(B02_info_monitor_57) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     33.313,
+     23.506,
+     5.076
+    ],
+    "normal": [
+     0.619,
+     0.785,
+     -0.002
+    ],
+    "size": [
+     1.971,
+     0.528
+    ],
+    "height_above_floor": 2.54,
+    "poi_object": "IFFC_03_02",
+    "id": "B02_info_monitor_56",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 72,
+     "result": "대칭",
+     "before": "info_monitor ",
+     "note": "짝 = 39번(B02_info_monitor_58) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     41.549,
+     16.642,
+     5.077
+    ],
+    "normal": [
+     -0.619,
+     -0.785,
+     0.002
+    ],
+    "size": [
+     1.971,
+     0.528
+    ],
+    "height_above_floor": 2.54,
+    "poi_object": "IFFC_03_01",
+    "id": "B02_info_monitor_57",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 38,
+     "result": "맞음",
+     "before": "info_monitor ",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "info_monitor",
+    "label": "",
+    "unique": false,
+    "center": [
+     41.832,
+     17.001,
+     5.076
+    ],
+    "normal": [
+     0.619,
+     0.785,
+     -0.002
+    ],
+    "size": [
+     1.971,
+     0.528
+    ],
+    "height_above_floor": 2.54,
+    "poi_object": "IFFC_03_01",
+    "id": "B02_info_monitor_58",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 39,
+     "result": "맞음",
+     "before": "info_monitor ",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "station_map",
+    "label": "종합안내도",
+    "unique": false,
+    "center": [
+     -14.961,
+     -33.846,
+     4.241
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     4.594,
+     1.486
+    ],
+    "height_above_floor": 1.7,
+    "poi_object": "_____101",
+    "id": "B02_station_map_59",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 60,
+     "result": "대칭",
+     "before": "station_map 종합안내도",
+     "note": "짝 = 53번(B02_station_map_60) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "station_map",
+    "label": "종합안내도",
+    "unique": false,
+    "center": [
+     -0.476,
+     -44.578,
+     4.16
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     -0.0
+    ],
+    "size": [
+     4.594,
+     1.486
+    ],
+    "height_above_floor": 1.62,
+    "poi_object": "______1_02",
+    "id": "B02_station_map_60",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 53,
+     "result": "맞음",
+     "before": "station_map 종합안내도",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "station_map",
+    "label": "종합안내도",
+    "unique": false,
+    "center": [
+     30.59,
+     29.627,
+     3.895
+    ],
+    "normal": [
+     0.796,
+     -0.606,
+     0.0
+    ],
+    "size": [
+     4.594,
+     1.486
+    ],
+    "height_above_floor": 1.35,
+    "poi_object": "_____201",
+    "id": "B02_station_map_61",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 73,
+     "result": "대칭",
+     "before": "station_map 종합안내도",
+     "note": "짝 = 40번(B02_station_map_62) 맞음"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "station_map",
+    "label": "종합안내도",
+    "unique": false,
+    "center": [
+     48.308,
+     16.103,
+     3.913
+    ],
+    "normal": [
+     -0.796,
+     0.606,
+     -0.0
+    ],
+    "size": [
+     4.594,
+     1.486
+    ],
+    "height_above_floor": 1.37,
+    "poi_object": "______1_01",
+    "id": "B02_station_map_62",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 40,
+     "result": "맞음",
+     "before": "station_map 종합안내도",
+     "note": ""
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "미확인",
+    "unique": false,
+    "center": [
+     -30.95,
+     -60.948,
+     5.153
+    ],
+    "normal": [
+     0.606,
+     0.795,
+     -0.002
+    ],
+    "size": [
+     1.188,
+     0.37
+    ],
+    "height_above_floor": 2.61,
+    "poi_object": "_______372",
+    "id": "B02_track_sign_63",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 64,
+     "result": "대칭",
+     "before": "track_sign 타는 곳",
+     "note": "짝 = 57번(B02_exit_sign_39) 다름"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "미확인",
+    "unique": false,
+    "center": [
+     -16.414,
+     -41.849,
+     5.198
+    ],
+    "normal": [
+     0.606,
+     0.795,
+     -0.002
+    ],
+    "size": [
+     1.188,
+     0.37
+    ],
+    "height_above_floor": 2.66,
+    "poi_object": "________1_",
+    "id": "B02_track_sign_64",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 62,
+     "result": "대칭",
+     "before": "track_sign 타는 곳",
+     "note": "짝 = 55번(B02_exit_sign_42) 다름"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "미확인",
+    "unique": false,
+    "center": [
+     10.922,
+     -5.947,
+     5.136
+    ],
+    "normal": [
+     -0.617,
+     -0.787,
+     0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.6,
+    "poi_object": "IFFC_01_01",
+    "id": "B02_track_sign_65",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 67,
+     "result": "대칭",
+     "before": "track_sign 타는 곳",
+     "note": "짝 = 47번(B02_track_sign_67) 다름"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "미확인",
+    "unique": false,
+    "center": [
+     11.028,
+     -5.812,
+     5.136
+    ],
+    "normal": [
+     0.617,
+     0.787,
+     -0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.6,
+    "poi_object": "IFFC_01_01",
+    "id": "B02_track_sign_66",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 68,
+     "result": "대칭",
+     "before": "track_sign 타는 곳",
+     "note": "짝 = 48번(B02_track_sign_68) 다름"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "원인재 검단호수공원",
+    "unique": false,
+    "center": [
+     19.265,
+     -12.484,
+     5.137
+    ],
+    "normal": [
+     -0.617,
+     -0.787,
+     0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.6,
+    "poi_object": "IFFC_01_05",
+    "id": "B02_track_sign_67",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 47,
+     "result": "다름",
+     "before": "track_sign 타는 곳",
+     "note": "판 글자가 \"타는 곳\"이 아니라 방면 판. 용도는 타는 곳(방면 안내)과 같음. 공공데이터 배포 뒤 바뀐 것으로 추정(사용자 복기 3)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "원인재 검단호수공원",
+    "unique": false,
+    "center": [
+     19.371,
+     -12.348,
+     5.136
+    ],
+    "normal": [
+     0.617,
+     0.787,
+     -0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.6,
+    "poi_object": "IFFC_01_05",
+    "id": "B02_track_sign_68",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 48,
+     "result": "다름",
+     "before": "track_sign 타는 곳",
+     "note": "판 글자가 \"타는 곳\"이 아니라 방면 판. 용도는 타는 곳(방면 안내)과 같음. 공공데이터 배포 뒤 바뀐 것으로 추정(사용자 복기 3)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "미확인",
+    "unique": false,
+    "center": [
+     38.218,
+     29.789,
+     5.234
+    ],
+    "normal": [
+     -0.617,
+     -0.787,
+     0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.69,
+    "poi_object": "IFFC_01_03",
+    "id": "B02_track_sign_69",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 74,
+     "result": "대칭",
+     "before": "track_sign 타는 곳",
+     "note": "짝 = 41번(B02_track_sign_71) 다름"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     38.324,
+     29.924,
+     5.233
+    ],
+    "normal": [
+     0.617,
+     0.787,
+     -0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.69,
+    "poi_object": "IFFC_01_03",
+    "id": "B02_track_sign_70",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 75,
+     "result": "대칭",
+     "before": "track_sign 타는 곳",
+     "note": "짝 = 42번(B02_track_sign_72) 다름"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "원인재 검단호수공원",
+    "unique": false,
+    "center": [
+     46.593,
+     23.389,
+     5.234
+    ],
+    "normal": [
+     -0.617,
+     -0.787,
+     0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.69,
+    "poi_object": "IFFC_01_02",
+    "id": "B02_track_sign_71",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 41,
+     "result": "다름",
+     "before": "track_sign 타는 곳",
+     "note": "판 글자가 \"타는 곳\"이 아니라 방면 판. 용도는 타는 곳(방면 안내)과 같음. 공공데이터 배포 뒤 바뀐 것으로 추정(사용자 복기 3)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     46.699,
+     23.524,
+     5.233
+    ],
+    "normal": [
+     0.617,
+     0.787,
+     -0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.69,
+    "poi_object": "IFFC_01_02",
+    "id": "B02_track_sign_72",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 42,
+     "result": "다름",
+     "before": "track_sign 타는 곳",
+     "note": "지도는 타는 곳이나 실제는 노란 \"↑ 나가는 곳\" 판(현장 메모·사진으로 확인, 사용자 확인 10-31)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "미확인",
+    "unique": false,
+    "center": [
+     52.625,
+     48.647,
+     5.065
+    ],
+    "normal": [
+     -0.617,
+     -0.787,
+     0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.53,
+    "poi_object": "IFFC_01_1_",
+    "id": "B02_track_sign_73",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 76,
+     "result": "대칭",
+     "before": "track_sign 타는 곳",
+     "note": "짝 = 43번(B02_track_sign_75) 다름"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     52.731,
+     48.782,
+     5.065
+    ],
+    "normal": [
+     0.617,
+     0.787,
+     -0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.52,
+    "poi_object": "IFFC_01_1_",
+    "id": "B02_track_sign_74",
+    "source": "대칭 가정",
+    "survey1": {
+     "seq": 77,
+     "result": "대칭",
+     "before": "track_sign 타는 곳",
+     "note": "짝 = 44번(B02_track_sign_76) 다름"
+    },
+    "assumed": [],
+    "todo2": "직접 대조(방면 판이면 글자 확인)"
+   },
+   {
+    "floor": "B02",
+    "type": "direction_sign",
+    "label": "원인재 검단호수공원",
+    "unique": false,
+    "center": [
+     60.918,
+     42.265,
+     5.139
+    ],
+    "normal": [
+     -0.617,
+     -0.787,
+     0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.6,
+    "poi_object": "IFFC_01_04",
+    "id": "B02_track_sign_75",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 43,
+     "result": "다름",
+     "before": "track_sign 타는 곳",
+     "note": "판 글자가 \"타는 곳\"이 아니라 방면 판. 용도는 타는 곳(방면 안내)과 같음. 공공데이터 배포 뒤 바뀐 것으로 추정(사용자 복기 3)"
+    },
+    "assumed": [],
+    "todo2": ""
+   },
+   {
+    "floor": "B02",
+    "type": "exit_sign",
+    "label": "나가는 곳",
+    "unique": false,
+    "center": [
+     61.024,
+     42.4,
+     5.139
+    ],
+    "normal": [
+     0.617,
+     0.787,
+     -0.002
+    ],
+    "size": [
+     1.206,
+     0.323
+    ],
+    "height_above_floor": 2.6,
+    "poi_object": "IFFC_01_04",
+    "id": "B02_track_sign_76",
+    "source": "1차 답사 확인",
+    "survey1": {
+     "seq": 44,
+     "result": "다름",
+     "before": "track_sign 타는 곳",
+     "note": "지도는 타는 곳이나 실제는 노란 \"↑ 나가는 곳\" 판(현장 메모·사진으로 확인, 사용자 확인 10-31)"
+    },
+    "assumed": [],
+    "todo2": ""
+   }
+  ]
+ },
+ "source": {
+  "repo": "localization_design",
+  "commit": "fe05d2421d1579a5d316101cb29647476d357ff1",
+  "dirty": [],
+  "files": {
+   "landmark/landmarks_Dongchun.json": "807d9041c2003c9b0c4812cc0aea7428f22710cd1d6fbee061815a16befdef70",
+   "landmark/out/visibility_B01.npz": "31011ffe4e20b5431211ae73b788cce2f2f4a90276dd10f4778ebce17dd12b5f",
+   "landmark/out/visibility_B02.npz": "1a698d18724c6d615ddde7c1ad8a3780676159901d33c04e0880b167fc74917d",
+   "landmark/plan.py": "5203e8fc50d97b2a31c90afb020463388eaa912fdbbb278f63e116756394a911",
+   "landmark/build_landmarks.py": "785932ccc1b5f02bcc348aed6656dc13939c3cfd9e283d8bffd3beaf9fd7e667",
+   "cv_test/pf/mapdata.py": "0db928e25c6eeecd85c0d9cfb44a57b9950d70068760157ad7990eaf710d1c56",
+   "cv_test/pf/export_station.py": "9d09da9799ca0de17a933054a554c3ac96248967163ed9886d581f7532e055f3"
+  },
+  "graph": {
+   "repo": "capstone_graph",
+   "commit": "f819c0b01e3a1d36743dbcd4ea1d36c65c6c4286",
+   "file": "data/dongchun/graph.json",
+   "sha256": "6b0a0ebc31b6590d774990e4e790b3c190bc611f5c97c6ad034b725e7d8cee76"
+  }
+ }
+}

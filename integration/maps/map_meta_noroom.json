@@ -1,0 +1,109 @@
+{
+ "note": "integration/walk_mask.py가 만든 사본: 팀장 maps/dongchun/map_meta.json과 같고 walk_png만 방 뺀 마스크(팀장 마스크 ∩ 우리 보행칸에서 0.5 m 안). 원래 설명: 동춘역 개략 지도 (사용자 제공 평면도 이미지 2026-10-30). 픽셀 → 'aligned' 좌표: X = 이미지 오른쪽, Y = 이미지 위 [m]. aligned = ENU 를 -52.73° 회전 (이미지 위 = 북서). ENU 는 landmarks_Dongchun.json 과 같은 원점.",
+ "aligned_from_enu_rot_deg": -52.73,
+ "floors": {
+  "B01": {
+   "walk_png": "B01_walk_noroom.png",
+   "drawn_path_png": "../../maps/dongchun/B01_drawn_path.png",
+   "m_per_px": 0.05276395286020922,
+   "offset_aligned": [
+    -49.1780504625559,
+    53.61588980856604
+   ],
+   "georef_residual_m": [
+    0.048,
+    0.035,
+    0.008,
+    0.011,
+    0.022
+   ],
+   "georef_points": "B01: 종합안내도 23·24·25, 노선도 21·22 / B02: 종합안내도 59·60·61·62 (landmarks_Dongchun.json)"
+  },
+  "B02": {
+   "walk_png": "B02_walk_noroom.png",
+   "drawn_path_png": "../../maps/dongchun/B02_drawn_path.png",
+   "m_per_px": 0.07378585785518599,
+   "offset_aligned": [
+    -93.19471885320323,
+    10.526157798066409
+   ],
+   "georef_residual_m": [
+    0.116,
+    0.12,
+    0.017,
+    0.033
+   ],
+   "georef_points": "B01: 종합안내도 23·24·25, 노선도 21·22 / B02: 종합안내도 59·60·61·62 (landmarks_Dongchun.json)"
+  }
+ },
+ "escalators": [
+  {
+   "name": "lower",
+   "top": [
+    14.381,
+    -26.965
+   ],
+   "bottom": [
+    28.913,
+    -26.95
+   ],
+   "note": "에스컬레이터 위 끝 → 아래쪽 승강장"
+  },
+  {
+   "name": "upper",
+   "top": [
+    14.403,
+    -7.96
+   ],
+   "bottom": [
+    28.877,
+    -7.876
+   ],
+   "note": "에스컬레이터 위 끝 → 위쪽 승강장"
+  }
+ ],
+ "route_truth": {
+  "start_px_B01": [
+   1480,
+   1030
+  ],
+  "start_heading_deg_hyp": {
+   "H1_east": 0,
+   "H2_south": -90
+  },
+  "end_B01_px": [
+   1204.6,
+   1527.2
+  ],
+  "end_B02_px": [
+   1755,
+   434
+  ],
+  "start_B01": [
+   28.913,
+   -0.731
+  ],
+  "end_B02": [
+   36.299,
+   -21.497
+  ]
+ },
+ "noroom": {
+  "margin_m": 0.5,
+  "rule": "team_walk & dist_to(our walk) <= margin",
+  "report": {
+   "B01": {
+    "team_m2": 2758.1,
+    "kept_m2": 2315.7,
+    "removed_m2": 442.4,
+    "team_in_ours": 0.7981
+   },
+   "B02": {
+    "team_m2": 2337.1,
+    "kept_m2": 1995.2,
+    "removed_m2": 342.0,
+    "team_in_ours": 0.8103
+   }
+  }
+ }
+}

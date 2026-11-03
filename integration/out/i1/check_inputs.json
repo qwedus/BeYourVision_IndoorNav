@@ -1,0 +1,114 @@
+{
+ "coords": {
+  "rot_same_as_team": true,
+  "roundtrip_max_m": 2.842170943040401e-14,
+  "esc_P2_top_aligned_ours": [
+   14.3646,
+   -26.9797
+  ],
+  "esc_P2_top_aligned_team": [
+   14.381,
+   -26.965
+  ],
+  "esc_P2_top_diff_m": 0.022023850707813687,
+  "esc_P2_bottom_diff_m": 1.5281329948666107,
+  "note": "아래 끝은 약 1.5 m 다름(연결안 0절) — 어댑터는 우리 그래프 좌표 사용"
+ },
+ "angles": {
+  "compass_of_th0": 37.27,
+  "compass_of_th90": 307.27,
+  "roundtrip_max_deg": 5.684341886080802e-14
+ },
+ "session": {
+  "fs": 100.0,
+  "n": 11858,
+  "duration_s": 118.57000000000001,
+  "t0_sensor": 651441.212504,
+  "t0_video": 651441.188447041,
+  "sensor_minus_video_s": 0.024056959082372487,
+  "gravity_norm_med": 9.806648677706207,
+  "acc_user_norm_med": 0.7039082366121119,
+  "gyro_norm_p99": 0.9078156160604173
+ },
+ "time": {
+  "steps_t": [
+   0.164056958979927,
+   113.0540569589939
+  ],
+  "obs_t": [
+   0.1666539590805769,
+   118.4241949589923
+  ],
+  "truth_t": [
+   0.0,
+   118.6
+  ],
+  "rides": [
+   [
+    81.67115195898805,
+    101.93947495904285
+   ]
+  ],
+  "floors": [
+   [
+    101.93947495904285,
+    -1
+   ]
+  ],
+  "baro_same_as_baseline": true
+ },
+ "steps": {
+  "n": 134,
+  "moving": 134,
+  "not_moving": 0,
+  "before_ride": 112,
+  "in_ride": 6,
+  "after_ride": 16,
+  "in_ride_len_m": 2.3182,
+  "first_t": 0.164056958979927,
+  "first_dheading_deg": 0.4507,
+  "dist_m": 66.1304,
+  "heading_vs_truth_med_abs_deg": 8.405100000000004,
+  "heading_vs_truth_if_sign_flipped": 65.27324999999999
+ },
+ "face_points": {
+  "faces": [
+   54,
+   40
+  ],
+  "endpoints_B01": 108,
+  "max_err_half_width_m": 3.164135620181696e-15
+ },
+ "map": {
+  "B01": {
+   "walk_in_computed": 0.9505854319476688,
+   "truth_in_mask": 1.0,
+   "team_m2": 2758.1,
+   "kept_m2": 2315.7,
+   "removed_m2": 442.4,
+   "team_in_ours": 0.7981
+  },
+  "B02": {
+   "walk_in_computed": 0.9492392158574922,
+   "truth_in_mask": 1.0,
+   "team_m2": 2337.1,
+   "kept_m2": 1995.2,
+   "removed_m2": 342.0,
+   "team_in_ours": 0.8103
+  }
+ },
+ "init": {
+  "at_start_point": 0.0,
+  "r_med": 2.0177712625644473,
+  "r_p90": 4.025652905316394,
+  "all_free": true,
+  "heading_sd_deg": 20.566377168697525,
+  "k_range": [
+   0.8001224392251459,
+   1.1999472983332897
+  ],
+  "compass0_truth": 37.279,
+  "compass0_mean": 37.446744797388135,
+  "team_init_at_start_point_sigma2": 0.6496666666666666
+ }
+}

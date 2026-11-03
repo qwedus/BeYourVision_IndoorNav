@@ -1,0 +1,135 @@
+{
+ "files": {
+  "vision/edge_faces.py": {
+   "src": "cv_test/i1/edge_faces.py",
+   "repo": "localization_design",
+   "src_commit": "fe05d2421d1579a5d316101cb29647476d357ff1",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "1ae919055a4f2ae3af925004d65e8509d9d2825b7b871a7527ac424e3affc9ca",
+   "bytes": 5182
+  },
+  "vision/inputs/dongchun_station.json": {
+   "src": "cv_test/out/station/dongchun_station.json",
+   "repo": "localization_design",
+   "src_commit": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "6f3a7b01a61a5c250489177489a2501f8409b5ca09c27c5005bd0339edd89bc8",
+   "bytes": 65515
+  },
+  "vision/inputs/dongchun_station.npz": {
+   "src": "cv_test/out/station/dongchun_station.npz",
+   "repo": "localization_design",
+   "src_commit": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "9c070c2586b926077bd5025137986a81f140e96c060c16e6e04484b079fec203",
+   "bytes": 189687
+  },
+  "vision/inputs/i1/baseline_summary.json": {
+   "src": "cv_test/out/i1/summary.json",
+   "repo": "localization_design",
+   "src_commit": "b852501d69be57fce27a737f2cd3b820bd0e2c9a",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "346ffbad3cc7484d00568e11045995491df9d7377e342af908b76e2eca8450d1",
+   "bytes": 7899
+  },
+  "vision/inputs/i1/obs_nofilter.jsonl": {
+   "src": "cv_test/out/i1/obs_nofilter.jsonl",
+   "repo": "localization_design",
+   "src_commit": "2c174b8bf14d0009be99ef64f8d8079fa79e0f36",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "b96537c381517871689e1db35735e5b6d212c4e79bcf19c91826011a027d1d81",
+   "bytes": 1636842
+  },
+  "vision/inputs/i1/obs_timefilter.jsonl": {
+   "src": "cv_test/out/i1/obs_timefilter.jsonl",
+   "repo": "localization_design",
+   "src_commit": "2c174b8bf14d0009be99ef64f8d8079fa79e0f36",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "75a1f64948207ce6eacad58685090fd11f8cd55c717866ef8f668d631cfeff87",
+   "bytes": 1444438
+  },
+  "vision/inputs/i1/rec/baro.csv": {
+   "src": "C:\\Users\\kjh\\Desktop\\답사데이터\\1차\\답사_20261030\\답사_20261030\\D_보행\\route-2_r1_204750\\baro.csv",
+   "repo": null,
+   "src_commit": null,
+   "repo_head": null,
+   "sha256": "dc9639cf9cbc8cfd24875c5dd3db6cb6715308c88e3ba591d625cf4ce3a80912",
+   "bytes": 4915
+  },
+  "vision/inputs/i1/rec/marks.jsonl": {
+   "src": "C:\\Users\\kjh\\Desktop\\답사데이터\\1차\\답사_20261030\\답사_20261030\\D_보행\\route-2_r1_204750\\marks.jsonl",
+   "repo": null,
+   "src_commit": null,
+   "repo_head": null,
+   "sha256": "1015948433c3e92e249814da525b109c733eecc0f4132964c664010a7021b2a1",
+   "bytes": 639
+  },
+  "vision/inputs/i1/rec/meta.json": {
+   "src": "C:\\Users\\kjh\\Desktop\\답사데이터\\1차\\답사_20261030\\답사_20261030\\D_보행\\route-2_r1_204750\\meta.json",
+   "repo": null,
+   "src_commit": null,
+   "repo_head": null,
+   "sha256": "432a3d75969e60dc60592104008de59384a3a59a2420977a0cc3ae429045eb49",
+   "bytes": 4178
+  },
+  "vision/inputs/i1/rec/motion.csv": {
+   "src": "C:\\Users\\kjh\\Desktop\\답사데이터\\1차\\답사_20261030\\답사_20261030\\D_보행\\route-2_r1_204750\\motion.csv",
+   "repo": null,
+   "src_commit": null,
+   "repo_head": null,
+   "sha256": "461da8eb61663891f632e1c86e7cb992fdf95ba347a09c645225ab69f5bd8eb7",
+   "bytes": 1847761
+  },
+  "vision/inputs/i1/steps_simple.csv": {
+   "src": "cv_test/out/i1/steps_simple.csv",
+   "repo": "localization_design",
+   "src_commit": "2c174b8bf14d0009be99ef64f8d8079fa79e0f36",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "901b022011dbb17ede47776f6db1add73ef8ff32c55b0eba82315c6e2e3ac52c",
+   "bytes": 3874
+  },
+  "vision/inputs/i1/truth.csv": {
+   "src": "cv_test/out/i1/truth.csv",
+   "repo": "localization_design",
+   "src_commit": "2c174b8bf14d0009be99ef64f8d8079fa79e0f36",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "31ef754bf3112508e1689ad476070a94ad7a23be16ea7a3bff646bfa16ceb93f",
+   "bytes": 54983
+  },
+  "vision/inputs/i1/truth_waypoints.json": {
+   "src": "cv_test/out/i1/truth_waypoints.json",
+   "repo": "localization_design",
+   "src_commit": "2c174b8bf14d0009be99ef64f8d8079fa79e0f36",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "ba80b9ee05b77f4828fe2ced8492ce6572d8c85921721efa0095762301b557ac",
+   "bytes": 3267
+  },
+  "vision/obs_model.py": {
+   "src": "cv_test/pf/obs_model.py",
+   "repo": "localization_design",
+   "src_commit": "ffe6858679b30f19636f952c363af4f1acc90e66",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "8a14b0d9b9097eee25ea01367932af8198cafd8ffa7634b95e43046f1d22f172",
+   "bytes": 6456
+  },
+  "vision/station_pkg.py": {
+   "src": "cv_test/pf/station_pkg.py",
+   "repo": "localization_design",
+   "src_commit": "fe05d2421d1579a5d316101cb29647476d357ff1",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "4ed46e59d77654dcc952057235b9517cf58c69b5f606a0b09d1ed61dee0461a1",
+   "bytes": 2691
+  },
+  "vision/time_filter.py": {
+   "src": "cv_test/i1/time_filter.py",
+   "repo": "localization_design",
+   "src_commit": "2c174b8bf14d0009be99ef64f8d8079fa79e0f36",
+   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
+   "sha256": "9e507def662e1313c6c940a2293312bb2ab795779b0d5f6ce40c6a95c02b464a",
+   "bytes": 4643
+  }
+ },
+ "note": "localization_design cv_test/sync_to_team.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
+ "synced_at": "2026-11-04T02:36:07",
+ "localization_design_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249"
+}
