@@ -1,0 +1,22 @@
+# PF 튜닝 결과 (2026-10-29) 1차: 집 복도, 지도만(관측 없음), PDR v4
+# 지도: map.json, PDR: pdr_tuned_v4.toml
+n = 500
+sigma_len = 0.15
+sigma_h0 = 0.008727   # 0.50 deg
+sigma_h1 = 0.01
+sigma_k = 0.02
+k_min = 0.7
+k_max = 1.4
+k0_lo = 0.8
+k0_hi = 1.2
+init_pos_sigma = 0.3
+init_h_sigma = 0.087266   # 5.00 deg
+init_h_unknown = false
+sigma_obs = 0.5
+eps_obs = 0.05
+ess_frac = 0.5
+rough_xy = 0.05
+rough_h = 0.008727   # 0.50 deg
+rough_k = 0.005
+use_map = true
+nonmoving_p = 0.0   # v3 이전 동작

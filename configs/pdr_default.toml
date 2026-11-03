@@ -1,0 +1,49 @@
+# PDR 기본 파라미터 (기준선 baseline).
+# 튜닝할 때는 이 파일을 복사해서 configs/pdr_<이름>.toml 로 만들고 --config 로 지정한다.
+# 값을 바꾸면 결과 리포트에 어떤 설정으로 돌렸는지 같이 저장된다.
+
+fs = 100.0                  # 공통 리샘플 주파수 [Hz]
+
+[preprocess]
+lpf_cutoff_hz = 3.0         # 걸음 신호 저역통과 차단 주파수 [Hz] (걸음 1~2.5 Hz)
+lpf_order = 4
+mode = "offline"            # "offline"(분석용) | "delayed"(앱과 같은 방식, 0.5초 지연) | "causal"
+delay_s = 0.5               # mode="delayed": 허용 지연 [s]
+window_s = 3.0              # mode="delayed": 한 번에 필터하는 최근 구간 [s]
+hop_s = 0.1                 # mode="delayed": 갱신 주기 [s]
+
+[step]
+signal = "vertical"         # "vertical" | "norm"
+min_height = 0.5            # 봉우리 최소 높이 [m/s²]  ← 느린 걸음에서 가장 민감
+min_prominence = 0.5        # 봉우리 돌출 정도 [m/s²]
+min_interval_s = 0.30       # 걸음 최소 간격 [s]
+max_interval_s = 2.0        # 이보다 긴 공백 뒤 첫 걸음은 보행 재시작
+method = "peak"             # "peak"(수직 가속도 봉우리) | "adaptive"(속도 적응형, 느린 걸음 대응)
+slow_energy = 0.25          # adaptive: 수직 흔들림이 이보다 작으면 느린 걸음 모드 [m/s²]
+win_s = 6.0                 # adaptive: 판단 창 길이 [s]
+hop_s = 1.0                 # adaptive: 창 이동 간격 [s]
+mode_smooth = 2             # adaptive: 모드 다수결 앞뒤 창 개수
+adaptive_prom = 0.8         # adaptive: 봉우리 돌출 기준 (흔들림 크기 대비 배수)
+min_quality = 0.2           # adaptive: 주기성이 이보다 약하면 걷지 않는 구간
+min_energy = 0.08           # adaptive: 흔들림이 이보다 작으면 걷지 않는 구간 [m/s²] (정지 ~0.04, 매우 느린 걸음 ~0.18)
+
+[length]
+model = "weinberg"          # "weinberg" | "weinberg_freq"(걸음 빈도 추가) | "constant"
+k = 0.48                    # Weinberg 계수 ← scripts/tune_pdr.py 가 보정값을 출력
+exponent = 0.25
+k_slow = 0.0                # 느린 걸음 모드 전용 K (adaptive 에서만, 0 이면 k 사용)
+k_freq = 0.0                # weinberg_freq: 걸음 빈도 계수 [m/(걸음/s)]
+offset_m = 0.0              # weinberg_freq: 상수항 [m]
+constant_m = 0.60
+min_m = 0.10
+max_m = 1.20
+min_bout_steps = 0          # 연속 걸음이 이보다 적은 묶음은 제자리 움직임 → 보폭 0 (0 = 끔)
+bout_gap_s = 3.0            # 걸음 사이가 이보다 길면 다른 묶음 [s]
+
+[heading]
+source = "gyro"             # "gyro" | "orientation"
+zaru = false                # 정지 구간 자이로 바이어스 보정
+still_acc_std = 0.15        # [m/s²]
+still_gyro_std = 0.05       # [rad/s]
+still_window_s = 1.0        # [s]
+step_average = true

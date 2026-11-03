@@ -1,0 +1,49 @@
+# 4차 튜닝 결과 (2026-10-18). 정답 거리 정정(직선 29장 = 17.4 m, 폐루프·L자 왕복 69.6 m) + 10-18 데이터 추가, 걷기 세션 15개 교차검증.
+# 걸음 검출 peak (v2 방식으로 복귀), 연속 4걸음 미만 묶음은 제자리 움직임으로 보고 보폭 0.
+# 교차검증 예상 오차: 걸음 수 3.1%, 거리 5.9%. 과정과 근거는 docs/pdr_improvement_log.md 12절.
+
+fs = 100.0
+
+[preprocess]
+lpf_cutoff_hz = 3.0
+lpf_order = 4
+mode = "offline"
+delay_s = 0.5
+window_s = 3.0
+hop_s = 0.1
+
+[step]
+signal = "vertical"
+min_height = 0.15
+min_prominence = 0.5
+min_interval_s = 0.5
+max_interval_s = 2.0
+method = "peak"
+slow_energy = 0.25
+win_s = 6.0
+hop_s = 1.0
+mode_smooth = 2
+adaptive_prom = 0.8
+min_quality = 0.2
+min_energy = 0.08
+
+[length]
+model = "weinberg"
+k = 0.3796
+exponent = 0.55
+k_slow = 0.0
+k_freq = 0.0
+offset_m = 0.0
+constant_m = 0.6
+min_m = 0.1
+max_m = 1.2
+min_bout_steps = 4
+bout_gap_s = 3.0
+
+[heading]
+source = "gyro"
+zaru = false
+still_acc_std = 0.15
+still_gyro_std = 0.05
+still_window_s = 1.0
+step_average = true

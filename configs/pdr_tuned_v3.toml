@@ -1,0 +1,47 @@
+# 3차 튜닝 결과 (2026-10-16). 걸음 검출을 속도 적응형(step.method="adaptive")으로 바꿈. 데이터는 1·2차와 같음.
+# 교차검증 예상 오차: 걸음 수 4.0%, 거리 9.0%. 과정과 근거는 docs/tuning_log.md 참고.
+# 주의: 앱용 0.5초 지연 필터는 아직 adaptive 에 적용 안 됨(오프라인 전용).
+
+fs = 100.0
+
+[preprocess]
+lpf_cutoff_hz = 3.0
+lpf_order = 4
+mode = "offline"
+delay_s = 0.5
+window_s = 3.0
+hop_s = 0.1
+
+[step]
+signal = "vertical"
+min_height = 0.5
+min_prominence = 0.5
+min_interval_s = 0.3
+max_interval_s = 2.0
+method = "adaptive"
+slow_energy = 0.3
+win_s = 6.0
+hop_s = 1.0
+mode_smooth = 2
+adaptive_prom = 1.2
+min_quality = 0.1
+min_energy = 0.08
+
+[length]
+model = "weinberg"
+k = 0.3779
+exponent = 0.5
+k_slow = 0.0
+k_freq = 0.0
+offset_m = 0.0
+constant_m = 0.6
+min_m = 0.1
+max_m = 1.2
+
+[heading]
+source = "gyro"
+zaru = false
+still_acc_std = 0.15
+still_gyro_std = 0.05
+still_window_s = 1.0
+step_average = true

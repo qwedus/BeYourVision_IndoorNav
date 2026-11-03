@@ -1,0 +1,32 @@
+# 1차 튜닝 결과 (2026-10-16). 과정과 근거는 docs/tuning_log.md 참고.
+# eval 평균 절대 오차: 걸음 수 3.6%, 거리 8.2%, 폐루프 종점 1.9%
+
+fs = 100.0
+
+[preprocess]
+lpf_cutoff_hz = 3.0
+lpf_order = 4
+causal = false
+
+[step]
+signal = "vertical"
+min_height = 0.15
+min_prominence = 0.5
+min_interval_s = 0.5
+max_interval_s = 2.0
+
+[length]
+model = "weinberg"
+k = 0.3317
+exponent = 0.7
+constant_m = 0.6
+min_m = 0.1
+max_m = 1.2
+
+[heading]
+source = "gyro"
+zaru = false
+still_acc_std = 0.15
+still_gyro_std = 0.05
+still_window_s = 1.0
+step_average = true
