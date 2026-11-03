@@ -13,8 +13,8 @@ from app_session import load_app_session
 from edge_faces import add_face_points, SUF_L, SUF_R
 from indoornav.pf.filter import ParticleFilter
 from station_pkg import load_station, enu_to_aligned, aligned_to_enu, th_to_compass, compass_to_th
-from team_filter import TeamFilter, load_maps, team_params
-from team_pdr_steps import read_steps
+from vision_filter import VisionFilter, load_maps, pf_params
+from pdr_steps import read_steps
 
 
 def main():
@@ -22,7 +22,7 @@ def main():
     out = {}
     fmap, smeta = load_station(paths.INPUTS, with_meta=True)
     rot = smeta["aligned_from_enu_rot_deg"]
-    team_meta = json.loads(paths.TEAM_META.read_text(encoding="utf-8"))
+    orig_meta = json.loads(paths.ORIG_META.read_text(encoding="utf-8"))
     t0 = paths.rec_t0()
     truth = rp.load_truth(paths.I1 / "truth.csv")
 
@@ -31,12 +31,12 @@ def main():
     p = rng.uniform(-100, 100, (1000, 2))
     esc2 = next(e for e in smeta["escalators"] if e["top_key"] == "ESC_P2_B1")
     out["coords"] = dict(
-        rot_same_as_team=rot == team_meta["aligned_from_enu_rot_deg"],
+        rot_same_as_map_meta=rot == orig_meta["aligned_from_enu_rot_deg"],
         roundtrip_max_m=float(np.abs(aligned_to_enu(enu_to_aligned(p, rot), rot) - p).max()),
-        esc_P2_top_aligned_ours=esc2["top_aligned"], esc_P2_top_aligned_team=team_meta["escalators"][0]["top"],
-        esc_P2_top_diff_m=float(np.hypot(*(np.array(esc2["top_aligned"]) - team_meta["escalators"][0]["top"]))),
-        esc_P2_bottom_diff_m=float(np.hypot(*(np.array(esc2["bottom_aligned"]) - team_meta["escalators"][0]["bottom"]))),
-        note="아래 끝은 약 1.5 m 다름(연결안 0절) — 어댑터는 우리 그래프 좌표 사용")
+        esc_P2_top_aligned_graph=esc2["top_aligned"], esc_P2_top_aligned_map_meta=orig_meta["escalators"][0]["top"],
+        esc_P2_top_diff_m=float(np.hypot(*(np.array(esc2["top_aligned"]) - orig_meta["escalators"][0]["top"]))),
+        esc_P2_bottom_diff_m=float(np.hypot(*(np.array(esc2["bottom_aligned"]) - orig_meta["escalators"][0]["bottom"]))),
+        note="아래 끝은 약 1.5 m 다름(연결안 0절) — 어댑터는 그래프 좌표 사용")
     # 1-2 각도: 나침반 ↔ aligned 수학각
     c = rng.uniform(0, 360, 1000)
     out["angles"] = dict(compass_of_th0=float(th_to_compass(0.0, rot)), compass_of_th90=float(th_to_compass(np.pi / 2, rot)),
@@ -49,7 +49,7 @@ def main():
                           acc_user_norm_med=float(np.median(np.linalg.norm(s.acc_user, axis=1))),
                           gyro_norm_p99=float(np.percentile(np.linalg.norm(s.gyro, axis=1), 99)))
     # 1-4 걸음·관측·기압 시각
-    steps = read_steps(paths.OUT / "i1/steps_team.csv")
+    steps = read_steps(paths.OUT / "i1/steps_indoornav.csv")
     st_t = np.array([x["t"] - t0 for x in steps])
     rides, floors = rp.baro_events(rp.read_baro(paths.REC / "baro.csv", t0))
     base = json.loads((paths.I1 / "baseline_summary.json").read_text(encoding="utf-8"))["info"]
@@ -103,18 +103,18 @@ def main():
         ta = enu_to_aligned(np.c_[tw["east"], tw["north"]], rot)
         out["map"][name] = dict(walk_in_computed=float(comp_.mean()), truth_in_mask=float(g.free(ta).mean()),
                                 **json.loads(paths.MASK_META.read_text(encoding="utf-8"))["noroom"]["report"][name])
-    P = team_params(3000)
+    P = pf_params(3000)
     r0 = truth[0]
-    F = TeamFilter(P, maps, fmap, smeta, -1, [r0["east"], r0["north"]], float(r0["heading_deg"]), 0)
+    F = VisionFilter(P, maps, fmap, smeta, -1, [r0["east"], r0["north"]], float(r0["heading_deg"]), 0)
     xy0 = enu_to_aligned([r0["east"], r0["north"]], rot)[0]
     dd = np.hypot(*(F.pf.xy - xy0).T)
-    raw = ParticleFilter(team_params(3000, init_pos_sigma=2.0), maps[-1], seed=0)
+    raw = ParticleFilter(pf_params(3000, init_pos_sigma=2.0), maps[-1], seed=0)
     raw.init(xy0, 0.0)
     out["init"] = dict(at_start_point=float((dd < 1e-9).mean()), r_med=float(np.median(dd)), r_p90=float(np.percentile(dd, 90)),
                        all_free=bool(maps[-1].free(F.pf.xy).all()),
                        heading_sd_deg=float(np.degrees(np.std(F.pf.th))), k_range=[float(F.pf.k.min()), float(F.pf.k.max())],
                        compass0_truth=float(r0["heading_deg"]), compass0_mean=float(F.estimate()["compass"]),
-                       team_init_at_start_point_sigma2=float((np.hypot(*(raw.xy - xy0).T) < 1e-9).mean()))
+                       indoornav_init_at_start_point_sigma2=float((np.hypot(*(raw.xy - xy0).T) < 1e-9).mean()))
     (paths.OUT / "i1").mkdir(parents=True, exist_ok=True)
     (paths.OUT / "i1/check_inputs.json").write_text(json.dumps(out, ensure_ascii=False, indent=1, default=float),
                                                     encoding="utf-8")

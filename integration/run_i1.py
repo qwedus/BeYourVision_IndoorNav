@@ -1,8 +1,8 @@
-"""I1 재생 실행기 (팀장 PF): 조건마다 seed 10개 → 지표 요약 (연결안 7절 3~5단계).
+"""I1 재생 실행기 (indoornav PF): 조건마다 seed 10개 → 지표 요약 (연결안 7절 3~5단계).
 
-    .venv/Scripts/python integration/run_i1_team.py --steps team --name team_pdr_pf            # ③ 팀장 PDR + 팀장 PF
-    .venv/Scripts/python integration/run_i1_team.py --steps simple --name simple_pdr_team_pf   # ② 임시 PDR + 팀장 PF
-    .venv/Scripts/python integration/run_i1_team.py --steps team --sigma-h0 1.5 --name team_h15 # 5단계 민감도
+    .venv/Scripts/python integration/run_i1.py --steps indoornav --name inav_pdr_pf            # ③ indoornav PDR + PF
+    .venv/Scripts/python integration/run_i1.py --steps simple --name simple_pdr_inav_pf   # ② 임시 PDR + indoornav PF
+    .venv/Scripts/python integration/run_i1.py --steps indoornav --sigma-h0 1.5 --name inav_h15  # 5단계 민감도
 출력: integration/out/i1/<name>/summary.json·summary.md (runs.npz는 저장소에 안 넣음)
 
 조건 (기준 run_i1.py와 같은 이름)
@@ -30,33 +30,33 @@ SETTINGS = {"기본": dict(obs_params=None, obs_hz=None),
             "중간": dict(obs_params={"sigma_bearing": 10.0, "eps": 0.1}, obs_hz=2.0)}
 DRIFT = dict(len_scale=1.15, head_per_step=0.4)
 SCENARIOS = ("known", "drift")
-STEPS = {"team": paths.OUT / "i1/steps_team.csv", "simple": paths.I1 / "steps_simple.csv"}
+STEPS = {"indoornav": paths.OUT / "i1/steps_indoornav.csv", "simple": paths.I1 / "steps_simple.csv"}
 _G = {}
 
 
 def _init(steps_kind, n, sigma_h0_deg):
     from station_pkg import load_station
     from edge_faces import add_face_points
-    from team_filter import load_maps, team_params
-    from team_pdr_steps import read_steps
+    from vision_filter import load_maps, pf_params
+    from pdr_steps import read_steps
     fmap, smeta = load_station(paths.INPUTS, with_meta=True)
     t0 = paths.rec_t0()
     _G.update(fmap=add_face_points(fmap), smeta=smeta, maps=load_maps(), t0=t0,
               obs={"raw": rp.load_obs(paths.I1 / "obs_nofilter.jsonl", t0),
                    "tf": rp.load_obs(paths.I1 / "obs_timefilter.jsonl", t0)},
               truth=rp.load_truth(paths.I1 / "truth.csv"))
-    steps = rp.team_sign(read_steps(STEPS[steps_kind]))
+    steps = rp.indoornav_sign(read_steps(STEPS[steps_kind]))
     _G["steps"] = {"known": steps, "drift": rp.drift_steps(steps, **DRIFT)}
     _G["rides"], _G["floors"] = rp.baro_events(rp.read_baro(paths.REC / "baro.csv", t0))
     over = {} if sigma_h0_deg is None else dict(sigma_h0=float(np.radians(sigma_h0_deg)))
-    _G["P"] = team_params(n, **over)
+    _G["P"] = pf_params(n, **over)
 
 
 def _job(c):
-    from team_filter import TeamFilter
+    from vision_filter import VisionFilter
     r0 = _G["truth"][0]
     st = SETTINGS[c["set"]]
-    F = TeamFilter(_G["P"], _G["maps"], _G["fmap"], _G["smeta"], int(r0["floor"]), [r0["east"], r0["north"]],
+    F = VisionFilter(_G["P"], _G["maps"], _G["fmap"], _G["smeta"], int(r0["floor"]), [r0["east"], r0["north"]],
                    float(r0["heading_deg"]), c["seed"], st["obs_params"])
     obs = _G["obs"]["raw" if c["obs"] == "none" else c["obs"]]
     t = time.perf_counter()
@@ -86,7 +86,7 @@ def provenance(a):
              paths.PDR_CONFIG, *paths.MASK_DIR.glob("*.png")]
     import scipy
     return dict(branch_commit=git("rev-parse", "HEAD"), branch_dirty=bool(git("status", "--porcelain")),
-                team_main="9040d70", vision_from=man.get("localization_design_head"),
+                main_commit="9040d70", vision_from=man.get("localization_design_head"),
                 files={str(f.relative_to(paths.ROOT)).replace("\\", "/"): sha(f) for f in files},
                 pf_params=_G["P"].to_dict(), python=platform.python_version(), numpy=np.__version__,
                 scipy=scipy.__version__, seeds=list(range(a.seeds)),
@@ -95,10 +95,10 @@ def provenance(a):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--steps", choices=list(STEPS), default="team")
+    ap.add_argument("--steps", choices=list(STEPS), default="indoornav")
     ap.add_argument("--name", required=True)
     ap.add_argument("--n", type=int, default=3000)
-    ap.add_argument("--sigma-h0", type=float, help="팀장 PF 걸음당 방향 잡음 [도] (기본: pf_home_v3 0.5°)")
+    ap.add_argument("--sigma-h0", type=float, help="indoornav PF 걸음당 방향 잡음 [도] (기본: pf_home_v3 0.5°)")
     ap.add_argument("--settings", default="기본,중간")
     ap.add_argument("--seeds", type=int, default=10)
     ap.add_argument("--procs", type=int, default=10)

@@ -1,6 +1,6 @@
-"""I1 팀장 PF 재생 그림: 시간별 위치 오차(비전 끔/켬, PDR만)와 B1·B2 경로 (seed 0).
+"""I1 indoornav PF 재생 그림: 시간별 위치 오차(비전 끔/켬, PDR만)와 B1·B2 경로 (seed 0).
 
-    .venv/Scripts/python integration/fig_i1_team.py [--name team_pdr_pf] [--set 중간] [--obs tf]
+    .venv/Scripts/python integration/fig_i1.py [--name inav_pdr_pf] [--set 중간] [--obs tf]
 → integration/out/i1/<name>/fig_error.png, fig_map.png
 """
 import argparse
@@ -14,7 +14,7 @@ import paths
 import replay as rp
 from indoornav.pf.plots import set_korean_font
 from station_pkg import enu_to_aligned
-from team_filter import load_maps
+from vision_filter import load_maps
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--name", default="team_pdr_pf")
+    ap.add_argument("--name", default="inav_pdr_pf")
     ap.add_argument("--set", default="중간")
     ap.add_argument("--obs", default="tf")
     a = ap.parse_args()
@@ -79,7 +79,7 @@ def main():
         ax.set_xlim(lo[0], hi[0])
         ax.set_ylim(lo[1], hi[1])
         ax.set_aspect("equal")
-        ax.set_title(f"{name} (팀장 aligned 좌표, 방 뺀 마스크)")
+        ax.set_title(f"{name} (지도 aligned 좌표, 방 뺀 마스크)")
         ax.legend(fontsize=8)
     fig.tight_layout()
     fig.savefig(out / "fig_map.png", dpi=100)

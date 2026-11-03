@@ -1,17 +1,17 @@
-"""TeamFilter: 팀장 ParticleFilter(indoornav.pf.filter)에 우리 비전 관측(obs_model.obs_likelihood)을 붙이는 어댑터 (연결안 3절 6).
+"""VisionFilter: indoornav ParticleFilter(indoornav.pf.filter)에 비전 관측(obs_model.obs_likelihood)을 붙이는 어댑터 (연결안 3절 6).
 
-팀장 코드는 고치지 않고 불러 쓴다. 우리 재생기의 필터 약속(predict·update·change_floor·estimate)과 같은 메서드.
-    predict      : 팀장 pf.predict(length, dheading, moving) 그대로. dheading은 팀장 부호(반시계 +, rad)로 받음
+indoornav 코드는 고치지 않고 불러 쓴다. 시뮬 PF 재생기의 필터 약속(predict·update·change_floor·estimate)과 같은 메서드.
+    predict      : indoornav pf.predict(length, dheading, moving) 그대로. dheading은 indoornav 부호(반시계 +, rad)로 받음
     update       : 파티클 aligned → ENU·나침반 → obs_likelihood(관측 한 프레임) → pf.logw += log(w) → pf._normalize()
-                   → pf._maybe_resample()  (팀장에 외부 점수 넣는 공개 함수가 없어 비공개 메서드 호출, 연결안 2절·4절 P1)
+                   → pf._maybe_resample()  (indoornav PF에 외부 점수 넣는 공개 함수가 없어 비공개 메서드 호출, 연결안 2절·4절 P1)
     change_floor : 층 바뀜(기압). 파티클마다 가장 가까운 에스컬레이터 위 끝 → 그 에스컬레이터 아래 끝 ±1 m(축마다 σ 1 m,
                    시뮬 기준과 같음)를 **목적지 보행 마스크 안에서** 다시 뽑음(벽 밖 표본이 끝점 한 점에 몰리지 않게).
-                   가중치는 그대로(균등화 안 함). 끝점은 우리 그래프 좌표(역사 패키지 escalators, 키로 찾음)를 aligned로
-    rotate       : 탑승 중 모아 둔 회전을 하차 뒤 한 번에(팀장 predict(0, dh) 한 번 = 방향 잡음·k 랜덤워크 한 번)
-    estimate     : 팀장 estimate(xy·th·k·unc95·ess·pdr_suspect) + 우리 RMS 불확실도 + 상위 두 모드 + 층
+                   가중치는 그대로(균등화 안 함). 끝점은 그래프 좌표(역사 패키지 escalators, 키로 찾음)를 aligned로
+    rotate       : 탑승 중 모아 둔 회전을 하차 뒤 한 번에(indoornav predict(0, dh) 한 번 = 방향 잡음·k 랜덤워크 한 번)
+    estimate     : indoornav estimate(xy·th·k·unc95·ess·pdr_suspect) + RMS 불확실도 + 상위 두 모드 + 층
 좌표: aligned = Rot(rot)·ENU (원점 그대로, en_to_st 안 씀), 나침반 = wrap360(90 + rot − deg(th)), rot = −52.73°
 초기화(known·drift): pf.init() 뒤 xy·th를 덮어씀 — N(xy0, σ²I)에서 GridMap.free 만족 표본만 거절 샘플링, 방향 N(th0, σ_h²),
-    k는 pf.init()의 U(k0_lo, k0_hi) 그대로, logw 균등 (팀장 init()은 벽 너머 파티클을 출발점 한 점에 모아서)
+    k는 pf.init()의 U(k0_lo, k0_hi) 그대로, logw 균등 (indoornav init()은 벽 너머 파티클을 출발점 한 점에 모아서)
 """
 import time
 from dataclasses import replace
@@ -51,7 +51,7 @@ def top_modes(xy, w, r=3.0, bin_m=1.0):
     return out
 
 
-class TeamFilter:
+class VisionFilter:
     def __init__(self, P, maps, fmap, smeta, floor, xy0_enu, compass0, seed, obs_params=None,
                  init_sigma=2.0, init_h_sigma_deg=20.0):
         self.P, self.maps, self.fmap, self.floor = P, maps, fmap, floor
@@ -141,7 +141,7 @@ class TeamFilter:
                     floor=self.floor, m1=m[0][0], m1_mass=m[0][1], m2=m[1][0], m2_mass=m[1][1])
 
 
-def team_params(n, config=paths.PF_CONFIG, **over):
+def pf_params(n, config=paths.PF_CONFIG, **over):
     import tomllib
     from indoornav.pf.filter import PFParams
     d = tomllib.loads(config.read_text(encoding="utf-8"))   # scripts/tune_pf.params_from_toml과 같음(스크립트라 직접 읽음)

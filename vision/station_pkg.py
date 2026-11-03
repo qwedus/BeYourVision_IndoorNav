@@ -1,6 +1,6 @@
 """역사 패키지 읽기 (비전 코어, 11-04): export_station.py가 내보낸 npz + json → mapdata.load_map과 같은 fmap.
 
-우리 plan.py·build_landmarks.py·메시 없이 관측 모델 지도를 만든다(팀장 브랜치 vision/에 그대로 복사됨 — 원본은
+plan.py·build_landmarks.py·메시 없이 관측 모델 지도를 만든다(vision-integration 브랜치 vision/에 그대로 복사됨 — 원본은
 localization_design). numpy만 쓴다.
 
 반환 fmap {층 정수: dict} 필드 = mapdata.load_map과 같음
@@ -10,7 +10,7 @@ meta (두 번째 반환값, load_station(..., with_meta=True)): 층 이름·카�
 좌표 약속
     ENU (동·북 m, 메시 원점)     : 관측 모델·랜드마크·에스컬레이터 끝
     격자(역 좌표) st              : st = (ENU - T) @ R  (가시성 표 칸 찾기용)
-    팀장 aligned                  : aligned = Rot(meta['aligned_from_enu_rot_deg']) · ENU  (원점 그대로, T 안 뺌)
+    지도 aligned (maps/dongchun)  : aligned = Rot(meta['aligned_from_enu_rot_deg']) · ENU  (원점 그대로, T 안 뺌)
     나침반 (북 0°, 시계 +) ↔ aligned 수학각 th(반시계 +, rad): 나침반 = wrap360(90 + rot - deg(th))
 """
 import json

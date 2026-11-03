@@ -1,15 +1,15 @@
 {
- "name": "sim_teampdr",
- "steps": "..\\BeYourVision_IndoorNav\\integration\\out\\i1\\steps_team.csv",
+ "name": "sim_pf_inav_pdr",
+ "steps": "integration/out/i1/steps_indoornav.csv",
  "first_dh": true,
  "seeds": 10,
  "files": {
-  "obs_model": "C:\\Users\\kjh\\Desktop\\localization_design\\cv_test\\pf\\obs_model.py",
-  "edge_faces": "C:\\Users\\kjh\\Desktop\\localization_design\\cv_test\\i1\\edge_faces.py",
-  "time_filter": "C:\\Users\\kjh\\Desktop\\localization_design\\cv_test\\i1\\time_filter.py",
-  "station_pkg": "C:\\Users\\kjh\\Desktop\\localization_design\\cv_test\\pf\\station_pkg.py",
-  "pkg": "C:\\Users\\kjh\\Desktop\\localization_design\\cv_test\\out\\station",
-  "obs": "C:\\Users\\kjh\\Desktop\\localization_design\\cv_test\\out\\i1"
+  "obs_model": "localization_design/cv_test/pf/obs_model.py",
+  "edge_faces": "localization_design/cv_test/i1/edge_faces.py",
+  "time_filter": "localization_design/cv_test/i1/time_filter.py",
+  "station_pkg": "localization_design/cv_test/pf/station_pkg.py",
+  "pkg": "localization_design/cv_test/out/station",
+  "obs": "localization_design/cv_test/out/i1"
  },
  "rides": [
   [
@@ -232,5 +232,6 @@
    "end": 6.586457751907117,
    "err_at_78": 5.180120736191989
   }
- }
+ },
+ "note": "localization_design cv_test/out/i1/check/의 결과(커밋 7bd74c2)를 옮긴 것: 7절 4단계 ① 시뮬 PF + indoornav PDR 걸음. 로컬 절대 경로는 지움"
 }

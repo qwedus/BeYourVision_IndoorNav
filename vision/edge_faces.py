@@ -10,7 +10,7 @@
     · mode='0': 끔(비교용)
 끝점 위치는 지도와 같은 동·북(ENU) 그대로 둔다(obs_model이 ENU에서 계산). 판 폭은 랜드마크 지도의 크기 값(size[0]).
 
-numpy와 obs_model.kind_types만 쓴다(팀장 브랜치 vision/에 그대로 복사됨 — 원본은 localization_design).
+numpy와 obs_model.kind_types만 쓴다(vision-integration 브랜치 vision/에 그대로 복사됨 — 원본은 localization_design).
 """
 import numpy as np
 

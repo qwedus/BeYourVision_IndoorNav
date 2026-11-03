@@ -1,7 +1,7 @@
 {
  "info": {
-  "name": "team_pdr_pf_h15",
-  "steps": "team",
+  "name": "inav_pdr_pf_h15",
+  "steps": "indoornav",
   "n": 3000,
   "sigma_h0_deg": 1.5,
   "settings": {
@@ -37,16 +37,16 @@
   "provenance": {
    "branch_commit": "eb598ffe02ba8f371fcb17b691c68de5f2545c8b",
    "branch_dirty": true,
-   "team_main": "9040d70",
+   "main_commit": "9040d70",
    "vision_from": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
    "files": {
-    "integration/out/i1/steps_team.csv": "3b3b5f022a93b968",
+    "integration/out/i1/steps_indoornav.csv": "3b3b5f022a93b968",
     "vision/inputs/i1/obs_nofilter.jsonl": "b96537c381517871",
     "vision/inputs/i1/obs_timefilter.jsonl": "75a1f64948207ce6",
     "vision/inputs/i1/truth.csv": "31ef754bf3112508",
     "vision/inputs/i1/rec/baro.csv": "dc9639cf9cbc8cfd",
     "vision/inputs/dongchun_station.npz": "3f61580487bfacb5",
-    "integration/maps/map_meta_noroom.json": "c76555fd59d269c0",
+    "integration/maps/map_meta_noroom.json": "8c4a417763dcec83",
     "configs/pf_home_v3.toml": "0fd7e42218407a8f",
     "configs/pdr_tuned_v4.toml": "d5f128843fb1af6c",
     "integration/maps/B01_walk_noroom.png": "bb0ee4b2f9e91cb2",
@@ -93,7 +93,8 @@
     8,
     9
    ],
-   "init": "known: N(정답 t=0, 2² I) 보행 마스크 거절 샘플링, 방향 N(정답, 20°), k ~ U(k0_lo, k0_hi)"
+   "init": "known: N(정답 t=0, 2² I) 보행 마스크 거절 샘플링, 방향 N(정답, 20°), k ~ U(k0_lo, k0_hi)",
+   "note": "map_meta_noroom.json 해시는 설명 글만 바꾼 뒤 다시 적음(이전 c76555fd59d269c0). 걸음 파일은 이름만 바꿈(내용 같음)"
   }
  },
  "summary": {

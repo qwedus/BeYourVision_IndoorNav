@@ -1,18 +1,18 @@
 {
  "coords": {
-  "rot_same_as_team": true,
+  "rot_same_as_map_meta": true,
   "roundtrip_max_m": 2.842170943040401e-14,
-  "esc_P2_top_aligned_ours": [
+  "esc_P2_top_aligned_graph": [
    14.3646,
    -26.9797
   ],
-  "esc_P2_top_aligned_team": [
+  "esc_P2_top_aligned_map_meta": [
    14.381,
    -26.965
   ],
   "esc_P2_top_diff_m": 0.022023850707813687,
   "esc_P2_bottom_diff_m": 1.5281329948666107,
-  "note": "아래 끝은 약 1.5 m 다름(연결안 0절) — 어댑터는 우리 그래프 좌표 사용"
+  "note": "아래 끝은 약 1.5 m 다름(연결안 0절) — 어댑터는 그래프 좌표 사용"
  },
  "angles": {
   "compass_of_th0": 37.27,
@@ -83,18 +83,18 @@
   "B01": {
    "walk_in_computed": 0.9505854319476688,
    "truth_in_mask": 1.0,
-   "team_m2": 2758.1,
+   "orig_m2": 2758.1,
    "kept_m2": 2315.7,
    "removed_m2": 442.4,
-   "team_in_ours": 0.7981
+   "orig_in_station_walk": 0.7981
   },
   "B02": {
    "walk_in_computed": 0.9492392158574922,
    "truth_in_mask": 1.0,
-   "team_m2": 2337.1,
+   "orig_m2": 2337.1,
    "kept_m2": 1995.2,
    "removed_m2": 342.0,
-   "team_in_ours": 0.8103
+   "orig_in_station_walk": 0.8103
   }
  },
  "init": {
@@ -109,6 +109,6 @@
   ],
   "compass0_truth": 37.279,
   "compass0_mean": 37.446744797388135,
-  "team_init_at_start_point_sigma2": 0.6496666666666666
+  "indoornav_init_at_start_point_sigma2": 0.6496666666666666
  }
 }

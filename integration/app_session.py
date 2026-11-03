@@ -1,11 +1,11 @@
-"""앱 녹화(capstone-recording v0.2) → 팀장 indoornav.io.Session (연결안 3절 1).
+"""앱 녹화(capstone-recording v0.2) → indoornav.io.Session (연결안 3절 1).
 
-motion.csv 열: t(호스트 시계 s), g(중력, 기기 좌표, g 단위), a(사용자 가속도, g), w(회전 속도 rad/s), q(자세), m(자기장)
-    acc_user = a · 9.80665, gravity = g · 9.80665 (iOS CMDeviceMotion 중력 = 지구 방향 = 팀장 Sensor Logger와 같은 약속),
-    gyro = w. 세 벡터가 같은 기기 좌표라 가로 장착용 90° 회전은 넣지 않음(팀장 PDR은 중력으로 수직축을 찾음)
+motion.csv 열: t(호스트 시계 s), g(중력, 기기 좌표, g 단위), a(중력 뺀 가속도, g), w(회전 속도 rad/s), q(자세), m(자기장)
+    acc_user = a · 9.80665, gravity = g · 9.80665 (iOS CMDeviceMotion 중력 = 지구 방향 = indoornav Sensor Logger 로더와 같은 약속),
+    gyro = w. 세 벡터가 같은 기기 좌표라 가로 장착용 90° 회전은 넣지 않음(indoornav PDR은 중력으로 수직축을 찾음)
 시계: 100 Hz 균일 격자로 선형 보간. Session.t = 호스트 시각 - 센서 첫 시각(t0_sensor).
     센서·영상 첫 호스트 시각을 따로 돌려준다(info) → 걸음 시각 = Session.t + t0_sensor (호스트 시계)
-기압: baro.csv pressure_kpa를 같은 격자로 보간(원본 단위 kPa 그대로, 팀장 Session 약속과 같음)
+기압: baro.csv pressure_kpa를 같은 격자로 보간(원본 단위 kPa 그대로, indoornav Session 약속과 같음)
 """
 import json
 

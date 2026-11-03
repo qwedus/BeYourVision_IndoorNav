@@ -1,8 +1,8 @@
-"""I1 오프라인 재생 (팀장 PF용): 관측 + 걸음 + 기압 → TeamFilter → 정답과 비교 (연결안 3절 7, 브랜치 원본).
+"""I1 오프라인 재생 (indoornav PF용): 관측 + 걸음 + 기압 → VisionFilter → 정답과 비교 (연결안 3절 7, 브랜치 원본).
 
-localization_design cv_test/i1/replay_pf.py(시뮬 PF 재생기)와 같은 입력·같은 지표 정의를 쓰되 팀장 PF에 맞춰 바꾼 점
+localization_design cv_test/i1/replay_pf.py(시뮬 PF 재생기)와 같은 입력·같은 지표 정의를 쓰되 indoornav PF에 맞춰 바꾼 점
     - 녹화 시작 시각: 고정 REC_T0 대신 meta.json recording.first_t (paths.rec_t0)
-    - 걸음: moving을 팀장 predict에 넘김. 첫 걸음 dheading도 넣음(팀장 PDR 방향 기준 = 녹화 시작, 초기 방향도 t=0 정답)
+    - 걸음: moving을 indoornav predict에 넘김. 첫 걸음 dheading도 넣음(indoornav PDR 방향 기준 = 녹화 시작, 초기 방향도 t=0 정답)
     - 탑승 중(기압 타는 구간): 걸음 위치 반영 안 함(predict 안 부름), 회전은 모아 두었다가 하차(층 바뀜) 뒤 한 번에.
       관측도 안 넣음(기준과 같음). 같은 시각 이벤트 순서: 층 전환 → 걸음 → 관측
     - 기압 이벤트(탑승 구간·층 바뀜)는 replay_pf.baro_events와 같은 규칙(아래 baro_events, 기준 summary.json 값과 같은지 확인함)
@@ -79,7 +79,7 @@ def truth_at(truth, t):
 
 def drift_steps(steps, len_scale, head_per_step):
     """일부러 틀어지게 한 PDR (run_i1.drift_steps와 같음): 보폭 ×len_scale, 방향 걸음마다 head_per_step°(나침반 +) 쌓임.
-    팀장 부호 dheading_rad도 같이 바꿈."""
+    indoornav 부호 dheading_rad도 같이 바꿈."""
     out = []
     for i, s in enumerate(steps):
         s = dict(s)
@@ -92,15 +92,15 @@ def drift_steps(steps, len_scale, head_per_step):
     return out
 
 
-def team_sign(steps):
-    """임시 PDR 걸음(나침반 부호 dheading_deg만 있음)에 팀장 부호·moving 채움"""
+def indoornav_sign(steps):
+    """임시 PDR 걸음(나침반 부호 dheading_deg만 있음)에 indoornav 부호·moving 채움"""
     return [dict(s, dheading_rad=s.get("dheading_rad", -np.radians(s["dheading_deg"])), moving=s.get("moving", True))
             for s in steps]
 
 
 # ---------------------------------------------------------------- 한 번 재생
 def run_one(F, obs_frames, steps, rides, floors, truth, t0, vision=True, obs_hz=None):
-    """F: TeamFilter(초기화된 것). steps: t(호스트 시계)·length_m·dheading_rad·moving. 반환: 프레임마다 기록."""
+    """F: VisionFilter(초기화된 것). steps: t(호스트 시계)·length_m·dheading_rad·moving. 반환: 프레임마다 기록."""
     ev = [(t, 0, d) for t, d in floors] + [(s["t"] - t0, 1, s) for s in steps] + [(t, 2, o) for t, o in obs_frames]
     ev.sort(key=lambda e: (e[0], e[1]))
     riding = lambda t: any(a <= t <= b for a, b in rides)

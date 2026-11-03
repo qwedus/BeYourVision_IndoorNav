@@ -1,9 +1,9 @@
-"""I1 결과 비교표: 시뮬 PF 병합 기준(b852501)과 팀장 PF 재생 결과를 같은 조건 칸에 나란히 (연결안 7절 4·5단계).
+"""I1 결과 비교표: 시뮬 PF 병합 기준(b852501)과 indoornav PF 재생 결과를 같은 조건 칸에 나란히 (연결안 7절 4·5단계).
 
-    .venv/Scripts/python integration/compare.py [--sim-teampdr <localization_design cv_test/out/i1/check/sim_teampdr.json>]
+    .venv/Scripts/python integration/compare.py [--sim-pf-inav-pdr <localization_design cv_test/out/i1/check/sim_pf_inav_pdr.json>]
 → integration/out/i1/compare.md
-열: 기준 = 시뮬 PF + 임시 PDR / ① 시뮬 PF + 팀장 PDR (localization_design에서 돌린 값) / ② 팀장 PF + 임시 PDR /
-    ③ 팀장 PDR + 팀장 PF / 5단계 ②·③에서 팀장 PF 걸음당 방향 잡음 sigma_h0 0.5° → 1.5°
+열: 기준 = 시뮬 PF + 임시 PDR / ① 시뮬 PF + indoornav PDR (localization_design에서 돌린 값) / ② indoornav PF + 임시 PDR /
+    ③ indoornav PDR + PF / 5단계 ②·③에서 indoornav PF 걸음당 방향 잡음 sigma_h0 0.5° → 1.5°
 """
 import argparse
 import json
@@ -11,8 +11,8 @@ import sys
 
 import paths
 
-RUNS = [("simple_pdr_team_pf", "② 팀장 PF + 임시 PDR"), ("team_pdr_pf", "③ 팀장 PDR + 팀장 PF"),
-        ("simple_pdr_team_pf_h15", "② 방향 잡음 1.5°"), ("team_pdr_pf_h15", "③ 방향 잡음 1.5°")]
+RUNS = [("simple_pdr_inav_pf", "② indoornav PF + 임시 PDR"), ("inav_pdr_pf", "③ indoornav PDR + PF"),
+        ("simple_pdr_inav_pf_h15", "② 방향 잡음 1.5°"), ("inav_pdr_pf_h15", "③ 방향 잡음 1.5°")]
 ROWS = [("known", "pdr_only", "—"), ("known", "none", "—"), ("known", "raw", "기본"), ("known", "raw", "중간"),
         ("known", "tf", "기본"), ("known", "tf", "중간"),
         ("drift", "pdr_only", "—"), ("drift", "none", "—"), ("drift", "raw", "기본"), ("drift", "raw", "중간"),
@@ -37,20 +37,20 @@ def cell(s):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--sim-teampdr")
+    ap.add_argument("--sim-pf-inav-pdr")
     a = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     base = json.loads((paths.I1 / "baseline_summary.json").read_text(encoding="utf-8"))["summary"]
     cols = [("기준: 시뮬 PF + 임시 PDR", base)]
-    if a.sim_teampdr:
-        cols.append(("① 시뮬 PF + 팀장 PDR", json.loads(open(a.sim_teampdr, encoding="utf-8").read())["summary"]))
+    if a.sim_pf_inav_pdr:
+        cols.append(("① 시뮬 PF + indoornav PDR", json.loads(open(a.sim_pf_inav_pdr, encoding="utf-8").read())["summary"]))
     res = {}
     for name, label in RUNS:
         p = paths.OUT / "i1" / name / "summary.json"
         if p.exists():
             res[name] = json.loads(p.read_text(encoding="utf-8"))
             cols.append((label, res[name]["summary"]))
-    L = ["# I1 비교표 — 팀장 PF vs 시뮬 PF 기준", "",
+    L = ["# I1 비교표 — indoornav PF vs 시뮬 PF 기준", "",
          "칸: 걷는 구간 위치 오차 **중앙 / 90% / 최대 (m) · 끝(3-1 문 앞) 오차 (m)**, seed 10개 중앙. "
          "에스컬레이터 구간(78.3~103 s) 제외, 지표 정의는 localization_design run_i1.metrics와 같음. "
          "N 3000, 관측 설정 기본 = 5 Hz·σ 5°·바닥값 0.1, 중간 = 2 Hz·σ 10°·바닥값 0.1.", "",
@@ -75,7 +75,7 @@ def main():
                      f"{f(m['sep_med'])} | {f(m['k_end'], 2)} | {f(m['diag_resamples'], 0)} / {f(m['diag_wall_kills'], 0)} / "
                      f"{f(m['diag_all_dead'], 0)} | {f(100 * m['diag_miss_mean'], 1)}% / {f(100 * m['diag_miss_max'], 0)}% | "
                      f"{f(m['diag_ms_update'], 1)} · {f(m['diag_ms_predict'], 1)} |")
-    p = paths.OUT / "i1/team_pdr_pf_n1000/summary.json"
+    p = paths.OUT / "i1/inav_pdr_pf_n1000/summary.json"
     if p.exists():
         s = json.loads(p.read_text(encoding="utf-8"))["summary"]
         m = s["known/tf/중간"]
