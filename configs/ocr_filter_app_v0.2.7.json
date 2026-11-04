@@ -1,0 +1,116 @@
+{
+  "config_version": "2026-10-31+ocr-2026-11-05",
+  "_note": "검출·필터 값은 이 파일 하나에 모음. 바꾸면 이 파일만 고치고 다시 빌드. '_'로 시작하는 키는 설명용이라 읽지 않음. 위 네 묶음(label_map·drop_labels·detectors)은 PC localization_design/cv_module/config/default.json과 키가 같아 그대로 옮겨 넣을 수 있음",
+
+  "label_map": {
+    "exit":    ["exit_sign"],
+    "navy":    ["track_sign", "direction_sign"],
+    "monitor": ["info_monitor"],
+    "map":     ["station_map", "route_map"],
+    "name":    [],
+    "toilet":  ["toilet"],
+    "ticket_sign":    ["ticket_sign"],
+    "ticket_machine": ["ticket_machine"],
+    "door":           ["door"],
+    "area_map":       ["area_map"]
+  },
+  "drop_labels": ["ad"],
+
+  "detectors": {
+    "yolo26n": {
+      "kind": "ultralytics_yolo",
+      "conf_floor": 0.01,
+      "iou": 0.7,
+      "thresholds": {"default": 0.25},
+      "_thresholds_note": "default.json 2026-10-31 값. 종류별로 넣으려면 {\"default\": 0.25, \"ticket_sign\": 0.5} 처럼"
+    }
+  },
+
+  "app": {
+    "_note": "앱만 쓰는 값. models: 번들 모델 이름 → 위 detectors 키(= detections.jsonl의 source, PC 문턱값을 찾는 이름)",
+    "models": {"dc26n_544x960": "yolo26n"},
+    "default_model": "dc26n_544x960",
+    "store_conf_floor": 0.1,
+    "_store_conf_floor_note": "이 점수 이상 검출은 문턱값과 상관없이 전부 detections.jsonl에 저장 (PC에서 문턱값을 바꿔 다시 계산할 수 있게)",
+    "detect_rate_hz": 5,
+    "picker_window_s": 0.2
+  },
+
+  "size_limits": {
+    "enabled": true,
+    "max_height_ratio": {"area_map": 0.7},
+    "_note": "박스 높이 / 화면 높이가 이 값을 넘으면 버림(reason size_limit). 담당파트_계획 C2 후보 ③(70%), 아직 지금 값(default.json)에는 없어 꺼 둠. 11-04 켬: route2 재생에서 70% 넘는 안내도 박스 13개가 모두 벽 오검출"
+  },
+
+  "time_filter": {
+    "enabled": true,
+    "count_by": "frames",
+    "window_frames": 5,
+    "window_s": 0.6,
+    "min_hits": 3,
+    "match": {
+      "same_label": true,
+      "iou_min": 0.3,
+      "center_dist_max": null,
+      "_center_dist_note": "null이면 겹침만 씀. 숫자면 박스 중심 거리 / 두 박스 중 큰 대각선 길이가 이 값 이하여도 같은 판 (예: 0.5)"
+    },
+    "track_max_gap_s": 1.0,
+    "_note": "지금 값 = 윤재 기본안·cv_test/i1/time_filter.py (최근 5장 중 3번, 같은 종류 + IoU 0.3). count_by \"seconds\"면 최근 window_s초 안 min_hits번. 초당 5장에서는 걸을 때 진짜 판도 많이 빠짐(재생 시험 47%) → 픽스 값으로 바꿀 곳"
+  },
+
+  "ocr": {
+    "target_labels": ["exit", "navy", "ticket_sign", "monitor", "map", "area_map"],
+    "_target_note": "글자로 확인하는 종류. 나머지(toilet·ticket_machine·door·name)는 판정 skip = 그대로 둠",
+    "only_after_time_filter": true,
+    "max_reads": 3,
+    "retry_interval_s": 0.5,
+    "retry_min_growth": 1.0,
+    "_retry_note": "못 읽음·글자 영역 없음이면 retry_interval_s 뒤, 박스 높이가 지난번 읽을 때의 retry_min_growth배 이상이면 다시 읽음 (최대 max_reads번)",
+    "max_pending": 2,
+    "crop_pad_px": 4,
+    "upscale_min_height_px": 120,
+    "_upscale_note": "11-04에 240으로 올려 봤으나(0.2.6) 잘못 읽기가 늘어 진짜 판을 광고로 버림(OCR로 버림 9→48) → 120으로 되돌림(0.2.7)",
+    "upscale_max": 4.0,
+    "second_pass": {"enabled": true, "scale": 2.0, "gray_contrast": true},
+    "rotate_retry": {"enabled": false, "degrees": [15, -15], "_note": "11-04 추가. 1·2차 모두 글자 영역 0개면 판을 돌려 다시(확인되면 멈춤). 비스듬한 나가는 곳 판용. 0.2.6 재생에서 확인 0건·엉뚱한 글자만 늘어 끔(0.2.7)"},
+    "min_conf": 0.2,
+    "meaningful_conf": 0.5,
+    "meaningful_min_chars": 2,
+    "similar_min": 0.75,
+
+    "verdict_rules": {
+      "reject_other_text": true,
+      "relabel": true,
+      "ad_like_reject": true,
+      "reject_unreadable_labels": [],
+      "no_text_reject": {"enabled": false, "min_height_px": 60, "exempt_labels": ["exit"]},
+      "_note": "윤재 기본안: 다른 글자가 확실하면 버리거나(광고) 종류를 바로잡음, 못 읽음은 남김, 광고 완화 규칙 켬. no_text_reject = '읽을 만큼 큰데 글자 영역이 없으면 버림'(기본안 아님, 켜도 나가는 곳에는 안 씀)"
+    },
+
+    "keywords": {
+      "exit":        {"fuzzy": ["나가는 곳", "Way Out"], "words": ["exit"], "contains": ["出口"]},
+      "navy":        {"fuzzy": ["타는 곳", "Tracks"]},
+      "ticket_sign": {"fuzzy": ["표 사는 곳", "Tickets"], "words": ["ticket"]},
+      "monitor":     {"fuzzy": ["이번열차", "This train"], "words": ["train"], "contains": ["전역출발", "전역", "열차", "접근", "출발", "도착"], "patterns": ["(?<![0-9])([01]?[0-9]|2[0-3]) ?[:：] ?[0-5][0-9](?![0-9])"], "station_haeng": true},
+      "map":         {"fuzzy": ["종합안내도"], "words": ["route"], "contains": ["노선도"]},
+      "area_map":    {"fuzzy": ["주변지역"], "words": ["vicinity"]}
+    },
+    "common_keywords": [
+      {"labels": ["map", "area_map"], "words": ["map", "information"], "contains": ["안내도"]},
+      {"labels": ["navy", "monitor"], "stations": true}
+    ],
+    "stations": ["원인재", "인천시청", "부평", "계양", "동막", "송도", "박촌", "귤현", "작전", "갈산", "부평구청",
+                 "동수", "간석오거리", "예술회관", "인천터미널", "문학경기장", "선학", "신연수", "캠퍼스타운",
+                 "테크노파크", "지식정보단지", "인천대입구", "센트럴파크", "국제업무지구", "검단", "임학", "경인교대",
+                 "검단호수공원", "호수공원", "아라", "신검단"],
+    "vision": {
+      "custom_words": ["나가는 곳", "타는 곳", "표 사는 곳", "종합안내도", "주변지역 안내도", "노선도", "이번열차", "전역출발", "도착", "출발", "방면",
+                       "Way Out", "Tracks", "Tickets", "This train", "Exit", "Vicinity Map", "Route Map",
+                       "동춘", "원인재", "동막", "캠퍼스타운", "송도달빛축제공원", "계양", "박촌", "Dongchun", "Woninjae", "Dongmak", "Bakchon", "Gyeyang"],
+      "_note": "11-04 추가. Apple Vision customWords(언어 보정에 쓰는 글자 사전, 정확 모드에서만 효과). 역 이름 전체는 stations, 판정 글자는 keywords — 이건 읽기 자체를 돕는 목록"
+    },
+    "sign_words": ["나가는 곳", "Way Out", "타는 곳", "Tracks", "표 사는 곳", "Tickets", "종합안내도", "노선도", "안내도",
+                   "주변지역", "전역출발", "열차", "도착", "출발"],
+    "_keywords_note": "윤재 ocr_filter.py(11-02) kinds_of·STATIONS·SIGN_WORDS와 같은 내용. fuzzy = 비슷하면(similar_min 이상) 인정, words = 영어 낱말, contains = 그 글자가 들어 있으면, station_haeng = '○○행'(역 이름), patterns = 정규식(모니터 시각 20:49 등). 11-04: 모니터에 fuzzy 이번열차·This train, 시각 patterns 추가(진짜 모니터를 광고로 버리던 3건)"
+  }
+}
