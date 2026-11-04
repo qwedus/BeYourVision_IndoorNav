@@ -99,8 +99,14 @@ def indoornav_sign(steps):
 
 
 # ---------------------------------------------------------------- 한 번 재생
-def run_one(F, obs_frames, steps, rides, floors, truth, t0, vision=True, obs_hz=None):
-    """F: VisionFilter(초기화된 것). steps: t(호스트 시계)·length_m·dheading_rad·moving. 반환: 프레임마다 기록."""
+def attach_tracks(obs_frames, ids):
+    """관측에 track_id 붙임 (ids = time_filter.track_ids 결과)"""
+    return [(t, [dict(o, track_id=ids[o["detection_id"]]) for o in obs]) for t, obs in obs_frames]
+
+
+def run_one(F, obs_frames, steps, rides, floors, truth, t0, vision=True, obs_hz=None, dpsi=None, limiter=None):
+    """F: VisionFilter(초기화된 것). steps: t(호스트 시계)·length_m·dheading_rad·moving. 반환: 프레임마다 기록.
+    dpsi: 시각 → 걸음 사이 회전 Δ[도] (bearing_fix, 없으면 끔). limiter: time_filter.TrackLimiter (없으면 끔)."""
     ev = [(t, 0, d) for t, d in floors] + [(s["t"] - t0, 1, s) for s in steps] + [(t, 2, o) for t, o in obs_frames]
     ev.sort(key=lambda e: (e[0], e[1]))
     riding = lambda t: any(a <= t <= b for a, b in rides)
@@ -125,7 +131,9 @@ def run_one(F, obs_frames, steps, rides, floors, truth, t0, vision=True, obs_hz=
             used = vision and not rd and (obs_hz is None or t - last_used >= 1.0 / obs_hz - 1e-6)
             if used:
                 last_used = t
-                F.update(val)
+                if limiter is not None:
+                    val = limiter(t, val)
+                F.update(val, dpsi(t)) if dpsi is not None else F.update(val)
             e = F.estimate()
             tr = truth_at(truth, t)
             rec.append((t, float(np.hypot(e["x"] - tr["east"], e["y"] - tr["north"])), e["unc"], e["unc95"],

@@ -3,6 +3,7 @@
     .venv/Scripts/python integration/run_i1.py --steps indoornav --name inav_pdr_pf            # ③ indoornav PDR + PF
     .venv/Scripts/python integration/run_i1.py --steps simple --name simple_pdr_inav_pf   # ② 임시 PDR + indoornav PF
     .venv/Scripts/python integration/run_i1.py --steps indoornav --sigma-h0 1.5 --name inav_h15  # 5단계 민감도
+    --bearing-fix theta|bearing  걸음 사이 회전 보정, --track-limit N  같은 track N초에 1번 (설명: 작업기록 3차)
 출력: integration/out/i1/<name>/summary.json·summary.md (runs.npz는 저장소에 안 넣음)
 
 조건 (기준 run_i1.py와 같은 이름)
@@ -34,7 +35,7 @@ STEPS = {"indoornav": paths.OUT / "i1/steps_indoornav.csv", "simple": paths.I1 /
 _G = {}
 
 
-def _init(steps_kind, n, sigma_h0_deg):
+def _init(steps_kind, n, sigma_h0_deg, opt=None):
     from station_pkg import load_station
     from edge_faces import add_face_points
     from vision_filter import load_maps, pf_params
@@ -50,6 +51,20 @@ def _init(steps_kind, n, sigma_h0_deg):
     _G["rides"], _G["floors"] = rp.baro_events(rp.read_baro(paths.REC / "baro.csv", t0))
     over = {} if sigma_h0_deg is None else dict(sigma_h0=float(np.radians(sigma_h0_deg)))
     _G["P"] = pf_params(n, **over)
+    _G["opt"] = opt = opt or {}
+    if opt.get("bearing_fix"):
+        from bearing_fix import rotation_since_step, fix_bearing
+        h = np.load(paths.OUT / "i1/heading_indoornav.npz")
+        raw = read_steps(STEPS["indoornav"])
+        step_t, step_h = np.array([s["t"] for s in raw]), -np.radians([s["heading_deg"] for s in raw])
+        _G["dpsi"] = lambda t: float(np.degrees(rotation_since_step(t + t0, h["t_host"], h["heading"], step_t, step_h)))
+        if opt["bearing_fix"] == "bearing":      # 화각 검사는 옛 방향 그대로 (비교용)
+            _G["obs"] = {k: [(t, fix_bearing(o, _G["dpsi"](t))) for t, o in v] for k, v in _G["obs"].items()}
+            del _G["dpsi"]
+    if opt.get("track_limit"):
+        from time_filter import load_frames, track_ids
+        ids = track_ids(load_frames(paths.I1 / "obs_nofilter.jsonl")[1])
+        _G["obs"] = {k: rp.attach_tracks(v, ids) for k, v in _G["obs"].items()}
 
 
 def _job(c):
@@ -59,9 +74,11 @@ def _job(c):
     F = VisionFilter(_G["P"], _G["maps"], _G["fmap"], _G["smeta"], int(r0["floor"]), [r0["east"], r0["north"]],
                    float(r0["heading_deg"]), c["seed"], st["obs_params"])
     obs = _G["obs"]["raw" if c["obs"] == "none" else c["obs"]]
+    from time_filter import TrackLimiter
+    lim = TrackLimiter(_G["opt"]["track_limit"]) if _G["opt"].get("track_limit") else None
     t = time.perf_counter()
     r = rp.run_one(F, obs, _G["steps"][c["sc"]], _G["rides"], _G["floors"], _G["truth"], _G["t0"],
-                   vision=c["obs"] != "none", obs_hz=st["obs_hz"])
+                   vision=c["obs"] != "none", obs_hz=st["obs_hz"], dpsi=_G.get("dpsi"), limiter=lim)
     d = F.diag
     diag = dict(resamples=F.pf.stats["resamples"], wall_kills=F.pf.stats["wall_kills"], all_dead=F.pf.stats["all_dead"],
                 snap_redraw=d["snap_redraw"], miss_mean=d["miss_sum"] / max(d["n_update"], 1), miss_max=d["miss_max"],
@@ -102,15 +119,18 @@ def main():
     ap.add_argument("--settings", default="기본,중간")
     ap.add_argument("--seeds", type=int, default=10)
     ap.add_argument("--procs", type=int, default=10)
+    ap.add_argument("--bearing-fix", choices=["theta", "bearing"], help="걸음 사이 회전 보정")
+    ap.add_argument("--track-limit", type=float, help="같은 track은 N초에 1번만")
     a = ap.parse_args()
+    opt = dict(bearing_fix=a.bearing_fix, track_limit=a.track_limit)
     sys.stdout.reconfigure(encoding="utf-8")
     sets = a.settings.split(",")
     conds = [dict(sc=sc, obs="none", set="기본", seed=s) for sc in SCENARIOS for s in range(a.seeds)]
     conds += [dict(sc=sc, obs=o, set=st, seed=s) for st in sets for sc in SCENARIOS for o in ("raw", "tf")
               for s in range(a.seeds)]
-    with Pool(a.procs, _init, (a.steps, a.n, a.sigma_h0)) as pool:
+    with Pool(a.procs, _init, (a.steps, a.n, a.sigma_h0, opt)) as pool:
         res = pool.map(_job, conds)
-    _init(a.steps, a.n, a.sigma_h0)
+    _init(a.steps, a.n, a.sigma_h0, opt)
     runs, ms, diags = {}, {}, {}
     for c, r, d in res:
         k = key(c)
@@ -125,7 +145,7 @@ def main():
         runs[f"{sc}/pdr_only"] = [dr]
     out = paths.OUT / "i1" / a.name
     out.mkdir(parents=True, exist_ok=True)
-    info = dict(name=a.name, steps=a.steps, n=a.n, sigma_h0_deg=a.sigma_h0 if a.sigma_h0 is not None else 0.5,
+    info = dict(name=a.name, steps=a.steps, n=a.n, sigma_h0_deg=a.sigma_h0 if a.sigma_h0 is not None else 0.5, options=opt,
                 settings={s: SETTINGS[s] for s in sets}, drift=DRIFT, rides=_G["rides"], floors=_G["floors"],
                 n_steps=len(_G["steps"]["known"]), provenance=provenance(a))
     (out / "summary.json").write_text(json.dumps(dict(info=info, summary=summ), ensure_ascii=False, indent=1),

@@ -93,11 +93,13 @@ class VisionFilter:
     def rotate(self, dheading_rad):
         self.pf.predict(0.0, dheading_rad, True)
 
-    def update(self, obs):
+    def update(self, obs, dpsi_deg=0.0):
+        """dpsi_deg: 걸음 사이 회전 Δ[도, 반시계 +] (bearing_fix). 이번 비교에만 파티클 방향에 더함, PF 상태는 그대로."""
         if not obs:
             return
         t = time.perf_counter()
         x, y, c = self.enu_compass()
+        c = c - dpsi_deg
         m = self.miss_frac(x, y)
         self.diag["miss_sum"] += m
         self.diag["miss_max"] = max(self.diag["miss_max"], m)

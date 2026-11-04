@@ -4,6 +4,7 @@ cv_module 코드는 고치지 않고 결과 파일만 읽어 바꾼다 (OCR 필�
     추적: 같은 검출 종류(label) + 박스 IoU ≥ 0.3 이면 앞 프레임의 같은 판. 마지막으로 잡힌 지 WINDOW프레임 넘으면 끊김
     판정: 지금 프레임을 포함한 최근 WINDOW(5)프레임 중 MIN_HITS(3)번 이상 잡힌 판만 관측으로 넘김 (뒤 프레임은 안 봄 → 지연 없음)
     빠진 관측은 dropped에 reason="time_filter"로 옮기고 status를 다시 매긴다. run에 "time_filter" 설정을 남긴다.
+    track_id: 판마다 증가하는 번호를 관측에 붙인다(배열 위치가 아님). TrackLimiter: 같은 track은 N초에 1번만 PF에 넣음 (연결안 3절 5)
 입력은 cv_module 출력 JSON({"run", "frames"}) 또는 FrameResult 한 줄씩인 JSONL.
 """
 import argparse
@@ -31,9 +32,10 @@ def iou(a, b):
 
 
 def apply(frames, window=WINDOW, min_hits=MIN_HITS, iou_min=IOU):
-    """frames (dict, 시각 순)를 고쳐서 반환. 통과한 관측에 track id를 붙이지는 않는다 (형식 그대로)."""
-    tracks = []      # {label, box, hits: [프레임 번호]}
+    """frames (dict, 시각 순)를 고쳐서 반환. 관측마다 track_id를 붙인다(그 밖의 형식은 그대로)."""
+    tracks = []      # {id, label, box, hits: [프레임 번호]}
     out = []
+    next_id = 0
     for k, f in enumerate(frames):
         f = json.loads(json.dumps(f))
         boxes = {d["detection_id"]: d["box_xyxy"] for d in f.get("detections", [])}
@@ -49,12 +51,14 @@ def apply(frames, window=WINDOW, min_hits=MIN_HITS, iou_min=IOU):
                 if v >= best:
                     best, bi = v, ti
             if bi is None:
-                tracks.append({"label": ob["label"], "box": box, "hits": []})
+                tracks.append({"id": next_id, "label": ob["label"], "box": box, "hits": []})
+                next_id += 1
                 bi = len(tracks) - 1
             used.add(bi)
             tr = tracks[bi]
             tr["box"] = box
             tr["hits"].append(k)
+            ob["track_id"] = tr["id"]
             n = sum(1 for h in tr["hits"] if h > k - window)
             (keep if n >= min_hits else drop).append(ob)
         tracks = [t for t in tracks if k - t["hits"][-1] <= window]
@@ -66,6 +70,28 @@ def apply(frames, window=WINDOW, min_hits=MIN_HITS, iou_min=IOU):
             f["status"] = "ok" if keep else "empty"
         out.append(f)
     return out
+
+
+def track_ids(frames, window=WINDOW, iou_min=IOU):
+    """필터 없는 프레임들 → {detection_id: track_id}. 시간 필터와 같은 추적이라 필터 뒤 관측에도 같은 번호를 쓸 수 있다."""
+    return {ob["detection_id"]: ob["track_id"] for f in apply(frames, window, 1, iou_min) for ob in f["observations"]}
+
+
+class TrackLimiter:
+    """같은 track은 최근 n초에 1번만 통과. 호출 순서 = 시각 순. track_id가 없는 관측은 그대로 통과."""
+
+    def __init__(self, n):
+        self.n, self.last = n, {}
+
+    def __call__(self, t, obs):
+        keep = []
+        for o in obs:
+            tid = o.get("track_id")
+            if tid is None or t - self.last.get(tid, -1e18) >= self.n - 1e-6:
+                if tid is not None:
+                    self.last[tid] = t
+                keep.append(o)
+        return keep
 
 
 def save(run, frames, path_json, path_jsonl=None):

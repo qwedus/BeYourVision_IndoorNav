@@ -76,7 +76,7 @@ def edge_obs(o, box, fi, mode="end"):
 
 def frame_obs(f, t0, mode="end"):
     """cv_module FrameResult 하나 → (t, [obs dict]). t = capture_time_s - t0. 지도 종류가 없는 관측은 뺀다.
-    obs dict: obs_model 입력 {types, type, bearing, distance, score} + label, edge(화면 끝 검출인가)."""
+    obs dict: obs_model 입력 {types, type, bearing, distance, score} + label, edge(화면 끝 검출인가), detection_id."""
     det = {d["detection_id"]: d for d in f["detections"]}
     obs = []
     for o in f["observations"]:
@@ -84,5 +84,5 @@ def frame_obs(f, t0, mode="end"):
             continue
         types, bearing, edge = edge_obs(o, det[o["detection_id"]]["box_xyxy"], f["frame_info"], mode)
         obs.append(dict(types=types, type=types[0], bearing=bearing, distance=o["distance_m"],
-                        score=o["score"], label=o["label"], edge=edge))
+                        score=o["score"], label=o["label"], edge=edge, detection_id=o["detection_id"]))
     return f["frame_info"]["capture_time_s"] - t0, obs

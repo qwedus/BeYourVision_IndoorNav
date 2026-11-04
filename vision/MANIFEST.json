@@ -1,12 +1,20 @@
 {
  "files": {
+  "vision/bearing_fix.py": {
+   "src": "cv_test/i1/bearing_fix.py",
+   "repo": "localization_design",
+   "src_commit": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821",
+   "repo_head": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821",
+   "sha256": "53335c432d926b0762c076f2cf565a9c85322d215c3c84d7ffeb34462ec55d63",
+   "bytes": 1780
+  },
   "vision/edge_faces.py": {
    "src": "cv_test/i1/edge_faces.py",
    "repo": "localization_design",
-   "src_commit": "9f8b8be3285f5cb4ccf387654d59b5bbfeac7d25",
-   "repo_head": "e216b5c2cd4c7e5e15e8d6c5c2d659aeff3a49cc",
-   "sha256": "98d5e544b46c17764d9d17340763924f5c55bb3d160a22d64efb30ce3f68580b",
-   "bytes": 5194
+   "src_commit": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821",
+   "repo_head": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821",
+   "sha256": "0ab6c7a644593dfc7e27979515c95bac29543509ddc5a92da0cd91f85843beba",
+   "bytes": 5240
   },
   "vision/inputs/dongchun_station.json": {
    "src": "cv_test/out/station/dongchun_station.json",
@@ -131,13 +139,13 @@
   "vision/time_filter.py": {
    "src": "cv_test/i1/time_filter.py",
    "repo": "localization_design",
-   "src_commit": "9f8b8be3285f5cb4ccf387654d59b5bbfeac7d25",
-   "repo_head": "e216b5c2cd4c7e5e15e8d6c5c2d659aeff3a49cc",
-   "sha256": "233dc3367ba1046bf53545d707be8f9e80eecc17ec2cac4cc5783581bab1897c",
-   "bytes": 4636
+   "src_commit": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821",
+   "repo_head": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821",
+   "sha256": "b6e4ca37e8f24b1519557288b8156885b7e27d9d926bba0121eccac63137ff4a",
+   "bytes": 5764
   }
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
- "synced_at": "2026-11-04T11:09:48",
- "localization_design_head": "a1046fd9e05e1de0e25122711b8755ce34845d32"
+ "synced_at": "2026-11-04T11:25:55",
+ "localization_design_head": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821"
 }
