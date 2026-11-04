@@ -14,7 +14,7 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `vision/time_filter.py` | 시간 필터(최근 5프레임 중 3번) + cv_module 결과 읽기 | **localization_design** (`cv_test/i1/time_filter.py`) |
 | `vision/edge_faces.py` | 화면 끝 검출 → 판 끝점 비교 | **localization_design** (`cv_test/i1/edge_faces.py`) |
 | `vision/bearing_fix.py` | 걸음 사이 회전 Δ 계산 | **localization_design** (`cv_test/i1/bearing_fix.py`) |
-| `vision/text_check.py` | 글자 확인 결정 파일 읽기·적용 + 판정 규칙 (엔진 없음) | **localization_design** (`cv_test/i1/text_check.py`) |
+| `vision/text_check.py` | 글자 확인 결정 파일 읽기·적용 + 판정 규칙(11-02 OCR 필터 `ocr_filter.py`에서 옮김, 엔진 없음) | **localization_design** (`cv_test/i1/text_check.py`) |
 | `vision/station_pkg.py` | 역사 패키지 읽기 + ENU ↔ aligned·나침반 ↔ th 변환 | **localization_design** (`cv_test/pf/station_pkg.py`) |
 | `vision/inputs/dongchun_station.*` | 역사 패키지: 랜드마크 94면·가시성 표·`computed`·층 높이·좌표 변환·에스컬레이터 끝(그래프 키) | **localization_design** (`export_station.py` 결과) |
 | `vision/inputs/i1/` | 관측 JSONL(필터 없음·시간 필터), 정답 궤적·기준점, 임시 PDR 걸음, 시뮬 PF 옛 기준(`baseline_summary.json`, b852501)·새 기준(`baseline_newvis.json`, 가시성 다시 계산 뒤)·① (`sim_pf_inav_pdr_newvis.json`), EasyOCR 결정 파일 | **localization_design** (`cv_test/out/i1/`) |
