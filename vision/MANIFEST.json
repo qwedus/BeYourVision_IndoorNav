@@ -99,10 +99,10 @@
   "vision/obs_model.py": {
    "src": "cv_test/pf/obs_model.py",
    "repo": "localization_design",
-   "src_commit": "ffe6858679b30f19636f952c363af4f1acc90e66",
-   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
-   "sha256": "8a14b0d9b9097eee25ea01367932af8198cafd8ffa7634b95e43046f1d22f172",
-   "bytes": 6456
+   "src_commit": "c2ad45b933eba63d9c5a9bf244b1c44990f24d09",
+   "repo_head": "c2ad45b933eba63d9c5a9bf244b1c44990f24d09",
+   "sha256": "b82d76b6ce3a804555e4cbc61c36fafd66b315cf584384d4099a1d3ff530bfa5",
+   "bytes": 6885
   },
   "vision/station_pkg.py": {
    "src": "cv_test/pf/station_pkg.py",
@@ -122,6 +122,6 @@
   }
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
- "synced_at": "2026-11-04T04:38:21",
- "localization_design_head": "e216b5c2cd4c7e5e15e8d6c5c2d659aeff3a49cc"
+ "synced_at": "2026-11-04T11:04:32",
+ "localization_design_head": "c2ad45b933eba63d9c5a9bf244b1c44990f24d09"
 }

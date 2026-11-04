@@ -64,6 +64,18 @@ def _cells(fm, x, y):
     return np.clip(i, 0, H - 1), np.clip(j, 0, W - 1), inside
 
 
+def _kind_rows(fm, k, x, y, theta, i, j, inside, p):
+    """랜드마크 행 k만 (len(k), n) : 후보(보임·거리·화각 안), 수평 거리, 상대 방위(오른쪽 +)"""
+    d_tab = fm['dist'][k[:, None], i[None], j[None]].astype(float)     # nan = 안 보임
+    vis = np.isfinite(d_tab) & (d_tab <= p['max_range']) & inside[None]
+    dx = fm['lm_xy'][k, 0:1] - x[None]
+    dy = fm['lm_xy'][k, 1:2] - y[None]
+    hd = np.hypot(dx, dy)
+    rel = (np.degrees(np.arctan2(dx, dy)) - theta[None] + 180) % 360 - 180
+    elev = np.degrees(np.arctan2(fm['lm_dz'][k, None], np.maximum(hd, 1e-6)))
+    return vis & (np.abs(rel) <= p['half_fov'] + p['fov_margin']) & (elev <= p['max_elev']), hd, rel
+
+
 def obs_likelihood(x, y, theta, floor, observations, fmap, params=None):
     """파티클 N개의 관측 가중치 (N,). 관측이 없으면 모두 1.
 
@@ -86,26 +98,22 @@ def obs_likelihood(x, y, theta, floor, observations, fmap, params=None):
             logw[sel] += len(observations) * np.log(p['eps'])
             continue
         i, j, inside = _cells(fm, x[sel], y[sel])
-        # 랜드마크별 (L, n) : 보이는가, 거리, 화각 안 상대 방위
-        d_tab = fm['dist'][:, i, j].astype(float)                    # (L, n), nan = 안 보임
-        vis = np.isfinite(d_tab) & (d_tab <= p['max_range']) & inside[None]
-        dx = fm['lm_xy'][:, 0:1] - x[sel][None]
-        dy = fm['lm_xy'][:, 1:2] - y[sel][None]
-        hd = np.hypot(dx, dy)
-        rel = (np.degrees(np.arctan2(dx, dy)) - theta[sel][None] + 180) % 360 - 180   # 오른쪽 +
-        elev = np.degrees(np.arctan2(fm['lm_dz'][:, None], np.maximum(hd, 1e-6)))
-        cand = vis & (np.abs(rel) <= p['half_fov'] + p['fov_margin']) & (elev <= p['max_elev'])
+        rows = {}       # 종류 묶음 → (행 번호, 후보, 수평 거리, 상대 방위). 관측에 나온 종류의 행만 계산(판 끝점·면 점이 많아서)
         for ob in observations:
-            k = np.where(np.isin(fm['lm_type'], kind_types(ob)))[0]
-            if len(k) == 0:
+            ks = tuple(kind_types(ob))
+            if ks not in rows:
+                k = np.where(np.isin(fm['lm_type'], ks))[0]
+                rows[ks] = (k, *_kind_rows(fm, k, x[sel], y[sel], theta[sel], i, j, inside, p)) if len(k) else None
+            if rows[ks] is None:
                 logw[sel] += np.log(p['eps'])
                 continue
-            e = ((ob['bearing'] - rel[k] + 180) % 360 - 180) / p['sigma_bearing']
+            k, cand, hd, rel = rows[ks]
+            e = ((ob['bearing'] - rel + 180) % 360 - 180) / p['sigma_bearing']
             lik = -0.5 * e ** 2
             if ob.get('distance') is not None:
-                r = np.log(max(ob['distance'], 0.1) / np.maximum(hd[k], 0.1)) / p['sigma_dist']
+                r = np.log(max(ob['distance'], 0.1) / np.maximum(hd, 0.1)) / p['sigma_dist']
                 lik = lik - 0.5 * r ** 2
-            lik = np.where(cand[k], np.exp(lik), 0.0).max(0)          # 비고유: 후보 중 최댓값
+            lik = np.where(cand, np.exp(lik), 0.0).max(0)             # 비고유: 후보 중 최댓값
             s = float(ob.get('score', 1.0))
             logw[sel] += np.log(p['eps'] + (1 - p['eps']) * s * lik)
     return np.exp(logw - logw.max()) if N else logw   # 상대 가중치 (최댓값 1)
