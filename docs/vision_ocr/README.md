@@ -4,13 +4,14 @@ YOLO가 찾은 표지판을 **글자(OCR)로 한 번 더 확인**하는 부분�
 
 - `main`에서 갈라짐. **기존 파일은 고치지 않고** 새 문서·설정만 더함
 - 비전 관측을 PDR·PF에 붙이는 작업은 `vision-integration` 브랜치(김정환). 이 브랜치와 폴더가 겹치지 않음
-- 결과 정리: [아이폰OCR_결과.md](아이폰OCR_결과.md)
+- 결과 정리: [아이폰OCR_결과.md](아이폰OCR_결과.md), 조정 과정 한 표: [OCR조정과정.md](OCR조정과정.md)
 
 ## 들어 있는 것
 
 | 파일 | 내용 |
 |---|---|
 | `docs/vision_ocr/README.md` | 이 설명 |
+| `docs/vision_ocr/OCR조정과정.md` | 버전별로 넣어 본 것·결과·결정 한 표 |
 | `docs/vision_ocr/아이폰OCR_결과.md` | 아이폰 Apple Vision OCR 시험 결과(버전별 비교, 못 읽은 이유, 팀 제안) |
 | `configs/ocr_filter_app_v0.2.7.json` | 아이폰 시험 앱 0.2.7(지금 선택안)의 검출·필터·OCR 판정 설정 한 파일 |
 
