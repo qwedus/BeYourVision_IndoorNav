@@ -14,6 +14,7 @@ import numpy as np
 
 import paths
 from edge_faces import frame_obs
+from text_check import apply_decisions
 from time_filter import load_frames
 
 RIDE_RATE, FLOOR_DZ = 0.12, 3.0
@@ -25,9 +26,11 @@ REC_FIELDS = [("t", "f4"), ("err", "f4"), ("unc", "f4"), ("unc95", "f4"), ("herr
 
 
 # ---------------------------------------------------------------- 입력
-def load_obs(path, t0, mode="end"):
-    """cv_module 결과 → [(t, [obs dict])] (화면 끝 검출은 edge_faces 판 끝점 비교)."""
+def load_obs(path, t0, mode="end", decisions=None, unread="keep"):
+    """cv_module 결과 → [(t, [obs dict])] (화면 끝 검출은 edge_faces 판 끝점 비교). decisions: 글자 확인 결정(text_check, 없으면 끔)."""
     _, frames = load_frames(path)
+    if decisions is not None:
+        frames = apply_decisions(frames, decisions, unread)
     return sorted((frame_obs(f, t0, mode) for f in frames), key=lambda x: x[0])
 
 

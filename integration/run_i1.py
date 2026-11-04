@@ -4,6 +4,7 @@
     .venv/Scripts/python integration/run_i1.py --steps simple --name simple_pdr_inav_pf   # ② 임시 PDR + indoornav PF
     .venv/Scripts/python integration/run_i1.py --steps indoornav --sigma-h0 1.5 --name inav_h15  # 5단계 민감도
     --bearing-fix theta|bearing  걸음 사이 회전 보정, --track-limit N  같은 track N초에 1번 (설명: 작업기록 3차)
+    --text-check <결정 파일>  글자 확인(vision/inputs/i1/ 안 파일 이름, 끄려면 안 줌), --unread keep|drop  못 읽은 관측 넣음·뺌
 출력: integration/out/i1/<name>/summary.json·summary.md (runs.npz는 저장소에 안 넣음)
 
 조건 (기준 run_i1.py와 같은 이름)
@@ -42,16 +43,21 @@ def _init(steps_kind, n, sigma_h0_deg, opt=None):
     from pdr_steps import read_steps
     fmap, smeta = load_station(paths.INPUTS, with_meta=True)
     t0 = paths.rec_t0()
+    opt = opt or {}
+    dec = {}
+    if opt.get("text_check"):
+        from text_check import load_decisions
+        dec = dict(decisions=load_decisions(paths.I1 / opt["text_check"])[0], unread=opt.get("unread") or "keep")
     _G.update(fmap=add_face_points(fmap), smeta=smeta, maps=load_maps(), t0=t0,
-              obs={"raw": rp.load_obs(paths.I1 / "obs_nofilter.jsonl", t0),
-                   "tf": rp.load_obs(paths.I1 / "obs_timefilter.jsonl", t0)},
+              obs={"raw": rp.load_obs(paths.I1 / "obs_nofilter.jsonl", t0, **dec),
+                   "tf": rp.load_obs(paths.I1 / "obs_timefilter.jsonl", t0, **dec)},
               truth=rp.load_truth(paths.I1 / "truth.csv"))
     steps = rp.indoornav_sign(read_steps(STEPS[steps_kind]))
     _G["steps"] = {"known": steps, "drift": rp.drift_steps(steps, **DRIFT)}
     _G["rides"], _G["floors"] = rp.baro_events(rp.read_baro(paths.REC / "baro.csv", t0))
     over = {} if sigma_h0_deg is None else dict(sigma_h0=float(np.radians(sigma_h0_deg)))
     _G["P"] = pf_params(n, **over)
-    _G["opt"] = opt = opt or {}
+    _G["opt"] = opt
     if opt.get("bearing_fix"):
         from bearing_fix import rotation_since_step, fix_bearing
         h = np.load(paths.OUT / "i1/heading_indoornav.npz")
@@ -121,8 +127,10 @@ def main():
     ap.add_argument("--procs", type=int, default=10)
     ap.add_argument("--bearing-fix", choices=["theta", "bearing"], help="걸음 사이 회전 보정")
     ap.add_argument("--track-limit", type=float, help="같은 track은 N초에 1번만")
+    ap.add_argument("--text-check", help="글자 확인 결정 파일 (vision/inputs/i1/ 안 이름)")
+    ap.add_argument("--unread", choices=["keep", "drop"], help="못 읽은 관측: 넣음(기본)·뺌")
     a = ap.parse_args()
-    opt = dict(bearing_fix=a.bearing_fix, track_limit=a.track_limit)
+    opt = dict(bearing_fix=a.bearing_fix, track_limit=a.track_limit, text_check=a.text_check, unread=a.unread)
     sys.stdout.reconfigure(encoding="utf-8")
     sets = a.settings.split(",")
     conds = [dict(sc=sc, obs="none", set="기본", seed=s) for sc in SCENARIOS for s in range(a.seeds)]

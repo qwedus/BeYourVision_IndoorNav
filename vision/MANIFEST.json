@@ -112,6 +112,22 @@
    "sha256": "901b022011dbb17ede47776f6db1add73ef8ff32c55b0eba82315c6e2e3ac52c",
    "bytes": 3874
   },
+  "vision/inputs/i1/text_check_easyocr.jsonl": {
+   "src": "cv_test/out/i1/text_check_easyocr.jsonl",
+   "repo": "localization_design",
+   "src_commit": "8a02a72acdc09b57f11592e77fff42c74754d937",
+   "repo_head": "8a02a72acdc09b57f11592e77fff42c74754d937",
+   "sha256": "e3ed347491bcfa3433e518555c4068bb4a906e3cfd577e12a31a44f1da1cbd08",
+   "bytes": 236872
+  },
+  "vision/inputs/i1/text_check_easyocr_all.jsonl": {
+   "src": "cv_test/out/i1/text_check_easyocr_all.jsonl",
+   "repo": "localization_design",
+   "src_commit": "8a02a72acdc09b57f11592e77fff42c74754d937",
+   "repo_head": "8a02a72acdc09b57f11592e77fff42c74754d937",
+   "sha256": "6d34e598bcf3669adb286e9aab3f71879e69d6faf3d0274388ba37d2a6763d31",
+   "bytes": 238195
+  },
   "vision/inputs/i1/truth.csv": {
    "src": "cv_test/out/i1/truth.csv",
    "repo": "localization_design",
@@ -136,6 +152,14 @@
    "sha256": "cf1a6167c295ef5c69411af694e752dd11d62fdc56f8f00c2e0462090f9224f2",
    "bytes": 2696
   },
+  "vision/text_check.py": {
+   "src": "cv_test/i1/text_check.py",
+   "repo": "localization_design",
+   "src_commit": "8a02a72acdc09b57f11592e77fff42c74754d937",
+   "repo_head": "8a02a72acdc09b57f11592e77fff42c74754d937",
+   "sha256": "1e06a1d80e7c5043dd9bfa4136049d684c23597376e7c39a46463bedfb5066ec",
+   "bytes": 8327
+  },
   "vision/time_filter.py": {
    "src": "cv_test/i1/time_filter.py",
    "repo": "localization_design",
@@ -146,6 +170,6 @@
   }
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
- "synced_at": "2026-11-04T11:25:55",
- "localization_design_head": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821"
+ "synced_at": "2026-11-04T11:38:31",
+ "localization_design_head": "8a02a72acdc09b57f11592e77fff42c74754d937"
 }
