@@ -28,10 +28,19 @@ REC_FIELDS = [("t", "f4"), ("err", "f4"), ("unc", "f4"), ("unc95", "f4"), ("herr
 # ---------------------------------------------------------------- 입력
 def load_obs(path, t0, mode="end", decisions=None, unread="keep"):
     """cv_module 결과 → [(t, [obs dict])] (화면 끝 검출은 edge_faces 판 끝점 비교). decisions: 글자 확인 결정(text_check, 없으면 끔)."""
-    _, frames = load_frames(path)
+    return frames_obs(load_frames(path)[1], t0, mode, decisions, unread)
+
+
+def frames_obs(frames, t0, mode="end", decisions=None, unread="keep"):
     if decisions is not None:
         frames = apply_decisions(frames, decisions, unread)
     return sorted((frame_obs(f, t0, mode) for f in frames), key=lambda x: x[0])
+
+
+def threshold_frames(frames, th):
+    """종류별 문턱값을 cv_module 프레임에 건 사본(점수가 그 종류 문턱보다 낮은 관측을 뺌). 문턱 0.25는 cv_module에서 이미 적용됨.
+    시간 필터는 이 뒤에 다시 돌려야 한다(문턱에 걸린 프레임은 hit가 아님)."""
+    return [dict(f, observations=[o for o in f["observations"] if o["score"] >= th.get(o["label"], 0.0)]) for f in frames]
 
 
 def read_baro(path, t0):

@@ -4,6 +4,8 @@
     .venv/Scripts/python integration/run_i1.py --steps simple --name simple_pdr_inav_pf   # ② 임시 PDR + indoornav PF
     .venv/Scripts/python integration/run_i1.py --steps indoornav --sigma-h0 1.5 --name inav_h15  # 5단계 민감도
     --bearing-fix theta|bearing  걸음 사이 회전 보정, --track-limit N  같은 track N초에 1번 (설명: 작업기록 3차)
+    --adopted  채택한 비전 설정(integration/vision_options.json)으로. 아래 옵션을 주면 그 값이 이김
+    --cls-th exit=0.3,monitor=0.3,...  종류별 문턱값 (관측 프레임에 건 뒤 시간 필터를 다시 돌림)
     --text-check <결정 파일>  글자 확인(vision/inputs/i1/ 안 파일 이름, 끄려면 안 줌), --unread keep|drop  못 읽은 관측 넣음·뺌
 출력: integration/out/i1/<name>/summary.json·summary.md (runs.npz는 저장소에 안 넣음)
 
@@ -48,9 +50,14 @@ def _init(steps_kind, n, sigma_h0_deg, opt=None):
     if opt.get("text_check"):
         from text_check import load_decisions
         dec = dict(decisions=load_decisions(paths.I1 / opt["text_check"])[0], unread=opt.get("unread") or "keep")
-    _G.update(fmap=add_face_points(fmap), smeta=smeta, maps=load_maps(), t0=t0,
-              obs={"raw": rp.load_obs(paths.I1 / "obs_nofilter.jsonl", t0, **dec),
-                   "tf": rp.load_obs(paths.I1 / "obs_timefilter.jsonl", t0, **dec)},
+    if opt.get("cls_th"):
+        from time_filter import apply, load_frames
+        frames = rp.threshold_frames(load_frames(paths.I1 / "obs_nofilter.jsonl")[1], opt["cls_th"])
+        obs = {"raw": rp.frames_obs(frames, t0, **dec), "tf": rp.frames_obs(apply(frames), t0, **dec)}
+    else:
+        obs = {"raw": rp.load_obs(paths.I1 / "obs_nofilter.jsonl", t0, **dec),
+               "tf": rp.load_obs(paths.I1 / "obs_timefilter.jsonl", t0, **dec)}
+    _G.update(fmap=add_face_points(fmap), smeta=smeta, maps=load_maps(), t0=t0, obs=obs,
               truth=rp.load_truth(paths.I1 / "truth.csv"))
     steps = rp.indoornav_sign(read_steps(STEPS[steps_kind]))
     _G["steps"] = {"known": steps, "drift": rp.drift_steps(steps, **DRIFT)}
@@ -69,14 +76,15 @@ def _init(steps_kind, n, sigma_h0_deg, opt=None):
             del _G["dpsi"]
     if opt.get("track_limit"):
         from time_filter import load_frames, track_ids
-        ids = track_ids(load_frames(paths.I1 / "obs_nofilter.jsonl")[1])
+        fr = load_frames(paths.I1 / "obs_nofilter.jsonl")[1]
+        ids = track_ids(rp.threshold_frames(fr, opt["cls_th"]) if opt.get("cls_th") else fr)
         _G["obs"] = {k: rp.attach_tracks(v, ids) for k, v in _G["obs"].items()}
 
 
 def _job(c):
     from vision_filter import VisionFilter
     r0 = _G["truth"][0]
-    st = SETTINGS[c["set"]]
+    st = c.get("st") or SETTINGS[c["set"]]
     F = VisionFilter(_G["P"], _G["maps"], _G["fmap"], _G["smeta"], int(r0["floor"]), [r0["east"], r0["north"]],
                    float(r0["heading_deg"]), c["seed"], st["obs_params"])
     obs = _G["obs"]["raw" if c["obs"] == "none" else c["obs"]]
@@ -125,12 +133,18 @@ def main():
     ap.add_argument("--settings", default="기본,중간")
     ap.add_argument("--seeds", type=int, default=10)
     ap.add_argument("--procs", type=int, default=10)
+    ap.add_argument("--adopted", action="store_true", help="vision_options.json 설정으로")
     ap.add_argument("--bearing-fix", choices=["theta", "bearing"], help="걸음 사이 회전 보정")
     ap.add_argument("--track-limit", type=float, help="같은 track은 N초에 1번만")
+    ap.add_argument("--cls-th", help="종류별 문턱값 exit=0.3,monitor=0.3,...")
     ap.add_argument("--text-check", help="글자 확인 결정 파일 (vision/inputs/i1/ 안 이름)")
     ap.add_argument("--unread", choices=["keep", "drop"], help="못 읽은 관측: 넣음(기본)·뺌")
     a = ap.parse_args()
-    opt = dict(bearing_fix=a.bearing_fix, track_limit=a.track_limit, text_check=a.text_check, unread=a.unread)
+    opt = dict(bearing_fix=a.bearing_fix, track_limit=a.track_limit, text_check=a.text_check, unread=a.unread,
+               cls_th={k: float(v) for k, v in (x.split("=") for x in a.cls_th.split(","))} if a.cls_th else None)
+    if a.adopted:
+        base = json.loads((paths.HERE / "vision_options.json").read_text(encoding="utf-8"))
+        opt = {k: (opt[k] if opt[k] is not None else base[k]) for k in opt}
     sys.stdout.reconfigure(encoding="utf-8")
     sets = a.settings.split(",")
     conds = [dict(sc=sc, obs="none", set="기본", seed=s) for sc in SCENARIOS for s in range(a.seeds)]

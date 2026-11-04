@@ -13,9 +13,11 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `vision/obs_model.py` | 관측 모델 `obs_likelihood` (방위각·가시성·화각·바닥값) | **localization_design** (`cv_test/pf/obs_model.py`) |
 | `vision/time_filter.py` | 시간 필터(최근 5프레임 중 3번) + cv_module 결과 읽기 | **localization_design** (`cv_test/i1/time_filter.py`) |
 | `vision/edge_faces.py` | 화면 끝 검출 → 판 끝점 비교 | **localization_design** (`cv_test/i1/edge_faces.py`) |
+| `vision/bearing_fix.py` | 걸음 사이 회전 Δ 계산 | **localization_design** (`cv_test/i1/bearing_fix.py`) |
+| `vision/text_check.py` | 글자 확인 결정 파일 읽기·적용 + 판정 규칙 (엔진 없음) | **localization_design** (`cv_test/i1/text_check.py`) |
 | `vision/station_pkg.py` | 역사 패키지 읽기 + ENU ↔ aligned·나침반 ↔ th 변환 | **localization_design** (`cv_test/pf/station_pkg.py`) |
 | `vision/inputs/dongchun_station.*` | 역사 패키지: 랜드마크 94면·가시성 표·`computed`·층 높이·좌표 변환·에스컬레이터 끝(그래프 키) | **localization_design** (`export_station.py` 결과) |
-| `vision/inputs/i1/` | 관측 JSONL(필터 없음·시간 필터), 정답 궤적·기준점, 임시 PDR 걸음, 시뮬 PF 기준 결과(`baseline_summary.json`, b852501) | **localization_design** (`cv_test/out/i1/`) |
+| `vision/inputs/i1/` | 관측 JSONL(필터 없음·시간 필터), 정답 궤적·기준점, 임시 PDR 걸음, 시뮬 PF 옛 기준(`baseline_summary.json`, b852501)·새 기준(`baseline_newvis.json`, 가시성 다시 계산 뒤)·① (`sim_pf_inav_pdr_newvis.json`), EasyOCR 결정 파일 | **localization_design** (`cv_test/out/i1/`) |
 | `vision/inputs/i1/rec/` | 앱 녹화 `motion.csv`·`baro.csv`·`meta.json`·`marks.jsonl` (영상 174 MB는 안 옮김) | 1차 답사 녹화 원본 |
 | `vision/MANIFEST.json` | 위 파일마다 원본 경로·출처 커밋·sha256 | 복사 도구가 만듦 |
 | `integration/` | 앱 녹화 → `Session`, indoornav PDR 걸음 추출, 방 뺀 보행 마스크, `VisionFilter` 어댑터, 재생기·실행기·검산·비교표 | **이 브랜치** |
@@ -38,6 +40,10 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `run_i1.py` | 조건 × seed 실행 → `out/i1/<이름>/summary.json` |
 | `check_inputs.py` | 7절 1·2단계 검산 → `out/i1/check_inputs.json` |
 | `compare.py` | 시뮬 PF 기준과 나란히 비교표 → `out/i1/compare.md` |
+| `compare_features.py` | 비전 추가 기능 켬/끔 비교표 → `out/i1/compare_*.md` |
+| `sweep_obs.py` | 관측 설정 훑기 → `out/i1/sweep_*.md` |
+| `diag_k_end.py` | 끝 k·끝 오차 진단(벽·비전·걸음·k를 하나씩 뺌) → `out/i1/diag_k_end.md` |
+| `vision_options.json` | 채택한 비전 설정 (`run_i1.py --adopted`) |
 | `fig_i1.py` | 시간별 오차·경로 그림 → `out/i1/<이름>/fig_error.png`·`fig_map.png` |
 
 ## 실행 방법
@@ -69,10 +75,14 @@ uv sync --frozen
 ```
 
 ```bash
-.venv/Scripts/python integration/compare.py --sim-pf-inav-pdr integration/out/i1/sim_pf_inav_pdr.json
+.venv/Scripts/python integration/run_i1.py --steps indoornav --adopted --name final_adopted
 ```
 
-민감도(5단계)는 `--sigma-h0 1.5 --name <이름>_h15`, 처리 시간은 `--n 1000`. 11개 프로세스로 한 실행(100회) 약 12분(관측 모델이 대부분). ①(시뮬 PF + indoornav PDR)은 localization_design에서 `cv_test/i1/check_baseline.py --steps <브랜치>/integration/out/i1/steps_indoornav.csv --first-dh --name sim_pf_inav_pdr`로 돌린 결과를 `integration/out/i1/sim_pf_inav_pdr.json`에 옮겨 둠. 그림: `integration/fig_i1.py --name <이름>`.
+```bash
+.venv/Scripts/python integration/compare.py
+```
+
+민감도(5단계)는 `--sigma-h0 1.5 --name <이름>_h15`, 처리 시간은 `--n 1000`. 10개 프로세스로 한 실행(100회) 약 40초. ①(시뮬 PF + indoornav PDR)은 localization_design에서 `cv_test/i1/check_baseline.py --steps <브랜치>/integration/out/i1/steps_indoornav.csv --first-dh --name sim_pf_inav_pdr_newvis`로 돌린 결과를 복사 도구로 가져옴. 기능을 하나씩 켜려면 `--bearing-fix theta`, `--track-limit 1`, `--text-check text_check_easyocr.jsonl`, `--cls-th exit=0.3,...`. 그림: `integration/fig_i1.py --name <이름>`.
 
 ## 좌표·각도·시계 약속
 
@@ -101,6 +111,10 @@ uv sync --frozen
 
 기존 보행 마스크는 평면도 이미지 색으로 만든 것이라 B01 직원실·매표실, B02 계단·에스컬레이터 구조물 안쪽, 그림 속 글자·지시선까지 걸을 수 있는 곳으로 들어가 있다. 규칙: **기존 보행 마스크 칸 중 역사 패키지 보행칸(가시성 표 `walk`, 0.5 m 격자)에서 0.5 m 넘게 떨어진 칸은 뺌.** B01 2758 → 2316 m², B02 2337 → 1995 m². 정답 궤적은 두 층 모두 100% 안. indoornav `GridMap` 클래스로 그대로 읽음.
 
-## 비전 설정 (병합 중 고정)
+## 비전 설정
 
-검출 문턱 0.25(모든 종류) + 시간 필터(5프레임 중 3번) + 화면 끝 판 끝점 비교 + 11-03 랜드마크 지도(94면). 걸음 사이 회전 보정·track별 반복 제한·OCR 글자 확인은 기준 재현 뒤 하나씩 켤 예정(연결안 7절 6단계, 아직 안 함).
+병합 중 고정값: 검출 문턱 0.25(모든 종류) + 시간 필터(5프레임 중 3번) + 화면 끝 판 끝점 비교 + 11-03 랜드마크 지도(94면).
+
+1차 병합 뒤 채택(근거는 [작업기록.md](작업기록.md) 3차): 가시성 표 다시 계산(`computed` = 보행칸 1칸 넓힘 ∪ 기존 보행 마스크), **걸음 사이 회전 보정**(비교할 때만 파티클 방향에 Δ를 더함, PF 상태는 안 바뀜), **track별 반복 제한 1 s**. 켜지 않음: 글자 확인(OCR, 나아지지 않음, `--text-check`로 켤 수 있고 Apple Vision은 같은 형식 결정 파일이면 됨), 종류별 문턱값(후보 B를 2차 답사 평가용 녹화로 확정할 때까지). 관측 설정은 기본·중간을 나란히 비교, 잠정 기본.
+
+**결정 파일 형식**: `vision/text_check.py` 맨 위. 검출·OCR은 localization_design에서 돌리고 이 브랜치는 결과만 읽음.
