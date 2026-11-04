@@ -1,11 +1,11 @@
 """I1 결과 비교표: 시뮬 PF 병합 기준(b852501)과 indoornav PF 재생 결과를 같은 조건 칸에 나란히 (연결안 7절 4·5단계).
 
-    .venv/Scripts/python integration/compare.py [--sim-pf-inav-pdr <localization_design cv_test/out/i1/check/sim_pf_inav_pdr.json>]
+    .venv/Scripts/python integration/compare.py
 → integration/out/i1/compare.md
-열: 기준 = 시뮬 PF + 임시 PDR / ① 시뮬 PF + indoornav PDR (localization_design에서 돌린 값) / ② indoornav PF + 임시 PDR /
-    ③ indoornav PDR + PF / 5단계 ②·③에서 indoornav PF 걸음당 방향 잡음 sigma_h0 0.5° → 1.5°
+열: 옛 기준(b852501, 가시성 다시 계산 전) / 새 기준 = 시뮬 PF + 임시 PDR / ① 시뮬 PF + indoornav PDR (둘 다 localization_design에서 돌린 값) /
+    ② indoornav PF + 임시 PDR / ③ indoornav PDR + PF / ③ 가시성 다시 계산 전(out/i1/before_vis) /
+    5단계 ②·③에서 indoornav PF 걸음당 방향 잡음 sigma_h0 0.5° → 1.5°
 """
-import argparse
 import json
 import sys
 
@@ -36,23 +36,22 @@ def cell(s):
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--sim-pf-inav-pdr")
-    a = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
-    base = json.loads((paths.I1 / "baseline_summary.json").read_text(encoding="utf-8"))["summary"]
-    cols = [("기준: 시뮬 PF + 임시 PDR", base)]
-    if a.sim_pf_inav_pdr:
-        cols.append(("① 시뮬 PF + indoornav PDR", json.loads(open(a.sim_pf_inav_pdr, encoding="utf-8").read())["summary"]))
+    load = lambda p: json.loads(p.read_text(encoding="utf-8"))
+    cols = [("옛 기준 b852501: 시뮬 PF + 임시 PDR", load(paths.I1 / "baseline_summary.json")["summary"]),
+            ("새 기준: 시뮬 PF + 임시 PDR", load(paths.I1 / "baseline_newvis.json")["summary"]),
+            ("① 시뮬 PF + indoornav PDR", load(paths.I1 / "sim_pf_inav_pdr_newvis.json")["summary"])]
     res = {}
     for name, label in RUNS:
         p = paths.OUT / "i1" / name / "summary.json"
         if p.exists():
             res[name] = json.loads(p.read_text(encoding="utf-8"))
             cols.append((label, res[name]["summary"]))
+    cols.insert(5, ("③ 가시성 다시 계산 전", load(paths.OUT / "i1/before_vis/inav_pdr_pf/summary.json")["summary"]))
     L = ["# I1 비교표 — indoornav PF vs 시뮬 PF 기준", "",
          "칸: 걷는 구간 위치 오차 **중앙 / 90% / 최대 (m) · 끝(3-1 문 앞) 오차 (m)**, seed 10개 중앙. "
          "에스컬레이터 구간(78.3~103 s) 제외, 지표 정의는 localization_design run_i1.metrics와 같음. "
+         "**녹화 1회 재생(손에 든 촬영)이라 낙관적일 수 있고 조끼 성능이 아님.** "
          "N 3000, 관측 설정 기본 = 5 Hz·σ 5°·바닥값 0.1, 중간 = 2 Hz·σ 10°·바닥값 0.1.", "",
          "| 조건 | 설정 | " + " | ".join(c for c, _ in cols) + " |", "|---|---|" + "---|" * len(cols)]
     for sc, ob, st in ROWS:

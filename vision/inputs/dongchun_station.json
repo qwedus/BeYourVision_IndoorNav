@@ -12,7 +12,7 @@
   "compass": "나침반(북 0°, 시계 +) = wrap360(90 + aligned_from_enu_rot_deg - deg(th)), th = aligned 수학각"
  },
  "aligned_from_enu_rot_deg": -52.73,
- "computed_note": "computed = 가시성 표를 계산한 칸(지금은 보행칸 walk). 그 밖 칸의 nan은 '모름'",
+ "computed_note": "computed = 가시성 표를 계산한 칸(보행칸 1칸 넓힌 것 ∪ 기존 보행 마스크). 그 밖 칸의 nan은 '모름'",
  "escalators": [
   {
    "name": "동막 방면",
@@ -2137,16 +2137,17 @@
  },
  "source": {
   "repo": "localization_design",
-  "commit": "9f8b8be3285f5cb4ccf387654d59b5bbfeac7d25",
+  "commit": "0286ea8c19d2c06663bc0f1a60fcf09acf542c1e",
   "dirty": [],
   "files": {
    "landmark/landmarks_Dongchun.json": "807d9041c2003c9b0c4812cc0aea7428f22710cd1d6fbee061815a16befdef70",
-   "landmark/out/visibility_B01.npz": "31011ffe4e20b5431211ae73b788cce2f2f4a90276dd10f4778ebce17dd12b5f",
-   "landmark/out/visibility_B02.npz": "1a698d18724c6d615ddde7c1ad8a3780676159901d33c04e0880b167fc74917d",
+   "landmark/visibility.py": "0b2925ffcaf75eee4a653e7824b9b506c8feb2da98625f3fef641b10c1a3ba3d",
+   "landmark/out/visibility_B01.npz": "30df0c04e91697e09c6a07060d2a5f4f1db08caaf9babd15790015702078832f",
+   "landmark/out/visibility_B02.npz": "2e1422dc4d1e4feb591551f41d7324061197476a16bb45a8935f2c21b8c30a3e",
    "landmark/plan.py": "5203e8fc50d97b2a31c90afb020463388eaa912fdbbb278f63e116756394a911",
    "landmark/build_landmarks.py": "785932ccc1b5f02bcc348aed6656dc13939c3cfd9e283d8bffd3beaf9fd7e667",
-   "cv_test/pf/mapdata.py": "0db928e25c6eeecd85c0d9cfb44a57b9950d70068760157ad7990eaf710d1c56",
-   "cv_test/pf/export_station.py": "21bfdf2484706bd3a58c6c4bf67f170c4f92c2dea44f7dd4082fde8126dcdbcc"
+   "cv_test/pf/mapdata.py": "117813b12c22278af8b7b7855d9f0bd522cc932eef086542cdc732bae1e3104f",
+   "cv_test/pf/export_station.py": "4f3df9fac606bd276f132e12e9e81895cb10215683d1a2f23f2e519ae67cc95a"
   },
   "graph": {
    "repo": "capstone_graph",

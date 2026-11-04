@@ -81,7 +81,7 @@
  },
  "map": {
   "B01": {
-   "walk_in_computed": 0.9505854319476688,
+   "walk_in_computed": 1.0,
    "truth_in_mask": 1.0,
    "orig_m2": 2758.1,
    "kept_m2": 2315.7,
@@ -89,7 +89,7 @@
    "orig_in_station_walk": 0.7981
   },
   "B02": {
-   "walk_in_computed": 0.9492392158574922,
+   "walk_in_computed": 1.0,
    "truth_in_mask": 1.0,
    "orig_m2": 2337.1,
    "kept_m2": 1995.2,

@@ -17,6 +17,8 @@
 한 관측의 점수 = eps + (1 - eps) · score · max_후보 [ exp(-½(Δ방위/σb)²) · exp(-½(ln(d관측/d지도)/σd)²) ]
     후보 = 그 파티클 자리에서 가시성 표로 보이고(앞면·구조물 가림은 표에 이미 들어 있음),
           거리 max_range 안, 화각(± half_fov + fov_margin, 위로 max_elev) 안인 **같은 종류** 랜드마크
+    - 가시성 표를 계산 안 한 칸(지도 computed 밖, 격자 밖)은 '안 보임'이 아니라 '모름'. unknown='floor'(기본)는 계산한 칸의
+      '후보 없음'과 같게 바닥값을 주고, unknown='median'(진단용)은 그 층 계산한 파티클들의 중앙값을 준다
     - 비고유 랜드마크(같은 종류 여러 개)는 후보 중 최댓값 (설계서)
     - eps = 바닥값(이상치 혼합): 광고 오인 같은 틀린 검출 하나가 맞는 파티클을 0으로 만들지 않게
     - 거리 오차는 비율(σ 30%)이라 로그 비로 잰다. 거리가 None이면 방위각만 쓴다
@@ -28,6 +30,7 @@
     x0, y0, cell        보행 격자 원점·칸 크기 (격자 좌표 = '역 좌표'; 동·북에서 회전 R, 이동 T)
     R (2,2), T (2,)     격자 좌표 = (동북 - T) @ R
     dist (L, H, W)      가시성 표: 칸에서 랜드마크까지 거리, 안 보이면 nan (앞면·구조물 가림 반영)
+    computed (H, W)     가시성을 계산한 칸 (없으면 격자 안 전부로 봄)
     lm_xy (L, 2)        랜드마크 중심 동·북
     lm_dz (L,)          랜드마크 중심 높이 - 카메라 높이 [m] (앙각 조건용)
     lm_type (L,)        종류 문자열
@@ -42,6 +45,7 @@ DEFAULT = dict(
     half_fov=30.0,          # 도
     fov_margin=5.0,         # 도. 파티클 방향이 조금 틀려도 화각 끝 표지판을 놓치지 않게
     max_elev=25.0,          # 도. 이보다 위는 화면 밖
+    unknown='floor',        # 가시성 계산 안 한 칸: 'floor' 바닥값 / 'median' 중앙값(진단용)
 )
 
 # 같은 검출 종류로 보는 지도 종류 (10-31: 남색 판은 한 종류로 검출 → 타는 곳·방면 판 둘 다 후보, 층은 기압으로 구분)
@@ -62,6 +66,12 @@ def _cells(fm, x, y):
     H, W = fm['dist'].shape[1:]
     inside = (i >= 0) & (i < H) & (j >= 0) & (j < W)
     return np.clip(i, 0, H - 1), np.clip(j, 0, W - 1), inside
+
+
+def computed_at(fm, x, y):
+    """동·북 점들이 가시성을 계산한 칸 위인가 (False = 그 자리의 nan은 '모름')"""
+    i, j, inside = _cells(fm, x, y)
+    return inside & fm['computed'][i, j] if 'computed' in fm else inside
 
 
 def _kind_rows(fm, k, x, y, theta, i, j, inside, p):
@@ -116,4 +126,8 @@ def obs_likelihood(x, y, theta, floor, observations, fmap, params=None):
             lik = np.where(cand, np.exp(lik), 0.0).max(0)             # 비고유: 후보 중 최댓값
             s = float(ob.get('score', 1.0))
             logw[sel] += np.log(p['eps'] + (1 - p['eps']) * s * lik)
+        if p['unknown'] == 'median':
+            known = computed_at(fm, x[sel], y[sel])
+            if known.any():
+                logw[sel[~known]] = np.median(logw[sel[known]])
     return np.exp(logw - logw.max()) if N else logw   # 상대 가중치 (최댓값 1)

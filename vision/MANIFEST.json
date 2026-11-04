@@ -11,18 +11,26 @@
   "vision/inputs/dongchun_station.json": {
    "src": "cv_test/out/station/dongchun_station.json",
    "repo": "localization_design",
-   "src_commit": "e216b5c2cd4c7e5e15e8d6c5c2d659aeff3a49cc",
-   "repo_head": "e216b5c2cd4c7e5e15e8d6c5c2d659aeff3a49cc",
-   "sha256": "4dc4045d18dba0013c15f4cf6bd852b966695ce429e2f06c4cc0de97687c6a40",
-   "bytes": 33486
+   "src_commit": "a1046fd9e05e1de0e25122711b8755ce34845d32",
+   "repo_head": "a1046fd9e05e1de0e25122711b8755ce34845d32",
+   "sha256": "625c39e0a4df8187b0808151d0e9c8c1ddb8f36a97cc43dd7af3b2f7e642a9e5",
+   "bytes": 33612
   },
   "vision/inputs/dongchun_station.npz": {
    "src": "cv_test/out/station/dongchun_station.npz",
    "repo": "localization_design",
-   "src_commit": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
-   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
-   "sha256": "9c070c2586b926077bd5025137986a81f140e96c060c16e6e04484b079fec203",
-   "bytes": 189687
+   "src_commit": "a1046fd9e05e1de0e25122711b8755ce34845d32",
+   "repo_head": "a1046fd9e05e1de0e25122711b8755ce34845d32",
+   "sha256": "9ace6c52dcdcc173d132ed2e611a21f42c1b7e91a0f47eda7f50a12bf5acc1aa",
+   "bytes": 199893
+  },
+  "vision/inputs/i1/baseline_newvis.json": {
+   "src": "cv_test/out/i1/check/baseline_newvis.json",
+   "repo": "localization_design",
+   "src_commit": "a1046fd9e05e1de0e25122711b8755ce34845d32",
+   "repo_head": "a1046fd9e05e1de0e25122711b8755ce34845d32",
+   "sha256": "70043e48d81a1907a3898f7c0188a199b4bf2841336d6d86b0a72eaeef794d39",
+   "bytes": 5825
   },
   "vision/inputs/i1/baseline_summary.json": {
    "src": "cv_test/out/i1/summary.json",
@@ -80,6 +88,14 @@
    "sha256": "461da8eb61663891f632e1c86e7cb992fdf95ba347a09c645225ab69f5bd8eb7",
    "bytes": 1847761
   },
+  "vision/inputs/i1/sim_pf_inav_pdr_newvis.json": {
+   "src": "cv_test/out/i1/check/sim_pf_inav_pdr_newvis.json",
+   "repo": "localization_design",
+   "src_commit": "a1046fd9e05e1de0e25122711b8755ce34845d32",
+   "repo_head": "a1046fd9e05e1de0e25122711b8755ce34845d32",
+   "sha256": "45df8e852447aa534210019b7100a7e1b46567945dee967254609200089e6f88",
+   "bytes": 5874
+  },
   "vision/inputs/i1/steps_simple.csv": {
    "src": "cv_test/out/i1/steps_simple.csv",
    "repo": "localization_design",
@@ -99,10 +115,10 @@
   "vision/obs_model.py": {
    "src": "cv_test/pf/obs_model.py",
    "repo": "localization_design",
-   "src_commit": "c2ad45b933eba63d9c5a9bf244b1c44990f24d09",
-   "repo_head": "c2ad45b933eba63d9c5a9bf244b1c44990f24d09",
-   "sha256": "b82d76b6ce3a804555e4cbc61c36fafd66b315cf584384d4099a1d3ff530bfa5",
-   "bytes": 6885
+   "src_commit": "0286ea8c19d2c06663bc0f1a60fcf09acf542c1e",
+   "repo_head": "a1046fd9e05e1de0e25122711b8755ce34845d32",
+   "sha256": "214a8455337d3f6f67b17a8c3f5c2cd8194f4d93125863637b26ff9d58819dd9",
+   "bytes": 7804
   },
   "vision/station_pkg.py": {
    "src": "cv_test/pf/station_pkg.py",
@@ -122,6 +138,6 @@
   }
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
- "synced_at": "2026-11-04T11:04:32",
- "localization_design_head": "c2ad45b933eba63d9c5a9bf244b1c44990f24d09"
+ "synced_at": "2026-11-04T11:09:48",
+ "localization_design_head": "a1046fd9e05e1de0e25122711b8755ce34845d32"
 }
