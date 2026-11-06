@@ -8,6 +8,7 @@
     text, reason  판정에 쓴 글자·이유
 엔진을 바꿀 때는 같은 형식 파일을 만들면 된다(EasyOCR은 text_check_easyocr.py가 만듦, torch가 필요해 localization_design에서 돌림).
 못 읽은 관측: unread='keep'(기본, 넣음) / 'drop'(뺌). 버린 관측은 지우지 않고 dropped에 reason='text_check'로 남긴다.
+결정이 없는 관측은 그대로 넣으므로 결정 파일 ID가 관측과 안 이어지면 글자 확인이 조용히 꺼진다 → 연결률을 알리고, MIN_LINK 아래면 멈춘다(link_stats).
 
 판정 규칙(decide 등)은 11-02 OCR 필터의 ocr_filter.py를 그대로 옮긴 것(완화 규칙 loose 포함, 기본 켬 = 그 보고의 기본안).
 sure=True(11-04 비교용 추가): 다른 종류의 글자 없이 "뜻 있는 글자"라는 이유만으로는 버리지 않고, 표지판 글자와 안 닮은 한글(ad_like)일 때만 버림.
@@ -17,10 +18,12 @@ track_decide는 yolo_ocr_live.py의 판 단위 처리와 같음: 앞 프레임�
 """
 import difflib
 import json
+import multiprocessing
 import re
 from collections import defaultdict
 from pathlib import Path
 
+MIN_LINK = 0.5      # 이어진 수 ÷ min(관측 수, 결정 수)가 이보다 낮으면 다른 기록의 결정 파일로 보고 멈춤
 TEXT_CLASSES = ("exit", "navy", "ticket_sign", "monitor", "map", "area_map")
 MAP_TYPES = {"exit": ["exit_sign"], "navy": ["track_sign", "direction_sign"], "ticket_sign": ["ticket_sign"],
              "monitor": ["info_monitor"], "map": ["station_map", "route_map"], "area_map": ["area_map"]}
@@ -191,8 +194,23 @@ def load_decisions(path):
     return {r["detection_id"]: r for r in rows}, head["engine"]
 
 
-def apply_decisions(frames, decisions, unread="keep"):
-    """cv_module 프레임들에 결정 적용(사본 반환). reject·(unread='drop'이면 못 읽음)은 dropped로, relabel은 map_types만 바꿈."""
+def link_stats(frames, decisions):
+    """결정 파일과 관측이 얼마나 이어지나. 시간 필터 뒤 관측에 전체 관측용 결정을 쓰거나 그 반대면 한쪽 비율만 낮으므로 작은 쪽 기준 overlap으로 판단."""
+    ids = {ob["detection_id"] for f in frames for ob in f.get("observations", [])}
+    hit = len(ids & set(decisions))
+    return dict(n_obs=len(ids), n_dec=len(decisions), linked=hit, obs_rate=hit / len(ids) if ids else 1.0,
+                dec_rate=hit / len(decisions) if decisions else 1.0, overlap=hit / min(len(ids), len(decisions)) if ids and decisions else float(not ids))
+
+
+def apply_decisions(frames, decisions, unread="keep", min_link=MIN_LINK):
+    """cv_module 프레임들에 결정 적용(사본 반환). reject·(unread='drop'이면 못 읽음)은 dropped로, relabel은 map_types만 바꿈.
+    결정이 없는 관측은 그대로 둠. 연결률이 min_link 아래면 ValueError."""
+    st = link_stats(frames, decisions)
+    if st["overlap"] < min_link:
+        raise ValueError(f"글자 확인 결정이 관측과 안 이어짐: 관측 {st['n_obs']}개, 결정 {st['n_dec']}개 중 이어진 것 {st['linked']}개 "
+                         f"(연결률 {st['overlap']:.0%} < {min_link:.0%}). 다른 기록의 결정 파일인지 확인할 것")
+    if st["obs_rate"] < 1 and multiprocessing.parent_process() is None:
+        print(f"글자 확인 연결률: 관측 {st['n_obs']}개 중 {st['linked']}개({st['obs_rate']:.0%}), 결정 {st['n_dec']}개 중 {st['dec_rate']:.0%}. 결정 없는 관측은 그대로 넣음")
     out = []
     for f in frames:
         f = json.loads(json.dumps(f))

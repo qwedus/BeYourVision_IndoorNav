@@ -3,10 +3,11 @@
   "vision/bearing_fix.py": {
    "src": "cv_test/i1/bearing_fix.py",
    "repo": "localization_design",
-   "src_commit": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821",
-   "repo_head": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821",
-   "sha256": "53335c432d926b0762c076f2cf565a9c85322d215c3c84d7ffeb34462ec55d63",
-   "bytes": 1780
+   "src_commit": null,
+   "repo_head": null,
+   "sha256": "93d4fe65a3eb7bd34022b1e50505a52f5eea6b249ac2d7acf2b0ec95f7bc6ce7",
+   "bytes": 2061,
+   "pending": "원본 수정이 아직 커밋 전(원본 쪽 커밋 뒤 채울 것)"
   },
   "vision/edge_faces.py": {
    "src": "cv_test/i1/edge_faces.py",
@@ -163,10 +164,11 @@
   "vision/text_check.py": {
    "src": "cv_test/i1/text_check.py",
    "repo": "localization_design",
-   "src_commit": "1df0e53d758829b6be307f9a7e8e9ddad8cd2242",
-   "repo_head": "1df0e53d758829b6be307f9a7e8e9ddad8cd2242",
-   "sha256": "828b8f00ecc0085c7abde15f8f57456aea468abe8c1852e77b81c72e9f6016fa",
-   "bytes": 11394
+   "src_commit": null,
+   "repo_head": null,
+   "sha256": "b31da1ed266d0a28b42617e1dbbd18ab51bc0874768d14f01af6e892f0a79996",
+   "bytes": 13136,
+   "pending": "원본 수정이 아직 커밋 전(원본 쪽 커밋 뒤 채울 것)"
   },
   "vision/time_filter.py": {
    "src": "cv_test/i1/time_filter.py",

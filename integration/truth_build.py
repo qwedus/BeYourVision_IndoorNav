@@ -6,7 +6,7 @@
 기준점 한 개 (integration/recordings/<이름>.json의 waypoints)
     name   이름, t 녹화 시작부터 초, floor 층(B1 = -1, B2 = -2)
     위치   st [x, y] 역 좌표(승강장 길이 방향 x, 폭 방향 y) 또는 node "GATE_3"(capstone_graph graph.json key) 둘 중 하나
-    ref    무엇을 보고 정했나(기둥·벽 모서리·개찰구·에스컬레이터 끝·문). **판은 쓰지 않는다**(판 위치가 틀렸을 수 있어 채점이 순환됨)
+    ref    무엇을 보고 정했나(기둥·벽 모서리·개찰구·에스컬레이터 끝·문). **판은 쓰지 않는다**(판 위치가 틀렸을 수 있어 채점이 순환됨). 옛 기록의 basis도 같이 검사
     esc    true면 다음 기준점까지 에스컬레이터(시간 비례 보간, 채점 제외)
     face   {"until": 초, "dir_st": [x, y]} 이 구간 앞부분 방향을 진행 방향 대신 이 값으로(계단에서 다른 쪽을 볼 때)
 보간: 걷는 구간은 임시 PDR(steps_simple.csv) 걸음 수 비례(멈춘 동안 제자리), 걸음이 없으면 시간 비례. 정답이 평가 대상 PDR(indoornav)의
@@ -14,6 +14,7 @@
 """
 import csv
 import json
+import re
 import sys
 
 import numpy as np
@@ -21,6 +22,8 @@ import numpy as np
 import paths
 
 BAD_REF = ("판", "표지", "안내도", "노선도", "모니터", "타는 곳", "나가는 곳", "표 사는 곳", "발권기")
+REF_KEYS = ("ref", "basis")   # 무엇을 보고 정했는지 적는 두 칸(옛 기록은 basis)
+NOT_SIGN = "판단|판정"         # '판'이 들어가지만 판이 아닌 말
 GRAPH = paths.ROOT.parent / "capstone_graph" / "data" / "dongchun" / "graph.json"
 STEP_OK = (0.4, 1.0)        # 구간 보폭이 이 범위 밖이면 기준점 시각·위치를 다시 볼 것
 
@@ -48,8 +51,10 @@ def resolve(wps, en_to_st):
                 raise SystemExit(f"그래프에 없는 node: {w['node']} ({w['name']})")
             n = nodes[w["node"]]
             P.append(en_to_st([n["x"], n["y"]])[0])
-        if any(b in w.get("ref", "") for b in BAD_REF):
-            warn.append(f"{w['name']}: 참조물 '{w['ref']}' — 판은 정답 기준으로 쓰지 않음(채점 순환)")
+        for key in REF_KEYS:
+            text = w.get(key, "")
+            if any(b in re.sub(NOT_SIGN, "", text) for b in BAD_REF):
+                warn.append(f"{w['name']}: {key} '{text}' — 판은 정답 기준으로 쓰지 않음(채점 순환)")
     if any(b <= a for a, b in zip([w["t"] for w in wps], [w["t"] for w in wps][1:])):
         raise SystemExit("기준점 시각이 늘어나는 순서가 아님")
     return np.array(P, float), warn
