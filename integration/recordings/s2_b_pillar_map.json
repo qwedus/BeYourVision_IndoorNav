@@ -1,0 +1,66 @@
+{
+ "name": "s2_b_pillar_map",
+ "note": "2차 답사 조끼 보행, 3번 출구 쪽 다섯 번째 기둥 → 종합안내도 옆 기둥, 느림",
+ "rec": "integration/out/rec/s2_b_pillar_map/rec",
+ "inputs": "integration/out/rec/s2_b_pillar_map/inputs",
+ "out": "integration/out/rec/s2_b_pillar_map/out",
+ "exclude": [],
+ "end_start": 134.0,
+ "waypoints": [
+  {
+   "name": "출발",
+   "t": 0,
+   "st": [
+    87.9,
+    18.6
+   ],
+   "floor": -1,
+   "ref": "3번 출구 쪽 다섯 번째 기둥(87.9, 23)의 승강장 쪽 점자블록 위(현장 확인)",
+   "status": "확실"
+  },
+  {
+   "name": "좌회전",
+   "t": 53.9,
+   "st": [
+    105.1,
+    18.6
+   ],
+   "floor": -1,
+   "ref": "점자블록 갈림목, 자이로 -86°",
+   "status": "확실"
+  },
+  {
+   "name": "우회전",
+   "t": 76.8,
+   "st": [
+    105.1,
+    25.3
+   ],
+   "floor": -1,
+   "ref": "점자블록 갈림목, 개찰구 1 앞, 자이로 +88°",
+   "status": "확실"
+  },
+  {
+   "name": "기둥 옆",
+   "t": 134.0,
+   "st": [
+    123.0,
+    25.3
+   ],
+   "floor": -1,
+   "ref": "역 가운데 쪽 기둥(122.9, 23) 옆(현장 확인)",
+   "status": "확실"
+  },
+  {
+   "name": "끝",
+   "t": 137.1,
+   "st": [
+    123.0,
+    25.3
+   ],
+   "floor": -1,
+   "ref": "정지",
+   "status": "확실"
+  }
+ ]
+}

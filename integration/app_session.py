@@ -12,7 +12,7 @@ import json
 import numpy as np
 import pandas as pd
 
-import paths  # noqa: F401
+import paths
 from indoornav.io import Session
 
 G = 9.80665
@@ -34,6 +34,6 @@ def load_app_session(rec=paths.REC, fs=100.0):
     s = Session(name=rec.parent.name if rec.name == "rec" else rec.name, fs=fs, t=t,
                 acc_user=rs(["ax", "ay", "az"]) * G, gravity=rs(["gx", "gy", "gz"]) * G, gyro=rs(["wx", "wy", "wz"]),
                 yaw=None, pressure=pressure)
-    info = dict(t0_sensor=t0, t0_video=float(meta["recording"]["first_t"]), fs=fs, n=len(t),
+    info = dict(t0_sensor=t0, t0_video=paths.rec_t0() if rec == paths.REC else float(meta["recording"]["first_t"]), fs=fs, n=len(t),
                 mount=meta["mount"]["orientation"], reference_frame=meta["motion"]["reference_frame"])
     return s, info

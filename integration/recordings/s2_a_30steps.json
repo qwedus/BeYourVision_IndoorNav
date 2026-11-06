@@ -1,0 +1,10 @@
+{
+ "name": "s2_a_30steps",
+ "note": "2차 답사 조끼, 매우 느린 30걸음 시험. 경로 메모 없어 정답을 만들지 않음, 걸음 수 확인에만 씀",
+ "rec": "integration/out/rec/s2_a_30steps/rec",
+ "inputs": "integration/out/rec/s2_a_30steps/inputs",
+ "out": "integration/out/rec/s2_a_30steps/out",
+ "exclude": [],
+ "end_start": 1000000000.0,
+ "waypoints": []
+}

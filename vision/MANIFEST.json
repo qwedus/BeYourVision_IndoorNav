@@ -19,18 +19,18 @@
   "vision/inputs/dongchun_station.json": {
    "src": "cv_test/out/station/dongchun_station.json",
    "repo": "localization_design",
-   "src_commit": "a1046fd9e05e1de0e25122711b8755ce34845d32",
-   "repo_head": "a1046fd9e05e1de0e25122711b8755ce34845d32",
-   "sha256": "625c39e0a4df8187b0808151d0e9c8c1ddb8f36a97cc43dd7af3b2f7e642a9e5",
-   "bytes": 33612
+   "src_commit": "305c973dcb358d2c80af035749fafd2cace9b292",
+   "repo_head": "305c973dcb358d2c80af035749fafd2cace9b292",
+   "sha256": "2bbb78504fc09f7a35164443ca0c1293fb6fb3b71f9bd8e7207227f8ca2f333a",
+   "bytes": 35929
   },
   "vision/inputs/dongchun_station.npz": {
    "src": "cv_test/out/station/dongchun_station.npz",
    "repo": "localization_design",
-   "src_commit": "a1046fd9e05e1de0e25122711b8755ce34845d32",
-   "repo_head": "a1046fd9e05e1de0e25122711b8755ce34845d32",
-   "sha256": "9ace6c52dcdcc173d132ed2e611a21f42c1b7e91a0f47eda7f50a12bf5acc1aa",
-   "bytes": 199893
+   "src_commit": "305c973dcb358d2c80af035749fafd2cace9b292",
+   "repo_head": "305c973dcb358d2c80af035749fafd2cace9b292",
+   "sha256": "16168010a5672017f43cec31303dc866777fb1763616094c595ea81da4598052",
+   "bytes": 215199
   },
   "vision/inputs/i1/baseline_newvis.json": {
    "src": "cv_test/out/i1/check/baseline_newvis.json",
@@ -139,10 +139,10 @@
   "vision/inputs/i1/truth.csv": {
    "src": "cv_test/out/i1/truth.csv",
    "repo": "localization_design",
-   "src_commit": "2c174b8bf14d0009be99ef64f8d8079fa79e0f36",
-   "repo_head": "24610eab53f6a4bcabf93e027646f2ca6b54d249",
-   "sha256": "31ef754bf3112508e1689ad476070a94ad7a23be16ea7a3bff646bfa16ceb93f",
-   "bytes": 54983
+   "src_commit": "b6f1809d60127c53a49e13fd047f640cf61b2b59",
+   "repo_head": "b6f1809d60127c53a49e13fd047f640cf61b2b59",
+   "sha256": "739401313fde836b7081a763adda14a1bc4f9a38243659f2ae8cebf6398afa51",
+   "bytes": 55067
   },
   "vision/obs_model.py": {
    "src": "cv_test/pf/obs_model.py",
@@ -178,6 +178,6 @@
   }
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
- "synced_at": "2026-11-04T12:09:22",
- "localization_design_head": "1df0e53d758829b6be307f9a7e8e9ddad8cd2242"
+ "synced_at": "2026-11-06T16:31:38",
+ "localization_design_head": "305c973dcb358d2c80af035749fafd2cace9b292"
 }

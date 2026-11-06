@@ -18,7 +18,7 @@ from text_check import apply_decisions
 from time_filter import load_frames
 
 RIDE_RATE, FLOOR_DZ = 0.12, 3.0
-HOLD, T_STOP = 3.0, 114.5
+HOLD = 3.0
 REC_FIELDS = [("t", "f4"), ("err", "f4"), ("unc", "f4"), ("unc95", "f4"), ("herr", "f4"), ("esc", "?"), ("floor", "i1"),
               ("efloor", "i1"), ("n_obs", "i2"), ("ex", "f4"), ("ey", "f4"), ("riding", "?"), ("k", "f4"),
               ("k_std", "f4"), ("ess", "f4"), ("suspect", "?"), ("m1x", "f4"), ("m1y", "f4"), ("m1m", "f4"),
@@ -190,14 +190,19 @@ def first_hold(t, ok, hold=HOLD):
     return None
 
 
+def _med(v):
+    return float(np.median(v)) if len(v) else None
+
+
 def metrics(r):
-    walk = ~r["esc"] & ~r["riding"] & ~((r["t"] > 78.3) & (r["t"] < 103.0))
     t = r["t"]
+    walk = ~r["esc"] & ~r["riding"] & ~paths.excluded(t)
     tc = first_hold(t[walk], r["unc"][walk] < 2.0)
     t15 = first_hold(t[walk], r["err"][walk] < 1.5)
     after = walk & (t >= (tc if tc is not None else 1e9))
-    b2 = (r["floor"] == -2) & (t >= 103.0)
-    stop = t >= T_STOP
+    ex = paths.RC["exclude"]
+    after_ride = walk & (t >= ex[0][1]) if ex else np.zeros(len(t), bool)    # 첫 층 이동 뒤
+    stop = t >= paths.RC["end_start"]
     e_all = r["err"][walk]
     cw = walk & (t > 2)                                     # sweep_obs.calib 정의
     m1 = np.c_[r["m1x"], r["m1y"]]
@@ -208,11 +213,11 @@ def metrics(r):
                 med=float(np.median(r["err"][after])) if after.any() else None,
                 p90=float(np.percentile(r["err"][after], 90)) if after.any() else None,
                 med_all=float(np.median(e_all)), p90_all=float(np.percentile(e_all, 90)), max_all=float(e_all.max()),
-                b1_med=float(np.median(r["err"][walk & (t < 78.3)])),
-                b2_med=float(np.median(r["err"][walk & (t >= 103.0)])),
+                b1_med=_med(r["err"][walk & (r["floor"] == -1)]),
+                b2_med=_med(r["err"][walk & (r["floor"] == -2)]),
                 wrong=bool(((r["unc"] < 2.0) & (r["err"] > 3.0) & walk).any()),
-                floor_ok=float((r["efloor"][b2] == -2).mean()) if b2.any() else None,
-                end=float(r["err"][stop].mean()), herr_med=float(np.median(r["herr"][walk])),
+                floor_ok=float((r["efloor"][after_ride] == r["floor"][after_ride]).mean()) if after_ride.any() else None,
+                end=float(r["err"][stop].mean()) if stop.any() else None, herr_med=float(np.median(r["herr"][walk])),
                 ratio=float(np.median(r["err"][cw] / np.maximum(r["unc"][cw], 1e-3))),
                 cover2=float(np.mean(r["err"][cw] <= 2 * r["unc"][cw])),
                 in95=float(np.mean(r["err"][cw] <= r["unc95"][cw])),
@@ -248,8 +253,10 @@ def dr_metrics(dr, truth):
     ex = np.interp(t, dr[:, 0], dr[:, 1])
     ey = np.interp(t, dr[:, 0], dr[:, 2])
     e = np.hypot(ex - truth["east"], ey - truth["north"])
-    walk = (truth["on_esc"] == 0) & ~((t > 78.3) & (t < 103.0))
+    walk = (truth["on_esc"] == 0) & ~paths.excluded(t)
+    stop = t >= paths.RC["end_start"]
+    ex = paths.RC["exclude"]
     return dict(med_all=float(np.median(e[walk])), p90_all=float(np.percentile(e[walk], 90)),
-                max_all=float(e[walk].max()), b1_med=float(np.median(e[walk & (t < 78.3)])),
-                b2_med=float(np.median(e[walk & (t >= 103)])), end=float(e[t >= T_STOP].mean()),
-                err_at_78=float(e[np.searchsorted(t, 78.0)])), e
+                max_all=float(e[walk].max()), b1_med=_med(e[walk & (truth["floor"] == -1)]),
+                b2_med=_med(e[walk & (truth["floor"] == -2)]), end=float(e[stop].mean()) if stop.any() else None,
+                err_at_78=float(e[np.searchsorted(t, ex[0][0] - 0.3)]) if ex else None), e        # 첫 층 이동 직전

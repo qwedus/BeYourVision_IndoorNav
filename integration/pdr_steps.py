@@ -1,6 +1,6 @@
 """indoornav PDR(run_pdr, pdr_tuned_v4.toml)을 앱 녹화에 돌려 걸음 이벤트를 뽑는다 (연결안 3절 2).
 
-    .venv/Scripts/python integration/pdr_steps.py      → integration/out/i1/steps_indoornav.csv, heading_indoornav.npz
+    .venv/Scripts/python integration/pdr_steps.py      → <녹화 설정 out, 1차 녹화 integration/out/i1>/steps_indoornav.csv, heading_indoornav.npz
 
 steps_indoornav.csv (한 줄 = 한 걸음, 시뮬 PF 재생기 steps.csv 형식 + 열 추가)
     t             걸음 시각 [s] 호스트 시계 (= Session.t + t0_sensor)
@@ -55,7 +55,7 @@ def read_steps(path):
 
 if __name__ == "__main__":
     rows, info = indoornav_steps()
-    out = paths.OUT / "i1"
+    out = paths.REC_OUT
     write_steps(rows, out / "steps_indoornav.csv")
     np.savez_compressed(out / "heading_indoornav.npz", t_host=info["t_host"], heading=info["heading"])
     mv = sum(r["moving"] for r in rows)

@@ -4,26 +4,26 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 
 - `main`(9040d70)에서 갈라짐. **기존 파일(`indoornav/`, `configs/`, `maps/`, `scripts/`, `tests/`, `pyproject.toml`, `README.md` 등)은 고치지 않고 불러 쓰기만 한다.** 새 폴더 `vision/`, `integration/`, `docs/vision_integration/`만 더함
 - 설계 근거: localization_design의 I1 연결안 문서 (11-04). 출발점을 아는 경우(known·drift)만 다룸
-- 결과·작업 기록: [작업기록.md](작업기록.md), 비교표 `integration/out/i1/compare.md`
+- 결과·작업 기록: [작업기록.md](작업기록.md), 비교표 `integration/out/i1/compare.md`, 채택 상태까지 누적 `integration/out/i1/compare_final.md`
 
 ## 폴더 구조와 원본 쪽
 
 | 폴더·파일 | 내용 | 원본 |
 |---|---|---|
-| `vision/obs_model.py` | 관측 모델 `obs_likelihood` (방위각·가시성·화각·바닥값) | **localization_design** (`cv_test/pf/obs_model.py`) |
-| `vision/time_filter.py` | 시간 필터(최근 5프레임 중 3번) + cv_module 결과 읽기 | **localization_design** (`cv_test/i1/time_filter.py`) |
+| `vision/obs_model.py` | 관측 모델 `obs_likelihood` (방위각·가시성·화각·바닥값), 계산 안 한 칸 구분 `computed_at` | **localization_design** (`cv_test/pf/obs_model.py`) |
+| `vision/time_filter.py` | 시간 필터(최근 5프레임 중 3번) + cv_module 결과 읽기, `track_ids`, track별 반복 제한 `TrackLimiter` | **localization_design** (`cv_test/i1/time_filter.py`) |
 | `vision/edge_faces.py` | 화면 끝 검출 → 판 끝점 비교 | **localization_design** (`cv_test/i1/edge_faces.py`) |
 | `vision/bearing_fix.py` | 걸음 사이 회전 Δ 계산 | **localization_design** (`cv_test/i1/bearing_fix.py`) |
 | `vision/text_check.py` | 글자 확인 결정 파일 읽기·적용 + 판정 규칙(11-02 OCR 필터 `ocr_filter.py`에서 옮김, 엔진 없음) | **localization_design** (`cv_test/i1/text_check.py`) |
 | `vision/station_pkg.py` | 역사 패키지 읽기 + ENU ↔ aligned·나침반 ↔ th 변환 | **localization_design** (`cv_test/pf/station_pkg.py`) |
-| `vision/inputs/dongchun_station.*` | 역사 패키지: 랜드마크 94면·가시성 표·`computed`·층 높이·좌표 변환·에스컬레이터 끝(그래프 키) | **localization_design** (`export_station.py` 결과) |
-| `vision/inputs/i1/` | 관측 JSONL(필터 없음·시간 필터), 정답 궤적·기준점, 임시 PDR 걸음, 시뮬 PF 옛 기준(`baseline_summary.json`, b852501)·새 기준(`baseline_newvis.json`, 가시성 다시 계산 뒤)·① (`sim_pf_inav_pdr_newvis.json`), EasyOCR 결정 파일 | **localization_design** (`cv_test/out/i1/`) |
+| `vision/inputs/dongchun_station.*` | 역사 패키지: 랜드마크 101면(11-06, 그 전 94면은 git 기록)·가시성 표·`computed`·층 높이·좌표 변환·에스컬레이터 끝(그래프 키) | **localization_design** (`export_station.py` 결과) |
+| `vision/inputs/i1/` | 관측 JSONL(필터 없음·시간 필터), 정답 궤적·기준점, 임시 PDR 걸음, 시뮬 PF 옛 기준(`baseline_summary.json`, b852501)·새 기준(`baseline_newvis.json`, 가시성 다시 계산 뒤)·① (`sim_pf_inav_pdr_newvis.json`), EasyOCR 결정 파일(`text_check_easyocr.jsonl` 원래 규칙, `_all` 판의 모든 프레임 읽음, `_sure` 비교용) | **localization_design** (`cv_test/out/i1/`) |
 | `vision/inputs/i1/rec/` | 앱 녹화 `motion.csv`·`baro.csv`·`meta.json`·`marks.jsonl` (영상 174 MB는 안 옮김) | 1차 답사 녹화 원본 |
 | `vision/MANIFEST.json` | 위 파일마다 원본 경로·출처 커밋·sha256 | 복사 도구가 만듦 |
 | `integration/` | 앱 녹화 → `Session`, indoornav PDR 걸음 추출, 방 뺀 보행 마스크, `VisionFilter` 어댑터, 재생기·실행기·검산·비교표 | **이 브랜치** |
 | `docs/vision_integration/` | 이 설명, 작업 기록 | **이 브랜치** |
 
-**`vision/` 안 파일은 여기서 고치지 않는다.** localization_design에서 고치고 `cv_test/sync_to_branch.py`로 복사한다(한 방향, 원본에 커밋 안 된 변경이 있거나 브랜치 사본이 손으로 바뀌었으면 멈춤). 저장소 `.gitignore`가 `data/`를 무시해서 데이터 폴더 이름은 `inputs/`.
+**`vision/` 안 파일은 여기서 고치지 않는다.** localization_design에서 고치고 `cv_test/sync_to_branch.py`로 복사한다(옛 이름에서 9f8b8be로 바꿈, 상태만 볼 때 `--check`. 한 방향, 원본에 커밋 안 된 변경이 있거나 브랜치 사본이 손으로 바뀌었으면 멈춤). 저장소 `.gitignore`가 `data/`를 무시해서 데이터 폴더 이름은 `inputs/`.
 
 검출(YOLO)·OCR은 torch가 필요해 localization_design에서 돌리고, 이 브랜치는 결과 JSON만 읽는다.
 
@@ -37,7 +37,7 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `walk_mask.py` | 기존 보행 마스크에서 방·구조물 안쪽을 뺀 사본 `maps/B0x_walk_noroom.png` + 그것을 가리키는 `maps/map_meta_noroom.json` |
 | `vision_filter.py` | `VisionFilter`: indoornav `ParticleFilter` + 비전 관측 모델 (아래) |
 | `replay.py` | 이벤트 병합 재생, 기압 탑승·층 바뀜, PDR만 궤적, 지표 |
-| `run_i1.py` | 조건 × seed 실행 → `out/i1/<이름>/summary.json` |
+| `run_i1.py` | 조건 × seed 실행 → `out/i1/<이름>/summary.json`. 옵션 `--adopted`, `--bearing-fix`, `--track-limit`, `--text-check`, `--unread`, `--cls-th` |
 | `check_inputs.py` | 7절 1·2단계 검산 → `out/i1/check_inputs.json` |
 | `compare.py` | 시뮬 PF 기준과 나란히 비교표 → `out/i1/compare.md` |
 | `compare_features.py` | 비전 추가 기능 켬/끔 비교표 → `out/i1/compare_*.md` |
@@ -45,6 +45,9 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `diag_k_end.py` | 끝 k·끝 오차 진단(벽·비전·걸음·k를 하나씩 뺌) → `out/i1/diag_k_end.md` |
 | `vision_options.json` | 채택한 비전 설정 (`run_i1.py --adopted`) |
 | `fig_i1.py` | 시간별 오차·경로 그림 → `out/i1/<이름>/fig_error.png`·`fig_map.png` |
+| `analyze_recording.py` | 재생 결과 추가 집계: 관측 10° 일치, 판별 잔차, PDR 거리 비율, 크게 틀린 구간. `--station`으로 옛 지도 집계 |
+| `fig_plan.py` | 정식 도면 위 경로 그림 (geopandas 있는 파이썬, 도면 파일 `--plan`) |
+| `exp_cause.py`·`exp_report.py`·`exp_signs.py` | 원인 분리 실험: 설정 하나만 바꾼 재생, k·구간·과신 집계, 판별 시선 교차. 기본 설정은 안 바꿈 |
 
 ## 실행 방법
 
@@ -82,7 +85,7 @@ uv sync --frozen
 .venv/Scripts/python integration/compare.py
 ```
 
-민감도(5단계)는 `--sigma-h0 1.5 --name <이름>_h15`, 처리 시간은 `--n 1000`. 10개 프로세스로 한 실행(100회) 약 40초. ①(시뮬 PF + indoornav PDR)은 localization_design에서 `cv_test/i1/check_baseline.py --steps <브랜치>/integration/out/i1/steps_indoornav.csv --first-dh --name sim_pf_inav_pdr_newvis`로 돌린 결과를 복사 도구로 가져옴. 기능을 하나씩 켜려면 `--bearing-fix theta`, `--track-limit 1`, `--text-check text_check_easyocr.jsonl`, `--cls-th exit=0.3,...`. 그림: `integration/fig_i1.py --name <이름>`.
+민감도(5단계)는 `--sigma-h0 1.5 --name <이름>_h15`, 처리 시간은 `--n 1000`. 10개 프로세스로 한 실행(100회) 약 40초. ①(시뮬 PF + indoornav PDR)은 localization_design에서 `cv_test/i1/check_baseline.py --steps <브랜치>/integration/out/i1/steps_indoornav.csv --first-dh --name sim_pf_inav_pdr_newvis`로 돌린 결과를 복사 도구로 가져옴. 기능을 하나씩 켜려면 `--bearing-fix theta`, `--track-limit 1`, `--text-check text_check_easyocr.jsonl`(`--unread drop`이면 못 읽은 관측 뺌), `--cls-th exit=0.3,...`. 그림: `integration/fig_i1.py --name <이름>`.
 
 ## 좌표·각도·시계 약속
 
@@ -101,7 +104,7 @@ uv sync --frozen
 
 - **생성·초기화**: `pf_home_v3.toml` 읽고 N만 바꿈(3000). `pf.init()` 뒤 xy·th를 덮어씀 — 출발점 N(정답 t=0, 2² I)를 방 뺀 보행 마스크(`GridMap.free`)로 거절 샘플링, 방향 σ 20°, k는 `init()`의 U(0.8, 1.2). indoornav `init()`은 벽 너머 표본을 출발점 한 점에 모아 σ 2 m에서 65%가 한 점에 몰림 → 0%
 - **predict**: indoornav `pf.predict(length, dheading, moving)` 그대로
-- **update**: 파티클 aligned → ENU·나침반 → `obs_likelihood` → `pf.logw += log(w)` → `pf._normalize()` → `pf._maybe_resample()`. indoornav PF에 외부 점수를 넣는 공개 함수가 없어 비공개 메서드를 부름(main 커밋 고정 9040d70, 공개 `reweight` 요청은 연결안 4절)
+- **update**: 파티클 aligned → ENU·나침반(걸음 사이 회전 보정을 켜면 이번 비교에만 방향 − Δ, 인자 `dpsi_deg`) → `obs_likelihood` → `pf.logw += log(w)` → `pf._normalize()` → `pf._maybe_resample()`. indoornav PF에 외부 점수를 넣는 공개 함수가 없어 비공개 메서드를 부름(main 커밋 고정 9040d70, 공개 `reweight` 요청은 연결안 4절)
 - **탑승 중**(기압으로 찾은 타는 구간): 걸음 위치 안 넣음, 관측 안 넣음, 회전은 모아 두었다가 하차(층 바뀜) 뒤 `predict(0, Σdh)` 한 번
 - **층 바뀜**: 파티클마다 가장 가까운 에스컬레이터 위 끝 → 아래 끝 + N(0, 1²)을 **목적지 보행 마스크 안에서** 다시 뽑음, 가중치 그대로(균등화 안 함), `pf.map`을 B02 `GridMap`으로 교체
 - **estimate**: indoornav `estimate()`(평균·th·k·unc95·ESS·pdr_suspect) + RMS 불확실도(시뮬 기준과 같은 정의) + 상위 두 모드(위치·질량)
@@ -113,8 +116,28 @@ uv sync --frozen
 
 ## 비전 설정
 
-병합 중 고정값: 검출 문턱 0.25(모든 종류) + 시간 필터(5프레임 중 3번) + 화면 끝 판 끝점 비교 + 11-03 랜드마크 지도(94면).
+병합 중 고정값: 검출 문턱 0.25(모든 종류) + 시간 필터(5프레임 중 3번) + 화면 끝 판 끝점 비교 + 11-03 랜드마크 지도(94면, 11-06부터 2차 답사 반영 101면).
 
-1차 병합 뒤 채택(근거는 [작업기록.md](작업기록.md) 3차): 가시성 표 다시 계산(`computed` = 보행칸 1칸 넓힘 ∪ 기존 보행 마스크), **걸음 사이 회전 보정**(비교할 때만 파티클 방향에 Δ를 더함, PF 상태는 안 바뀜), **track별 반복 제한 1 s**. 켜지 않음: 글자 확인(OCR, 나아지지 않음, `--text-check`로 켤 수 있고 Apple Vision은 같은 형식 결정 파일이면 됨), 종류별 문턱값(후보 B를 2차 답사 평가용 녹화로 확정할 때까지). 관측 설정은 기본·중간을 나란히 비교, 잠정 기본.
+1차 병합 뒤 채택(근거는 [작업기록.md](작업기록.md) 3차): 가시성 표 다시 계산(`computed` = 보행칸 1칸 넓힘 ∪ 기존 보행 마스크), **걸음 사이 회전 보정**(비교할 때만 파티클 방향에 Δ를 더함, PF 상태는 안 바뀜), **track별 반복 제한 1 s**. 켜지 않음: 글자 확인(OCR, 규칙은 11-02 원래 판정 코드, 나아지지 않음, `--text-check`로 켤 수 있고 Apple Vision은 같은 형식 결정 파일이면 됨), 종류별 문턱값(후보 B를 2차 답사 평가용 녹화로 확정할 때까지). 관측 설정은 기본·중간을 나란히 비교, 잠정 기본.
 
 **결정 파일 형식**: `vision/text_check.py` 맨 위. 검출·OCR은 localization_design에서 돌리고 이 브랜치는 결과만 읽음.
+
+## 새 녹화 돌리기 (`integration/run_recording.py`)
+
+앱 기록 zip이나 폴더 하나로 파일 검사 → 관측 → PDR → 정답 → PDR만·PF·PF + 비전 → 경로 그림·오차 표까지 돈다. PF 동작·관측 모델·비전 설정은 안 바꾼다(`vision_options.json` 그대로). 녹화별 값은 `integration/recordings/<이름>.json` 하나에 있다(녹화·입력·출력 경로, 기준점, 채점 제외 구간, 끝 오차 시작). 고르는 법: 환경 변수 `I1_RECORDING`(없으면 1차 녹화 `route2_1030`).
+
+```
+.venv/Scripts/python integration/run_recording.py <zip 또는 폴더> --name <이름>
+```
+
+1. 처음 돌리면 **정답 단계에서 멈춘다.** `integration/out/rec/<이름>/out/`에 시각 후보와 그림이 나온다.
+   - `waypoints_draft.json`: 후보 시각(자이로 회전, 기압 층 이동, 2 s 넘는 멈춤, 앱 표시, 출발·끝)
+   - `candidates.png`(회전·기압·걸음), `sheet_candidates.jpg`(후보 번호별 영상 프레임, 영상 있을 때), `plan_B01.png`·`plan_B02.png`(역 좌표 도면, 개찰구·에스컬레이터 등 node 값)
+2. 쓸 후보를 골라 위치를 채워 `recordings/<이름>.json`의 `waypoints`에 넣는다. 항목: `name`, `t`, `floor`(B1 = -1, B2 = -2), `st`[x, y] 또는 `node`(예 `GATE_3`), `ref`(무엇을 보고 정했나). 에스컬레이터 탄 기준점에 `"esc": true`.
+   - **`ref`에 판을 쓰지 않는다**(기둥·벽 모서리·개찰구·에스컬레이터 끝·문). 판 위치가 틀렸을 수 있어 채점이 순환된다. 판이면 경고가 나온다.
+   - 기둥을 지나는 순간 찾기: `I1_RECORDING=<이름> .venv/Scripts/python integration/truth_helper.py sheet --from 30 --to 40 --every 0.5`
+3. 같은 명령을 다시 돌린다(`run_recording.py <이름>`도 됨). 채점 제외(층 이동 + 2 s)·끝 오차 시작(마지막 앞 기준점)은 기준점에서 채운다. 결과: `out/replay/report.md`, `fig_paths.png`, `fig_error.png`. 정답 확인: `out/truth_check.md`(걸음과 안 맞는 구간 표시)·`truth_check.png`.
+
+관측은 `detections.jsonl`이 있으면 앱 검출(`ocr_test_app/tools/session_to_replay.py` → `cvmod.run --detector replay`), 없고 영상이 있으면 PC 검출(C2 추가학습 후, 5 fps), 둘 다 없으면 이유를 적고 멈춘다. 필요: 옆 폴더 `localization_design`·`ocr_test_app`, cv2·torch 있는 파이썬(`I1_VISION_PY`, 기본 시스템 Python 3.12). 관측·PDR을 다시 만들려면 `--force`. 같은 걸음을 재생한 기록은 `--same-walk route2_1030`으로 기준점을 가져온다. 풀린 기록·결과(`out/rec/`)는 저장소에 안 넣는다.
+
+**2차 답사 기록**(`recordings/s2_*.json`): 원본 폴더는 저장소 밖이라 `integration/out/rec/<이름>/rec`에 폴더 연결(Windows junction)로 둔다(`out/rec/`는 저장소에 안 넣음). 그 뒤 `run_recording.py <이름>`. 기준점이 이미 들어 있어 비교까지 돈다.

@@ -7,13 +7,14 @@
     --adopted  채택한 비전 설정(integration/vision_options.json)으로. 아래 옵션을 주면 그 값이 이김
     --cls-th exit=0.3,monitor=0.3,...  종류별 문턱값 (관측 프레임에 건 뒤 시간 필터를 다시 돌림)
     --text-check <결정 파일>  글자 확인(vision/inputs/i1/ 안 파일 이름, 끄려면 안 줌), --unread keep|drop  못 읽은 관측 넣음·뺌
-출력: integration/out/i1/<name>/summary.json·summary.md (runs.npz는 저장소에 안 넣음)
+녹화: 환경 변수 I1_RECORDING(integration/recordings/<이름>.json, 없으면 1차 녹화). 한 번에 돌리기는 run_recording.py
+출력: <녹화 설정 out, 1차 녹화 integration/out/i1>/<name>/summary.json·summary.md (runs.npz는 저장소에 안 넣음)
 
 조건 (기준 run_i1.py와 같은 이름)
     known : 출발점(정답 t=0) ±2 m를 방 뺀 보행 마스크로 자른 분포, 방향 ±20°
     drift : known + PDR 일부러 틀어짐(보폭 ×1.15, 방향 0.4°/걸음)
     관측  : none(비전 끔) / raw(필터 없음) / tf(시간 필터), 설정 기본(5 Hz·σ 5°·바닥값 0.1)·중간(2 Hz·σ 10°·바닥값 0.1)
-    비전 설정 고정: 검출 문턱 0.25, 시간 필터 5프레임 중 3번, 화면 끝 판 끝점 비교, 94면 지도 (관측 파일·역사 패키지 그대로)
+    비전 설정 고정: 검출 문턱 0.25, 시간 필터 5프레임 중 3번, 화면 끝 판 끝점 비교, vision/inputs의 랜드마크 지도 (관측 파일·역사 패키지 그대로)
     같은 seed = 같은 초기 파티클·같은 입력(비전 끔/켬 비교)
 """
 import argparse
@@ -34,7 +35,7 @@ SETTINGS = {"기본": dict(obs_params=None, obs_hz=None),
             "중간": dict(obs_params={"sigma_bearing": 10.0, "eps": 0.1}, obs_hz=2.0)}
 DRIFT = dict(len_scale=1.15, head_per_step=0.4)
 SCENARIOS = ("known", "drift")
-STEPS = {"indoornav": paths.OUT / "i1/steps_indoornav.csv", "simple": paths.I1 / "steps_simple.csv"}
+STEPS = {"indoornav": paths.REC_OUT / "steps_indoornav.csv", "simple": paths.I1 / "steps_simple.csv"}
 _G = {}
 
 
@@ -67,7 +68,7 @@ def _init(steps_kind, n, sigma_h0_deg, opt=None):
     _G["opt"] = opt
     if opt.get("bearing_fix"):
         from bearing_fix import rotation_since_step, fix_bearing
-        h = np.load(paths.OUT / "i1/heading_indoornav.npz")
+        h = np.load(paths.REC_OUT / "heading_indoornav.npz")
         raw = read_steps(STEPS["indoornav"])
         step_t, step_h = np.array([s["t"] for s in raw]), -np.radians([s["heading_deg"] for s in raw])
         _G["dpsi"] = lambda t: float(np.degrees(rotation_since_step(t + t0, h["t_host"], h["heading"], step_t, step_h)))
@@ -109,6 +110,10 @@ def sha(p):
     return hashlib.sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:16]
 
 
+def rel(p):
+    return str(p.relative_to(paths.ROOT) if p.is_relative_to(paths.ROOT) else p).replace("\\", "/")
+
+
 def provenance(a):
     git = lambda *x: subprocess.run(["git", "-C", str(paths.ROOT), *x], capture_output=True, text=True).stdout.strip()
     man = json.loads((paths.VISION / "MANIFEST.json").read_text(encoding="utf-8"))
@@ -118,7 +123,7 @@ def provenance(a):
     import scipy
     return dict(branch_commit=git("rev-parse", "HEAD"), branch_dirty=bool(git("status", "--porcelain")),
                 main_commit="9040d70", vision_from=man.get("localization_design_head"),
-                files={str(f.relative_to(paths.ROOT)).replace("\\", "/"): sha(f) for f in files},
+                files={rel(f): sha(f) for f in files},
                 pf_params=_G["P"].to_dict(), python=platform.python_version(), numpy=np.__version__,
                 scipy=scipy.__version__, seeds=list(range(a.seeds)),
                 init="known: N(정답 t=0, 2² I) 보행 마스크 거절 샘플링, 방향 N(정답, 20°), k ~ U(k0_lo, k0_hi)")
@@ -165,7 +170,7 @@ def main():
         dr = rp.dead_reckon(_G["steps"][sc], _G["floors"], _G["rides"], _G["truth"], _G["t0"], esc)
         summ[f"{sc}/pdr_only"] = rp.dr_metrics(dr, _G["truth"])[0]
         runs[f"{sc}/pdr_only"] = [dr]
-    out = paths.OUT / "i1" / a.name
+    out = paths.REC_OUT / a.name
     out.mkdir(parents=True, exist_ok=True)
     info = dict(name=a.name, steps=a.steps, n=a.n, sigma_h0_deg=a.sigma_h0 if a.sigma_h0 is not None else 0.5, options=opt,
                 settings={s: SETTINGS[s] for s in sets}, drift=DRIFT, rides=_G["rides"], floors=_G["floors"],

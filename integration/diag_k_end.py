@@ -85,7 +85,7 @@ def _job(c):
     m = rp.metrics(r)
     t = r["t"]
     tr = _G["truth"]
-    stop = t >= rp.T_STOP
+    stop = t >= rp.paths.RC["end_start"]
     # 끝 오차를 마지막 구간 진행 방향(앞 +)과 옆으로 나눔. 정답 마지막 구간: 왼쪽 회전 뒤 → 3-1 문 앞
     a, b = tr[np.searchsorted(tr["t"], 108.5)], tr[np.searchsorted(tr["t"], 114.4)]
     u = np.array([b["east"] - a["east"], b["north"] - a["north"]])

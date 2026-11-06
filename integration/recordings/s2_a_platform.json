@@ -1,0 +1,73 @@
+{
+ "name": "s2_a_platform",
+ "note": "2차 답사 조끼 보행, 동막 방면 승강장 8번 칸 → 2번 칸, 느림(메모)",
+ "rec": "integration/out/rec/s2_a_platform/rec",
+ "inputs": "integration/out/rec/s2_a_platform/inputs",
+ "out": "integration/out/rec/s2_a_platform/out",
+ "exclude": [],
+ "end_start": 123.3,
+ "waypoints": [
+  {
+   "name": "출발(제자리 회전)",
+   "t": 0,
+   "st": [
+    175.0,
+    27.8
+   ],
+   "floor": -2,
+   "ref": "문 번호 8-3이 5.5 s에 보임 → 8-4 앞. y는 눈대중(±0.5 m). 처음 방향은 자이로로 계산(걷는 방향 - 제자리 회전)",
+   "status": "확실",
+   "face": {
+    "until": 5.2,
+    "dir_st": [
+     0.963,
+     -0.269
+    ]
+   }
+  },
+  {
+   "name": "걷기 시작",
+   "t": 5.2,
+   "st": [
+    175.0,
+    27.8
+   ],
+   "floor": -2,
+   "ref": "자이로 회전 끝",
+   "status": "확실"
+  },
+  {
+   "name": "문 2-3 지남",
+   "t": 114.0,
+   "st": [
+    66.2,
+    27.8
+   ],
+   "floor": -2,
+   "ref": "문 번호 2-3이 화면 왼쪽 위에 보임, 약 3.5 m 앞으로 봄(±1 m)",
+   "status": "확실"
+  },
+  {
+   "name": "멈춤",
+   "t": 123.3,
+   "st": [
+    56.8,
+    27.8
+   ],
+   "floor": -2,
+   "ref": "문 번호 2-2(118 s) 뒤 걸음 수로 계산(±1 m)",
+   "status": "확실"
+  },
+  {
+   "name": "끝",
+   "t": 130.6,
+   "st": [
+    56.8,
+    27.8
+   ],
+   "floor": -2,
+   "ref": "제자리 회전 후 정지",
+   "status": "확실"
+  }
+ ]
+}
