@@ -50,8 +50,10 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `exp_cause.py`·`exp_report.py`·`exp_signs.py` | 원인 분리 실험: 설정 하나만 바꾼 재생, k·구간·과신 집계, 판별 시선 교차. 기본 설정은 안 바꿈 |
 | `provenance.py` | 결과에 남기는 입력 기록(입력 파일·소스 해시), 옛 파일 재사용 검사 |
 | `compare_runs.py` | 두 조건의 같은 seed 짝 차이 표, 구간별 악화 표시 |
-| `regress_replay.py` | 기본 재생을 다시 돌려 저장된 err·unc 배열과 비트까지 같은지 확인 |
-| `check_tf_app.py` | 같은 입력에서 PC 시간 필터와 앱 규칙의 통과 집합 차이 |
+| `regress_replay.py` | 기본 재생을 다시 돌려 저장된 기록의 모든 필드(좌표·층·시각 포함)가 비트까지 같은지 확인. 저장 경로가 기준과 같으면 멈춤 |
+| `check_tf_app.py` | 같은 입력에서 PC 시간 필터와 앱 규칙의 통과 집합 차이. 앱 설정이 없는 기록은 '대체 설정'으로 표시 |
+| `run_negative.py` | 음성 대조 재생(random·all·shift ±5 s), 결과는 `compare_runs.py`로 비교 |
+| `pool_guard.py` | Pool 작업자 초기화 오류를 호출자에게 전달(명령이 안 끝나는 일을 막음) |
 
 ## 실행 방법
 
@@ -100,10 +102,13 @@ uv sync --frozen
 .venv/Scripts/python integration/compare_runs.py --rec all --a <기준> --b <비교> --range 38-53       # 기록 9개 + 기록별 요약
 .venv/Scripts/python integration/regress_replay.py --ref exp_d58_r20                                 # 기본 재생이 그대로인지
 .venv/Scripts/python integration/check_tf_app.py                                                     # PC·앱 시간 필터 차이
+.venv/Scripts/python integration/run_negative.py --rec s2_a_ex6_ex3 --cond random shift_m5 shift_p5   # 음성 대조 → neg_<조건>/
+.venv/Scripts/python integration/compare_runs.py --rec s2_a_ex6_ex3 --a exp_d58_r20 --b neg_random    # 그 결과 비교
 ```
 
 - **비교 기준**: 전체 p90 하나로 판단하지 않는다. 같은 seed 짝 차이와 방향 일치 수, 구간별 악화를 함께 본다. seed 범위는 같은 입력의 PF 표본 잡음일 뿐 새 보행·입력 변화의 불확실성이 아니다. 조건을 고른 기록과 평가 기록은 나눈다.
-- **입력 기록**: `run_i1.py`·`exp_cause.py`·`sweep_obs.py`·`diag_k_end.py`의 결과에 `provenance`(걸음·방향·관측·정답·기압·역사 패키지·`vision_options.json`·녹화 설정·PF/PDR 설정·마스크 해시, 소스 파일별 해시와 합친 값)를 남긴다. `compare_runs.py`가 두 결과의 입력 차이를 같이 보여 준다.
+- **입력 기록**: `run_i1.py`·`exp_cause.py`·`sweep_obs.py`·`diag_k_end.py`·`run_negative.py`의 결과에 `provenance`(걸음·방향·관측·정답·기압·시간 원점 `meta.json`·`frames.jsonl`과 `rec_t0` 값·역사 패키지·`vision_options.json`·녹화 설정·PF/PDR 설정·마스크 해시, 소스 파일별 해시와 합친 값)를 남긴다. `compare_runs.py`가 두 결과의 설정 차이(한쪽에만 있는 칸, 실제 PF 값 포함)와 입력 차이를 같이 보여 준다.
+- **음성 대조**: 좋아 보이는 변경은 `run_negative.py`의 random·shift와 같이 본다. 그쪽도 비슷하게 좋아지면 그 변경의 근거는 약하다. 전체 p90뿐 아니라 구간별로 본다.
 - **지표 이름**: `지도 방위 일치`(종류·20 m·10°)와 `PF 후보 일치`(가시성·20 m·화각·앙각까지 + 10°)는 다른 값이다. 둘 다 정답과 카메라 기준값에 의존하는 진단값이고 PF 입력으로 안 들어간다. `match`는 옛 이름으로 `map_bearing_match`와 같다.
 - **글자 확인 연결률**: 결정이 없는 관측은 그대로 들어가므로 `apply_decisions`가 연결률을 알리고, 이어진 수 ÷ min(관측 수, 결정 수)가 50% 아래면 멈춘다.
 

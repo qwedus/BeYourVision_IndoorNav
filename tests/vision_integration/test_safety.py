@@ -255,7 +255,7 @@ def test_obs_inputs_track_model_for_video(tmp_path):
     import run_recording as rr
     (tmp_path / "video.mov").write_bytes(b"123")
     a = rr.obs_inputs(tmp_path, dict(detections=False, video="video.mov"))
-    assert a["how"] == "PC 검출" and a["video_bytes"] == 3 and "model" in a
+    assert a["how"] == "PC 검출" and a["video"] and "model" in a
     b = rr.obs_inputs(tmp_path, dict(detections=True, video=None))
     assert b["how"] == "앱 검출" and "detections" in b
 
@@ -304,7 +304,8 @@ def test_app_rule_tie_goes_to_first_track_pc_to_last():
 def test_app_rule_size_limit_and_same_input_pass():
     tall = [0.0, 0.0, 100.0, 800.0]
     fr = [_frame(k, k * 0.2, [(f"x{k}", "area_map", tall)]) for k in range(4)]
-    passed, big = tf.app_rule(fr)
+    on = dict(tf.APP_DEFAULT, size_limits=dict(enabled=True, max_height_ratio=dict(area_map=0.7)))
+    passed, big = tf.app_rule(fr, on)
     assert passed == set() and len(big) == 4
     assert len(_ids(fr)) == 2
     assert tf.app_rule(fr, dict(tf.APP_DEFAULT, size_limits=dict(enabled=False)))[0] == {"x2", "x3"}
