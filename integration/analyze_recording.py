@@ -3,8 +3,10 @@
     I1_RECORDING=<이름> .venv/Scripts/python integration/analyze_recording.py [--name replay]
 → <녹화 설정 out>/<name>/analysis.json
 
-- 관측 맞음: 정답 위치 + 카메라 방향에서 같은 종류 랜드마크 20 m 안 중 가장 가까운 방위와의 차이가 10° 안(에스컬레이터 구간 제외,
-  화면 끝 검출은 판 끝점과 비교). 카메라 방향 = 자이로 방향 + 곧게 걷는 구간(기준점 앞뒤 3 s 뺌)에서 '정답 방향 - 자이로 방향'의 중앙값.
+- 지도 방위 일치(map_bearing_match, 옛 이름 match): 정답 위치 + 카메라 방향에서 같은 종류 랜드마크 20 m 안 중 가장 가까운 방위와의 차이가 10° 안
+  (에스컬레이터 구간 제외, 화면 끝 검출은 판 끝점과 비교). 가시성·화각·앙각은 안 봄 → PF가 쓸 수 없는 판과 맞아도 일치로 셈.
+- PF 후보 일치(pf_cand_match): 위 10°를 PF 후보 조건(obs_model._kind_rows: 가시성 표·거리 한계·화각·앙각, 기본 값)까지 통과한 판으로만 셈.
+  두 지표 모두 정답 궤적과 거기서 맞춘 카메라 기준값에 의존하는 진단값이고 PF 입력으로 안 들어감. 같은 기록 안 상대 비교에만 쓸 것. 카메라 방향 = 자이로 방향 + 곧게 걷는 구간(기준점 앞뒤 3 s 뺌)에서 '정답 방향 - 자이로 방향'의 중앙값.
   사원수 방향은 자기장 보정으로 긴 녹화에서 흘러 쓰지 않음.
 - 판별 잔차: 화면 안 관측을 같은 조건에서 가장 가까운 판(15° 안)에 붙여, 정답 위치에서 본 '관측 방위 - 지도 방위'와 옆 오차(거리 × tan).
   옆 오차 벡터는 역 좌표. 카메라 방향 기준값이 3° 틀리면 15 m에서 약 0.8 m 틀어짐.
@@ -15,13 +17,14 @@ PF·관측 모델·비전 설정은 안 바꿈. 지표만 계산함.
 import argparse
 import json
 import sys
+from pathlib import Path
 
 import numpy as np
 
 import paths
 import replay as rp
 from edge_faces import add_face_points, frame_obs
-from obs_model import kind_types
+from obs_model import DEFAULT, _cells, _kind_rows, kind_types
 from pdr_steps import read_steps
 from station_pkg import load_station
 from time_filter import load_frames
@@ -40,8 +43,21 @@ def camera_offset(truth, wps, ty, yaw):
     return float(np.degrees(np.median(np.angle(np.exp(1j * np.radians(truth["heading_deg"][ok] - h))))))
 
 
+def pf_candidate_match(fm, o, r, cam, az):
+    """정답 자리에서 PF 후보(가시성 표·거리 한계·화각·앙각)인 같은 종류 판 중 방위 차이가 TOL 안인 것이 있나"""
+    k = np.where(np.isin(fm["lm_type"], kind_types(o)))[0]
+    if not len(k):
+        return False
+    x, y, th = np.array([r["east"]], float), np.array([r["north"]], float), np.array([cam], float)
+    i, j, inside = _cells(fm, x, y)
+    cand, _, _ = _kind_rows(fm, k, x, y, th, i, j, inside, DEFAULT)
+    dx, dy = fm["lm_xy"][k, 0] - x[0], fm["lm_xy"][k, 1] - y[0]
+    diff = np.abs((az - np.degrees(np.arctan2(dx, dy)) + 180) % 360 - 180)
+    return bool((cand[:, 0] & (diff <= TOL)).any())
+
+
 def obs_match(path, fmap, truth, t0, ty, yaw, off, R=None, T=None):
-    rows, faces = {}, {}
+    rows, cand_rows, faces = {}, {}, {}
     for f in load_frames(path)[1]:
         t, obs = frame_obs(f, t0)
         if paths.excluded(np.array([t]))[0] or t < 0 or t > truth["t"][-1]:
@@ -59,6 +75,7 @@ def obs_match(path, fmap, truth, t0, ty, yaw, off, R=None, T=None):
             diff = (az - np.degrees(np.arctan2(dx[k], dy[k])) + 180) % 360 - 180
             ok = len(k) > 0 and np.abs(diff).min() <= TOL
             rows.setdefault(o["label"], []).append(bool(ok))
+            cand_rows.setdefault(o["label"], []).append(pf_candidate_match(fm, o, r, cam, az))
             if len(k) and not o["edge"] and R is not None and np.abs(diff).min() <= FACE_TOL:
                 j = int(np.argmin(np.abs(diff)))
                 res, dist = float(diff[j]), float(d[k[j]])
@@ -73,8 +90,10 @@ def obs_match(path, fmap, truth, t0, ty, yaw, off, R=None, T=None):
         a = np.array(v)
         fc[i] = dict(n=len(v), res_med=float(np.median(a[:, 0])), dist_med=float(np.median(a[:, 1])), side_st=[float(np.median(a[:, 2])), float(np.median(a[:, 3]))],
                      sight_st=[float(np.mean(a[:, 4])), float(np.mean(a[:, 5]))], t=[float(a[:, 6].min()), float(a[:, 6].max())])
-    return dict(n=n, match=float(np.mean(sum(rows.values(), []))) if n else None,
-                by_label={k: dict(n=len(v), match=float(np.mean(v))) for k, v in sorted(rows.items())}, faces=fc)
+    hit, cand = int(sum(map(sum, rows.values()))), int(sum(map(sum, cand_rows.values())))
+    return dict(n=n, match=hit / n if n else None, map_bearing_hits=hit, map_bearing_match=hit / n if n else None,
+                pf_cand_hits=cand, pf_cand_match=cand / n if n else None,
+                by_label={k: dict(n=len(v), match=float(np.mean(v)), pf_cand_match=float(np.mean(cand_rows[k]))) for k, v in sorted(rows.items())}, faces=fc)
 
 
 def pdr_distance(truth, wps, t0):
@@ -132,6 +151,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--name", default="replay")
     ap.add_argument("--station", help="역사 패키지 폴더(기본 vision/inputs). 옛 지도로 집계할 때")
+    ap.add_argument("--json-out", help="analysis.json 대신 이 파일에 저장 (옛 결과 폴더를 안 건드리고 다시 집계할 때)")
     a = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     t0 = paths.rec_t0()
@@ -160,9 +180,11 @@ def main():
                pdr=pdr_distance(truth, wps, t0),
                first=dict(heading=float(truth["heading_deg"][0]), name=wps[0]["name"], face=bool(wps[0].get("face")), status=wps[0].get("status")),
                big={k: big_errors(z, f"known_{k}", truth, wps, st_of) for k in COND})
-    (out / "analysis.json").write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(paths.RECORDING, "관측 10° 안 tf %.2f raw %.2f | PDR/정답 %.2f | 큰 오차 구간 %d" % (
-        res["obs_tf"]["match"], res["obs_raw"]["match"], res["pdr"]["ratio"], len(res["big"]["tf_기본"])))
+    (Path(a.json_out) if a.json_out else out / "analysis.json").write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
+    tf, raw = res["obs_tf"], res["obs_raw"]
+    print(paths.RECORDING, "지도 방위 일치(종류·20 m·10°) 시간 필터 %d/%d %.2f, 필터 없음 %.2f | PF 후보 일치(가시성·20 m·화각·앙각·10°) 시간 필터 %d/%d %.2f, 필터 없음 %.2f | PDR/정답 %.2f | 큰 오차 구간 %d" % (
+        tf["map_bearing_hits"], tf["n"], tf["map_bearing_match"], raw["map_bearing_match"],
+        tf["pf_cand_hits"], tf["n"], tf["pf_cand_match"], raw["pf_cand_match"], res["pdr"]["ratio"], len(res["big"]["tf_기본"])))
 
 
 if __name__ == "__main__":
