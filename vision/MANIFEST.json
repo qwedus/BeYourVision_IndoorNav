@@ -3,11 +3,10 @@
   "vision/bearing_fix.py": {
    "src": "cv_test/i1/bearing_fix.py",
    "repo": "localization_design",
-   "src_commit": null,
-   "repo_head": null,
+   "src_commit": "693b6c2ab349976636de0f875a2b6c70096ff1c9",
+   "repo_head": "693b6c2ab349976636de0f875a2b6c70096ff1c9",
    "sha256": "93d4fe65a3eb7bd34022b1e50505a52f5eea6b249ac2d7acf2b0ec95f7bc6ce7",
-   "bytes": 2061,
-   "pending": "원본 수정이 아직 커밋 전(원본 쪽 커밋 뒤 채울 것)"
+   "bytes": 2061
   },
   "vision/edge_faces.py": {
    "src": "cv_test/i1/edge_faces.py",
@@ -164,11 +163,10 @@
   "vision/text_check.py": {
    "src": "cv_test/i1/text_check.py",
    "repo": "localization_design",
-   "src_commit": null,
-   "repo_head": null,
+   "src_commit": "693b6c2ab349976636de0f875a2b6c70096ff1c9",
+   "repo_head": "693b6c2ab349976636de0f875a2b6c70096ff1c9",
    "sha256": "b31da1ed266d0a28b42617e1dbbd18ab51bc0874768d14f01af6e892f0a79996",
-   "bytes": 13136,
-   "pending": "원본 수정이 아직 커밋 전(원본 쪽 커밋 뒤 채울 것)"
+   "bytes": 13136
   },
   "vision/time_filter.py": {
    "src": "cv_test/i1/time_filter.py",
@@ -181,5 +179,5 @@
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
  "synced_at": "2026-11-06T16:31:38",
- "localization_design_head": "305c973dcb358d2c80af035749fafd2cace9b292"
+ "localization_design_head": "693b6c2ab349976636de0f875a2b6c70096ff1c9"
 }
