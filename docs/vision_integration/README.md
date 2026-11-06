@@ -45,9 +45,13 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `diag_k_end.py` | 끝 k·끝 오차 진단(벽·비전·걸음·k를 하나씩 뺌) → `out/i1/diag_k_end.md` |
 | `vision_options.json` | 채택한 비전 설정 (`run_i1.py --adopted`) |
 | `fig_i1.py` | 시간별 오차·경로 그림 → `out/i1/<이름>/fig_error.png`·`fig_map.png` |
-| `analyze_recording.py` | 재생 결과 추가 집계: 관측 10° 일치, 판별 잔차, PDR 거리 비율, 크게 틀린 구간. `--station`으로 옛 지도 집계 |
+| `analyze_recording.py` | 재생 결과 추가 집계: 지도 방위 일치·PF 후보 일치, 판별 잔차, PDR 거리 비율, 크게 틀린 구간. `--station`으로 옛 지도 집계, `--json-out`으로 옛 결과 폴더를 안 건드리고 저장 |
 | `fig_plan.py` | 정식 도면 위 경로 그림 (geopandas 있는 파이썬, 도면 파일 `--plan`) |
 | `exp_cause.py`·`exp_report.py`·`exp_signs.py` | 원인 분리 실험: 설정 하나만 바꾼 재생, k·구간·과신 집계, 판별 시선 교차. 기본 설정은 안 바꿈 |
+| `provenance.py` | 결과에 남기는 입력 기록(입력 파일·소스 해시), 옛 파일 재사용 검사 |
+| `compare_runs.py` | 두 조건의 같은 seed 짝 차이 표, 구간별 악화 표시 |
+| `regress_replay.py` | 기본 재생을 다시 돌려 저장된 err·unc 배열과 비트까지 같은지 확인 |
+| `check_tf_app.py` | 같은 입력에서 PC 시간 필터와 앱 규칙의 통과 집합 차이 |
 
 ## 실행 방법
 
@@ -86,6 +90,22 @@ uv sync --frozen
 ```
 
 민감도(5단계)는 `--sigma-h0 1.5 --name <이름>_h15`, 처리 시간은 `--n 1000`. 10개 프로세스로 한 실행(100회) 약 40초. ①(시뮬 PF + indoornav PDR)은 localization_design에서 `cv_test/i1/check_baseline.py --steps <브랜치>/integration/out/i1/steps_indoornav.csv --first-dh --name sim_pf_inav_pdr_newvis`로 돌린 결과를 복사 도구로 가져옴. 기능을 하나씩 켜려면 `--bearing-fix theta`, `--track-limit 1`, `--text-check text_check_easyocr.jsonl`(`--unread drop`이면 못 읽은 관측 뺌), `--cls-th exit=0.3,...`. 그림: `integration/fig_i1.py --name <이름>`.
+
+## 평가 안전장치
+
+위치 결과를 바꾸지 않고 비교를 믿을 수 있게 하는 도구. 시험: `.venv/Scripts/python -m pytest tests/vision_integration`.
+
+```
+.venv/Scripts/python integration/compare_runs.py --rec s2_a_ex3_ex6 --a exp_base --b exp_d58_r20   # 같은 seed 짝 차이, 구간별 악화
+.venv/Scripts/python integration/compare_runs.py --rec all --a <기준> --b <비교> --range 38-53       # 기록 9개 + 기록별 요약
+.venv/Scripts/python integration/regress_replay.py --ref exp_d58_r20                                 # 기본 재생이 그대로인지
+.venv/Scripts/python integration/check_tf_app.py                                                     # PC·앱 시간 필터 차이
+```
+
+- **비교 기준**: 전체 p90 하나로 판단하지 않는다. 같은 seed 짝 차이와 방향 일치 수, 구간별 악화를 함께 본다. seed 범위는 같은 입력의 PF 표본 잡음일 뿐 새 보행·입력 변화의 불확실성이 아니다. 조건을 고른 기록과 평가 기록은 나눈다.
+- **입력 기록**: `run_i1.py`·`exp_cause.py`·`sweep_obs.py`·`diag_k_end.py`의 결과에 `provenance`(걸음·방향·관측·정답·기압·역사 패키지·`vision_options.json`·녹화 설정·PF/PDR 설정·마스크 해시, 소스 파일별 해시와 합친 값)를 남긴다. `compare_runs.py`가 두 결과의 입력 차이를 같이 보여 준다.
+- **지표 이름**: `지도 방위 일치`(종류·20 m·10°)와 `PF 후보 일치`(가시성·20 m·화각·앙각까지 + 10°)는 다른 값이다. 둘 다 정답과 카메라 기준값에 의존하는 진단값이고 PF 입력으로 안 들어간다. `match`는 옛 이름으로 `map_bearing_match`와 같다.
+- **글자 확인 연결률**: 결정이 없는 관측은 그대로 들어가므로 `apply_decisions`가 연결률을 알리고, 이어진 수 ÷ min(관측 수, 결정 수)가 50% 아래면 멈춘다.
 
 ## 좌표·각도·시계 약속
 
@@ -134,10 +154,10 @@ uv sync --frozen
    - `waypoints_draft.json`: 후보 시각(자이로 회전, 기압 층 이동, 2 s 넘는 멈춤, 앱 표시, 출발·끝)
    - `candidates.png`(회전·기압·걸음), `sheet_candidates.jpg`(후보 번호별 영상 프레임, 영상 있을 때), `plan_B01.png`·`plan_B02.png`(역 좌표 도면, 개찰구·에스컬레이터 등 node 값)
 2. 쓸 후보를 골라 위치를 채워 `recordings/<이름>.json`의 `waypoints`에 넣는다. 항목: `name`, `t`, `floor`(B1 = -1, B2 = -2), `st`[x, y] 또는 `node`(예 `GATE_3`), `ref`(무엇을 보고 정했나). 에스컬레이터 탄 기준점에 `"esc": true`.
-   - **`ref`에 판을 쓰지 않는다**(기둥·벽 모서리·개찰구·에스컬레이터 끝·문). 판 위치가 틀렸을 수 있어 채점이 순환된다. 판이면 경고가 나온다.
+   - **`ref`에 판을 쓰지 않는다**(기둥·벽 모서리·개찰구·에스컬레이터 끝·문). 판 위치가 틀렸을 수 있어 채점이 순환된다. 판이면 경고가 나온다(옛 기록의 `basis` 칸도 검사).
    - 기둥을 지나는 순간 찾기: `I1_RECORDING=<이름> .venv/Scripts/python integration/truth_helper.py sheet --from 30 --to 40 --every 0.5`
 3. 같은 명령을 다시 돌린다(`run_recording.py <이름>`도 됨). 채점 제외(층 이동 + 2 s)·끝 오차 시작(마지막 앞 기준점)은 기준점에서 채운다. 결과: `out/replay/report.md`, `fig_paths.png`, `fig_error.png`. 정답 확인: `out/truth_check.md`(걸음과 안 맞는 구간 표시)·`truth_check.png`.
 
-관측은 `detections.jsonl`이 있으면 앱 검출(`ocr_test_app/tools/session_to_replay.py` → `cvmod.run --detector replay`), 없고 영상이 있으면 PC 검출(C2 추가학습 후, 5 fps), 둘 다 없으면 이유를 적고 멈춘다. 필요: 옆 폴더 `localization_design`·`ocr_test_app`, cv2·torch 있는 파이썬(`I1_VISION_PY`, 기본 시스템 Python 3.12). 관측·PDR을 다시 만들려면 `--force`. 같은 걸음을 재생한 기록은 `--same-walk route2_1030`으로 기준점을 가져온다. 풀린 기록·결과(`out/rec/`)는 저장소에 안 넣는다.
+관측은 `detections.jsonl`이 있으면 앱 검출(`ocr_test_app/tools/session_to_replay.py` → `cvmod.run --detector replay`), 없고 영상이 있으면 PC 검출(C2 추가학습 후, 5 fps), 둘 다 없으면 이유를 적고 멈춘다. 필요: 옆 폴더 `localization_design`·`ocr_test_app`, cv2·torch 있는 파이썬(`I1_VISION_PY`, 기본 시스템 Python 3.12). 관측·PDR을 다시 만들려면 `--force`. 있는 파일을 그대로 쓸 때는 `inputs/input_record.json`에 적힌 입력(모델·설정·녹화 파일·코드 해시)과 지금 입력을 비교해 다르거나 기록이 없으면 경고하고 `report.md`에도 남긴다. 시간 필터는 매번 다시 계산하므로 해당 없음. 같은 걸음을 재생한 기록은 `--same-walk route2_1030`으로 기준점을 가져온다. 풀린 기록·결과(`out/rec/`)는 저장소에 안 넣는다.
 
 **2차 답사 기록**(`recordings/s2_*.json`): 원본 폴더는 저장소 밖이라 `integration/out/rec/<이름>/rec`에 폴더 연결(Windows junction)로 둔다(`out/rec/`는 저장소에 안 넣음). 그 뒤 `run_recording.py <이름>`. 기준점이 이미 들어 있어 비교까지 돈다.
