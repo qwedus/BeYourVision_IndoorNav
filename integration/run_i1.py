@@ -21,12 +21,12 @@ import argparse
 import json
 import sys
 import time
-from multiprocessing import Pool
 
 import numpy as np
 
 import paths
 import provenance as record
+from pool_guard import run_pool
 import replay as rp
 
 SETTINGS = {"기본": dict(obs_params=None, obs_hz=None),
@@ -134,8 +134,7 @@ def main():
     conds = [dict(sc=sc, obs="none", set="기본", seed=s) for sc in SCENARIOS for s in range(a.seeds)]
     conds += [dict(sc=sc, obs=o, set=st, seed=s) for st in sets for sc in SCENARIOS for o in ("raw", "tf")
               for s in range(a.seeds)]
-    with Pool(a.procs, _init, (a.steps, a.n, a.sigma_h0, opt)) as pool:
-        res = pool.map(_job, conds)
+    res = run_pool(a.procs, _init, (a.steps, a.n, a.sigma_h0, opt), _job, conds)
     _init(a.steps, a.n, a.sigma_h0, opt)
     runs, ms, diags = {}, {}, {}
     for c, r, d in res:

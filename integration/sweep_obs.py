@@ -8,12 +8,12 @@ import argparse
 import itertools
 import json
 import sys
-from multiprocessing import Pool
 
 import numpy as np
 
 import paths
 import provenance as record
+from pool_guard import run_pool
 import replay as rp
 import run_i1 as R
 
@@ -36,8 +36,7 @@ def main():
         st = dict(obs_params={"sigma_bearing": sg, "eps": ep}, obs_hz=hz)
         conds += [dict(sc=sc, obs=o, set=f"{hz or 5:g}|{sg:g}|{ep:g}", st=st, seed=s)
                   for sc in R.SCENARIOS for o in ("raw", "tf") for s in range(a.seeds)]
-    with Pool(10, R._init, ("indoornav", 3000, None, opt)) as pool:
-        res = pool.map(R._job, conds, chunksize=4)
+    res = run_pool(10, R._init, ("indoornav", 3000, None, opt), R._job, conds, chunksize=4)
     ms = {}
     for c, r, _ in res:
         ms.setdefault((c["set"], c["obs"], c["sc"]), []).append(rp.metrics(r))

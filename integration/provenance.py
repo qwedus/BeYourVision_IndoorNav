@@ -37,6 +37,18 @@ def file_sig(p):
     return sha(p) if Path(p).is_file() else None
 
 
+def binary_sig(p):
+    """큰 이진 파일 해시: 조금씩 읽음, 줄 끝을 안 맞춤. 없는 파일은 None"""
+    p = Path(p)
+    if not p.is_file():
+        return None
+    h = hashlib.sha256()
+    with open(p, "rb") as f:
+        while chunk := f.read(1 << 20):
+            h.update(chunk)
+    return h.hexdigest()[:16]
+
+
 def file_hashes(files):
     return {rel(f): file_sig(f) for f in files}
 
@@ -68,15 +80,20 @@ def run_record(steps_file, pf_params, seeds, opt=None, pdr_config=None, extra=()
     man = json.loads((paths.VISION / "MANIFEST.json").read_text(encoding="utf-8"))
     files = [steps_file, paths.REC_OUT / "steps_indoornav.csv", paths.REC_OUT / "heading_indoornav.npz",
              paths.I1 / "obs_nofilter.jsonl", paths.I1 / "obs_timefilter.jsonl", paths.I1 / "truth.csv",
-             paths.I1 / RECORD_NAME, paths.REC / "baro.csv", paths.INPUTS / "dongchun_station.npz",
+             paths.I1 / RECORD_NAME, paths.REC / "baro.csv", paths.REC / "meta.json", paths.REC / "frames.jsonl",   # 시간 원점: meta, 없으면 frames
+             paths.INPUTS / "dongchun_station.npz",
              paths.INPUTS / "dongchun_station.json", paths.HERE / "vision_options.json",
              paths.RECORDINGS / f"{paths.RECORDING}.json", paths.MASK_META, paths.PF_CONFIG, pdr_config or paths.PDR_CONFIG,
              *paths.MASK_DIR.glob("*.png"), *extra]
     if (opt or {}).get("text_check"):
         files.append(paths.I1 / opt["text_check"])
     src = source_hashes()
+    try:
+        t0 = paths.rec_t0()
+    except (OSError, ValueError, KeyError):
+        t0 = None
     return dict(branch_commit=git("rev-parse", "HEAD"), branch_dirty=bool(git("status", "--porcelain")),
-                main_commit="9040d70", vision_from=man.get("localization_design_head"), recording=paths.RECORDING,
+                main_commit="9040d70", vision_from=man.get("localization_design_head"), recording=paths.RECORDING, rec_t0=t0,
                 files=file_hashes(files), source_digest=digest(src), sources=src,
                 pf_params=pf_params, python=platform.python_version(), numpy=np.__version__,
                 scipy=scipy.__version__, seeds=list(range(seeds)), init=INIT)

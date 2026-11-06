@@ -27,7 +27,7 @@ PF_CONFIG = ROOT / "configs/pf_home_v3.toml"
 MASK_DIR = HERE / "maps"              # 방 뺀 보행 마스크 사본 + 그 마스크를 가리키는 map_meta 사본
 MASK_META = MASK_DIR / "map_meta_noroom.json"
 FLOOR_NAME = {-1: "B01", -2: "B02"}
-VISION_PY = os.environ.get("I1_VISION_PY", r"C:\Users\kjh\AppData\Local\Programs\Python\Python312\python.exe")   # cv2·torch 있는 파이썬(브랜치 .venv엔 없음)
+VISION_PY = os.environ.get("I1_VISION_PY", str(Path.home() / "AppData/Local/Programs/Python/Python312/python.exe"))   # cv2·torch 있는 파이썬(브랜치 .venv엔 없음)
 
 for p in (ROOT, VISION, HERE):
     if str(p) not in sys.path:

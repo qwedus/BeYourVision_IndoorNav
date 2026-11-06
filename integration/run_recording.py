@@ -25,7 +25,7 @@ import unicodedata
 import zipfile
 from pathlib import Path
 
-from provenance import cache_warning, file_sig, tree_sig, write_record
+from provenance import binary_sig, cache_warning, file_sig, tree_sig, write_record
 
 ROOT = Path(__file__).resolve().parents[1]
 HERE = ROOT / "integration"
@@ -33,7 +33,7 @@ RECORDINGS = HERE / "recordings"
 LOCAL = ROOT.parent / "localization_design"
 OCR_APP = ROOT.parent / "ocr_test_app"
 MODEL = LOCAL / "cv_test/out/c2/runs/dc26n_dense_s0/weights/last.pt"
-VISION_PY = os.environ.get("I1_VISION_PY", r"C:\Users\kjh\AppData\Local\Programs\Python\Python312\python.exe")
+VISION_PY = os.environ.get("I1_VISION_PY", str(Path.home() / "AppData/Local/Programs/Python/Python312/python.exe"))
 NEED = ("motion.csv", "baro.csv", "meta.json", "frames.jsonl")
 RUN_NAME = "replay"
 CAMERA_H, VIDEO_RATE = "1.4", "5"
@@ -113,13 +113,14 @@ def warn_cache(inputs, what, now, label):
 
 
 def obs_inputs(rec, info):
-    """cv_raw.json을 만드는 입력. 영상은 커서 크기만, 다른 저장소 파일은 없으면 None"""
+    """cv_raw.json을 만드는 입력. 다른 저장소 파일은 없으면 None"""
     common = dict(cv_config=file_sig(LOCAL / "cv_module/config/default.json"), cvmod=tree_sig(LOCAL / "cv_module/cvmod"), camera_height=CAMERA_H)
     if info["detections"]:
         return dict(common, how="앱 검출", detections=file_sig(rec / "detections.jsonl"), frames=file_sig(rec / "frames.jsonl"),
                     meta=file_sig(rec / "meta.json"), session_to_replay=file_sig(OCR_APP / "tools/session_to_replay.py"))
     if info["video"]:
-        return dict(common, how="PC 검출", video_bytes=(rec / info["video"]).stat().st_size, model=file_sig(MODEL), rate=VIDEO_RATE)
+        return dict(common, how="PC 검출", video=binary_sig(rec / info["video"]), frames=file_sig(rec / "frames.jsonl"), meta=file_sig(rec / "meta.json"),
+                    model=file_sig(MODEL), rate=VIDEO_RATE)
     return dict(common, how="없음")
 
 

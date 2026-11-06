@@ -13,12 +13,12 @@
 import json
 import sys
 from dataclasses import replace
-from multiprocessing import Pool
 
 import numpy as np
 
 import paths
 import provenance as record
+from pool_guard import guarded_pool
 import replay as rp
 from run_i1 import DRIFT, SETTINGS, STEPS
 
@@ -166,7 +166,7 @@ def main():
              for sd in range(10)]
     conds_d = [dict(steps="pdr", wall=True, obs=o, set=s, k=k, seed=sd, sc="drift")
                for o, s in obs_sets for k in ("free", "reset") for sd in range(10)]
-    with Pool(10, _init) as pool:
+    with guarded_pool(10, _init) as pool:
         res = pool.map(_job, conds, chunksize=5)
         res_d = pool.map(_job, conds_d, chunksize=5)
     _init()

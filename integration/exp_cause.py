@@ -21,13 +21,13 @@ import argparse
 import json
 import sys
 from dataclasses import replace
-from multiprocessing import Pool
 from pathlib import Path
 
 import numpy as np
 
 import paths
 import provenance as record
+from pool_guard import run_pool
 import replay as rp
 import run_i1
 from obs_model import obs_likelihood
@@ -197,8 +197,7 @@ def main():
         n_steps_info = dict(n=len(rows), moving=sum(r["moving"] for r in rows))
     conds = [dict(obs="none", set="기본", seed=s) for s in range(a.seeds)]
     conds += [dict(obs="tf", set=st, seed=s) for st in SETTINGS for s in range(a.seeds)]
-    with Pool(a.procs, _init, (a.k_min, steps_dir, a.drop_label, a.max_range, a.station, a.far_gate)) as pool:
-        res = pool.map(_job, conds)
+    res = run_pool(a.procs, _init, (a.k_min, steps_dir, a.drop_label, a.max_range, a.station, a.far_gate), _job, conds)
     _init(a.k_min, steps_dir, a.drop_label, a.max_range, a.station, a.far_gate)
     G = run_i1._G
     runs, ms, xs, ds, pr = {}, {}, {}, {}, {}
