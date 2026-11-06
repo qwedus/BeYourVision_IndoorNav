@@ -13,6 +13,7 @@ from multiprocessing import Pool
 import numpy as np
 
 import paths
+import provenance as record
 import replay as rp
 import run_i1 as R
 
@@ -45,7 +46,9 @@ def main():
         s = rp.summarize(m)
         rows.append(dict(set=st, obs=o, sc=sc, med=s["med_all"], p90=s["p90_all"], max=s["max_all"], end=s["end"], ratio=s["ratio"],
                          cover2=s["cover2"], in95=s["in95"], start=s["start_med"], wrong=s["wrong"]))
-    (paths.REC_OUT / f"{a.name}.json").write_text(json.dumps(dict(opt=opt, rows=rows), ensure_ascii=False, indent=1), encoding="utf-8")
+    from vision_filter import pf_params
+    prov = record.run_record(R.STEPS["indoornav"], pf_params(3000).to_dict(), a.seeds, opt)
+    (paths.REC_OUT / f"{a.name}.json").write_text(json.dumps(dict(opt=opt, rows=rows, provenance=prov), ensure_ascii=False, indent=1), encoding="utf-8")
     L = [f"# 관측 설정 훑기 ({a.name})", "", "녹화 1회 재생(손에 든 촬영)이라 낙관적일 수 있고 조끼 성능이 아님. 같은 녹화로 고르고 평가함. "
          f"앞 단계: 회전 보정 + track 제한 1 s, 문턱 {th or '모두 0.25'}. seed {a.seeds}개 중앙, N 3000.", "",
          "칸 = 오차 중앙 / 90% / 최대 · 끝 (m), 오차÷불확실도, 오차 ≤ 2×불확실도, unc95 포함률, 자신 있게 틀림", ""]

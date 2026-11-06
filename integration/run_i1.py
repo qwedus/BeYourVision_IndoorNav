@@ -18,10 +18,7 @@
     같은 seed = 같은 초기 파티클·같은 입력(비전 끔/켬 비교)
 """
 import argparse
-import hashlib
 import json
-import platform
-import subprocess
 import sys
 import time
 from multiprocessing import Pool
@@ -29,6 +26,7 @@ from multiprocessing import Pool
 import numpy as np
 
 import paths
+import provenance as record
 import replay as rp
 
 SETTINGS = {"기본": dict(obs_params=None, obs_hz=None),
@@ -106,27 +104,8 @@ def key(c):
     return f"{c['sc']}/none" if c["obs"] == "none" else f"{c['sc']}/{c['obs']}/{c['set']}"
 
 
-def sha(p):
-    return hashlib.sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:16]
-
-
-def rel(p):
-    return str(p.relative_to(paths.ROOT) if p.is_relative_to(paths.ROOT) else p).replace("\\", "/")
-
-
 def provenance(a):
-    git = lambda *x: subprocess.run(["git", "-C", str(paths.ROOT), *x], capture_output=True, text=True).stdout.strip()
-    man = json.loads((paths.VISION / "MANIFEST.json").read_text(encoding="utf-8"))
-    files = [STEPS[a.steps], paths.I1 / "obs_nofilter.jsonl", paths.I1 / "obs_timefilter.jsonl", paths.I1 / "truth.csv",
-             paths.REC / "baro.csv", paths.INPUTS / "dongchun_station.npz", paths.MASK_META, paths.PF_CONFIG,
-             paths.PDR_CONFIG, *paths.MASK_DIR.glob("*.png")]
-    import scipy
-    return dict(branch_commit=git("rev-parse", "HEAD"), branch_dirty=bool(git("status", "--porcelain")),
-                main_commit="9040d70", vision_from=man.get("localization_design_head"),
-                files={rel(f): sha(f) for f in files},
-                pf_params=_G["P"].to_dict(), python=platform.python_version(), numpy=np.__version__,
-                scipy=scipy.__version__, seeds=list(range(a.seeds)),
-                init="known: N(정답 t=0, 2² I) 보행 마스크 거절 샘플링, 방향 N(정답, 20°), k ~ U(k0_lo, k0_hi)")
+    return record.run_record(STEPS[a.steps], _G["P"].to_dict(), a.seeds, _G["opt"])
 
 
 def main():

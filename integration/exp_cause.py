@@ -27,6 +27,7 @@ from pathlib import Path
 import numpy as np
 
 import paths
+import provenance as record
 import replay as rp
 import run_i1
 from obs_model import obs_likelihood
@@ -218,7 +219,10 @@ def main():
     summ["known/pdr_only"] = rp.dr_metrics(dr, G["truth"])[0]
     mv = [s for s in G["steps"]["known"]]
     info = dict(name=a.name, pdr_config=a.pdr_config or "configs/pdr_tuned_v4.toml", k_min=a.k_min if a.k_min is not None else G["P"].k_min,
-                drop_label=a.drop_label, max_range=a.max_range, far_gate=a.far_gate, pf_config="configs/pf_home_v3.toml", n=G["P"].n, seeds=a.seeds, steps=n_steps_info, n_steps=len(mv))
+                drop_label=a.drop_label, max_range=a.max_range, far_gate=a.far_gate, pf_config="configs/pf_home_v3.toml", n=G["P"].n, seeds=a.seeds, steps=n_steps_info, n_steps=len(mv),
+                station=Path(a.station).name if a.station else None, options=G["opt"], settings=SETTINGS,
+                provenance=record.run_record(run_i1.STEPS["indoornav"], G["P"].to_dict(), a.seeds, G["opt"],
+                                             pdr_config=paths.ROOT / a.pdr_config if a.pdr_config else None))
     (out / "summary.json").write_text(json.dumps(dict(info=info, summary=summ), ensure_ascii=False, indent=1), encoding="utf-8")
     sv = {}
     for k in runs:

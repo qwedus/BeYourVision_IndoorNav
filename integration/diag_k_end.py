@@ -18,6 +18,7 @@ from multiprocessing import Pool
 import numpy as np
 
 import paths
+import provenance as record
 import replay as rp
 from run_i1 import DRIFT, SETTINGS, STEPS
 
@@ -186,7 +187,7 @@ def main():
                 ideal=segments(_G["steps"]["ideal"], _G["truth"], _G["t0"]))
     sus = suspect_table()
     out = paths.OUT / "i1"
-    (out / "diag_k_end.json").write_text(json.dumps(dict(rows=rows, drift=drift_rows, segments=segs, suspect=sus), ensure_ascii=False, indent=1),
+    (out / "diag_k_end.json").write_text(json.dumps(dict(rows=rows, drift=drift_rows, segments=segs, suspect=sus, provenance=record.run_record(STEPS["indoornav"], _G["pf_params"](3000).to_dict(), 10)), ensure_ascii=False, indent=1),
                                          encoding="utf-8")
     OB = {("none", "기본"): "끔", ("raw", "기본"): "없음·기본", ("raw", "중간"): "없음·중간", ("tf", "기본"): "시간·기본", ("tf", "중간"): "시간·중간"}
     L = ["# 끝 k·끝 오차 진단", "", "seed 10개 중앙, N 3000, 출발점 앎. 녹화 1회(손에 든 촬영). 끝 오차 앞뒤 = 마지막 구간 진행 방향(앞 +, 뒤 −).", "",

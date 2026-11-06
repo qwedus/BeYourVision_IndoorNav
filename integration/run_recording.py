@@ -3,7 +3,7 @@
     .venv/Scripts/python integration/run_recording.py <zip 또는 폴더> [--name 이름]
     .venv/Scripts/python integration/run_recording.py <이미 설정이 있는 이름>          (다시 돌리기, 기준점 채운 뒤)
 
-단계 (끝난 단계는 파일이 있으면 건너뜀, --force면 다시)
+단계 (끝난 단계는 파일이 있으면 건너뜀, --force면 다시. 건너뛸 때 <입력 폴더>/input_record.json의 기록과 지금 입력을 비교해 다르면 경고, 보고서에도 남김)
     1 풀기   zip → integration/out/rec/<이름>/rec/, 폴더는 그 자리를 그대로 씀. 설정 integration/recordings/<이름>.json을 만듦
     2 검사   motion·baro·meta·frames 있는지, 길이·빠진 값 (없으면 이유를 적고 멈춤)
     3 관측   detections.jsonl 있으면 앱 검출 변환(ocr_test_app session_to_replay → cvmod replay),
@@ -25,6 +25,8 @@ import unicodedata
 import zipfile
 from pathlib import Path
 
+from provenance import cache_warning, file_sig, tree_sig, write_record
+
 ROOT = Path(__file__).resolve().parents[1]
 HERE = ROOT / "integration"
 RECORDINGS = HERE / "recordings"
@@ -34,6 +36,9 @@ MODEL = LOCAL / "cv_test/out/c2/runs/dc26n_dense_s0/weights/last.pt"
 VISION_PY = os.environ.get("I1_VISION_PY", r"C:\Users\kjh\AppData\Local\Programs\Python\Python312\python.exe")
 NEED = ("motion.csv", "baro.csv", "meta.json", "frames.jsonl")
 RUN_NAME = "replay"
+CAMERA_H, VIDEO_RATE = "1.4", "5"
+PDR_CONFIG = ROOT / "configs/pdr_tuned_v4.toml"
+WARNINGS = []
 
 
 class Stop(Exception):
@@ -99,28 +104,60 @@ def check(rec):
     return info
 
 
+def warn_cache(inputs, what, now, label):
+    """있는 파일을 그대로 쓸 때: 기록된 입력과 다르면 경고"""
+    w = cache_warning(inputs, what, now, label)
+    if w:
+        print("  경고:", w)
+        WARNINGS.append(w)
+
+
+def obs_inputs(rec, info):
+    """cv_raw.json을 만드는 입력. 영상은 커서 크기만, 다른 저장소 파일은 없으면 None"""
+    common = dict(cv_config=file_sig(LOCAL / "cv_module/config/default.json"), cvmod=tree_sig(LOCAL / "cv_module/cvmod"), camera_height=CAMERA_H)
+    if info["detections"]:
+        return dict(common, how="앱 검출", detections=file_sig(rec / "detections.jsonl"), frames=file_sig(rec / "frames.jsonl"),
+                    meta=file_sig(rec / "meta.json"), session_to_replay=file_sig(OCR_APP / "tools/session_to_replay.py"))
+    if info["video"]:
+        return dict(common, how="PC 검출", video_bytes=(rec / info["video"]).stat().st_size, model=file_sig(MODEL), rate=VIDEO_RATE)
+    return dict(common, how="없음")
+
+
+def steps_simple_inputs(rec):
+    return dict(motion=file_sig(rec / "motion.csv"), pdr_simple=file_sig(LOCAL / "cv_test/i1/pdr_simple.py"))
+
+
+def steps_indoornav_inputs(rec):
+    return dict(motion=file_sig(rec / "motion.csv"), baro=file_sig(rec / "baro.csv"), meta=file_sig(rec / "meta.json"), config=file_sig(PDR_CONFIG),
+                pdr_steps=file_sig(HERE / "pdr_steps.py"), app_session=file_sig(HERE / "app_session.py"), indoornav_pdr=tree_sig(ROOT / "indoornav/pdr"))
+
+
 def observations(rec, inputs, info, env, force):
     """→ 관측 출처 설명. inputs/obs_nofilter.jsonl·obs_timefilter.jsonl"""
     raw = inputs / "cv_raw.json"
     inputs.mkdir(parents=True, exist_ok=True)
     src = None
+    now = obs_inputs(rec, info)
     if raw.exists() and not force:
         src = "있는 파일"
+        warn_cache(inputs, "cv_raw", now, "관측 cv_raw.json")
     elif info["detections"]:
         replay = inputs / "replay_input.json"
         run([VISION_PY, OCR_APP / "tools/session_to_replay.py", rec, "--out", replay, "--which", "all",
-             "--cv-module", LOCAL / "cv_module", "--camera-height", "1.4"])
+             "--cv-module", LOCAL / "cv_module", "--camera-height", CAMERA_H])
         run([VISION_PY, "-m", "cvmod.run", "--detector", "replay", "--replay", replay, "--out", raw], cwd=LOCAL / "cv_module")
         src = "앱 검출(detections.jsonl) → PC 문턱값"
     elif info["video"]:
         if not MODEL.exists():
             raise Stop(f"PC 검출에 쓸 모델이 없음: {MODEL}")
-        run([VISION_PY, "-m", "cvmod.run", "--detector", "yolo26n", "--model", MODEL, "--recording", rec, "--rate", "5",
-             "--pick", "gyro", "--frames-out", inputs / "frames_5fps_gyro", "--camera-height", "1.4", "--out", raw],
+        run([VISION_PY, "-m", "cvmod.run", "--detector", "yolo26n", "--model", MODEL, "--recording", rec, "--rate", VIDEO_RATE,
+             "--pick", "gyro", "--frames-out", inputs / "frames_5fps_gyro", "--camera-height", CAMERA_H, "--out", raw],
             cwd=LOCAL / "cv_module")
         src = "PC 검출(영상, C2 추가학습 후, 5 fps)"
     else:
         raise Stop("검출 기록(detections.jsonl)도 영상도 없어 관측을 만들 수 없음. 영상까지 내보낸 기록이 필요함")
+    if src != "있는 파일":
+        write_record(inputs, "cv_raw", now)
     print(run([sys.executable, HERE / "_obs_files.py", raw, inputs], env=env).strip())
     return src
 
@@ -145,6 +182,8 @@ def write_report(name, src, info, out):
             L.append(f"| {lab} | {f(m['med_all'])} / {f(m['p90_all'])} / {f(m['max_all'])} | {f(m['b1_med'])} / {f(m['b2_med'])} | "
                      f"{f(m['end'])} | {fl} | {wrong} |")
         L.append("")
+    if WARNINGS:
+        L += ["**입력 확인 경고**: 옛 파일을 다시 썼고 입력을 확인하지 못했거나 달라짐", "", *[f"- {w}" for w in WARNINGS], ""]
     L += ["그림: `fig_paths.png`(정답·PDR만·PF·PF + 비전 경로), `fig_error.png`(시간별 오차), `fig_map.png`. 정답 확인: 위 폴더의 `truth_check.md`·`truth_check.png`."]
     (out / "report.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))
@@ -192,10 +231,18 @@ def pipeline(a):
     obs_src = observations(rec, inputs, info, env, a.force)
     print("  출처:", obs_src)
     print("[4] PDR")
+    now = steps_simple_inputs(rec)
     if a.force or not (inputs / "steps_simple.csv").exists():
         print(" ", run([VISION_PY, LOCAL / "cv_test/i1/pdr_simple.py", "--recording", rec, "--out", inputs / "steps_simple.csv"]).strip())
+        write_record(inputs, "steps_simple", now)
+    else:
+        warn_cache(inputs, "steps_simple", now, "임시 PDR steps_simple.csv")
+    now = steps_indoornav_inputs(rec)
     if a.force or not (out / "steps_indoornav.csv").exists():
         print(" ", run([py, HERE / "pdr_steps.py"], env=env).strip())
+        write_record(inputs, "steps_indoornav", now)
+    else:
+        warn_cache(inputs, "steps_indoornav", now, "indoornav PDR steps_indoornav.csv")
     print("[5] 정답")
     if not cfg["waypoints"]:
         run_out = run([py, HERE / "truth_helper.py", "candidates"], env=env)
