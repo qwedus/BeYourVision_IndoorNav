@@ -55,14 +55,29 @@ def load_runs(path, cond):
     return runs
 
 
+def scored_dt(t):
+    """프레임마다 다음 프레임까지 시간에서 채점 제외 구간과 겹치는 만큼 뺀 값 (프레임 사이가 제외 구간을 가로지를 때 제외 시간을 안 세게)"""
+    t = np.asarray(t, float)
+    t1 = np.r_[t[1:], t[-1]] if len(t) else t
+    dt = t1 - t
+    spans = []
+    for a, b in sorted(paths.RC["exclude"]):
+        if spans and a <= spans[-1][1]:
+            spans[-1][1] = max(spans[-1][1], b)
+        else:
+            spans.append([a, b])
+    for a, b in spans:
+        dt = dt - np.clip(np.minimum(t1, b) - np.maximum(t, a), 0.0, None)
+    return dt
+
+
 def seed_metrics(r):
     """seed 하나의 지표. wrong_s: 불확실도 < 2 m인데 오차 > 3 m였던 시간 합(cover2와 같은 프레임 범위)"""
     m = rp.metrics(r)
     t = r["t"]
     cw = ~r["esc"] & ~r["riding"] & ~paths.excluded(t) & (t > 2)
-    dt = np.r_[np.diff(t), 0.0]
     return dict(med_all=m["med_all"], p90_all=m["p90_all"], cover2=m["cover2"], in95=m["in95"],
-                wrong_s=float(dt[cw & (r["unc"] < 2) & (r["err"] > 3)].sum()))
+                wrong_s=float(scored_dt(t)[cw & (r["unc"] < 2) & (r["err"] > 3)].sum()))
 
 
 def paired(da, db, better=-1):
@@ -95,16 +110,23 @@ def segment_row(A, B, seeds, t0, t1, bad):
 
 
 def input_diff(pa, pb):
-    """두 결과 옆 summary.json의 설정·입력 기록 차이. 옛 결과엔 입력 기록이 없을 수 있음"""
+    """두 결과 옆 summary.json의 설정·입력 기록 차이. 옛 결과엔 입력 기록이 없을 수 있음.
+    config: 양쪽에 있는데 값이 다른 칸(실제 PF 값 pf_params 포함), only_a·only_b: 한쪽에만 있는 칸(실행기가 달라도 생김, 실험 설정일 수 있어 숨기지 않음)"""
     def load(p):
         s = p.parent / "summary.json"
         return json.loads(s.read_text(encoding="utf-8")).get("info", {}) if s.exists() else {}
     ia, ib = load(pa), load(pb)
     skip = {"name", "provenance", "steps", "rides", "floors"}
-    cfg = {k: (ia[k], ib[k]) for k in sorted(set(ia) & set(ib)) if k not in skip and ia[k] != ib[k]}   # 한쪽에만 있는 칸은 실행기가 달라서라 뺌
+    cfg = {k: (ia[k], ib[k]) for k in sorted(set(ia) & set(ib)) if k not in skip and ia[k] != ib[k]}
+    only_a = {k: ia[k] for k in sorted(set(ia) - set(ib)) if k not in skip}
+    only_b = {k: ib[k] for k in sorted(set(ib) - set(ia)) if k not in skip}
     pra, prb = ia.get("provenance"), ib.get("provenance")
-    out = dict(config=cfg, a_recorded=bool(pra), b_recorded=bool(prb), files=[], sources=None)
+    out = dict(config=cfg, only_a=only_a, only_b=only_b, a_recorded=bool(pra), b_recorded=bool(prb), files=[], sources=None)
     if pra and prb:
+        for sect in ("pf_params",):
+            sa, sb = pra.get(sect) or {}, prb.get(sect) or {}
+            cfg.update({f"{sect}.{k}": (sa.get(k), sb.get(k)) for k in sorted(set(sa) | set(sb)) if sa.get(k) != sb.get(k)})
+        cfg.update({f"환경.{k}": (pra[k], prb[k]) for k in ("recording", "rec_t0", "python", "numpy", "scipy") if k in pra and k in prb and pra[k] != prb[k]})
         fa, fb = pra.get("files", {}), prb.get("files", {})
         out["files"] = [k for k in sorted(set(fa) | set(fb)) if fa.get(k) != fb.get(k)]
         if pra.get("source_digest") and prb.get("source_digest"):
@@ -158,6 +180,9 @@ def render(res):
     inp = res["inputs"]
     if inp["config"]:
         L.append("설정 차이: " + ", ".join(f"{k} {v[0]} → {v[1]}" for k, v in inp["config"].items()))
+    for side, key in (("A", "only_a"), ("B", "only_b")):
+        if inp[key]:
+            L.append(f"{side}에만 있는 설정: " + ", ".join(f"{k} = {v}" for k, v in inp[key].items()))
     if inp["a_recorded"] and inp["b_recorded"]:
         L.append("입력 파일 차이: " + (", ".join(inp["files"]) if inp["files"] else "없음"))
         if inp["sources"] is not None:

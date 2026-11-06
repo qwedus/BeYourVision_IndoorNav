@@ -10,7 +10,8 @@
     hits 정리 : 전부 보존(PC) / k ≤ k - 5 그리고 t ≤ t - 0.6인 것을 지움(앱). 세기는 양쪽 다 최근 5장
     동점      : IoU가 같으면 뒤 track(PC, >=) / 앞 track(앱, >)
     크기 상한 : 없음(PC) / size_limits(앱, 시간 필터 앞에서 빠짐). 보조 center_dist_max는 지금 null
-값은 그 녹화의 rec/config.json(앱이 세션마다 복사), 없으면 APP_DEFAULT(앱 설정 파일과 같은 값).
+값은 그 녹화의 rec/config.json(앱이 세션마다 복사). 없는 기록(1차 녹화)은 APP_DEFAULT(앱 App/Config/filter_config.json과 같은 값)로 계산하고 '대체 설정'으로 표시.
+크기 상한: 2차 녹화 때 앱은 켜져 있었고(녹화별 config.json), 지금 앱 설정 파일은 꺼져 있음.
 """
 import argparse
 import json
@@ -23,7 +24,7 @@ from time_filter import apply, iou, load_frames
 
 APP_DEFAULT = {"time_filter": {"enabled": True, "count_by": "frames", "window_frames": 5, "window_s": 0.6, "min_hits": 3,
                                "match": {"same_label": True, "iou_min": 0.3, "center_dist_max": None}, "track_max_gap_s": 1.0},
-               "size_limits": {"enabled": True, "max_height_ratio": {"area_map": 0.7}}}
+               "size_limits": {"enabled": False, "max_height_ratio": {"area_map": 0.7}}}
 
 
 def center_dist(a, b):
@@ -104,7 +105,7 @@ def check(rec):
     cfg = json.loads(cfg_path.read_text(encoding="utf-8")) if cfg_path.exists() else APP_DEFAULT
     rule, too_big = app_rule(raw, cfg)
     res = dict(rec=rec, n_obs=len(ids), pc=len(pc), pc_saved_same=pc == saved, too_big=len(too_big), rule=len(rule),
-               config="녹화" if cfg_path.exists() else "기본값", pc_vs_rule=len(pc ^ rule), pc_only_rule=sorted(pc - rule), rule_only=sorted(rule - pc))
+               config="녹화" if cfg_path.exists() else "대체 설정", pc_vs_rule=len(pc ^ rule), pc_only_rule=sorted(pc - rule), rule_only=sorted(rule - pc))
     dec = folder / "decisions.jsonl"
     if dec.exists():
         app, judged = app_decisions(dec)
@@ -131,6 +132,8 @@ def main():
         else:
             print(f"| {r['rec']} | {r['n_obs']} | {r['pc']} | (없음) | — | — | — | — | {r['pc_vs_rule']} |")
     for r in rows:
+        if r["config"] == "대체 설정":
+            print(f"참고 {r['rec']}: 녹화에 앱 설정·앱 판정 파일이 없어 PC↔이식 대칭차 {r['pc_vs_rule']}개는 대체 설정(지금 앱 설정 파일 값)으로 계산한 값. 앱을 실제로 돌린 값 아님")
         if not r["pc_saved_same"]:
             print(f"경고 {r['rec']}: obs_timefilter.jsonl이 obs_nofilter에 필터를 다시 건 것과 다름")
         if r.get("not_judged"):
