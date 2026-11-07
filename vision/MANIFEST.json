@@ -19,9 +19,9 @@
   "vision/inputs/dongchun_station.json": {
    "src": "cv_test/out/station/dongchun_station.json",
    "repo": "localization_design",
-   "src_commit": "305c973dcb358d2c80af035749fafd2cace9b292",
-   "repo_head": "305c973dcb358d2c80af035749fafd2cace9b292",
-   "sha256": "2bbb78504fc09f7a35164443ca0c1293fb6fb3b71f9bd8e7207227f8ca2f333a",
+   "src_commit": "cdaff365f0781e3f9c7c60e26722a8a9272b8381",
+   "repo_head": "cdaff365f0781e3f9c7c60e26722a8a9272b8381",
+   "sha256": "234d2bc3e283923c063df498f1c8892a2b4562294946cc590c9972874f258f7c",
    "bytes": 35929
   },
   "vision/inputs/dongchun_station.npz": {
@@ -178,6 +178,6 @@
   }
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
- "synced_at": "2026-11-06T16:31:38",
- "localization_design_head": "693b6c2ab349976636de0f875a2b6c70096ff1c9"
+ "synced_at": "2026-11-07T18:31:11",
+ "localization_design_head": "cdaff365f0781e3f9c7c60e26722a8a9272b8381"
 }
