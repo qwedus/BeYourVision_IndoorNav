@@ -1,0 +1,999 @@
+{"engine": {"name": "apple_vision", "judge": "app", "source": "iPhone OcrTestApp 0.3.3 기록(ocr.jsonl)", "note": "app = 현장 판정 그대로, 그 밖 = 앱이 읽은 글자로 그 설정의 판정을 PC에서 다시 돌림"}, "recording": "OCR_20261105_1841"}
+{"detection_id": "OCR_20261105_1841/f00119/yolo26n/d1", "track_id": 0, "t": 55068.856955791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00122/yolo26n/d0", "track_id": 0, "t": 55068.956941583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00128/yolo26n/d1", "track_id": 1, "t": 55069.156913333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00136/yolo26n/d1", "track_id": 2, "t": 55069.423541958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00140/yolo26n/d1", "track_id": 3, "t": 55069.556856375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00150/yolo26n/d1", "track_id": 4, "t": 55069.890142541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00154/yolo26n/d1", "track_id": 5, "t": 55070.023456916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00161/yolo26n/d1", "track_id": 6, "t": 55070.256756916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00168/yolo26n/d1", "track_id": 5, "t": 55070.490057166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00173/yolo26n/d1", "track_id": 7, "t": 55070.656700125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00180/yolo26n/d1", "track_id": 6, "t": 55070.89000025, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00180/yolo26n/d2", "track_id": 8, "t": 55070.89000025, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00181/yolo26n/d1", "track_id": 8, "t": 55070.923328833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00181/yolo26n/d2", "track_id": 6, "t": 55070.923328833, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 - 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00188/yolo26n/d1", "track_id": 9, "t": 55071.156629083, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00188/yolo26n/d2", "track_id": 10, "t": 55071.156629083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00195/yolo26n/d1", "track_id": 11, "t": 55071.38992925, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00200/yolo26n/d2", "track_id": 12, "t": 55071.55657225, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00200/yolo26n/d3", "track_id": 11, "t": 55071.55657225, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00208/yolo26n/d1", "track_id": 13, "t": 55071.823201083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00216/yolo26n/d1", "track_id": 14, "t": 55072.089829708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00220/yolo26n/d1", "track_id": 14, "t": 55072.223144125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00228/yolo26n/d1", "track_id": 15, "t": 55072.489772875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00228/yolo26n/d2", "track_id": 16, "t": 55072.489772875, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00232/yolo26n/d1", "track_id": 17, "t": 55072.623087333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00238/yolo26n/d1", "track_id": 18, "t": 55072.823058916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00241/yolo26n/d1", "track_id": 18, "t": 55072.92304475, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00248/yolo26n/d1", "track_id": 19, "t": 55073.156344958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00257/yolo26n/d1", "track_id": 20, "t": 55073.456302375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00259/yolo26n/d1", "track_id": 20, "t": 55073.522959583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00266/yolo26n/d1", "track_id": 21, "t": 55073.756259791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00266/yolo26n/d2", "track_id": 22, "t": 55073.756259791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00273/yolo26n/d0", "track_id": 23, "t": 55073.989559791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00280/yolo26n/d0", "track_id": 20, "t": 55074.222860125, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 ~ 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00287/yolo26n/d0", "track_id": 21, "t": 55074.456160166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00290/yolo26n/d0", "track_id": 23, "t": 55074.556146083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00299/yolo26n/d0", "track_id": 24, "t": 55074.856103375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00299/yolo26n/d1", "track_id": 25, "t": 55074.856103375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00305/yolo26n/d0", "track_id": 26, "t": 55075.056075166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00310/yolo26n/d0", "track_id": 27, "t": 55075.222718041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00310/yolo26n/d1", "track_id": 25, "t": 55075.222718041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00314/yolo26n/d0", "track_id": 24, "t": 55075.356032416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00324/yolo26n/d0", "track_id": 25, "t": 55075.689318416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00324/yolo26n/d1", "track_id": 28, "t": 55075.689318416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00330/yolo26n/d0", "track_id": 29, "t": 55075.889290083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00330/yolo26n/d1", "track_id": 30, "t": 55075.889290083, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00331/yolo26n/d0", "track_id": 29, "t": 55075.922618625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00331/yolo26n/d1", "track_id": 30, "t": 55075.922618625, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00341/yolo26n/d0", "track_id": 31, "t": 55076.255904666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00347/yolo26n/d0", "track_id": 32, "t": 55076.45587625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00349/yolo26n/d0", "track_id": 32, "t": 55076.522533416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00356/yolo26n/d0", "track_id": 33, "t": 55076.755833583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00356/yolo26n/d1", "track_id": 30, "t": 55076.755833583, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00361/yolo26n/d1", "track_id": 32, "t": 55076.9224765, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳- A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00369/yolo26n/d0", "track_id": 34, "t": 55077.189105333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00373/yolo26n/d0", "track_id": 34, "t": 55077.322419708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00384/yolo26n/d0", "track_id": 34, "t": 55077.689034291, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 - 1", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00386/yolo26n/d0", "track_id": 34, "t": 55077.755691583, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 - 1", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00394/yolo26n/d0", "track_id": 34, "t": 55078.022320166, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 - 1", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00399/yolo26n/d0", "track_id": 35, "t": 55078.188963166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00406/yolo26n/d0", "track_id": 36, "t": 55078.422263333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00414/yolo26n/d0", "track_id": 37, "t": 55078.688892125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00419/yolo26n/d0", "track_id": 38, "t": 55078.855535041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00423/yolo26n/d0", "track_id": 34, "t": 55078.988849458, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 - 1", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00428/yolo26n/d0", "track_id": 34, "t": 55079.155492541, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 - 1", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00428/yolo26n/d1", "track_id": 39, "t": 55079.155492541, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00434/yolo26n/d0", "track_id": 38, "t": 55079.355463958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00443/yolo26n/d0", "track_id": 38, "t": 55079.655421375, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 1", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00449/yolo26n/d0", "track_id": 34, "t": 55079.855392958, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 - 1", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00455/yolo26n/d0", "track_id": 40, "t": 55080.055364458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00459/yolo26n/d0", "track_id": 34, "t": 55080.18867875, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 - 1", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00468/yolo26n/d0", "track_id": 41, "t": 55080.488636125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00469/yolo26n/d0", "track_id": 41, "t": 55080.521964791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00480/yolo26n/d0", "track_id": 41, "t": 55080.888579375, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 : 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00484/yolo26n/d0", "track_id": 41, "t": 55081.021893625, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 : 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00487/yolo26n/d0", "track_id": 41, "t": 55081.1218795, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 : 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00497/yolo26n/d0", "track_id": 42, "t": 55081.455165458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00502/yolo26n/d0", "track_id": 42, "t": 55081.621808333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00505/yolo26n/d0", "track_id": 42, "t": 55081.721794208, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00511/yolo26n/d0", "track_id": 43, "t": 55081.921765625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00521/yolo26n/d0", "track_id": 42, "t": 55082.255051625, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00524/yolo26n/d0", "track_id": 42, "t": 55082.355037458, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00534/yolo26n/d0", "track_id": 42, "t": 55082.688323458, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00540/yolo26n/d0", "track_id": 42, "t": 55082.888295041, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00545/yolo26n/d0", "track_id": 44, "t": 55083.054937875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00551/yolo26n/d0", "track_id": 42, "t": 55083.2549095, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00553/yolo26n/d0", "track_id": 42, "t": 55083.321566666, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00564/yolo26n/d0", "track_id": 44, "t": 55083.688181375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00568/yolo26n/d0", "track_id": 42, "t": 55083.821495708, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00576/yolo26n/d0", "track_id": 42, "t": 55084.0881245, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00576/yolo26n/d1", "track_id": 45, "t": 55084.0881245, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00578/yolo26n/d0", "track_id": 42, "t": 55084.15478175, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00588/yolo26n/d0", "track_id": 42, "t": 55084.488067666, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00588/yolo26n/d1", "track_id": 46, "t": 55084.488067666, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00589/yolo26n/d0", "track_id": 42, "t": 55084.521396166, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w A", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00589/yolo26n/d1", "track_id": 46, "t": 55084.521396166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00596/yolo26n/d0", "track_id": 47, "t": 55084.754696375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00601/yolo26n/d0", "track_id": 48, "t": 55084.921339458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00607/yolo26n/d0", "track_id": 47, "t": 55085.121311, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00607/yolo26n/d1", "track_id": 49, "t": 55085.121311, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00616/yolo26n/d0", "track_id": 47, "t": 55085.421268416, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 %", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00619/yolo26n/d0", "track_id": 47, "t": 55085.521254125, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 %", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00626/yolo26n/d0", "track_id": 50, "t": 55085.754554458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00631/yolo26n/d0", "track_id": 50, "t": 55085.921197291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00639/yolo26n/d0", "track_id": 50, "t": 55086.187826166, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00639/yolo26n/d1", "track_id": 51, "t": 55086.187826166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00645/yolo26n/d0", "track_id": 50, "t": 55086.387797875, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00645/yolo26n/d1", "track_id": 52, "t": 55086.387797875, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00652/yolo26n/d0", "track_id": 50, "t": 55086.621098041, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00655/yolo26n/d0", "track_id": 50, "t": 55086.72108375, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00655/yolo26n/d1", "track_id": 53, "t": 55086.72108375, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00662/yolo26n/d0", "track_id": 54, "t": 55086.954384041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00667/yolo26n/d0", "track_id": 54, "t": 55087.121026916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00677/yolo26n/d0", "track_id": 50, "t": 55087.454313, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00682/yolo26n/d0", "track_id": 54, "t": 55087.620956, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00687/yolo26n/d0", "track_id": 54, "t": 55087.787599, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00691/yolo26n/d0", "track_id": 50, "t": 55087.920913333, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00691/yolo26n/d1", "track_id": 55, "t": 55087.920913333, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00702/yolo26n/d0", "track_id": 54, "t": 55088.287528041, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00703/yolo26n/d0", "track_id": 54, "t": 55088.320856666, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00713/yolo26n/d0", "track_id": 54, "t": 55088.65414275, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00715/yolo26n/d0", "track_id": 54, "t": 55088.720799791, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00715/yolo26n/d1", "track_id": 56, "t": 55088.720799791, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00722/yolo26n/d0", "track_id": 54, "t": 55088.954100166, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00732/yolo26n/d0", "track_id": 54, "t": 55089.287386125, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00732/yolo26n/d1", "track_id": 57, "t": 55089.287386125, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00738/yolo26n/d0", "track_id": 58, "t": 55089.487357833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00738/yolo26n/d1", "track_id": 59, "t": 55089.487357833, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00738/yolo26n/d2", "track_id": 60, "t": 55089.487357833, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00740/yolo26n/d0", "track_id": 58, "t": 55089.554015041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00740/yolo26n/d1", "track_id": 59, "t": 55089.554015041, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00740/yolo26n/d2", "track_id": 60, "t": 55089.554015041, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00746/yolo26n/d0", "track_id": 54, "t": 55089.753986666, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00754/yolo26n/d0", "track_id": 58, "t": 55090.020615458, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00754/yolo26n/d1", "track_id": 61, "t": 55090.020615458, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00761/yolo26n/d0", "track_id": 58, "t": 55090.253915708, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00761/yolo26n/d1", "track_id": 62, "t": 55090.253915708, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00767/yolo26n/d0", "track_id": 58, "t": 55090.453887208, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 m", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00767/yolo26n/d1", "track_id": 61, "t": 55090.453887208, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00767/yolo26n/d2", "track_id": 63, "t": 55090.453887208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00774/yolo26n/d0", "track_id": 64, "t": 55090.687187541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00774/yolo26n/d1", "track_id": 65, "t": 55090.687187541, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00776/yolo26n/d0", "track_id": 64, "t": 55090.753844625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00776/yolo26n/d1", "track_id": 65, "t": 55090.753844625, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00776/yolo26n/d2", "track_id": 66, "t": 55090.753844625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00786/yolo26n/d0", "track_id": 64, "t": 55091.08713075, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit | “ㅁ", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00786/yolo26n/d1", "track_id": 67, "t": 55091.08713075, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00789/yolo26n/d0", "track_id": 64, "t": 55091.187116375, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit | “ㅁ", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00789/yolo26n/d1", "track_id": 65, "t": 55091.187116375, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "180 | 이번일차중도일! | (수리공원부 4 0 | 다음열차승도달빛속", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00789/yolo26n/d2", "track_id": 67, "t": 55091.187116375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00798/yolo26n/d0", "track_id": 64, "t": 55091.487073791, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit | “ㅁ", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00798/yolo26n/d1", "track_id": 68, "t": 55091.487073791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00798/yolo26n/d2", "track_id": 69, "t": 55091.487073791, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00798/yolo26n/d3", "track_id": 70, "t": 55091.487073791, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00804/yolo26n/d0", "track_id": 64, "t": 55091.687045416, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit | “ㅁ", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00804/yolo26n/d1", "track_id": 69, "t": 55091.687045416, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00804/yolo26n/d2", "track_id": 70, "t": 55091.687045416, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00804/yolo26n/d3", "track_id": 71, "t": 55091.687045416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00805/yolo26n/d0", "track_id": 64, "t": 55091.720374083, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit | “ㅁ", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00805/yolo26n/d1", "track_id": 69, "t": 55091.720374083, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "42- | M 827 | 10 | Tes Spe Belee bed nd 4 25", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00805/yolo26n/d2", "track_id": 71, "t": 55091.720374083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00816/yolo26n/d0", "track_id": 64, "t": 55092.08698875, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit | “ㅁ", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00816/yolo26n/d1", "track_id": 72, "t": 55092.08698875, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00816/yolo26n/d2", "track_id": 73, "t": 55092.08698875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00816/yolo26n/d3", "track_id": 74, "t": 55092.08698875, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00817/yolo26n/d0", "track_id": 64, "t": 55092.120317333, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit | “ㅁ", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00817/yolo26n/d1", "track_id": 73, "t": 55092.120317333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00817/yolo26n/d2", "track_id": 74, "t": 55092.120317333, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00817/yolo26n/d3", "track_id": 72, "t": 55092.120317333, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00825/yolo26n/d0", "track_id": 75, "t": 55092.386946125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00825/yolo26n/d1", "track_id": 76, "t": 55092.386946125, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00825/yolo26n/d2", "track_id": 77, "t": 55092.386946125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00825/yolo26n/d3", "track_id": 78, "t": 55092.386946125, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00829/yolo26n/d0", "track_id": 75, "t": 55092.520260625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00829/yolo26n/d1", "track_id": 76, "t": 55092.520260625, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00829/yolo26n/d2", "track_id": 69, "t": 55092.520260625, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "42- | M 827 | 10 | Tes Spe Belee bed nd 4 25", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00829/yolo26n/d3", "track_id": 79, "t": 55092.520260625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00840/yolo26n/d0", "track_id": 75, "t": 55092.88687525, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00840/yolo26n/d1", "track_id": 74, "t": 55092.88687525, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "843 | Reall ht | 42- | 18:43 | \"... | Thes Sol Bely hsal ht 42 | Net Sage Bely hatel Mt 825", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00840/yolo26n/d2", "track_id": 73, "t": 55092.88687525, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00841/yolo26n/d0", "track_id": 75, "t": 55092.920203791, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00841/yolo26n/d1", "track_id": 74, "t": 55092.920203791, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "843 | Reall ht | 42- | 18:43 | \"... | Thes Sol Bely hsal ht 42 | Net Sage Bely hatel Mt 825", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00841/yolo26n/d2", "track_id": 73, "t": 55092.920203791, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳- | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00849/yolo26n/d0", "track_id": 75, "t": 55093.186832708, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00849/yolo26n/d1", "track_id": 73, "t": 55093.186832708, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳- | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00849/yolo26n/d2", "track_id": 74, "t": 55093.186832708, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "843 | Reall ht | 42- | 18:43 | \"... | Thes Sol Bely hsal ht 42 | Net Sage Bely hatel Mt 825", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00855/yolo26n/d0", "track_id": 75, "t": 55093.386804208, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00855/yolo26n/d1", "track_id": 73, "t": 55093.386804208, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳- | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00855/yolo26n/d2", "track_id": 74, "t": 55093.386804208, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "843 | Reall ht | 42- | 18:43 | \"... | Thes Sol Bely hsal ht 42 | Net Sage Bely hatel Mt 825", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00855/yolo26n/d3", "track_id": 76, "t": 55093.386804208, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00855/yolo26n/d4", "track_id": 80, "t": 55093.386804208, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00863/yolo26n/d0", "track_id": 81, "t": 55093.653433, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00863/yolo26n/d1", "track_id": 74, "t": 55093.653433, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "843 | Reall ht | 42- | 18:43 | \"... | Thes Sol Bely hsal ht 42 | Net Sage Bely hatel Mt 825", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00869/yolo26n/d0", "track_id": 81, "t": 55093.853404625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00869/yolo26n/d1", "track_id": 82, "t": 55093.853404625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00869/yolo26n/d2", "track_id": 83, "t": 55093.853404625, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00876/yolo26n/d0", "track_id": 74, "t": 55094.086704833, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "843 | Reall ht | 42- | 18:43 | \"... | Thes Sol Bely hsal ht 42 | Net Sage Bely hatel Mt 825", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00876/yolo26n/d1", "track_id": 73, "t": 55094.086704833, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳- | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00876/yolo26n/d2", "track_id": 81, "t": 55094.086704833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00877/yolo26n/d0", "track_id": 74, "t": 55094.120033583, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "843 | Reall ht | 42- | 18:43 | \"... | Thes Sol Bely hsal ht 42 | Net Sage Bely hatel Mt 825", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00877/yolo26n/d1", "track_id": 73, "t": 55094.120033583, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳- | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00877/yolo26n/d2", "track_id": 81, "t": 55094.120033583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00887/yolo26n/d0", "track_id": 83, "t": 55094.453319416, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00887/yolo26n/d1", "track_id": 84, "t": 55094.453319416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00890/yolo26n/d0", "track_id": 83, "t": 55094.553305125, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:43 | THis Sigle Hoe | A Felin hit | NEXT Soole Moei | 427 | 18:43 | THs Segh lerght Foal ht 4 25 | NEXT Segd Molyl Feled n 8 4", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00890/yolo26n/d1", "track_id": 84, "t": 55094.553305125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00890/yolo26n/d2", "track_id": 73, "t": 55094.553305125, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳- | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00896/yolo26n/d0", "track_id": 85, "t": 55094.753276708, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00896/yolo26n/d1", "track_id": 86, "t": 55094.753276708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00901/yolo26n/d0", "track_id": 83, "t": 55094.91991975, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:43 | THis Sigle Hoe | A Felin hit | NEXT Soole Moei | 427 | 18:43 | THs Segh lerght Foal ht 4 25 | NEXT Segd Molyl Feled n 8 4", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00901/yolo26n/d1", "track_id": 84, "t": 55094.91991975, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳: | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00911/yolo26n/d0", "track_id": 83, "t": 55095.2532055, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:43 | THis Sigle Hoe | A Felin hit | NEXT Soole Moei | 427 | 18:43 | THs Segh lerght Foal ht 4 25 | NEXT Segd Molyl Feled n 8 4", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00911/yolo26n/d1", "track_id": 84, "t": 55095.2532055, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳: | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00918/yolo26n/d0", "track_id": 84, "t": 55095.486505625, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳: | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00918/yolo26n/d1", "track_id": 83, "t": 55095.486505625, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:43 | THis Sigle Hoe | A Felin hit | NEXT Soole Moei | 427 | 18:43 | THs Segh lerght Foal ht 4 25 | NEXT Segd Molyl Feled n 8 4", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00923/yolo26n/d0", "track_id": 87, "t": 55095.653148458, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00923/yolo26n/d1", "track_id": 88, "t": 55095.653148458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00928/yolo26n/d0", "track_id": 83, "t": 55095.819791458, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:43 | THis Sigle Hoe | A Felin hit | NEXT Soole Moei | 427 | 18:43 | THs Segh lerght Foal ht 4 25 | NEXT Segd Molyl Feled n 8 4", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00928/yolo26n/d1", "track_id": 89, "t": 55095.819791458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00935/yolo26n/d0", "track_id": 83, "t": 55096.053091666, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:43 | THis Sigle Hoe | A Felin hit | NEXT Soole Moei | 427 | 18:43 | THs Segh lerght Foal ht 4 25 | NEXT Segd Molyl Feled n 8 4", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00935/yolo26n/d1", "track_id": 84, "t": 55096.053091666, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳: | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00940/yolo26n/d0", "track_id": 87, "t": 55096.219734541, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00940/yolo26n/d1", "track_id": 90, "t": 55096.219734541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00947/yolo26n/d0", "track_id": 91, "t": 55096.453034583, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00947/yolo26n/d1", "track_id": 92, "t": 55096.453034583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00953/yolo26n/d0", "track_id": 91, "t": 55096.653006041, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00953/yolo26n/d1", "track_id": 92, "t": 55096.653006041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00958/yolo26n/d0", "track_id": 83, "t": 55096.819648958, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:43 | THis Sigle Hoe | A Felin hit | NEXT Soole Moei | 427 | 18:43 | THs Segh lerght Foal ht 4 25 | NEXT Segd Molyl Feled n 8 4", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f00958/yolo26n/d1", "track_id": 84, "t": 55096.819648958, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳: | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00962/yolo26n/d0", "track_id": 91, "t": 55096.952963208, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5%(© | 이번열차송도달빛축제공원행 4 5, | 다음일차송도달빛축제공원행 8 2%g", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00962/yolo26n/d1", "track_id": 92, "t": 55096.952963208, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00972/yolo26n/d0", "track_id": 91, "t": 55097.286248958, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5%(© | 이번열차송도달빛축제공원행 4 5, | 다음일차송도달빛축제공원행 8 2%g", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00972/yolo26n/d2", "track_id": 92, "t": 55097.286248958, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00973/yolo26n/d0", "track_id": 91, "t": 55097.319577708, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5%(© | 이번열차송도달빛축제공원행 4 5, | 다음일차송도달빛축제공원행 8 2%g", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00973/yolo26n/d1", "track_id": 92, "t": 55097.319577708, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00983/yolo26n/d0", "track_id": 91, "t": 55097.652863375, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5%(© | 이번열차송도달빛축제공원행 4 5, | 다음일차송도달빛축제공원행 8 2%g", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00983/yolo26n/d1", "track_id": 92, "t": 55097.652863375, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00988/yolo26n/d0", "track_id": 91, "t": 55097.819506416, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5%(© | 이번열차송도달빛축제공원행 4 5, | 다음일차송도달빛축제공원행 8 2%g", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00988/yolo26n/d1", "track_id": 93, "t": 55097.819506416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00996/yolo26n/d0", "track_id": 94, "t": 55098.086135166, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f00996/yolo26n/d2", "track_id": 95, "t": 55098.086135166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01000/yolo26n/d0", "track_id": 94, "t": 55098.2194495, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01000/yolo26n/d1", "track_id": 92, "t": 55098.2194495, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01005/yolo26n/d0", "track_id": 94, "t": 55098.386092291, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 1195월(부) | 이번열차송도달빛축제공원행 4 2* | 다음열차송도달빛축제공원형 8 5% | 상병수 30", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01005/yolo26n/d2", "track_id": 93, "t": 55098.386092291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01009/yolo26n/d0", "track_id": 94, "t": 55098.519406583, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 1195월(부) | 이번열차송도달빛축제공원행 4 2* | 다음열차송도달빛축제공원형 8 5% | 상병수 30", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01009/yolo26n/d2", "track_id": 93, "t": 55098.519406583, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01009/yolo26n/d3", "track_id": 96, "t": 55098.519406583, "label": "toilet", "decision": "keep", "text_status": "skipped", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01015/yolo26n/d0", "track_id": 94, "t": 55098.719378041, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 1195월(부) | 이번열차송도달빛축제공원행 4 2* | 다음열차송도달빛축제공원형 8 5% | 상병수 30", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01015/yolo26n/d1", "track_id": 95, "t": 55098.719378041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01025/yolo26n/d0", "track_id": 97, "t": 55099.052663916, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01025/yolo26n/d2", "track_id": 93, "t": 55099.052663916, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01027/yolo26n/d0", "track_id": 97, "t": 55099.119321083, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01027/yolo26n/d2", "track_id": 93, "t": 55099.119321083, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01027/yolo26n/d3", "track_id": 96, "t": 55099.119321083, "label": "toilet", "decision": "keep", "text_status": "skipped", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01033/yolo26n/d0", "track_id": 97, "t": 55099.319292666, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01033/yolo26n/d1", "track_id": 98, "t": 55099.319292666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01040/yolo26n/d0", "track_id": 97, "t": 55099.552592708, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01040/yolo26n/d1", "track_id": 98, "t": 55099.552592708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01050/yolo26n/d0", "track_id": 97, "t": 55099.885878625, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01050/yolo26n/d2", "track_id": 99, "t": 55099.885878625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01053/yolo26n/d0", "track_id": 97, "t": 55099.985864291, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01053/yolo26n/d2", "track_id": 100, "t": 55099.985864291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01058/yolo26n/d0", "track_id": 97, "t": 55100.15250725, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01058/yolo26n/d2", "track_id": 100, "t": 55100.15250725, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01058/yolo26n/d3", "track_id": 101, "t": 55100.15250725, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01058/yolo26n/d4", "track_id": 102, "t": 55100.15250725, "label": "toilet", "decision": "keep", "text_status": "skipped", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01068/yolo26n/d0", "track_id": 97, "t": 55100.485793041, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01068/yolo26n/d2", "track_id": 103, "t": 55100.485793041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01074/yolo26n/d0", "track_id": 97, "t": 55100.685764541, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01074/yolo26n/d1", "track_id": 100, "t": 55100.685764541, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 : | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01077/yolo26n/d0", "track_id": 97, "t": 55100.785750291, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01077/yolo26n/d2", "track_id": 100, "t": 55100.785750291, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 : | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01077/yolo26n/d3", "track_id": 104, "t": 55100.785750291, "label": "toilet", "decision": "keep", "text_status": "skipped", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01081/yolo26n/d0", "track_id": 97, "t": 55100.9190645, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01081/yolo26n/d1", "track_id": 100, "t": 55100.9190645, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 : | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01081/yolo26n/d3", "track_id": 102, "t": 55100.9190645, "label": "toilet", "decision": "keep", "text_status": "skipped", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01090/yolo26n/d0", "track_id": 97, "t": 55101.219021791, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01090/yolo26n/d2", "track_id": 100, "t": 55101.219021791, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 : | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01090/yolo26n/d3", "track_id": 105, "t": 55101.219021791, "label": "toilet", "decision": "keep", "text_status": "skipped", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01097/yolo26n/d0", "track_id": 97, "t": 55101.452321916, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01097/yolo26n/d2", "track_id": 106, "t": 55101.452321916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01099/yolo26n/d0", "track_id": 97, "t": 55101.518979041, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01099/yolo26n/d1", "track_id": 106, "t": 55101.518979041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01099/yolo26n/d3", "track_id": 107, "t": 55101.518979041, "label": "toilet", "decision": "keep", "text_status": "skipped", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01108/yolo26n/d0", "track_id": 97, "t": 55101.818936166, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01108/yolo26n/d1", "track_id": 108, "t": 55101.818936166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01111/yolo26n/d0", "track_id": 97, "t": 55101.918921833, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01111/yolo26n/d1", "track_id": 108, "t": 55101.918921833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01119/yolo26n/d0", "track_id": 97, "t": 55102.1855505, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01119/yolo26n/d1", "track_id": 106, "t": 55102.1855505, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01123/yolo26n/d0", "track_id": 97, "t": 55102.318864833, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01123/yolo26n/d1", "track_id": 108, "t": 55102.318864833, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01134/yolo26n/d0", "track_id": 97, "t": 55102.685479166, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01134/yolo26n/d1", "track_id": 106, "t": 55102.685479166, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01134/yolo26n/d3", "track_id": 109, "t": 55102.685479166, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01140/yolo26n/d1", "track_id": 108, "t": 55102.88545075, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01140/yolo26n/d2", "track_id": 97, "t": 55102.88545075, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:43 | 11월5월(특) | 이번열차송도달빛축제공원행 4꽈배 | 다음열차송도달빛축제공원행 8 2빼 | 신연수를) | 참연계>", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01140/yolo26n/d3", "track_id": 109, "t": 55102.88545075, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01144/yolo26n/d1", "track_id": 106, "t": 55103.018765, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01149/yolo26n/d0", "track_id": 110, "t": 55103.185407916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01156/yolo26n/d0", "track_id": 110, "t": 55103.418708041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01159/yolo26n/d0", "track_id": 110, "t": 55103.51869375, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 % | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01170/yolo26n/d1", "track_id": 111, "t": 55103.885308166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01170/yolo26n/d2", "track_id": 112, "t": 55103.885308166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01173/yolo26n/d1", "track_id": 110, "t": 55103.985293958, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 % | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01173/yolo26n/d2", "track_id": 113, "t": 55103.985293958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01179/yolo26n/d1", "track_id": 111, "t": 55104.1852655, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01179/yolo26n/d2", "track_id": 112, "t": 55104.1852655, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01183/yolo26n/d0", "track_id": 111, "t": 55104.318579666, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01189/yolo26n/d0", "track_id": 110, "t": 55104.518551083, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 % | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01200/yolo26n/d0", "track_id": 111, "t": 55104.8851655, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01205/yolo26n/d0", "track_id": 111, "t": 55105.051808375, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01209/yolo26n/d0", "track_id": 110, "t": 55105.185122666, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 % | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01218/yolo26n/d0", "track_id": 111, "t": 55105.485079958, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01219/yolo26n/d0", "track_id": 111, "t": 55105.5184085, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01228/yolo26n/d0", "track_id": 114, "t": 55105.818365708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01233/yolo26n/d0", "track_id": 110, "t": 55105.985008583, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 % | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01238/yolo26n/d0", "track_id": 111, "t": 55106.151651583, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01248/yolo26n/d0", "track_id": 111, "t": 55106.484937166, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01249/yolo26n/d0", "track_id": 111, "t": 55106.518265833, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01258/yolo26n/d0", "track_id": 111, "t": 55106.818223, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01263/yolo26n/d0", "track_id": 110, "t": 55106.984865791, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 % | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01270/yolo26n/d0", "track_id": 111, "t": 55107.218165875, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01270/yolo26n/d1", "track_id": 115, "t": 55107.218165875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01275/yolo26n/d0", "track_id": 111, "t": 55107.384808833, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01279/yolo26n/d0", "track_id": 110, "t": 55107.518123208, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 % | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01289/yolo26n/d0", "track_id": 111, "t": 55107.851409041, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01289/yolo26n/d1", "track_id": 116, "t": 55107.851409041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01291/yolo26n/d0", "track_id": 111, "t": 55107.918066166, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01298/yolo26n/d0", "track_id": 110, "t": 55108.15136625, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 % | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01298/yolo26n/d1", "track_id": 117, "t": 55108.15136625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01305/yolo26n/d0", "track_id": 110, "t": 55108.384666333, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 % | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01314/yolo26n/d0", "track_id": 110, "t": 55108.6846235, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 % | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01319/yolo26n/d0", "track_id": 111, "t": 55108.851266458, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01322/yolo26n/d0", "track_id": 111, "t": 55108.951252208, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01330/yolo26n/d0", "track_id": 111, "t": 55109.217880916, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01330/yolo26n/d1", "track_id": 118, "t": 55109.217880916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01334/yolo26n/d0", "track_id": 111, "t": 55109.351195333, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01339/yolo26n/d0", "track_id": 111, "t": 55109.517838333, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "13- | 나가는 곳 | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01346/yolo26n/d0", "track_id": 119, "t": 55109.751138291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01346/yolo26n/d1", "track_id": 120, "t": 55109.751138291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01354/yolo26n/d0", "track_id": 119, "t": 55110.017767, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01354/yolo26n/d1", "track_id": 118, "t": 55110.017767, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01359/yolo26n/d0", "track_id": 119, "t": 55110.184409916, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60ml | 나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01359/yolo26n/d1", "track_id": 121, "t": 55110.184409916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01359/yolo26n/d2", "track_id": 122, "t": 55110.184409916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01365/yolo26n/d0", "track_id": 119, "t": 55110.384381458, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60ml | 나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01374/yolo26n/d0", "track_id": 119, "t": 55110.684338833, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60ml | 나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01375/yolo26n/d0", "track_id": 119, "t": 55110.717667333, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60ml | 나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01384/yolo26n/d0", "track_id": 119, "t": 55111.01762475, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60ml | 나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01390/yolo26n/d0", "track_id": 119, "t": 55111.217596333, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60ml | 나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01390/yolo26n/d1", "track_id": 123, "t": 55111.217596333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01393/yolo26n/d0", "track_id": 119, "t": 55111.317582041, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60ml | 나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01393/yolo26n/d1", "track_id": 124, "t": 55111.317582041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01402/yolo26n/d0", "track_id": 119, "t": 55111.617539333, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60ml | 나가는 곳 | Exit", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01410/yolo26n/d0", "track_id": 125, "t": 55111.884168125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01411/yolo26n/d0", "track_id": 125, "t": 55111.917496666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01411/yolo26n/d1", "track_id": 126, "t": 55111.917496666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01417/yolo26n/d0", "track_id": 125, "t": 55112.117468208, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60m | 나가는 곳 | Exit | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01417/yolo26n/d1", "track_id": 126, "t": 55112.117468208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01427/yolo26n/d0", "track_id": 125, "t": 55112.450754208, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60m | 나가는 곳 | Exit | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01427/yolo26n/d1", "track_id": 127, "t": 55112.450754208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01434/yolo26n/d0", "track_id": 125, "t": 55112.684054333, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60m | 나가는 곳 | Exit | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01434/yolo26n/d1", "track_id": 128, "t": 55112.684054333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01436/yolo26n/d0", "track_id": 125, "t": 55112.750711416, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60m | 나가는 곳 | Exit | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01442/yolo26n/d0", "track_id": 128, "t": 55112.950683, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01442/yolo26n/d1", "track_id": 125, "t": 55112.950683, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 60m | 나가는 곳 | Exit | 7", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01460/yolo26n/d0", "track_id": 129, "t": 55113.550597666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01476/yolo26n/d0", "track_id": 130, "t": 55114.083855208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01491/yolo26n/d0", "track_id": 131, "t": 55114.583784041, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01557/yolo26n/d0", "track_id": 132, "t": 55116.78347125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01570/yolo26n/d0", "track_id": 133, "t": 55117.216743083, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01575/yolo26n/d0", "track_id": 134, "t": 55117.383385916, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01590/yolo26n/d0", "track_id": 135, "t": 55117.883314833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01603/yolo26n/d0", "track_id": 136, "t": 55118.316586541, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01621/yolo26n/d0", "track_id": 137, "t": 55118.916501291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01634/yolo26n/d0", "track_id": 138, "t": 55119.349773041, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01643/yolo26n/d0", "track_id": 139, "t": 55119.649730333, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01648/yolo26n/d0", "track_id": 140, "t": 55119.816373291, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01648/yolo26n/d1", "track_id": 141, "t": 55119.816373291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01654/yolo26n/d0", "track_id": 140, "t": 55120.016344875, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01662/yolo26n/d0", "track_id": 140, "t": 55120.28297375, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01662/yolo26n/d1", "track_id": 142, "t": 55120.28297375, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01667/yolo26n/d0", "track_id": 143, "t": 55120.449616625, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01667/yolo26n/d1", "track_id": 140, "t": 55120.449616625, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01671/yolo26n/d0", "track_id": 140, "t": 55120.582931041, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01671/yolo26n/d1", "track_id": 144, "t": 55120.582931041, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01691/yolo26n/d0", "track_id": 144, "t": 55121.249502916, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01700/yolo26n/d0", "track_id": 145, "t": 55121.549460208, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01706/yolo26n/d0", "track_id": 146, "t": 55121.749431833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01716/yolo26n/d0", "track_id": 147, "t": 55122.082717791, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01716/yolo26n/d1", "track_id": 148, "t": 55122.082717791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01721/yolo26n/d0", "track_id": 149, "t": 55122.249360708, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01728/yolo26n/d0", "track_id": 150, "t": 55122.482660875, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01733/yolo26n/d0", "track_id": 151, "t": 55122.649303708, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01733/yolo26n/d1", "track_id": 152, "t": 55122.649303708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01739/yolo26n/d0", "track_id": 153, "t": 55122.849275375, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01739/yolo26n/d1", "track_id": 154, "t": 55122.849275375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01746/yolo26n/d0", "track_id": 155, "t": 55123.082575375, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01747/yolo26n/d0", "track_id": 155, "t": 55123.115904041, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01747/yolo26n/d1", "track_id": 156, "t": 55123.115904041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01756/yolo26n/d0", "track_id": 157, "t": 55123.41586125, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01756/yolo26n/d1", "track_id": 158, "t": 55123.41586125, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01762/yolo26n/d0", "track_id": 159, "t": 55123.615832875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01762/yolo26n/d1", "track_id": 157, "t": 55123.615832875, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01769/yolo26n/d0", "track_id": 160, "t": 55123.849132833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01769/yolo26n/d1", "track_id": 161, "t": 55123.849132833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01769/yolo26n/d2", "track_id": 162, "t": 55123.849132833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01778/yolo26n/d0", "track_id": 163, "t": 55124.149090166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01778/yolo26n/d1", "track_id": 164, "t": 55124.149090166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01778/yolo26n/d2", "track_id": 165, "t": 55124.149090166, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01783/yolo26n/d0", "track_id": 165, "t": 55124.315733083, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01783/yolo26n/d1", "track_id": 166, "t": 55124.315733083, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01783/yolo26n/d2", "track_id": 167, "t": 55124.315733083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01791/yolo26n/d0", "track_id": 168, "t": 55124.582361666, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01791/yolo26n/d1", "track_id": 169, "t": 55124.582361666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01791/yolo26n/d2", "track_id": 170, "t": 55124.582361666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01800/yolo26n/d0", "track_id": 168, "t": 55124.882319, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01804/yolo26n/d0", "track_id": 171, "t": 55125.015633416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01809/yolo26n/d0", "track_id": 172, "t": 55125.18227625, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01809/yolo26n/d1", "track_id": 173, "t": 55125.18227625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01817/yolo26n/d0", "track_id": 174, "t": 55125.448905, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01817/yolo26n/d1", "track_id": 175, "t": 55125.448905, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01821/yolo26n/d0", "track_id": 176, "t": 55125.582219375, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01821/yolo26n/d1", "track_id": 177, "t": 55125.582219375, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01827/yolo26n/d0", "track_id": 178, "t": 55125.78219075, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01827/yolo26n/d1", "track_id": 179, "t": 55125.78219075, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01827/yolo26n/d2", "track_id": 180, "t": 55125.78219075, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01833/yolo26n/d0", "track_id": 179, "t": 55125.982162375, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01833/yolo26n/d1", "track_id": 174, "t": 55125.982162375, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01833/yolo26n/d2", "track_id": 175, "t": 55125.982162375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01837/yolo26n/d0", "track_id": 176, "t": 55126.115476708, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01837/yolo26n/d1", "track_id": 177, "t": 55126.115476708, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01843/yolo26n/d0", "track_id": 181, "t": 55126.315448125, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01843/yolo26n/d1", "track_id": 182, "t": 55126.315448125, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01843/yolo26n/d2", "track_id": 183, "t": 55126.315448125, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01843/yolo26n/d3", "track_id": 184, "t": 55126.315448125, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01851/yolo26n/d0", "track_id": 185, "t": 55126.582076833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01851/yolo26n/d1", "track_id": 186, "t": 55126.582076833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01851/yolo26n/d2", "track_id": 187, "t": 55126.582076833, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01855/yolo26n/d0", "track_id": 181, "t": 55126.715391208, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01855/yolo26n/d1", "track_id": 188, "t": 55126.715391208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01865/yolo26n/d0", "track_id": 186, "t": 55127.048677083, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01865/yolo26n/d1", "track_id": 189, "t": 55127.048677083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01872/yolo26n/d0", "track_id": 188, "t": 55127.281977166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01872/yolo26n/d1", "track_id": 181, "t": 55127.281977166, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01875/yolo26n/d0", "track_id": 186, "t": 55127.381963, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Songl Mooligy Foled Fet", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01875/yolo26n/d1", "track_id": 187, "t": 55127.381963, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01881/yolo26n/d0", "track_id": 190, "t": 55127.581934541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01887/yolo26n/d0", "track_id": 191, "t": 55127.781906041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01887/yolo26n/d1", "track_id": 181, "t": 55127.781906041, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01887/yolo26n/d2", "track_id": 192, "t": 55127.781906041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01892/yolo26n/d0", "track_id": 181, "t": 55127.948548875, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01892/yolo26n/d1", "track_id": 188, "t": 55127.948548875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01901/yolo26n/d0", "track_id": 181, "t": 55128.24850625, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01901/yolo26n/d1", "track_id": 188, "t": 55128.24850625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01907/yolo26n/d0", "track_id": 193, "t": 55128.44847775, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01907/yolo26n/d1", "track_id": 194, "t": 55128.44847775, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01912/yolo26n/d0", "track_id": 181, "t": 55128.615120625, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01912/yolo26n/d1", "track_id": 195, "t": 55128.615120625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01916/yolo26n/d0", "track_id": 196, "t": 55128.748435041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01916/yolo26n/d1", "track_id": 197, "t": 55128.748435041, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01922/yolo26n/d0", "track_id": 193, "t": 55128.948406583, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01922/yolo26n/d1", "track_id": 198, "t": 55128.948406583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01930/yolo26n/d0", "track_id": 181, "t": 55129.215035125, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01930/yolo26n/d1", "track_id": 199, "t": 55129.215035125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01936/yolo26n/d0", "track_id": 181, "t": 55129.415006583, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01936/yolo26n/d1", "track_id": 195, "t": 55129.415006583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01941/yolo26n/d0", "track_id": 200, "t": 55129.581649541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01941/yolo26n/d1", "track_id": 193, "t": 55129.581649541, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01947/yolo26n/d0", "track_id": 181, "t": 55129.781620958, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01947/yolo26n/d1", "track_id": 201, "t": 55129.781620958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01955/yolo26n/d0", "track_id": 202, "t": 55130.048249666, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01955/yolo26n/d1", "track_id": 203, "t": 55130.048249666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01959/yolo26n/d0", "track_id": 204, "t": 55130.181563875, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01959/yolo26n/d1", "track_id": 205, "t": 55130.181563875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01959/yolo26n/d2", "track_id": 206, "t": 55130.181563875, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01965/yolo26n/d0", "track_id": 202, "t": 55130.3815355, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01965/yolo26n/d1", "track_id": 195, "t": 55130.3815355, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01974/yolo26n/d0", "track_id": 202, "t": 55130.681492708, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원 | Sangds Moonligey Festial Parti", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01974/yolo26n/d1", "track_id": 201, "t": 55130.681492708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01974/yolo26n/d2", "track_id": 207, "t": 55130.681492708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01977/yolo26n/d0", "track_id": 204, "t": 55130.781478458, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01977/yolo26n/d1", "track_id": 208, "t": 55130.781478458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01983/yolo26n/d0", "track_id": 205, "t": 55130.981449875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01983/yolo26n/d1", "track_id": 202, "t": 55130.981449875, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원 | Sangds Moonligey Festial Parti", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01990/yolo26n/d0", "track_id": 202, "t": 55131.214749916, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원 | Sangds Moonligey Festial Parti", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01990/yolo26n/d1", "track_id": 205, "t": 55131.214749916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01997/yolo26n/d0", "track_id": 209, "t": 55131.448050166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f01997/yolo26n/d1", "track_id": 210, "t": 55131.448050166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02003/yolo26n/d0", "track_id": 201, "t": 55131.64802175, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02003/yolo26n/d1", "track_id": 202, "t": 55131.64802175, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원 | Sangds Moonligey Festial Parti", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02007/yolo26n/d0", "track_id": 209, "t": 55131.781336083, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02007/yolo26n/d1", "track_id": 210, "t": 55131.781336083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02012/yolo26n/d0", "track_id": 211, "t": 55131.947978833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02012/yolo26n/d1", "track_id": 212, "t": 55131.947978833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02020/yolo26n/d0", "track_id": 209, "t": 55132.214607666, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원 | Songdo Moonligl | Mal PWK", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02020/yolo26n/d1", "track_id": 210, "t": 55132.214607666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02026/yolo26n/d0", "track_id": 202, "t": 55132.414579083, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | 송도달빛축제공원 | Sangds Moonligey Festial Parti", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02026/yolo26n/d1", "track_id": 213, "t": 55132.414579083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02030/yolo26n/d0", "track_id": 211, "t": 55132.547893333, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02030/yolo26n/d1", "track_id": 214, "t": 55132.547893333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02039/yolo26n/d0", "track_id": 215, "t": 55132.8478505, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02039/yolo26n/d1", "track_id": 216, "t": 55132.8478505, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02042/yolo26n/d0", "track_id": 215, "t": 55132.947836166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02042/yolo26n/d1", "track_id": 217, "t": 55132.947836166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02051/yolo26n/d0", "track_id": 218, "t": 55133.247793333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02051/yolo26n/d1", "track_id": 219, "t": 55133.247793333, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02056/yolo26n/d0", "track_id": 215, "t": 55133.414436166, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | 001mak | Songdo Moonlight Festival Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02056/yolo26n/d1", "track_id": 220, "t": 55133.414436166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02059/yolo26n/d0", "track_id": 215, "t": 55133.514421833, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | 001mak | Songdo Moonlight Festival Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02059/yolo26n/d1", "track_id": 220, "t": 55133.514421833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02065/yolo26n/d0", "track_id": 221, "t": 55133.714393208, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02065/yolo26n/d1", "track_id": 222, "t": 55133.714393208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02071/yolo26n/d0", "track_id": 221, "t": 55133.914364666, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02071/yolo26n/d1", "track_id": 223, "t": 55133.914364666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02078/yolo26n/d0", "track_id": 219, "t": 55134.14766475, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02078/yolo26n/d1", "track_id": 224, "t": 55134.14766475, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02085/yolo26n/d0", "track_id": 215, "t": 55134.380964583, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | 001mak | Songdo Moonlight Festival Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02085/yolo26n/d1", "track_id": 225, "t": 55134.380964583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02092/yolo26n/d0", "track_id": 226, "t": 55134.614264583, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02092/yolo26n/d1", "track_id": 227, "t": 55134.614264583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02100/yolo26n/d0", "track_id": 219, "t": 55134.880893083, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02100/yolo26n/d1", "track_id": 228, "t": 55134.880893083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02105/yolo26n/d0", "track_id": 224, "t": 55135.047535833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02105/yolo26n/d1", "track_id": 215, "t": 55135.047535833, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | 001mak | Songdo Moonlight Festival Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02112/yolo26n/d0", "track_id": 226, "t": 55135.280835958, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02112/yolo26n/d1", "track_id": 229, "t": 55135.280835958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02117/yolo26n/d0", "track_id": 215, "t": 55135.447478791, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | 001mak | Songdo Moonlight Festival Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02117/yolo26n/d1", "track_id": 224, "t": 55135.447478791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02121/yolo26n/d0", "track_id": 230, "t": 55135.580792958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02125/yolo26n/d0", "track_id": 231, "t": 55135.714107291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02131/yolo26n/d0", "track_id": 224, "t": 55135.914078583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02138/yolo26n/d0", "track_id": 232, "t": 55136.147378666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02144/yolo26n/d0", "track_id": 233, "t": 55136.347349958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02152/yolo26n/d0", "track_id": 234, "t": 55136.613978458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02159/yolo26n/d0", "track_id": 235, "t": 55136.847278416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02162/yolo26n/d0", "track_id": 236, "t": 55136.94726425, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02162/yolo26n/d1", "track_id": 237, "t": 55136.94726425, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02170/yolo26n/d0", "track_id": 236, "t": 55137.213892708, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02170/yolo26n/d1", "track_id": 238, "t": 55137.213892708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02177/yolo26n/d0", "track_id": 234, "t": 55137.447192625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02177/yolo26n/d1", "track_id": 236, "t": 55137.447192625, "label": "navy", "decision": "reject", "text_status": "mismatch", "text": "Dongmak | Songdo Moonlight Festival Park | Dongmak | Songdo Moonlight Festival Park", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f02177/yolo26n/d2", "track_id": 239, "t": 55137.447192625, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02183/yolo26n/d0", "track_id": 240, "t": 55137.647164208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02187/yolo26n/d0", "track_id": 238, "t": 55137.780478416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02187/yolo26n/d1", "track_id": 241, "t": 55137.780478416, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02191/yolo26n/d0", "track_id": 240, "t": 55137.913792708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02200/yolo26n/d0", "track_id": 242, "t": 55138.213749958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02208/yolo26n/d0", "track_id": 243, "t": 55138.4803785, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02210/yolo26n/d0", "track_id": 240, "t": 55138.547035666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02218/yolo26n/d0", "track_id": 244, "t": 55138.81366425, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02226/yolo26n/d0", "track_id": 245, "t": 55139.080292833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02228/yolo26n/d0", "track_id": 245, "t": 55139.146949958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02236/yolo26n/d0", "track_id": 246, "t": 55139.413578458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02241/yolo26n/d0", "track_id": 247, "t": 55139.58022125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02246/yolo26n/d0", "track_id": 248, "t": 55139.746863958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02253/yolo26n/d0", "track_id": 249, "t": 55139.980163916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02259/yolo26n/d0", "track_id": 250, "t": 55140.180135333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02263/yolo26n/d0", "track_id": 251, "t": 55140.3134495, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02271/yolo26n/d0", "track_id": 252, "t": 55140.580078125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02280/yolo26n/d0", "track_id": 252, "t": 55140.880035125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02281/yolo26n/d0", "track_id": 252, "t": 55140.913363791, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02288/yolo26n/d0", "track_id": 253, "t": 55141.146663833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02297/yolo26n/d0", "track_id": 253, "t": 55141.446620791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02304/yolo26n/d0", "track_id": 254, "t": 55141.679920833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02305/yolo26n/d0", "track_id": 254, "t": 55141.713249458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02312/yolo26n/d0", "track_id": 255, "t": 55141.946549375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02318/yolo26n/d0", "track_id": 256, "t": 55142.146520875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02324/yolo26n/d0", "track_id": 253, "t": 55142.346492375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02324/yolo26n/d1", "track_id": 257, "t": 55142.346492375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02329/yolo26n/d0", "track_id": 255, "t": 55142.513135208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02338/yolo26n/d0", "track_id": 258, "t": 55142.813092333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02351/yolo26n/d0", "track_id": 253, "t": 55143.246363875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02357/yolo26n/d0", "track_id": 258, "t": 55143.446335208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02364/yolo26n/d0", "track_id": 259, "t": 55143.679635333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02369/yolo26n/d0", "track_id": 260, "t": 55143.84627825, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02372/yolo26n/d0", "track_id": 258, "t": 55143.946263833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02381/yolo26n/d0", "track_id": 261, "t": 55144.246220916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02387/yolo26n/d0", "track_id": 262, "t": 55144.446192375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02392/yolo26n/d0", "track_id": 263, "t": 55144.612835291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02398/yolo26n/d0", "track_id": 261, "t": 55144.81280675, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02405/yolo26n/d0", "track_id": 264, "t": 55145.046106791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02412/yolo26n/d0", "track_id": 264, "t": 55145.279406958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02416/yolo26n/d0", "track_id": 265, "t": 55145.412721166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02416/yolo26n/d1", "track_id": 266, "t": 55145.412721166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02421/yolo26n/d0", "track_id": 261, "t": 55145.579364083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02427/yolo26n/d0", "track_id": 264, "t": 55145.779335583, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02432/yolo26n/d0", "track_id": 267, "t": 55145.945978416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02440/yolo26n/d0", "track_id": 267, "t": 55146.212607, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02447/yolo26n/d0", "track_id": 261, "t": 55146.445907166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02447/yolo26n/d1", "track_id": 268, "t": 55146.445907166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02450/yolo26n/d0", "track_id": 269, "t": 55146.545893083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02458/yolo26n/d0", "track_id": 270, "t": 55146.812521625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02462/yolo26n/d0", "track_id": 261, "t": 55146.945835958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02471/yolo26n/d0", "track_id": 269, "t": 55147.245793083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02474/yolo26n/d0", "track_id": 269, "t": 55147.345779, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02479/yolo26n/d0", "track_id": 261, "t": 55147.51242175, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02487/yolo26n/d0", "track_id": 271, "t": 55147.779050375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02492/yolo26n/d0", "track_id": 271, "t": 55147.945693375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02502/yolo26n/d0", "track_id": 272, "t": 55148.278979166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02503/yolo26n/d0", "track_id": 272, "t": 55148.312307833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02513/yolo26n/d0", "track_id": 273, "t": 55148.645593541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02513/yolo26n/d1", "track_id": 274, "t": 55148.645593541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02515/yolo26n/d0", "track_id": 273, "t": 55148.71225075, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02521/yolo26n/d0", "track_id": 272, "t": 55148.912222125, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02530/yolo26n/d0", "track_id": 275, "t": 55149.212179458, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02530/yolo26n/d1", "track_id": 276, "t": 55149.212179458, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02530/yolo26n/d2", "track_id": 277, "t": 55149.212179458, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02533/yolo26n/d0", "track_id": 275, "t": 55149.31216525, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02533/yolo26n/d1", "track_id": 277, "t": 55149.31216525, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02540/yolo26n/d0", "track_id": 273, "t": 55149.545465291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02540/yolo26n/d1", "track_id": 277, "t": 55149.545465291, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02540/yolo26n/d2", "track_id": 276, "t": 55149.545465291, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02549/yolo26n/d0", "track_id": 278, "t": 55149.845422541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02549/yolo26n/d1", "track_id": 276, "t": 55149.845422541, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02553/yolo26n/d0", "track_id": 275, "t": 55149.978737, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02553/yolo26n/d1", "track_id": 276, "t": 55149.978737, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02557/yolo26n/d0", "track_id": 273, "t": 55150.112051166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02557/yolo26n/d1", "track_id": 276, "t": 55150.112051166, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02564/yolo26n/d0", "track_id": 279, "t": 55150.345351333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02570/yolo26n/d0", "track_id": 279, "t": 55150.545322833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02575/yolo26n/d0", "track_id": 273, "t": 55150.711965791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02583/yolo26n/d0", "track_id": 279, "t": 55150.978594458, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02583/yolo26n/d1", "track_id": 276, "t": 55150.978594458, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02589/yolo26n/d0", "track_id": 279, "t": 55151.178565875, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02594/yolo26n/d0", "track_id": 273, "t": 55151.345208791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02602/yolo26n/d0", "track_id": 280, "t": 55151.611837291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02605/yolo26n/d0", "track_id": 280, "t": 55151.711823125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02612/yolo26n/d0", "track_id": 273, "t": 55151.945123041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02617/yolo26n/d0", "track_id": 280, "t": 55152.111765958, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02624/yolo26n/d0", "track_id": 281, "t": 55152.345066, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02631/yolo26n/d0", "track_id": 282, "t": 55152.578365833, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02636/yolo26n/d0", "track_id": 283, "t": 55152.745008708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02636/yolo26n/d1", "track_id": 284, "t": 55152.745008708, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02642/yolo26n/d0", "track_id": 284, "t": 55152.944980208, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02642/yolo26n/d1", "track_id": 281, "t": 55152.944980208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02649/yolo26n/d0", "track_id": 283, "t": 55153.178280125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02649/yolo26n/d1", "track_id": 284, "t": 55153.178280125, "label": "map", "decision": "reject", "text_status": "mismatch", "text": "일반게시판 | Gernera lens | 일반게시판", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f02649/yolo26n/d2", "track_id": 285, "t": 55153.178280125, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02657/yolo26n/d0", "track_id": 286, "t": 55153.44490875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02657/yolo26n/d1", "track_id": 284, "t": 55153.44490875, "label": "map", "decision": "reject", "text_status": "mismatch", "text": "일반게시판 | Gernera lens | 일반게시판", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f02664/yolo26n/d0", "track_id": 286, "t": 55153.678208708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02664/yolo26n/d1", "track_id": 284, "t": 55153.678208708, "label": "map", "decision": "reject", "text_status": "mismatch", "text": "일반게시판 | Gernera lens | 일반게시판", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f02665/yolo26n/d0", "track_id": 286, "t": 55153.711537375, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02665/yolo26n/d1", "track_id": 284, "t": 55153.711537375, "label": "map", "decision": "reject", "text_status": "mismatch", "text": "일반게시판 | Gernera lens | 일반게시판", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f02675/yolo26n/d0", "track_id": 287, "t": 55154.044823083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02680/yolo26n/d0", "track_id": 287, "t": 55154.211466125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02680/yolo26n/d1", "track_id": 288, "t": 55154.211466125, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02685/yolo26n/d0", "track_id": 286, "t": 55154.378108916, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02685/yolo26n/d1", "track_id": 289, "t": 55154.378108916, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02691/yolo26n/d0", "track_id": 286, "t": 55154.578080416, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02691/yolo26n/d1", "track_id": 290, "t": 55154.578080416, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02691/yolo26n/d2", "track_id": 291, "t": 55154.578080416, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02697/yolo26n/d0", "track_id": 287, "t": 55154.778051791, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 | • Exa", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02702/yolo26n/d0", "track_id": 292, "t": 55154.944694875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02711/yolo26n/d0", "track_id": 286, "t": 55155.244651916, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02713/yolo26n/d0", "track_id": 286, "t": 55155.311309041, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳 w", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02719/yolo26n/d0", "track_id": 293, "t": 55155.511280583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02719/yolo26n/d1", "track_id": 294, "t": 55155.511280583, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02729/yolo26n/d0", "track_id": 295, "t": 55155.84456625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02732/yolo26n/d0", "track_id": 295, "t": 55155.944551916, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02742/yolo26n/d0", "track_id": 296, "t": 55156.277837708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02743/yolo26n/d0", "track_id": 296, "t": 55156.31116625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02743/yolo26n/d1", "track_id": 297, "t": 55156.31116625, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02749/yolo26n/d0", "track_id": 296, "t": 55156.51113775, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "1 20ml | 나가는 곳 | 1 Exat", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02755/yolo26n/d0", "track_id": 298, "t": 55156.711109166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02765/yolo26n/d0", "track_id": 299, "t": 55157.044394791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02765/yolo26n/d1", "track_id": 300, "t": 55157.044394791, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02767/yolo26n/d0", "track_id": 299, "t": 55157.111052, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02774/yolo26n/d0", "track_id": 298, "t": 55157.344352083, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02780/yolo26n/d0", "track_id": 299, "t": 55157.544323541, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "1 20ml | 나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02780/yolo26n/d1", "track_id": 301, "t": 55157.544323541, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02786/yolo26n/d0", "track_id": 302, "t": 55157.744295208, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02791/yolo26n/d0", "track_id": 299, "t": 55157.910937916, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "1 20ml | 나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02801/yolo26n/d0", "track_id": 303, "t": 55158.244223625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02805/yolo26n/d0", "track_id": 302, "t": 55158.377538125, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02814/yolo26n/d0", "track_id": 303, "t": 55158.677495166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02814/yolo26n/d1", "track_id": 304, "t": 55158.677495166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02820/yolo26n/d0", "track_id": 303, "t": 55158.87746675, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02820/yolo26n/d1", "track_id": 305, "t": 55158.87746675, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02825/yolo26n/d0", "track_id": 302, "t": 55159.04410975, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02825/yolo26n/d1", "track_id": 306, "t": 55159.04410975, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02831/yolo26n/d0", "track_id": 303, "t": 55159.244081, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02831/yolo26n/d1", "track_id": 307, "t": 55159.244081, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02834/yolo26n/d0", "track_id": 303, "t": 55159.344066916, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02834/yolo26n/d1", "track_id": 308, "t": 55159.344066916, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02834/yolo26n/d2", "track_id": 309, "t": 55159.344066916, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02839/yolo26n/d0", "track_id": 302, "t": 55159.510709666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02839/yolo26n/d1", "track_id": 306, "t": 55159.510709666, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02848/yolo26n/d0", "track_id": 302, "t": 55159.810667, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 20ml | 나가는 곳 | Exit | ㅳㅁ", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02852/yolo26n/d0", "track_id": 303, "t": 55159.943981333, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02852/yolo26n/d2", "track_id": 310, "t": 55159.943981333, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02859/yolo26n/d0", "track_id": 302, "t": 55160.177281208, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "7 20ml | 나가는 곳 | Exit | ㅳㅁ", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02863/yolo26n/d0", "track_id": 303, "t": 55160.310595583, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02874/yolo26n/d1", "track_id": 303, "t": 55160.677210041, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02874/yolo26n/d2", "track_id": 311, "t": 55160.677210041, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02877/yolo26n/d0", "track_id": 303, "t": 55160.777195875, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02877/yolo26n/d2", "track_id": 312, "t": 55160.777195875, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02884/yolo26n/d0", "track_id": 303, "t": 55161.010495833, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02884/yolo26n/d2", "track_id": 313, "t": 55161.010495833, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02891/yolo26n/d0", "track_id": 303, "t": 55161.243795791, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02897/yolo26n/d0", "track_id": 303, "t": 55161.443767416, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02897/yolo26n/d2", "track_id": 314, "t": 55161.443767416, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02899/yolo26n/d0", "track_id": 303, "t": 55161.510424583, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02899/yolo26n/d1", "track_id": 314, "t": 55161.510424583, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02908/yolo26n/d0", "track_id": 303, "t": 55161.810381708, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "^ 20ml | 나가는 곳 | 1 Exit | 5》", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02908/yolo26n/d1", "track_id": 315, "t": 55161.810381708, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02916/yolo26n/d0", "track_id": 316, "t": 55162.07701025, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02916/yolo26n/d1", "track_id": 317, "t": 55162.07701025, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02917/yolo26n/d0", "track_id": 317, "t": 55162.110338958, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02917/yolo26n/d1", "track_id": 316, "t": 55162.110338958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02928/yolo26n/d0", "track_id": 317, "t": 55162.476953291, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02929/yolo26n/d0", "track_id": 317, "t": 55162.510281833, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02937/yolo26n/d0", "track_id": 318, "t": 55162.776910541, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02941/yolo26n/d0", "track_id": 319, "t": 55162.910224875, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02952/yolo26n/d0", "track_id": 320, "t": 55163.276839333, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02952/yolo26n/d1", "track_id": 321, "t": 55163.276839333, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02954/yolo26n/d0", "track_id": 320, "t": 55163.343496375, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02959/yolo26n/d0", "track_id": 320, "t": 55163.510139333, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "14 | 다음에사중도달%축제공동량 7 00l | 3%", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f02969/yolo26n/d0", "track_id": 320, "t": 55163.843425166, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "14 | 다음에사중도달%축제공동량 7 00l | 3%", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f02975/yolo26n/d0", "track_id": 320, "t": 55164.043396666, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "14 | 다음에사중도달%축제공동량 7 00l | 3%", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f02979/yolo26n/d0", "track_id": 322, "t": 55164.176710916, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02986/yolo26n/d0", "track_id": 323, "t": 55164.410011166, "label": "area_map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02986/yolo26n/d1", "track_id": 324, "t": 55164.410011166, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02993/yolo26n/d0", "track_id": 325, "t": 55164.643311333, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02996/yolo26n/d0", "track_id": 325, "t": 55164.743296958, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f02996/yolo26n/d1", "track_id": 326, "t": 55164.743296958, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03002/yolo26n/d0", "track_id": 327, "t": 55164.9432685, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03002/yolo26n/d1", "track_id": 326, "t": 55164.9432685, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03002/yolo26n/d2", "track_id": 328, "t": 55164.9432685, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03010/yolo26n/d0", "track_id": 327, "t": 55165.209897166, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03010/yolo26n/d1", "track_id": 326, "t": 55165.209897166, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03013/yolo26n/d0", "track_id": 327, "t": 55165.309882833, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "THS Si | NEXTS | 18:44 | IN 3CH | 18:44 | Thes Solh Bostelt Falle Md 3 2F | NET Segl Modlg Fale Md 7 2F", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03013/yolo26n/d1", "track_id": 326, "t": 55165.309882833, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03021/yolo26n/d0", "track_id": 329, "t": 55165.576511666, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03021/yolo26n/d1", "track_id": 326, "t": 55165.576511666, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03030/yolo26n/d0", "track_id": 327, "t": 55165.876468791, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "THS Si | NEXTS | 18:44 | IN 3CH | 18:44 | Thes Solh Bostelt Falle Md 3 2F | NET Segl Modlg Fale Md 7 2F", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03030/yolo26n/d1", "track_id": 326, "t": 55165.876468791, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03036/yolo26n/d0", "track_id": 330, "t": 55166.076440458, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03036/yolo26n/d1", "track_id": 326, "t": 55166.076440458, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03037/yolo26n/d0", "track_id": 330, "t": 55166.109769041, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03044/yolo26n/d0", "track_id": 330, "t": 55166.343069208, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18944 | Tis Solo foolel Fedid Fit | 3☆ | NET Sogle Milyl Fatil nit 7 4 | 18:44 | THS Sogl Booliet fellial Pt | 3☆ | NEXT Sogh Moonlyft fedal ht 1 2", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03044/yolo26n/d1", "track_id": 326, "t": 55166.343069208, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03052/yolo26n/d0", "track_id": 330, "t": 55166.609697958, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18944 | Tis Solo foolel Fedid Fit | 3☆ | NET Sogle Milyl Fatil nit 7 4 | 18:44 | THS Sogl Booliet fellial Pt | 3☆ | NEXT Sogh Moonlyft fedal ht 1 2", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03052/yolo26n/d1", "track_id": 326, "t": 55166.609697958, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03057/yolo26n/d0", "track_id": 330, "t": 55166.776341083, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18944 | Tis Solo foolel Fedid Fit | 3☆ | NET Sogle Milyl Fatil nit 7 4 | 18:44 | THS Sogl Booliet fellial Pt | 3☆ | NEXT Sogh Moonlyft fedal ht 1 2", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03057/yolo26n/d1", "track_id": 326, "t": 55166.776341083, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03062/yolo26n/d0", "track_id": 330, "t": 55166.942984, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18944 | Tis Solo foolel Fedid Fit | 3☆ | NET Sogle Milyl Fatil nit 7 4 | 18:44 | THS Sogl Booliet fellial Pt | 3☆ | NEXT Sogh Moonlyft fedal ht 1 2", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03062/yolo26n/d1", "track_id": 326, "t": 55166.942984, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03071/yolo26n/d0", "track_id": 330, "t": 55167.242941333, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18944 | Tis Solo foolel Fedid Fit | 3☆ | NET Sogle Milyl Fatil nit 7 4 | 18:44 | THS Sogl Booliet fellial Pt | 3☆ | NEXT Sogh Moonlyft fedal ht 1 2", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03071/yolo26n/d1", "track_id": 326, "t": 55167.242941333, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03076/yolo26n/d0", "track_id": 330, "t": 55167.409584166, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18944 | Tis Solo foolel Fedid Fit | 3☆ | NET Sogle Milyl Fatil nit 7 4 | 18:44 | THS Sogl Booliet fellial Pt | 3☆ | NEXT Sogh Moonlyft fedal ht 1 2", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03076/yolo26n/d1", "track_id": 326, "t": 55167.409584166, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03081/yolo26n/d0", "track_id": 326, "t": 55167.576227083, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03081/yolo26n/d1", "track_id": 330, "t": 55167.576227083, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18944 | Tis Solo foolel Fedid Fit | 3☆ | NET Sogle Milyl Fatil nit 7 4 | 18:44 | THS Sogl Booliet fellial Pt | 3☆ | NEXT Sogh Moonlyft fedal ht 1 2", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03086/yolo26n/d0", "track_id": 331, "t": 55167.742870083, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03086/yolo26n/d1", "track_id": 326, "t": 55167.742870083, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03096/yolo26n/d0", "track_id": 331, "t": 55168.076155708, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03102/yolo26n/d0", "track_id": 331, "t": 55168.276127166, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:44 | 11%5⅜) | THIS Sagla Moodight Fesial Fait | 34- | NEXT Sangto Moadligte Fedml Pait | 7≤- | 18:44 | 11월5월 (¾) | THS Sago Moodigh Fewial Rt 3 화 | NEXT Songdo Moonligh Fetial Pat 7 5", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03102/yolo26n/d2", "track_id": 326, "t": 55168.276127166, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03107/yolo26n/d0", "track_id": 331, "t": 55168.442770041, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:44 | 11%5⅜) | THIS Sagla Moodight Fesial Fait | 34- | NEXT Sangto Moadligte Fedml Pait | 7≤- | 18:44 | 11월5월 (¾) | THS Sago Moodigh Fewial Rt 3 화 | NEXT Songdo Moonligh Fetial Pat 7 5", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03107/yolo26n/d1", "track_id": 326, "t": 55168.442770041, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03113/yolo26n/d0", "track_id": 331, "t": 55168.642741541, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:44 | 11%5⅜) | THIS Sagla Moodight Fesial Fait | 34- | NEXT Sangto Moadligte Fedml Pait | 7≤- | 18:44 | 11월5월 (¾) | THS Sago Moodigh Fewial Rt 3 화 | NEXT Songdo Moonligh Fetial Pat 7 5", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03113/yolo26n/d1", "track_id": 326, "t": 55168.642741541, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03113/yolo26n/d3", "track_id": 332, "t": 55168.642741541, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03117/yolo26n/d0", "track_id": 331, "t": 55168.77605575, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:44 | 11%5⅜) | THIS Sagla Moodight Fesial Fait | 34- | NEXT Sangto Moadligte Fedml Pait | 7≤- | 18:44 | 11월5월 (¾) | THS Sago Moodigh Fewial Rt 3 화 | NEXT Songdo Moonligh Fetial Pat 7 5", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03117/yolo26n/d1", "track_id": 326, "t": 55168.77605575, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03124/yolo26n/d0", "track_id": 333, "t": 55169.009355875, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03124/yolo26n/d2", "track_id": 326, "t": 55169.009355875, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03127/yolo26n/d0", "track_id": 333, "t": 55169.109341583, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03127/yolo26n/d1", "track_id": 326, "t": 55169.109341583, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03134/yolo26n/d0", "track_id": 331, "t": 55169.342641833, "label": "monitor", "decision": "reject", "text_status": "mismatch", "text": "18:44 | 11%5⅜) | THIS Sagla Moodight Fesial Fait | 34- | NEXT Sangto Moadligte Fedml Pait | 7≤- | 18:44 | 11월5월 (¾) | THS Sago Moodigh Fewial Rt 3 화 | NEXT Songdo Moonligh Fetial Pat 7 5", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_1841/f03134/yolo26n/d1", "track_id": 326, "t": 55169.342641833, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03134/yolo26n/d3", "track_id": 334, "t": 55169.342641833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03143/yolo26n/d0", "track_id": 335, "t": 55169.642598916, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03143/yolo26n/d2", "track_id": 326, "t": 55169.642598916, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03143/yolo26n/d3", "track_id": 336, "t": 55169.642598916, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03148/yolo26n/d0", "track_id": 335, "t": 55169.809241833, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03148/yolo26n/d1", "track_id": 326, "t": 55169.809241833, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03148/yolo26n/d3", "track_id": 337, "t": 55169.809241833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03152/yolo26n/d0", "track_id": 335, "t": 55169.942556166, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03152/yolo26n/d1", "track_id": 326, "t": 55169.942556166, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03159/yolo26n/d0", "track_id": 338, "t": 55170.175856166, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03159/yolo26n/d1", "track_id": 326, "t": 55170.175856166, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03168/yolo26n/d0", "track_id": 335, "t": 55170.47581325, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03168/yolo26n/d1", "track_id": 326, "t": 55170.47581325, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03168/yolo26n/d3", "track_id": 339, "t": 55170.47581325, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03170/yolo26n/d0", "track_id": 335, "t": 55170.542470458, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03170/yolo26n/d2", "track_id": 326, "t": 55170.542470458, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03170/yolo26n/d3", "track_id": 339, "t": 55170.542470458, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03176/yolo26n/d0", "track_id": 335, "t": 55170.742441875, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03176/yolo26n/d1", "track_id": 326, "t": 55170.742441875, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03176/yolo26n/d3", "track_id": 337, "t": 55170.742441875, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03186/yolo26n/d0", "track_id": 335, "t": 55171.0757275, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03186/yolo26n/d1", "track_id": 326, "t": 55171.0757275, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03186/yolo26n/d2", "track_id": 339, "t": 55171.0757275, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도는 4 세공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03191/yolo26n/d0", "track_id": 335, "t": 55171.242370375, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03191/yolo26n/d1", "track_id": 326, "t": 55171.242370375, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03191/yolo26n/d3", "track_id": 340, "t": 55171.242370375, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03196/yolo26n/d0", "track_id": 335, "t": 55171.409013375, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03196/yolo26n/d1", "track_id": 326, "t": 55171.409013375, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03196/yolo26n/d2", "track_id": 341, "t": 55171.409013375, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03203/yolo26n/d0", "track_id": 335, "t": 55171.642313333, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03203/yolo26n/d1", "track_id": 326, "t": 55171.642313333, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03203/yolo26n/d2", "track_id": 339, "t": 55171.642313333, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도는 4 세공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03207/yolo26n/d0", "track_id": 335, "t": 55171.775627625, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03207/yolo26n/d1", "track_id": 326, "t": 55171.775627625, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03207/yolo26n/d2", "track_id": 342, "t": 55171.775627625, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03215/yolo26n/d0", "track_id": 335, "t": 55172.042256291, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03215/yolo26n/d1", "track_id": 326, "t": 55172.042256291, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03215/yolo26n/d3", "track_id": 343, "t": 55172.042256291, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03221/yolo26n/d0", "track_id": 335, "t": 55172.242227583, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03221/yolo26n/d1", "track_id": 326, "t": 55172.242227583, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03221/yolo26n/d3", "track_id": 341, "t": 55172.242227583, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03221/yolo26n/d4", "track_id": 344, "t": 55172.242227583, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03228/yolo26n/d0", "track_id": 335, "t": 55172.475527583, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03228/yolo26n/d2", "track_id": 345, "t": 55172.475527583, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03228/yolo26n/d3", "track_id": 326, "t": 55172.475527583, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03229/yolo26n/d0", "track_id": 335, "t": 55172.50885625, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03229/yolo26n/d1", "track_id": 345, "t": 55172.50885625, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03229/yolo26n/d3", "track_id": 326, "t": 55172.50885625, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03235/yolo26n/d0", "track_id": 335, "t": 55172.708827625, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03235/yolo26n/d1", "track_id": 326, "t": 55172.708827625, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03235/yolo26n/d2", "track_id": 345, "t": 55172.708827625, "label": "navy", "decision": "keep", "text_status": "unread", "text": "동화 송도달빛축제공원 | 통막 송도달넷축제공원", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03244/yolo26n/d0", "track_id": 335, "t": 55173.008784833, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03244/yolo26n/d1", "track_id": 326, "t": 55173.008784833, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03244/yolo26n/d2", "track_id": 346, "t": 55173.008784833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03248/yolo26n/d0", "track_id": 335, "t": 55173.142099041, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03248/yolo26n/d1", "track_id": 347, "t": 55173.142099041, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03248/yolo26n/d2", "track_id": 326, "t": 55173.142099041, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03257/yolo26n/d0", "track_id": 335, "t": 55173.442056333, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03257/yolo26n/d1", "track_id": 348, "t": 55173.442056333, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03257/yolo26n/d3", "track_id": 326, "t": 55173.442056333, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03263/yolo26n/d0", "track_id": 335, "t": 55173.642027791, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03263/yolo26n/d1", "track_id": 348, "t": 55173.642027791, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03266/yolo26n/d0", "track_id": 335, "t": 55173.7420135, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03266/yolo26n/d2", "track_id": 346, "t": 55173.7420135, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03266/yolo26n/d3", "track_id": 326, "t": 55173.7420135, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03273/yolo26n/d0", "track_id": 348, "t": 55173.975313458, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 | Congmal | 송도달빛축제공원 | Sagea Meanllas featial Port", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03273/yolo26n/d1", "track_id": 335, "t": 55173.975313458, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "18:44 | 11월5일(목) | 이번열차송도달빛축제공원행 3 2개 | 다음열차송도달빛축제공원행 7 st", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03273/yolo26n/d3", "track_id": 326, "t": 55173.975313458, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03278/yolo26n/d0", "track_id": 346, "t": 55174.141956541, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03278/yolo26n/d2", "track_id": 326, "t": 55174.141956541, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "종합안니도", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03286/yolo26n/d0", "track_id": 349, "t": 55174.408585041, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03294/yolo26n/d1", "track_id": 349, "t": 55174.675213708, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03297/yolo26n/d0", "track_id": 349, "t": 55174.775199416, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Deagmak | Songle Neostigit Fesial Fark", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03302/yolo26n/d1", "track_id": 350, "t": 55174.941842333, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03308/yolo26n/d0", "track_id": 349, "t": 55175.141813791, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Deagmak | Songle Neostigit Fesial Fark", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03308/yolo26n/d2", "track_id": 351, "t": 55175.141813791, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03314/yolo26n/d0", "track_id": 350, "t": 55175.34178525, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03321/yolo26n/d1", "track_id": 352, "t": 55175.575085333, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03326/yolo26n/d0", "track_id": 350, "t": 55175.741728125, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Sangt Moonlight Fealival Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03334/yolo26n/d0", "track_id": 353, "t": 55176.008356833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03338/yolo26n/d0", "track_id": 352, "t": 55176.141671083, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03338/yolo26n/d2", "track_id": 354, "t": 55176.141671083, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03346/yolo26n/d0", "track_id": 352, "t": 55176.408299833, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmst | Songdo Moonight Ftatireal Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03349/yolo26n/d1", "track_id": 352, "t": 55176.5082855, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmst | Songdo Moonight Ftatireal Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03356/yolo26n/d0", "track_id": 353, "t": 55176.741585416, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03366/yolo26n/d1", "track_id": 355, "t": 55177.074871333, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03372/yolo26n/d0", "track_id": 353, "t": 55177.274842791, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03372/yolo26n/d2", "track_id": 356, "t": 55177.274842791, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03373/yolo26n/d0", "track_id": 353, "t": 55177.308171333, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03373/yolo26n/d2", "track_id": 356, "t": 55177.308171333, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03381/yolo26n/d1", "track_id": 353, "t": 55177.574800083, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03381/yolo26n/d2", "track_id": 357, "t": 55177.574800083, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03390/yolo26n/d0", "track_id": 353, "t": 55177.874757083, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03391/yolo26n/d0", "track_id": 353, "t": 55177.90808575, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03391/yolo26n/d2", "track_id": 357, "t": 55177.90808575, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03397/yolo26n/d0", "track_id": 358, "t": 55178.108057041, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03397/yolo26n/d2", "track_id": 359, "t": 55178.108057041, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03403/yolo26n/d0", "track_id": 353, "t": 55178.308028583, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03410/yolo26n/d0", "track_id": 353, "t": 55178.541328583, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03410/yolo26n/d2", "track_id": 360, "t": 55178.541328583, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03415/yolo26n/d0", "track_id": 358, "t": 55178.707971458, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03415/yolo26n/d2", "track_id": 361, "t": 55178.707971458, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03415/yolo26n/d3", "track_id": 362, "t": 55178.707971458, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03421/yolo26n/d0", "track_id": 353, "t": 55178.907942791, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03429/yolo26n/d0", "track_id": 353, "t": 55179.174571416, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03433/yolo26n/d0", "track_id": 358, "t": 55179.30788575, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03433/yolo26n/d1", "track_id": 362, "t": 55179.30788575, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03439/yolo26n/d0", "track_id": 353, "t": 55179.507857208, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03448/yolo26n/d0", "track_id": 353, "t": 55179.807814375, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03448/yolo26n/d1", "track_id": 363, "t": 55179.807814375, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03451/yolo26n/d0", "track_id": 358, "t": 55179.9078, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03451/yolo26n/d1", "track_id": 364, "t": 55179.9078, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03457/yolo26n/d0", "track_id": 353, "t": 55180.107771458, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03457/yolo26n/d1", "track_id": 363, "t": 55180.107771458, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03464/yolo26n/d0", "track_id": 353, "t": 55180.341071583, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03474/yolo26n/d0", "track_id": 353, "t": 55180.674357291, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03474/yolo26n/d1", "track_id": 365, "t": 55180.674357291, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03475/yolo26n/d0", "track_id": 353, "t": 55180.707685791, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03475/yolo26n/d1", "track_id": 365, "t": 55180.707685791, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03484/yolo26n/d0", "track_id": 353, "t": 55181.007643, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03488/yolo26n/d0", "track_id": 353, "t": 55181.140957333, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "동막 송도달빛축제공원 | Dongmak | Songdo Moonlight Festial Park", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03488/yolo26n/d1", "track_id": 366, "t": 55181.140957333, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03488/yolo26n/d2", "track_id": 367, "t": 55181.140957333, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03494/yolo26n/d0", "track_id": 368, "t": 55181.340928791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03494/yolo26n/d1", "track_id": 369, "t": 55181.340928791, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03500/yolo26n/d0", "track_id": 370, "t": 55181.540900166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03500/yolo26n/d1", "track_id": 371, "t": 55181.540900166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03510/yolo26n/d0", "track_id": 370, "t": 55181.874186, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03510/yolo26n/d1", "track_id": 372, "t": 55181.874186, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03510/yolo26n/d2", "track_id": 373, "t": 55181.874186, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03511/yolo26n/d0", "track_id": 370, "t": 55181.907514541, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03511/yolo26n/d1", "track_id": 372, "t": 55181.907514541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03511/yolo26n/d2", "track_id": 373, "t": 55181.907514541, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03518/yolo26n/d0", "track_id": 372, "t": 55182.140814541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03525/yolo26n/d0", "track_id": 374, "t": 55182.3741145, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03530/yolo26n/d0", "track_id": 374, "t": 55182.5407575, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03530/yolo26n/d1", "track_id": 371, "t": 55182.5407575, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03537/yolo26n/d0", "track_id": 372, "t": 55182.774057541, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03537/yolo26n/d1", "track_id": 375, "t": 55182.774057541, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03543/yolo26n/d0", "track_id": 376, "t": 55182.974029166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03548/yolo26n/d0", "track_id": 376, "t": 55183.140671916, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03560/yolo26n/d0", "track_id": 377, "t": 55183.540614916, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03575/yolo26n/d0", "track_id": 378, "t": 55184.040543375, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03581/yolo26n/d0", "track_id": 378, "t": 55184.240514916, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03592/yolo26n/d0", "track_id": 379, "t": 55184.607129125, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03599/yolo26n/d0", "track_id": 380, "t": 55184.840429166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03602/yolo26n/d0", "track_id": 380, "t": 55184.940414833, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03615/yolo26n/d0", "track_id": 381, "t": 55185.373686166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03623/yolo26n/d0", "track_id": 382, "t": 55185.64031475, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03633/yolo26n/d0", "track_id": 383, "t": 55185.973600583, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03637/yolo26n/d0", "track_id": 384, "t": 55186.106914875, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03646/yolo26n/d0", "track_id": 385, "t": 55186.406872166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03651/yolo26n/d0", "track_id": 386, "t": 55186.573515083, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03656/yolo26n/d0", "track_id": 386, "t": 55186.740157916, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03662/yolo26n/d0", "track_id": 387, "t": 55186.9401295, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03669/yolo26n/d0", "track_id": 388, "t": 55187.1734295, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03669/yolo26n/d1", "track_id": 389, "t": 55187.1734295, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03677/yolo26n/d0", "track_id": 390, "t": 55187.440058166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03679/yolo26n/d0", "track_id": 391, "t": 55187.506715333, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03690/yolo26n/d0", "track_id": 392, "t": 55187.873329625, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03691/yolo26n/d0", "track_id": 392, "t": 55187.906658125, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03698/yolo26n/d0", "track_id": 393, "t": 55188.139958166, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03707/yolo26n/d1", "track_id": 394, "t": 55188.4399155, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03714/yolo26n/d0", "track_id": 395, "t": 55188.673215541, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03715/yolo26n/d0", "track_id": 395, "t": 55188.706544, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03715/yolo26n/d2", "track_id": 396, "t": 55188.706544, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03722/yolo26n/d0", "track_id": 395, "t": 55188.939844125, "label": "navy", "decision": "keep", "text_status": "unread", "text": "풍의 순도달리 숙지하는 | 순도달빛축제공한 -", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03730/yolo26n/d0", "track_id": 397, "t": 55189.206472791, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03738/yolo26n/d0", "track_id": 398, "t": 55189.473101416, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03743/yolo26n/d1", "track_id": 399, "t": 55189.639744291, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03745/yolo26n/d0", "track_id": 399, "t": 55189.7064015, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03810/yolo26n/d0", "track_id": 400, "t": 55191.872758875, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03810/yolo26n/d1", "track_id": 401, "t": 55191.872758875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03810/yolo26n/d2", "track_id": 402, "t": 55191.872758875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03812/yolo26n/d0", "track_id": 402, "t": 55191.939415958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03812/yolo26n/d1", "track_id": 400, "t": 55191.939415958, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03821/yolo26n/d0", "track_id": 403, "t": 55192.23937325, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03827/yolo26n/d0", "track_id": 404, "t": 55192.439344625, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03827/yolo26n/d1", "track_id": 405, "t": 55192.439344625, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03827/yolo26n/d2", "track_id": 406, "t": 55192.439344625, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03833/yolo26n/d0", "track_id": 407, "t": 55192.639316166, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03833/yolo26n/d1", "track_id": 408, "t": 55192.639316166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03833/yolo26n/d2", "track_id": 409, "t": 55192.639316166, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03836/yolo26n/d0", "track_id": 409, "t": 55192.739301958, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03836/yolo26n/d1", "track_id": 410, "t": 55192.739301958, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03846/yolo26n/d0", "track_id": 411, "t": 55193.072587708, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03846/yolo26n/d1", "track_id": 412, "t": 55193.072587708, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03846/yolo26n/d2", "track_id": 413, "t": 55193.072587708, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03846/yolo26n/d3", "track_id": 414, "t": 55193.072587708, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03851/yolo26n/d0", "track_id": 412, "t": 55193.239230666, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03851/yolo26n/d1", "track_id": 415, "t": 55193.239230666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03856/yolo26n/d0", "track_id": 412, "t": 55193.405873583, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "1844 | 이번열차종도달빛축제공원행 : | 다음열차중도달빛복제공원봉 7있", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03856/yolo26n/d1", "track_id": 411, "t": 55193.405873583, "label": "map", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03856/yolo26n/d2", "track_id": 416, "t": 55193.405873583, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03863/yolo26n/d0", "track_id": 411, "t": 55193.639173666, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "1 중합안내도 0", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03863/yolo26n/d1", "track_id": 416, "t": 55193.639173666, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03863/yolo26n/d2", "track_id": 412, "t": 55193.639173666, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "1844 | 이번열차종도달빛축제공원행 : | 다음열차중도달빛복제공원봉 7있", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03868/yolo26n/d0", "track_id": 417, "t": 55193.805816416, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03868/yolo26n/d1", "track_id": 411, "t": 55193.805816416, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "1 중합안내도 0", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03868/yolo26n/d2", "track_id": 418, "t": 55193.805816416, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03874/yolo26n/d0", "track_id": 411, "t": 55194.005788041, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "1 중합안내도 0", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03874/yolo26n/d1", "track_id": 419, "t": 55194.005788041, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03874/yolo26n/d2", "track_id": 417, "t": 55194.005788041, "label": "monitor", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03882/yolo26n/d0", "track_id": 419, "t": 55194.272416791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03882/yolo26n/d1", "track_id": 417, "t": 55194.272416791, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "1844 | 이번열차중도달빛축제공원행 2 | 다음열차도달빛속제공원형 7 ca", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03882/yolo26n/d2", "track_id": 411, "t": 55194.272416791, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "1 중합안내도 0", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03884/yolo26n/d0", "track_id": 419, "t": 55194.339074, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03884/yolo26n/d1", "track_id": 417, "t": 55194.339074, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "1844 | 이번열차중도달빛축제공원행 2 | 다음열차도달빛속제공원형 7 ca", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03894/yolo26n/d0", "track_id": 419, "t": 55194.67235975, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03894/yolo26n/d1", "track_id": 411, "t": 55194.67235975, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "1 중합안내도 0", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03894/yolo26n/d2", "track_id": 417, "t": 55194.67235975, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "1844 | 이번열차중도달빛축제공원행 2 | 다음열차도달빛속제공원형 7 ca", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03897/yolo26n/d0", "track_id": 419, "t": 55194.7723455, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03897/yolo26n/d1", "track_id": 411, "t": 55194.7723455, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "1 중합안내도 0", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03897/yolo26n/d2", "track_id": 417, "t": 55194.7723455, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "1844 | 이번열차중도달빛축제공원행 2 | 다음열차도달빛속제공원형 7 ca", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03904/yolo26n/d0", "track_id": 417, "t": 55195.005645666, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "1844 | 이번열차중도달빛축제공원행 2 | 다음열차도달빛속제공원형 7 ca", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03904/yolo26n/d1", "track_id": 419, "t": 55195.005645666, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03904/yolo26n/d2", "track_id": 411, "t": 55195.005645666, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "1 중합안내도 0", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03912/yolo26n/d0", "track_id": 419, "t": 55195.272274416, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03912/yolo26n/d1", "track_id": 411, "t": 55195.272274416, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "1 중합안내도 0", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03912/yolo26n/d2", "track_id": 417, "t": 55195.272274416, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "1844 | 이번열차중도달빛축제공원행 2 | 다음열차도달빛속제공원형 7 ca", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03915/yolo26n/d0", "track_id": 411, "t": 55195.372260166, "label": "map", "decision": "keep", "text_status": "confirmed", "text": "1 중합안내도 0", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03915/yolo26n/d1", "track_id": 417, "t": 55195.372260166, "label": "monitor", "decision": "keep", "text_status": "confirmed", "text": "1844 | 이번열차중도달빛축제공원행 2 | 다음열차도달빛속제공원형 7 ca", "reason": ""}
+{"detection_id": "OCR_20261105_1841/f03915/yolo26n/d2", "track_id": 419, "t": 55195.372260166, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는 곳", "reason": ""}
