@@ -13,7 +13,9 @@ YOLO가 찾은 표지판을 **글자(OCR)로 한 번 더 확인**하는 부분�
 | `docs/vision_ocr/README.md` | 이 설명 |
 | `docs/vision_ocr/OCR조정과정.md` | 버전별로 넣어 본 것·결과·결정 한 표 |
 | `docs/vision_ocr/아이폰OCR_결과.md` | 아이폰 Apple Vision OCR 시험 결과(버전별 비교, 못 읽은 이유, 팀 제안) |
-| `configs/ocr_filter_app_v0.2.8.json` | 아이폰 시험 앱 0.2.8(지금 선택안)의 검출·필터·OCR 판정 설정 한 파일 |
+| `configs/ocr_filter_app_v0.2.8.json` | 아이폰 시험 앱 0.2.8의 검출·필터·OCR 판정 설정 한 파일 |
+| `configs/ocr_filter_app_v0.2.9.json` | **0.2.9(11-08, 지금 선택안)**: 2차 답사 녹화로 판정 글자 보강(출구 행선지·모니터 문구·시각·영어 역 이름·화장실 바로잡기) + 판정 코드 보강안 3개(`code_rules`, 앱 코드 변경 필요) |
+| `docs/vision_ocr/결정파일_2차답사/` | 2차 답사 녹화(걸은 사람 a) 5개의 Apple Vision 글자 확인 결정 파일(`vision/text_check.py` 형식), 앱 그대로·0.2.9 두 가지. 설명은 그 폴더 README |
 
 ## 처리 흐름 (아이폰 시험 앱 기준)
 
