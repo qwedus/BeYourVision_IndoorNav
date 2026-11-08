@@ -2,6 +2,7 @@
  "name": "s2_b_emart_ex5",
  "note": "2차 답사 조끼 보행, 이마트 쪽 → 5번 출구 쪽 엘리베이터, 일반",
  "rec": "integration/out/rec/s2_b_emart_ex5/rec",
+ "session": "OCR_20261105_205814",
  "inputs": "integration/out/rec/s2_b_emart_ex5/inputs",
  "out": "integration/out/rec/s2_b_emart_ex5/out",
  "exclude": [],

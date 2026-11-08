@@ -2,6 +2,7 @@
  "name": "s2_b_pillar_map",
  "note": "2차 답사 조끼 보행, 3번 출구 쪽 다섯 번째 기둥 → 종합안내도 옆 기둥, 느림",
  "rec": "integration/out/rec/s2_b_pillar_map/rec",
+ "session": "OCR_20261105_2101",
  "inputs": "integration/out/rec/s2_b_pillar_map/inputs",
  "out": "integration/out/rec/s2_b_pillar_map/out",
  "exclude": [],

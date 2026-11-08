@@ -109,12 +109,16 @@ def build(wps, step_times, t0, dt=0.1):
 
 
 def save(rows, info, t0, out_csv, out_json):
+    import io
     out_csv.parent.mkdir(parents=True, exist_ok=True)
-    with open(out_csv, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0]))
-        w.writeheader()
-        for r in rows:
-            w.writerow({k: (f"{v:.3f}" if isinstance(v, float) else v) for k, v in r.items()})
+    f = io.StringIO(newline="")
+    w = csv.DictWriter(f, fieldnames=list(rows[0]))
+    w.writeheader()
+    for r in rows:
+        w.writerow({k: (f"{v:.3f}" if isinstance(v, float) else v) for k, v in r.items()})
+    data = f.getvalue().encode("utf-8")
+    if not (out_csv.exists() and out_csv.read_bytes() == data):     # 내용이 같으면 안 씀(run_recording이 파일 시각으로 재생 결과를 다시 쓸지 정함)
+        out_csv.write_bytes(data)
     out_json.write_text(json.dumps({"coords": "동·북 m (메시 원점), 층 B1 = -1, B2 = -2; st = 역 좌표", "t0_host": t0,
                                     "waypoints": info}, ensure_ascii=False, indent=1), encoding="utf-8")
 

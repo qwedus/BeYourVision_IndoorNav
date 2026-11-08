@@ -96,7 +96,7 @@ def app_decisions(path):
 def check(rec):
     """기록 하나 → 결과 dict"""
     rc = json.loads((paths.RECORDINGS / f"{rec}.json").read_text(encoding="utf-8"))
-    inputs, folder = paths.ROOT / rc["inputs"], paths.ROOT / rc["rec"]
+    inputs, folder = paths.ROOT / rc["inputs"], paths.rec_dir(rc)
     raw = load_frames(inputs / "obs_nofilter.jsonl")[1]
     ids = {o["detection_id"] for f in raw for o in f.get("observations", [])}
     pc = {o["detection_id"] for f in apply(raw) for o in f["observations"]}

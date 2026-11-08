@@ -1,20 +1,22 @@
 """재생 결과 경로 그림: 정식 도면(벽선·점자블록) 위에 방 뺀 보행 마스크를 옅게 깔고 정답·PDR만·PF·PF + 비전 경로를 그림.
 
-    I1_RECORDING=<이름> <geopandas 있는 파이썬> integration/fig_plan.py --plan <plan.gpkg> [--name replay] [--set 기본] [--obs tf] [--seed 0]
+    I1_RECORDING=<이름> .venv/Scripts/python integration/fig_plan.py [--name replay] [--set 기본] [--obs tf] [--seed 0] [--plan <plan_lines.npz|plan.gpkg>]
 → <녹화 설정 out>/<name>/fig_plan.png
 
 PF 입력은 방 뺀 보행 마스크 그대로. 도면은 사람이 보는 바탕이라 결과 숫자와 상관없음. 좌표는 역 좌표.
+도면 벽선·점자블록은 기본으로 maps/plan_lines.npz(make_plan_lines.py가 정식 도면에서 옮긴 것)를 읽음.
+--plan에 .gpkg를 주면 그 파일을 geopandas로 읽음(그때만 geopandas 필요).
 """
 import argparse
 import json
 import sys
 
-import geopandas as gpd
 import matplotlib
 import numpy as np
 from PIL import Image
 
 import paths
+from plan_lines import load_lines
 from station_pkg import enu_to_aligned, load_station
 
 matplotlib.use("Agg")
@@ -26,6 +28,10 @@ ST = {"확실": "#1a9850", "추정": "#f28e2b", "모름": "#d62728"}
 
 
 def lines_st(path, layer, R, T):
+    """[(도형 종류, 역 좌표), ...]. path 없음 → maps/plan_lines.npz, .gpkg → geopandas로 원본 도면, 그 밖 → 그 npz"""
+    if path is None or not str(path).lower().endswith(".gpkg"):
+        return load_lines(layer, R, T, path)
+    import geopandas as gpd
     out = []
     for g in gpd.read_file(path, layer=layer).geometry:
         for part in getattr(g, "geoms", [g]):
@@ -36,7 +42,7 @@ def lines_st(path, layer, R, T):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--plan", required=True)
+    ap.add_argument("--plan", help="도면: 기본 maps/plan_lines.npz, .gpkg면 geopandas로 원본")
     ap.add_argument("--name", default="replay")
     ap.add_argument("--set", default="기본")
     ap.add_argument("--obs", default="tf")

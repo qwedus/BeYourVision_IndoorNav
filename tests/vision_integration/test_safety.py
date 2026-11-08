@@ -314,7 +314,8 @@ def test_app_rule_size_limit_and_same_input_pass():
 def test_app_rule_matches_real_decisions():
     """이식한 규칙이 앱이 실제로 낸 판정과 같아야 대조가 뜻을 가짐. 참고값 8/685"""
     rec = "s2_a_ex6_ex3"
-    if not (paths.ROOT / "integration/out/rec" / rec / "rec/decisions.jsonl").exists():
+    rc = json.loads((paths.RECORDINGS / f"{rec}.json").read_text(encoding="utf-8"))
+    if not (paths.rec_dir(rc, strict=False) / "decisions.jsonl").exists():
         pytest.skip("녹화 자료 없음")
     r = tf.check(rec)
     assert r["rule_vs_app"] == 0

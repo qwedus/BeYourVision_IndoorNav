@@ -2,6 +2,7 @@
  "name": "s2_b_elev_pillar",
  "note": "2차 답사 조끼 보행, 대합실 엘리베이터 → 2번 출구 쪽 세 번째 기둥, 느림",
  "rec": "integration/out/rec/s2_b_elev_pillar/rec",
+ "session": "OCR_20261105_2049",
  "inputs": "integration/out/rec/s2_b_elev_pillar/inputs",
  "out": "integration/out/rec/s2_b_elev_pillar/out",
  "exclude": [],

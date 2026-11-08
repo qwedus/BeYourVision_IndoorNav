@@ -18,8 +18,40 @@ OUT = HERE / "out"
 RECORDINGS = HERE / "recordings"      # 녹화별 설정
 RECORDING = os.environ.get("I1_RECORDING", "route2_1030")
 RC = json.loads((RECORDINGS / f"{RECORDING}.json").read_text(encoding="utf-8"))
+DATA_ROOT = os.environ.get("I1_DATA_ROOT")   # 앱 녹화 폴더들이 들어 있는 상위 폴더(아래 어디든). 설정 session 이름으로 찾음
+
+
+def find_session(root, session):
+    """root 아래에서 이름이 session(NFC 비교)이고 motion.csv가 있는 폴더 하나 → Path. 없거나 여럿이면 None·오류"""
+    import unicodedata
+    nfc = lambda s: unicodedata.normalize("NFC", s)
+    hit = []
+    for d, dirs, fs in os.walk(root):
+        dirs[:] = [x for x in dirs if not (os.path.islink(os.path.join(d, x)) or os.path.isjunction(os.path.join(d, x)))]   # 순환 막기
+        if nfc(Path(d).name) == nfc(session) and "motion.csv" in fs:
+            hit.append(Path(d))
+    hit = list({os.path.normcase(os.path.realpath(h)): h for h in hit}.values())
+    if len(hit) > 1:
+        raise SystemExit(f"{root} 아래에 녹화 폴더 {session}이 여러 개: {[str(h) for h in hit]}")
+    return hit[0] if hit else None
+
+
+def rec_dir(rc, data_root=None, strict=True):
+    """녹화 원본 폴더: data_root(또는 I1_DATA_ROOT)가 있고 설정에 session이 있으면 그 아래에서 찾고, 아니면 설정 rec(저장소 기준 경로).
+    strict=False면 못 찾았을 때 멈추지 않고 없는 경로를 돌려줌(시험의 '자료 없음' 건너뛰기용)"""
+    root = data_root or DATA_ROOT
+    if root and rc.get("session"):
+        hit = find_session(root, rc["session"])
+        if hit is None:
+            if not strict:
+                return ROOT / rc["rec"]
+            raise SystemExit(f"{root} 아래에 녹화 폴더 {rc['session']}(motion.csv 있는)이 없음")
+        return hit
+    return ROOT / rc["rec"]
+
+
 I1 = ROOT / RC["inputs"]              # 관측·임시 PDR 걸음·정답 (1차 녹화: vision/inputs/i1)
-REC = ROOT / RC["rec"]                # 앱 녹화 motion.csv·baro.csv·meta.json·marks.jsonl (1차 녹화: 영상은 안 옮김)
+REC = rec_dir(RC)                     # 앱 녹화 motion.csv·baro.csv·meta.json·marks.jsonl (1차 녹화: 영상은 안 옮김, 저장소 안)
 REC_OUT = ROOT / RC["out"]            # indoornav 걸음·재생 결과 (1차 녹화: integration/out/i1)
 ORIG_META = ROOT / "maps/dongchun/map_meta.json"
 PDR_CONFIG = ROOT / "configs/pdr_tuned_v4.toml"

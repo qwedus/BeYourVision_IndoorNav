@@ -1,0 +1,51 @@
+{
+  "config_version": "2026-10-31",
+  "_note": "종류 매핑·문턱값·버릴 종류. 숫자 출처는 docs/명세.md 6절. '_'로 시작하는 키는 설명용이라 읽지 않음",
+
+  "label_map": {
+    "exit":    ["exit_sign"],
+    "navy":    ["track_sign", "direction_sign"],
+    "monitor": ["info_monitor"],
+    "map":     ["station_map", "route_map"],
+    "name":    [],
+    "toilet":  ["toilet"],
+    "ticket_sign":    ["ticket_sign"],
+    "ticket_machine": ["ticket_machine"],
+    "door":           ["door"],
+    "area_map":       ["area_map"]
+  },
+  "_label_map_note": "10-31: 남색 판은 한 종류로 검출하고 타는 곳·방면 판 둘 다에 맞춤(층은 기압으로 구분). 지도 88면(1차 답사)에 생긴 화장실·표 사는 곳·발권기·철문·주변지역 안내도를 이었다. 검출기가 아직 이 종류를 내지 않으면 쓰이지 않을 뿐",
+  "drop_labels": ["ad"],
+
+  "detectors": {
+    "yolo26n": {
+      "kind": "ultralytics_yolo",
+      "model_file": "ft_ad_yolo26n.pt",
+      "imgsz": 960,
+      "conf_floor": 0.01,
+      "iou": 0.7,
+      "agnostic_nms": false,
+      "end2end": false,
+      "thresholds": {"default": 0.25},
+      "_thresholds_note": "학습 자료(원인재)에서 고르면 안 되므로 V2와 같이 0.25 고정"
+    },
+    "yoloe": {
+      "kind": "ultralytics_yoloe",
+      "model_file": "yoloe-26s_vis_signs.pt",
+      "imgsz": 640,
+      "conf_floor": 0.01,
+      "iou": 0.7,
+      "agnostic_nms": true,
+      "end2end": false,
+      "embedding": "원인재 예시 박스(종류당 최대 10개) 임베딩 평균을 구워 넣음 (cv_test/facility/zeroshot2.py, 10-19)",
+      "thresholds": {"exit": 0.64, "navy": 0.25, "monitor": 0.02, "map": 0.64, "name": 0.10, "toilet": 0.46, "ad": 0.02},
+      "_thresholds_note": "원인재에서 예시 프레임을 빼고 F1 최대로 고른 값 (score_zs_yoloe-26s_vis.md)"
+    }
+  },
+
+  "geometry": {
+    "point": "box_center",
+    "min_elevation_deg": 2.0,
+    "distance_landmark_height_m": {}
+  }
+}

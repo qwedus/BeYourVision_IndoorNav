@@ -1,0 +1,40 @@
+{
+ "note": "make_plan_lines.py가 정식 도면에서 층별 벽선·점자블록만 옮긴 것. 좌표는 변환 전 원래 도면 좌표(ENU), 그림 바탕용",
+ "repo": "capstone_graph",
+ "path": "data/dongchun/plan.gpkg",
+ "repo_head": "e849ab7b1428905230ff976e1fce6f31ac22a45a",
+ "file_commit": "03f0120116a93feb009f5006f6f796c8e0ee8bc1",
+ "file_dirty": false,
+ "sha256": "68465b047eccd23bd69dc9d10db2816c24d023947fe715ae2c7bf2e368811e89",
+ "layers": {
+  "B01_tactile": {
+   "n_parts": 6,
+   "n_points": 2335,
+   "kinds": [
+    "Polygon"
+   ]
+  },
+  "B01_walls": {
+   "n_parts": 1209,
+   "n_points": 8750,
+   "kinds": [
+    "LineString"
+   ]
+  },
+  "B02_tactile": {
+   "n_parts": 6,
+   "n_points": 4005,
+   "kinds": [
+    "Polygon"
+   ]
+  },
+  "B02_walls": {
+   "n_parts": 6400,
+   "n_points": 24211,
+   "kinds": [
+    "LineString"
+   ]
+  }
+ },
+ "format": "<레이어>__xy (N,2) float64 이어 붙인 좌표, <레이어>__off 부분 시작 위치(부분 수 + 1), <레이어>__kind 부분 도형 종류"
+}

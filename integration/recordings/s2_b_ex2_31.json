@@ -2,6 +2,7 @@
  "name": "s2_b_ex2_31",
  "note": "2차 답사 조끼 보행, 2번 출구 → 3-1 문(1차와 같은 경로), 느림",
  "rec": "integration/out/rec/s2_b_ex2_31/rec",
+ "session": "OCR_20261105_2109",
  "inputs": "integration/out/rec/s2_b_ex2_31/inputs",
  "out": "integration/out/rec/s2_b_ex2_31/out",
  "exclude": [

@@ -2,6 +2,7 @@
  "name": "s2_a_ex3_ex6",
  "note": "2차 답사 조끼 보행, 3번 출구 → 6번 출구, 일반",
  "rec": "integration/out/rec/s2_a_ex3_ex6/rec",
+ "session": "OCR_3출6도",
  "inputs": "integration/out/rec/s2_a_ex3_ex6/inputs",
  "out": "integration/out/rec/s2_a_ex3_ex6/out",
  "exclude": [],

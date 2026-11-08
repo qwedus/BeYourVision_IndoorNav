@@ -1,10 +1,13 @@
 # vision-integration 브랜치 — indoornav PDR·PF + 비전 관측 연결
 
 indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방위각 관측 모델)을 붙여, 1차 답사 보행 녹화(2번 출구 → 개찰구 3 → 원인재 방면 에스컬레이터 → 3-1 문, 118.6 s)를 오프라인 재생하고 **비전 끔/켬**을 비교하는 브랜치.
+11-06부터 2차 답사 조끼 보행 8개를 같은 흐름으로 재생하고, 11-07부터 '그 시각까지 받은 값만 쓰는' 실시간 조건 재생(권장 조합 `rec`)도 함께 돌린다.
+**브랜치만 받아서 2차 녹화 폴더로 처음부터 다시 만드는 방법은 아래 [다른 PC에서 2차 녹화로 처음부터](#다른-pc에서-2차-녹화로-처음부터).**
 
 - `main`(9040d70)에서 갈라짐. **기존 파일(`indoornav/`, `configs/`, `maps/`, `scripts/`, `tests/`, `pyproject.toml`, `README.md` 등)은 고치지 않고 불러 쓰기만 한다.** 새 폴더 `vision/`, `integration/`, `docs/vision_integration/`만 더함
 - 설계 근거: localization_design의 I1 연결안 문서 (11-04). 출발점을 아는 경우(known·drift)만 다룸
 - 결과·작업 기록: [작업기록.md](작업기록.md), 비교표 `integration/out/i1/compare.md`, 채택 상태까지 누적 `integration/out/i1/compare_final.md`
+- main 코드(`indoornav/`·`configs/`·지도 자료) 수정 건의: [main_수정건의.md](main_수정건의.md) (4건 + 검토했지만 뺀 것)
 
 ## 폴더 구조와 원본 쪽
 
@@ -19,13 +22,20 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `vision/inputs/dongchun_station.*` | 역사 패키지: 랜드마크 101면(11-06, 그 전 94면은 git 기록)·가시성 표·`computed`·층 높이·좌표 변환·에스컬레이터 끝(그래프 키) | **localization_design** (`export_station.py` 결과) |
 | `vision/inputs/i1/` | 관측 JSONL(필터 없음·시간 필터), 정답 궤적·기준점, 임시 PDR 걸음, 시뮬 PF 옛 기준(`baseline_summary.json`, b852501)·새 기준(`baseline_newvis.json`, 가시성 다시 계산 뒤)·① (`sim_pf_inav_pdr_newvis.json`), EasyOCR 결정 파일(`text_check_easyocr.jsonl` 원래 규칙, `_all` 판의 모든 프레임 읽음, `_sure` 비교용) | **localization_design** (`cv_test/out/i1/`) |
 | `vision/inputs/i1/rec/` | 앱 녹화 `motion.csv`·`baro.csv`·`meta.json`·`marks.jsonl` (영상 174 MB는 안 옮김) | 1차 답사 녹화 원본 |
-| `vision/MANIFEST.json` | 위 파일마다 원본 경로·출처 커밋·sha256 | 복사 도구가 만듦 |
-| `integration/` | 앱 녹화 → `Session`, indoornav PDR 걸음 추출, 방 뺀 보행 마스크, `VisionFilter` 어댑터, 재생기·실행기·검산·비교표 | **이 브랜치** |
-| `docs/vision_integration/` | 이 설명, 작업 기록 | **이 브랜치** |
+| `vision/cv_module/` | `cvmod`(검출 → 방위각·앙각 관측, 표준 라이브러리만) + `config/default.json`(검출 문턱값). 앱 검출을 관측으로 바꿀 때 씀 | **localization_design** (`cv_module/`) |
+| `vision/tools/session_to_replay.py` | 앱 기록 폴더(`detections.jsonl`·`frames.jsonl`·`meta.json`) → `cvmod` 재생 입력 | **ocr_test_app** (`tools/`) |
+| `vision/pdr_simple.py` | 임시 PDR(정답 기준점 사이 걸음 시각 보간에 씀) | **localization_design** (`cv_test/i1/`) |
+| `vision/MANIFEST.json` | 위 파일마다 원본 저장소·경로·출처 커밋·sha256 | 복사 도구가 만듦 |
+| `integration/` | 앱 녹화 → `Session`, indoornav PDR 걸음 추출, 방 뺀 보행 마스크, `VisionFilter` 어댑터, 재생기·실시간 재생기·실행기·검산·비교표·그림 | **이 브랜치** |
+| `integration/recordings/<이름>.json` | 녹화별 설정: 앱 세션 폴더 이름(`session`), 이 PC 녹화 경로(`rec`), 입력·출력 폴더, 정답 기준점, 채점 제외 구간 | **이 브랜치** |
+| `integration/maps/` | 방 뺀 보행 마스크 사본·`map_meta_noroom.json`, 그림 바탕 도면 선 `plan_lines.npz`(벽·점자블록, 출처 `plan_lines.json`) | 마스크는 이 브랜치(`walk_mask.py`), 도면 선은 **capstone_graph** `data/dongchun/plan.gpkg`에서 뽑음 |
+| `integration/requirements.txt` | 가상환경 패키지(확인한 버전) + indoornav | **이 브랜치** |
+| `integration/out/` | 결과(대부분 저장소에 안 넣음). 2차 녹화는 `integration/out/rec/<이름>/inputs·out` | 실행하면 생김 |
+| `docs/vision_integration/` | 이 설명, 작업 기록, main 수정 건의 | **이 브랜치** |
 
-**`vision/` 안 파일은 여기서 고치지 않는다.** localization_design에서 고치고 `cv_test/sync_to_branch.py`로 복사한다(옛 이름에서 9f8b8be로 바꿈, 상태만 볼 때 `--check`. 한 방향, 원본에 커밋 안 된 변경이 있거나 브랜치 사본이 손으로 바뀌었으면 멈춤). 저장소 `.gitignore`가 `data/`를 무시해서 데이터 폴더 이름은 `inputs/`.
+**`vision/` 안 파일은 여기서 고치지 않는다.** localization_design에서 고치고 `cv_test/sync_to_branch.py`로 복사한다(옛 이름에서 9f8b8be로 바꿈, 상태만 볼 때 `--check`. 한 방향, 원본에 커밋 안 된 변경이 있거나 브랜치 사본이 손으로 바뀌었으면 멈춤). ocr_test_app 원본(`session_to_replay.py`)도 같은 도구로 복사하고, `.py` 안의 원본 PC 경로(기본값 줄)는 복사할 때 지운다. 저장소 `.gitignore`가 `data/`를 무시해서 데이터 폴더 이름은 `inputs/`.
 
-검출(YOLO)·OCR은 torch가 필요해 localization_design에서 돌리고, 이 브랜치는 결과 JSON만 읽는다.
+검출(YOLO)·OCR은 torch가 필요해 localization_design에서 돌리고, 이 브랜치는 결과 JSON만 읽는다. 앱이 저장한 검출(`detections.jsonl`)을 관측으로 바꾸는 부분은 사본(`vision/cv_module`, `vision/tools/session_to_replay.py`)이 있어 이 브랜치 가상환경만으로 된다. 영상으로 PC 검출을 할 때만 torch·ultralytics·cv2 있는 파이썬과 모델 파일이 필요하다(아래).
 
 ## integration/ 파일
 
@@ -46,7 +56,13 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `vision_options.json` | 채택한 비전 설정 (`run_i1.py --adopted`) |
 | `fig_i1.py` | 시간별 오차·경로 그림 → `out/i1/<이름>/fig_error.png`·`fig_map.png` |
 | `analyze_recording.py` | 재생 결과 추가 집계: 지도 방위 일치·PF 후보 일치, 판별 잔차, PDR 거리 비율, 크게 틀린 구간. `--station`으로 옛 지도 집계, `--json-out`으로 옛 결과 폴더를 안 건드리고 저장 |
-| `fig_plan.py` | 정식 도면 위 경로 그림 (geopandas 있는 파이썬, 도면 파일 `--plan`) |
+| `fig_plan.py` | 정식 도면 위 경로 그림 → `<out>/<이름>/fig_plan.png`. 도면 선은 `maps/plan_lines.npz`(geopandas 필요 없음, `--plan <gpkg>`를 주면 원본 도면을 geopandas로 읽음) |
+| `fig_plan_rt.py` | 실시간 권장 조합(`rec`) 경로 그림: `data`(PF 비전 끔을 `rec`로 돌림·PDR만은 실시간 걸음) → `draw` → `<out>/rt_fig/fig_plan_rec.png`, 지금 방식과 나란히 `fig_plan_compare.png` |
+| `plan_lines.py`·`make_plan_lines.py` | 도면 선 읽기 / 원본 도면(gpkg)에서 한 번 뽑기(geopandas 있는 파이썬, 도면이 바뀔 때만) |
+| `run_recording.py` | 녹화 하나(또는 2차 8개 `all`)를 관측 → PDR → 정답 → 기본 재생 → 실시간 재생 → 그림까지 (아래) |
+| `truth_build.py`·`truth_helper.py` | 설정의 기준점 → 정답 궤적 `truth.csv`·확인 그림 / 기준점 후보·영상 프레임 모음(영상 프레임은 cv2 있는 파이썬 `I1_VISION_PY`) |
+| `rt_pdr.py`·`rt_replay.py`·`run_rt.py` | 실시간 조건 재생: indoornav PDR을 감싼 지연 판정, 기압 수신 시각 판정 / 받은 시각 순 PF 투입·지연 지표 / 단계별 실행(`--stages off,rec`, `--check-ref exp_d58_r20`) |
+| `exp_*.py` | 실험(설정 하나만 바꾼 재생). `exp_cause.py`(원인 분리, 기본 재생 `exp_d58_r20`도 이것), `exp_far*`(먼 관측), `exp_ocr*`(Apple Vision 글자 확인), `exp_overconf*`(과신), `exp_main_recheck*`·`exp_map_data*`(main 건의 재확인). 기본 설정은 안 바꿈 |
 | `exp_cause.py`·`exp_report.py`·`exp_signs.py` | 원인 분리 실험: 설정 하나만 바꾼 재생, k·구간·과신 집계, 판별 시선 교차. 기본 설정은 안 바꿈 |
 | `provenance.py` | 결과에 남기는 입력 기록(입력 파일·소스 해시), 옛 파일 재사용 검사 |
 | `compare_runs.py` | 두 조건의 같은 seed 짝 차이 표, 구간별 악화 표시 |
@@ -58,6 +74,7 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 ## 실행 방법
 
 환경: 저장소 `uv` 환경 그대로(`uv sync --frozen`). `pyproject.toml`에 Pillow가 빠져 있어(matplotlib 의존성으로 같이 깔림, 없으면 `uv pip install pillow`) `pyproject.toml`은 고치지 않음.
+uv 없이 만들 때(결과를 비트까지 맞추려면 이 버전): `python -m venv .venv` (Python 3.12) 뒤 `.venv/Scripts/python -m pip install -r integration/requirements.txt`.
 
 ```bash
 uv sync --frozen
@@ -163,6 +180,63 @@ uv sync --frozen
    - 기둥을 지나는 순간 찾기: `I1_RECORDING=<이름> .venv/Scripts/python integration/truth_helper.py sheet --from 30 --to 40 --every 0.5`
 3. 같은 명령을 다시 돌린다(`run_recording.py <이름>`도 됨). 채점 제외(층 이동 + 2 s)·끝 오차 시작(마지막 앞 기준점)은 기준점에서 채운다. 결과: `out/replay/report.md`, `fig_paths.png`, `fig_error.png`. 정답 확인: `out/truth_check.md`(걸음과 안 맞는 구간 표시)·`truth_check.png`.
 
-관측은 `detections.jsonl`이 있으면 앱 검출(`ocr_test_app/tools/session_to_replay.py` → `cvmod.run --detector replay`), 없고 영상이 있으면 PC 검출(C2 추가학습 후, 5 fps), 둘 다 없으면 이유를 적고 멈춘다. 필요: 옆 폴더 `localization_design`·`ocr_test_app`, cv2·torch 있는 파이썬(`I1_VISION_PY`, 기본 시스템 Python 3.12). 관측·PDR을 다시 만들려면 `--force`. 있는 파일을 그대로 쓸 때는 `inputs/input_record.json`에 적힌 입력(모델·설정·녹화 파일·코드 해시)과 지금 입력을 비교해 다르거나 기록이 없으면 경고하고 `report.md`에도 남긴다. 시간 필터는 매번 다시 계산하므로 해당 없음. 같은 걸음을 재생한 기록은 `--same-walk route2_1030`으로 기준점을 가져온다. 풀린 기록·결과(`out/rec/`)는 저장소에 안 넣는다.
+관측은 `detections.jsonl`이 있으면 앱 검출(사본 `vision/tools/session_to_replay.py`(원본 `ocr_test_app/tools/session_to_replay.py`) → `vision/cv_module`에서 `cvmod.run --detector replay`, 이 가상환경만), 없고 영상이 있으면 PC 검출(C2 추가학습 후, 5 fps), 둘 다 없으면 이유를 적고 멈춘다. PC 검출에만 필요: cv2·torch 있는 파이썬(`I1_VISION_PY`, 기본 시스템 Python 3.12)과 모델(`I1_MODEL`, 기본 옆 폴더 `localization_design`의 C2 모델). 관측·PDR을 다시 만들려면 `--force`. 있는 파일을 그대로 쓸 때는 `inputs/input_record.json`에 적힌 입력(모델·설정·녹화 파일·코드 해시)과 지금 입력을 비교해 다르거나 기록이 없으면 경고하고 `report.md`에도 남긴다. 시간 필터는 매번 다시 계산하므로 해당 없음. 같은 걸음을 재생한 기록은 `--same-walk route2_1030`으로 기준점을 가져온다. 풀린 기록·결과(`out/rec/`)는 저장소에 안 넣는다.
 
-**2차 답사 기록**(`recordings/s2_*.json`): 원본 폴더는 저장소 밖이라 `integration/out/rec/<이름>/rec`에 폴더 연결(Windows junction)로 둔다(`out/rec/`는 저장소에 안 넣음). 그 뒤 `run_recording.py <이름>`. 기준점이 이미 들어 있어 비교까지 돈다.
+**2차 답사 기록**(`recordings/s2_*.json`): 원본 폴더는 저장소 밖이라 `integration/out/rec/<이름>/rec`에 폴더 연결(Windows junction)로 둔다(`out/rec/`는 저장소에 안 넣음). 그 뒤 `run_recording.py <이름>`. 기준점이 이미 들어 있어 비교까지 돈다. 연결 대신 `--data-root <녹화 폴더들의 상위 폴더>`(또는 환경 변수 `I1_DATA_ROOT`)를 주면 설정의 `session`(앱 세션 폴더 이름)을 그 아래에서 찾는다(아래).
+
+11-08부터 6단계 이후는 기본 재생 `exp_d58_r20`(= `regress_replay.py` 기준) → 실시간 재생 `rt_compare`(`off,rec`, off가 기본 재생과 비트까지 같은지 확인) → 그림(`fig_plan.py`, `fig_plan_rt.py`)이다. 결과가 있고 입력(관측·정답·걸음)보다 새것이며 필요한 seed·단계가 다 있으면 건너뛴다. 결과는 있는데 입력보다 오래됐거나 모자라면 덮어쓰지 않고 멈춘다(실시간 재생 폴더에는 비교용 단계가 더 들어 있을 수 있어서) → 다시 만들려면 `--force-replay`(그 폴더를 덮어씀). 실시간 재생 off 단계가 기본 재생과 비트까지 같지 않으면 멈춘다. 예전 6단계(`run_i1 --adopted` 재생·`report.md`)는 `--old-replay`.
+
+## 다른 PC에서 2차 녹화로 처음부터
+
+브랜치만 받은 PC에서 2차 보행 8개를 관측부터 그림까지 다시 만든다. 옆 저장소(localization_design·ocr_test_app·capstone_graph)는 필요 없다. 1차 녹화(`route2_1030`)는 입력이 저장소 안(`vision/inputs/i1/`)에 있어 그대로 돈다.
+
+준비: 2차 앱 녹화 폴더들(세션 폴더마다 `motion.csv`·`baro.csv`·`meta.json`·`frames.jsonl`·`detections.jsonl`)을 한 상위 폴더 아래 아무 깊이에 둔다. 폴더 이름은 앱 세션 이름 그대로(`recordings/s2_*.json`의 `session`: `OCR_7-1_2출`, `OCR_20261105_2109` 등).
+
+```bash
+python -m venv .venv
+```
+
+```bash
+.venv/Scripts/python -m pip install -r integration/requirements.txt
+```
+
+```bash
+.venv/Scripts/python integration/run_recording.py all --data-root <녹화 폴더들의 상위 폴더>
+```
+
+기록 하나만: `run_recording.py s2_b_ex2_31 --data-root <상위 폴더>`. 한 기록에 몇 분(10개 프로세스, seed 10개 × 기본 재생 3조건 + 실시간 2단계 + 그림용 재생 1번).
+
+결과 위치(기록마다 `integration/out/rec/<이름>/`):
+
+| 무엇 | 파일 |
+|---|---|
+| 관측 | `inputs/obs_nofilter.jsonl`·`obs_timefilter.jsonl` (중간 `replay_input.json`·`cv_raw.json`) |
+| 걸음·정답 | `inputs/steps_simple.csv`·`truth.csv`, `out/steps_indoornav.csv`·`heading_indoornav.npz`, 정답 확인 `out/truth_check.md`·`.png` |
+| 기본 재생 | `out/exp_d58_r20/summary.json`·`runs.npz`, 그림 `fig_plan.png` |
+| 실시간 재생 | `out/rt_compare/summary.json`·`runs.npz`(`off_<seed>`·`rec_<seed>`), 걸음 판정 시각 `steps_*.csv` |
+| 실시간 그림 | `out/rt_fig/fig_plan_rec.png`, `fig_plan_compare.png`(위 지금 방식, 아래 `rec`), 그린 배열 `rec_paths.npz` |
+
+그다음 도구는 같은 녹화 폴더를 환경 변수로 알려 주고 돌린다(`I1_DATA_ROOT=<상위 폴더>`, 기록 고르기는 `I1_RECORDING=<이름>`).
+
+```bash
+I1_DATA_ROOT=<상위 폴더> .venv/Scripts/python integration/regress_replay.py --ref exp_d58_r20 --rec s2_a_71_ex2 s2_a_ex3_ex6 s2_a_ex6_ex3 s2_a_platform s2_b_elev_pillar s2_b_emart_ex5 s2_b_ex2_31 s2_b_pillar_map
+```
+
+```bash
+I1_DATA_ROOT=<상위 폴더> .venv/Scripts/python -m pytest tests/vision_integration
+```
+
+```bash
+I1_DATA_ROOT=<상위 폴더> I1_RECORDING=s2_b_ex2_31 .venv/Scripts/python integration/exp_cause.py --name exp_base
+```
+
+`compare_runs.py`, `run_rt.py --rec all`, 다른 `exp_*.py`도 같은 방식. 9개 기록을 도는 도구(`--rec all`, `regress_replay.py` 기본)는 1차 녹화 결과(`integration/out/i1/`)도 필요하므로 먼저 `I1_RECORDING=route2_1030`으로 `exp_cause.py --name exp_d58_r20`을 돌리거나 2차 8개만 고른다.
+
+안 되는 경우
+- `detections.jsonl`이 없는 녹화: 영상으로 PC 검출을 해야 해서 torch·ultralytics·cv2 있는 파이썬(`I1_VISION_PY`)과 C2 추가학습 후 모델 파일(`I1_MODEL`, 저장소에 없음)이 필요. 없으면 이유를 적고 멈춤
+- 설정에 기준점이 없는 새 녹화: 정답 단계에서 멈춤(위 '새 녹화 돌리기' 1~3)
+- 기준점 도우미의 영상 프레임 모음(`truth_helper.py sheet`, `sheet_candidates.jpg`)은 cv2 있는 파이썬 필요
+- 기준점을 `node`(그래프 키)로 적은 새 녹화: 옆 폴더 `capstone_graph`의 `graph.json`이 있어야 정답을 만듦. 2차 8개 설정은 모두 `st` 좌표라 해당 없음
+- 영상 PC 검출은 `video.mov`만 읽음(원본 cvmod 제한, `video.mp4`만 있으면 실패)
+- 변환 사본을 직접 부를 때는 `vision/tools/session_to_replay.py <녹화 폴더> --out <파일> --cv-module vision/cv_module`(기본값은 원본 저장소 배치 기준이라 브랜치에서는 `--cv-module`이 필요)
+- 도면이 바뀌면 `make_plan_lines.py --plan <plan.gpkg>`를 geopandas 있는 파이썬으로 다시 돌려 `maps/plan_lines.*`를 갱신(도면이 git 저장소 안에 있어야 출처를 남김, 아니면 아무것도 안 쓰고 멈춤)

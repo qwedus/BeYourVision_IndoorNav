@@ -2,6 +2,7 @@
  "name": "s2_a_71_ex2",
  "note": "2차 답사 조끼 보행, 동막 방면 7-1 → 개찰구 1 → 2번 출구, 느림",
  "rec": "integration/out/rec/s2_a_71_ex2/rec",
+ "session": "OCR_7-1_2출",
  "inputs": "integration/out/rec/s2_a_71_ex2/inputs",
  "out": "integration/out/rec/s2_a_71_ex2/out",
  "exclude": [

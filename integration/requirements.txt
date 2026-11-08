@@ -1,0 +1,12 @@
+# vision-integration: packages for integration/ and vision/ scripts and tests (versions checked on the dev PC).
+# Use the same versions to reproduce results bit for bit. See docs/vision_integration/README.md.
+#   python -m venv .venv   (Python 3.12)
+#   .venv/Scripts/python -m pip install -r integration/requirements.txt
+# "-e ." installs the indoornav package from pyproject.toml (also pulls jupyter etc.).
+numpy==2.5.4
+scipy==1.18.1
+pandas==3.0.6
+matplotlib==3.11.2
+pillow==12.3.0
+pytest==9.1.1
+-e .

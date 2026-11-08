@@ -2,6 +2,7 @@
  "name": "s2_a_platform",
  "note": "2차 답사 조끼 보행, 동막 방면 승강장 8번 칸 → 2번 칸, 느림(메모)",
  "rec": "integration/out/rec/s2_a_platform/rec",
+ "session": "OCR_동막방향",
  "inputs": "integration/out/rec/s2_a_platform/inputs",
  "out": "integration/out/rec/s2_a_platform/out",
  "exclude": [],

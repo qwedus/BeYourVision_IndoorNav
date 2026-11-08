@@ -8,6 +8,110 @@
    "sha256": "93d4fe65a3eb7bd34022b1e50505a52f5eea6b249ac2d7acf2b0ec95f7bc6ce7",
    "bytes": 2061
   },
+  "vision/cv_module/config/default.json": {
+   "src": "cv_module/config/default.json",
+   "repo": "localization_design",
+   "src_commit": "ffe6858679b30f19636f952c363af4f1acc90e66",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "b8ae4ebdf8a9515e614e68ed9beb1bd6f6ca8216d9c96ebfc7d75e8ee210477b",
+   "bytes": 2026
+  },
+  "vision/cv_module/cvmod/__init__.py": {
+   "src": "cv_module/cvmod/__init__.py",
+   "repo": "localization_design",
+   "src_commit": "455af6bea8f2546a1b378bebaebd6f350a75f914",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "52cc3fd19ac7edf670e7422e892c1daff6113d056b8325b991a6d2f67a269c1d",
+   "bytes": 478
+  },
+  "vision/cv_module/cvmod/detectors/__init__.py": {
+   "src": "cv_module/cvmod/detectors/__init__.py",
+   "repo": "localization_design",
+   "src_commit": "455af6bea8f2546a1b378bebaebd6f350a75f914",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "41c768aa3a2535bc5ede54d26a9c62209a7bef2293a8fdfa8e580595460cbf0e",
+   "bytes": 809
+  },
+  "vision/cv_module/cvmod/detectors/replay.py": {
+   "src": "cv_module/cvmod/detectors/replay.py",
+   "repo": "localization_design",
+   "src_commit": "455af6bea8f2546a1b378bebaebd6f350a75f914",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "53ba27b0f6e37aaf474b598ee2eef8b416094e8df9b544fe1baef82aa6a0b784",
+   "bytes": 1184
+  },
+  "vision/cv_module/cvmod/detectors/ultralytics_adapter.py": {
+   "src": "cv_module/cvmod/detectors/ultralytics_adapter.py",
+   "repo": "localization_design",
+   "src_commit": "455af6bea8f2546a1b378bebaebd6f350a75f914",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "15c1f645cc88a35b7738276fdeb2de7acf9a84bcd1a00f8e102ef1d53df52323",
+   "bytes": 3160
+  },
+  "vision/cv_module/cvmod/geometry.py": {
+   "src": "cv_module/cvmod/geometry.py",
+   "repo": "localization_design",
+   "src_commit": "455af6bea8f2546a1b378bebaebd6f350a75f914",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "e5d753c56921ef8d2606f18e0e11de5885a470c23a6c9d5a90f4f4b581a51dc1",
+   "bytes": 3043
+  },
+  "vision/cv_module/cvmod/overlay.py": {
+   "src": "cv_module/cvmod/overlay.py",
+   "repo": "localization_design",
+   "src_commit": "455af6bea8f2546a1b378bebaebd6f350a75f914",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "8eaf2de4ad9036a3e6dad08f91acb1d54c2e906438a4be8c022c768efee38c96",
+   "bytes": 3344
+  },
+  "vision/cv_module/cvmod/pipeline.py": {
+   "src": "cv_module/cvmod/pipeline.py",
+   "repo": "localization_design",
+   "src_commit": "455af6bea8f2546a1b378bebaebd6f350a75f914",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "ebf0f3d60b9291549c6258222e1c03e4d289a680c0bcf3d1778fc0277f66c48d",
+   "bytes": 4997
+  },
+  "vision/cv_module/cvmod/run.py": {
+   "src": "cv_module/cvmod/run.py",
+   "repo": "localization_design",
+   "src_commit": "fa494a7315336e7c723d7f53cd2befdc241955e0",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "014831cbb099c72d8f0839105ed1a15ce9dd9d9c84e24b043f6693176a8b837b",
+   "bytes": 6262
+  },
+  "vision/cv_module/cvmod/schema.py": {
+   "src": "cv_module/cvmod/schema.py",
+   "repo": "localization_design",
+   "src_commit": "455af6bea8f2546a1b378bebaebd6f350a75f914",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "59928d5ed70390fe9cf253ff5ee9f3f95595cfcf397f897ac5fb3700e0275682",
+   "bytes": 8751
+  },
+  "vision/cv_module/cvmod/sources/__init__.py": {
+   "src": "cv_module/cvmod/sources/__init__.py",
+   "repo": "localization_design",
+   "src_commit": "fa494a7315336e7c723d7f53cd2befdc241955e0",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "5c29a9d32367569fed57700a209c816b9a355b803aa164dd17f1d769b12d0f13",
+   "bytes": 372
+  },
+  "vision/cv_module/cvmod/sources/images.py": {
+   "src": "cv_module/cvmod/sources/images.py",
+   "repo": "localization_design",
+   "src_commit": "fa494a7315336e7c723d7f53cd2befdc241955e0",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "603a14b76b591c2c4654735a5a583a7b27a0bb503acb61ac8f39e894f53672f8",
+   "bytes": 1430
+  },
+  "vision/cv_module/cvmod/sources/recording.py": {
+   "src": "cv_module/cvmod/sources/recording.py",
+   "repo": "localization_design",
+   "src_commit": "5582da095a43b57242b21fb528241d9e93fe6d36",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "9e6b52c4a8771d7ebadaad7ceda0892497b403d7b79070c584198b8f94240106",
+   "bytes": 15413
+  },
   "vision/edge_faces.py": {
    "src": "cv_test/i1/edge_faces.py",
    "repo": "localization_design",
@@ -152,6 +256,14 @@
    "sha256": "214a8455337d3f6f67b17a8c3f5c2cd8194f4d93125863637b26ff9d58819dd9",
    "bytes": 7804
   },
+  "vision/pdr_simple.py": {
+   "src": "cv_test/i1/pdr_simple.py",
+   "repo": "localization_design",
+   "src_commit": "2c174b8bf14d0009be99ef64f8d8079fa79e0f36",
+   "repo_head": "5526d25630247762beeaf2de7be6723e3fc000ac",
+   "sha256": "e001190b45f7829012e2754a6270e6976a51db9f47b0fb3ec4e4b462f4d95d7e",
+   "bytes": 4164
+  },
   "vision/station_pkg.py": {
    "src": "cv_test/pf/station_pkg.py",
    "repo": "localization_design",
@@ -171,13 +283,21 @@
   "vision/time_filter.py": {
    "src": "cv_test/i1/time_filter.py",
    "repo": "localization_design",
-   "src_commit": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821",
-   "repo_head": "7a14be4e8bb56e6e1535039f2bc86e940ac9b821",
-   "sha256": "b6e4ca37e8f24b1519557288b8156885b7e27d9d926bba0121eccac63137ff4a",
-   "bytes": 5764
+   "src_commit": "7426e987dac454ee816df71eb7c3ded3844541db",
+   "repo_head": "7426e987dac454ee816df71eb7c3ded3844541db",
+   "sha256": "48d1aca122d3889df0f3aa89fd7a977c955b33d44dbfc428866c77ce4265d532",
+   "bytes": 8965
+  },
+  "vision/tools/session_to_replay.py": {
+   "src": "tools/session_to_replay.py",
+   "repo": "ocr_test_app",
+   "src_commit": "9f5a72b4a12b032db45509eabef43c1a76e26009",
+   "repo_head": "cf7da1fe2bf196c89a9910a15ca177e79fa44653",
+   "sha256": "95fc264c196cc12b2ebba5b0879b3074fa629c082a93e40237580336ec0b1cde",
+   "bytes": 5396
   }
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
- "synced_at": "2026-11-07T18:31:11",
- "localization_design_head": "cdaff365f0781e3f9c7c60e26722a8a9272b8381"
+ "synced_at": "2026-11-08T19:49:01",
+ "localization_design_head": "5526d25630247762beeaf2de7be6723e3fc000ac"
 }
