@@ -136,6 +136,38 @@
    "sha256": "16168010a5672017f43cec31303dc866777fb1763616094c595ea81da4598052",
    "bytes": 215199
   },
+  "vision/inputs/graph/graph.json": {
+   "src": "data/dongchun/graph.json",
+   "repo": "capstone_graph",
+   "src_commit": "0684e97fdeb4eaa12b2e873e9c150c8047ab830d",
+   "repo_head": "d3d6c78b4aef8235a1fb0c92cdb004361d934513",
+   "sha256": "e39baa8802bbe742ea26a395f08bde9cfb242294d5c3f95bd5f0e2e0228a043b",
+   "bytes": 83952
+  },
+  "vision/inputs/graph/graph_general.json": {
+   "src": "data/dongchun/graph_general.json",
+   "repo": "capstone_graph",
+   "src_commit": "7a0a40d04c9f3b1b80e006328c44465f6ee08bb2",
+   "repo_head": "7a0a40d04c9f3b1b80e006328c44465f6ee08bb2",
+   "sha256": "ace855b51bc9f1cacfb8ed088b5d47eedae6adf5a9127ac2f05165d3d6d96dff",
+   "bytes": 13401
+  },
+  "vision/inputs/graph/station_graph.schema.json": {
+   "src": "data/station_graph.schema.json",
+   "repo": "capstone_graph",
+   "src_commit": "03f0120116a93feb009f5006f6f796c8e0ee8bc1",
+   "repo_head": "d3d6c78b4aef8235a1fb0c92cdb004361d934513",
+   "sha256": "5ca6b76944d4a6097d55a973580269bc113aa9a4e3e2aa0cd5cd1635ee99642c",
+   "bytes": 4429
+  },
+  "vision/inputs/graph/station_graph_layer.schema.json": {
+   "src": "data/station_graph_layer.schema.json",
+   "repo": "capstone_graph",
+   "src_commit": "7a0a40d04c9f3b1b80e006328c44465f6ee08bb2",
+   "repo_head": "7a0a40d04c9f3b1b80e006328c44465f6ee08bb2",
+   "sha256": "98ae0fbc202f039f21736e40dad199858167d9a987853999a82bfcf562cd8d52",
+   "bytes": 4356
+  },
   "vision/inputs/i1/baseline_newvis.json": {
    "src": "cv_test/out/i1/check/baseline_newvis.json",
    "repo": "localization_design",
@@ -298,6 +330,6 @@
   }
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
- "synced_at": "2026-11-08T19:49:01",
- "localization_design_head": "5526d25630247762beeaf2de7be6723e3fc000ac"
+ "synced_at": "2026-11-10T00:31:14",
+ "localization_design_head": "939a72283c9471c13f682c9db80409364172c413"
 }

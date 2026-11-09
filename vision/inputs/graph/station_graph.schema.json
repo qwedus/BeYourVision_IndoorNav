@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/station_graph.schema.json",
+  "title": "Station routing graph",
+  "description": "Structural schema for a station graph used by the route-planning module.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "metadata",
+    "nodes",
+    "edges"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version",
+        "description",
+        "coordinate_system",
+        "coordinate_unit",
+        "floors"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "description": {
+          "type": "string"
+        },
+        "coordinate_system": {
+          "enum": [
+            "local_cartesian",
+            "enu_local"
+          ],
+          "description": "local_cartesian: 가상 역 좌표. enu_local: x = 동, y = 북(m), 원점은 metadata.origin."
+        },
+        "coordinate_unit": {
+          "const": "meter"
+        },
+        "floors": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer"
+          }
+        },
+        "origin": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "lat",
+            "lon"
+          ],
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "edges": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "x",
+        "y",
+        "floor",
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^N[0-9]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "floor": {
+          "type": "integer"
+        },
+        "type": {
+          "enum": [
+            "entrance",
+            "exit",
+            "gate",
+            "junction",
+            "corridor",
+            "platform_entrance",
+            "platform",
+            "platform_door",
+            "poi",
+            "stairs",
+            "elevator",
+            "escalator"
+          ]
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "도면이 바뀌어도 유지되는 이름표 (예: GATE_1, P1_3_2). id는 다시 만들 때마다 바뀔 수 있다."
+        }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "from",
+        "to",
+        "distance",
+        "type",
+        "bidirectional",
+        "accessible",
+        "blocked"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^E[0-9]+$"
+        },
+        "from": {
+          "type": "string",
+          "pattern": "^N[0-9]+$"
+        },
+        "to": {
+          "type": "string",
+          "pattern": "^N[0-9]+$"
+        },
+        "distance": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "type": {
+          "enum": [
+            "corridor",
+            "platform_access",
+            "platform",
+            "facility_access",
+            "exit_access",
+            "one_way_passage",
+            "stairs",
+            "elevator",
+            "escalator"
+          ]
+        },
+        "bidirectional": {
+          "type": "boolean"
+        },
+        "accessible": {
+          "type": "boolean"
+        },
+        "blocked": {
+          "type": "boolean"
+        },
+        "tactile": {
+          "type": "boolean",
+          "description": "점자블록을 따라가는 간선인지"
+        }
+      }
+    }
+  }
+}

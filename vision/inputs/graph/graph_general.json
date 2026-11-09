@@ -1,0 +1,678 @@
+{
+  "metadata": {
+    "name": "dongchun",
+    "layer": "general",
+    "version": "0.3.0",
+    "description": "일반 보행 레이어: 테스트·디버깅용 보통 걷는 길. graph.json(기본)에 더해서 써요. 손으로 그린 선(general.gpkg)에서 만들어요.",
+    "base": {
+      "file": "graph.json",
+      "sha256": "e39baa8802bbe742ea26a395f08bde9cfb242294d5c3f95bd5f0e2e0228a043b",
+      "nodes": 206,
+      "edges": 219
+    }
+  },
+  "nodes": [
+    {
+      "id": "GN1",
+      "name": "B1 일반 통로",
+      "x": -7.323,
+      "y": -35.159,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN2",
+      "name": "B1 일반 통로",
+      "x": -6.298,
+      "y": -33.732,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN3",
+      "name": "B1 일반 통로",
+      "x": -4.63,
+      "y": -31.409,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN4",
+      "name": "B1 일반 통로",
+      "x": -2.242,
+      "y": -38.938,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN5",
+      "name": "B1 일반 통로",
+      "x": -1.856,
+      "y": -27.544,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN6",
+      "name": "B1 일반 통로",
+      "x": 0.504,
+      "y": -35.33,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN7",
+      "name": "B1 일반 통로",
+      "x": 1.213,
+      "y": -23.27,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN8",
+      "name": "B1 일반 통로",
+      "x": 3.411,
+      "y": -31.511,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN9",
+      "name": "B1 일반 통로",
+      "x": 4.187,
+      "y": -19.127,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN10",
+      "name": "B1 일반 통로",
+      "x": 6.559,
+      "y": -27.376,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN11",
+      "name": "B1 일반 통로",
+      "x": 9.666,
+      "y": -23.294,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN12",
+      "name": "B1 일반 통로",
+      "x": 10.063,
+      "y": -11.443,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN13",
+      "name": "B1 일반 통로",
+      "x": 19.292,
+      "y": 0.66,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN14",
+      "name": "B1 일반 통로",
+      "x": 24.818,
+      "y": -3.421,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN15",
+      "name": "B1 일반 통로",
+      "x": 27.062,
+      "y": 33.245,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN16",
+      "name": "B1 일반 통로",
+      "x": 27.825,
+      "y": 0.53,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN17",
+      "name": "B1 일반 통로",
+      "x": 28.493,
+      "y": 12.833,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN18",
+      "name": "B1 일반 통로",
+      "x": 31.56,
+      "y": 16.863,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN19",
+      "name": "B1 일반 통로",
+      "x": 34.02,
+      "y": 8.668,
+      "floor": -1,
+      "type": "corridor"
+    },
+    {
+      "id": "GN20",
+      "name": "B1 일반 통로",
+      "x": 37.047,
+      "y": 12.645,
+      "floor": -1,
+      "type": "corridor"
+    }
+  ],
+  "edges": [
+    {
+      "id": "GE1",
+      "from": "N17",
+      "to": "GN2",
+      "distance": 5.48,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE2",
+      "from": "N18",
+      "to": "GN1",
+      "distance": 3.842,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E16"
+    },
+    {
+      "id": "GE3",
+      "from": "N20",
+      "to": "GN4",
+      "distance": 3.906,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E19"
+    },
+    {
+      "id": "GE4",
+      "from": "N29",
+      "to": "GN12",
+      "distance": 4.922,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E30"
+    },
+    {
+      "id": "GE5",
+      "from": "N32",
+      "to": "GN12",
+      "distance": 7.202,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE6",
+      "from": "N41",
+      "to": "GN14",
+      "distance": 5.157,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E50"
+    },
+    {
+      "id": "GE7",
+      "from": "N43",
+      "to": "GN13",
+      "distance": 5.055,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E51"
+    },
+    {
+      "id": "GE8",
+      "from": "N43",
+      "to": "GN16",
+      "distance": 6.92,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE9",
+      "from": "N44",
+      "to": "GN15",
+      "distance": 7.795,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE10",
+      "from": "N51",
+      "to": "GN18",
+      "distance": 2.516,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E59"
+    },
+    {
+      "id": "GE11",
+      "from": "GN1",
+      "to": "GN2",
+      "distance": 1.757,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E16"
+    },
+    {
+      "id": "GE12",
+      "from": "GN1",
+      "to": "GN4",
+      "distance": 6.333,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE13",
+      "from": "GN2",
+      "to": "GN3",
+      "distance": 2.86,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E16"
+    },
+    {
+      "id": "GE14",
+      "from": "GN3",
+      "to": "GN5",
+      "distance": 4.758,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E16"
+    },
+    {
+      "id": "GE15",
+      "from": "GN3",
+      "to": "GN6",
+      "distance": 6.461,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE16",
+      "from": "GN4",
+      "to": "GN6",
+      "distance": 4.535,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E19"
+    },
+    {
+      "id": "GE17",
+      "from": "GN5",
+      "to": "GN7",
+      "distance": 5.262,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E16"
+    },
+    {
+      "id": "GE18",
+      "from": "GN5",
+      "to": "GN8",
+      "distance": 6.594,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE19",
+      "from": "GN6",
+      "to": "GN8",
+      "distance": 4.8,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E19"
+    },
+    {
+      "id": "GE20",
+      "from": "GN7",
+      "to": "GN9",
+      "distance": 5.1,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E16"
+    },
+    {
+      "id": "GE21",
+      "from": "GN7",
+      "to": "GN10",
+      "distance": 6.741,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE22",
+      "from": "GN8",
+      "to": "GN10",
+      "distance": 5.197,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E19"
+    },
+    {
+      "id": "GE23",
+      "from": "GN9",
+      "to": "N23",
+      "distance": 4.003,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E16"
+    },
+    {
+      "id": "GE24",
+      "from": "GN9",
+      "to": "GN11",
+      "distance": 6.884,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE25",
+      "from": "GN10",
+      "to": "GN11",
+      "distance": 5.13,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E19"
+    },
+    {
+      "id": "GE26",
+      "from": "GN11",
+      "to": "N28",
+      "distance": 3.699,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E19"
+    },
+    {
+      "id": "GE27",
+      "from": "GN12",
+      "to": "N23",
+      "distance": 5.674,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E30"
+    },
+    {
+      "id": "GE28",
+      "from": "GN13",
+      "to": "N33",
+      "distance": 5.058,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E51"
+    },
+    {
+      "id": "GE29",
+      "from": "GN13",
+      "to": "GN14",
+      "distance": 6.87,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE30",
+      "from": "GN14",
+      "to": "GN16",
+      "distance": 4.966,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E50"
+    },
+    {
+      "id": "GE31",
+      "from": "GN16",
+      "to": "GN19",
+      "distance": 10.228,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E50"
+    },
+    {
+      "id": "GE32",
+      "from": "GN17",
+      "to": "N43",
+      "distance": 10.206,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E59"
+    },
+    {
+      "id": "GE33",
+      "from": "GN17",
+      "to": "GN19",
+      "distance": 6.921,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE34",
+      "from": "GN18",
+      "to": "GN17",
+      "distance": 5.065,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": true,
+      "along": "E59"
+    },
+    {
+      "id": "GE35",
+      "from": "GN18",
+      "to": "GN20",
+      "distance": 6.921,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false
+    },
+    {
+      "id": "GE36",
+      "from": "GN19",
+      "to": "GN20",
+      "distance": 4.999,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E50"
+    },
+    {
+      "id": "GE37",
+      "from": "GN20",
+      "to": "N53",
+      "distance": 4.649,
+      "type": "corridor",
+      "bidirectional": true,
+      "accessible": true,
+      "blocked": false,
+      "tactile": false,
+      "along": "E50"
+    }
+  ],
+  "anchors": {
+    "N17": {
+      "floor": -1,
+      "x": -10.681,
+      "y": -30.443,
+      "key": "TICKET_3"
+    },
+    "N18": {
+      "floor": -1,
+      "x": -9.563,
+      "y": -38.28
+    },
+    "N20": {
+      "floor": -1,
+      "x": -4.607,
+      "y": -42.046
+    },
+    "N23": {
+      "floor": -1,
+      "x": 6.521,
+      "y": -15.875
+    },
+    "N28": {
+      "floor": -1,
+      "x": 11.906,
+      "y": -20.351
+    },
+    "N29": {
+      "floor": -1,
+      "x": 13.135,
+      "y": -7.598
+    },
+    "N32": {
+      "floor": -1,
+      "x": 15.81,
+      "y": -15.782
+    },
+    "N33": {
+      "floor": -1,
+      "x": 16.27,
+      "y": -3.394
+    },
+    "N41": {
+      "floor": -1,
+      "x": 21.694,
+      "y": -7.523
+    },
+    "N43": {
+      "floor": -1,
+      "x": 22.312,
+      "y": 4.712
+    },
+    "N44": {
+      "floor": -1,
+      "x": 22.317,
+      "y": 27.061
+    },
+    "N51": {
+      "floor": -1,
+      "x": 33.084,
+      "y": 18.864
+    },
+    "N53": {
+      "floor": -1,
+      "x": 39.863,
+      "y": 16.344
+    }
+  }
+}

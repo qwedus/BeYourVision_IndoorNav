@@ -25,6 +25,7 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `vision/cv_module/` | `cvmod`(검출 → 방위각·앙각 관측, 표준 라이브러리만) + `config/default.json`(검출 문턱값). 앱 검출을 관측으로 바꿀 때 씀 | **localization_design** (`cv_module/`) |
 | `vision/tools/session_to_replay.py` | 앱 기록 폴더(`detections.jsonl`·`frames.jsonl`·`meta.json`) → `cvmod` 재생 입력 | **ocr_test_app** (`tools/`) |
 | `vision/pdr_simple.py` | 임시 PDR(정답 기준점 사이 걸음 시각 보간에 씀) | **localization_design** (`cv_test/i1/`) |
+| `vision/inputs/graph/` | 길안내용 경로 그래프: `graph.json`(기본, 시각장애인용), `graph_general.json`(일반 보행 덧붙임 레이어, 테스트·디버깅용), 형식 파일 `station_graph.schema.json`·`station_graph_layer.schema.json`. 아래 [경로 그래프 레이어](#경로-그래프-레이어) | **capstone_graph** (`data/`) |
 | `vision/MANIFEST.json` | 위 파일마다 원본 저장소·경로·출처 커밋·sha256 | 복사 도구가 만듦 |
 | `integration/` | 앱 녹화 → `Session`, indoornav PDR 걸음 추출, 방 뺀 보행 마스크, `VisionFilter` 어댑터, 재생기·실시간 재생기·실행기·검산·비교표·그림 | **이 브랜치** |
 | `integration/recordings/<이름>.json` | 녹화별 설정: 앱 세션 폴더 이름(`session`), 이 PC 녹화 경로(`rec`), 입력·출력 폴더, 정답 기준점, 채점 제외 구간 | **이 브랜치** |
@@ -33,9 +34,20 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `integration/out/` | 결과(대부분 저장소에 안 넣음). 2차 녹화는 `integration/out/rec/<이름>/inputs·out` | 실행하면 생김 |
 | `docs/vision_integration/` | 이 설명, 작업 기록, main 수정 건의 | **이 브랜치** |
 
-**`vision/` 안 파일은 여기서 고치지 않는다.** localization_design에서 고치고 `cv_test/sync_to_branch.py`로 복사한다(옛 이름에서 9f8b8be로 바꿈, 상태만 볼 때 `--check`. 한 방향, 원본에 커밋 안 된 변경이 있거나 브랜치 사본이 손으로 바뀌었으면 멈춤). ocr_test_app 원본(`session_to_replay.py`)도 같은 도구로 복사하고, `.py` 안의 원본 PC 경로(기본값 줄)는 복사할 때 지운다. 저장소 `.gitignore`가 `data/`를 무시해서 데이터 폴더 이름은 `inputs/`.
+**`vision/` 안 파일은 여기서 고치지 않는다.** localization_design에서 고치고 `cv_test/sync_to_branch.py`로 복사한다(옛 이름에서 9f8b8be로 바꿈, 상태만 볼 때 `--check`. 한 방향, 원본에 커밋 안 된 변경이 있거나 브랜치 사본이 손으로 바뀌었으면 멈춤). ocr_test_app 원본(`session_to_replay.py`)과 capstone_graph 원본(경로 그래프)도 같은 도구로 복사하고, `.py` 안의 원본 PC 경로(기본값 줄)는 복사할 때 지운다. 저장소 `.gitignore`가 `data/`를 무시해서 데이터 폴더 이름은 `inputs/`.
 
 검출(YOLO)·OCR은 torch가 필요해 localization_design에서 돌리고, 이 브랜치는 결과 JSON만 읽는다. 앱이 저장한 검출(`detections.jsonl`)을 관측으로 바꾸는 부분은 사본(`vision/cv_module`, `vision/tools/session_to_replay.py`)이 있어 이 브랜치 가상환경만으로 된다. 영상으로 PC 검출을 할 때만 torch·ultralytics·cv2 있는 파이썬과 모델 파일이 필요하다(아래).
+
+## 경로 그래프 레이어
+
+앱이 역사 패키지(PF용)와 같은 묶음으로 받는 길안내용 그래프. 역사 패키지 안에는 그래프가 없다(에스컬레이터 끝 좌표만 그래프 키로 옮겨 씀).
+
+- **기본(`graph.json`)**: 시각장애인용(점자블록·엘리베이터 우선). 혼자 완결된 그래프.
+- **일반 레이어(`graph_general.json`)**: 기본 위에 덧붙이는 노드(`GN…`)·간선(`GE…`)만 담음. 혼자서는 쓰지 않는다.
+- **모드**: 시각장애인 모드 = 기본만, 일반 모드 = 기본 + 일반 레이어. 레이어를 고르지 않으면 기본만 쓴다.
+- **합치는 법**: 레이어 간선은 기본 노드를 ID로 가리킨다. 레이어의 `metadata.base.sha256`이 받은 `graph.json` 해시와 같으면 ID 그대로, 다르면(기본을 다시 만듦) `anchors`의 `key` 또는 층·좌표로 기본 노드를 다시 찾는다. 못 찾으면 레이어를 다시 만들어야 함.
+- **`along` 조각**: 기본 간선 중간에 일반 노드를 두려고 그 간선을 나눈 조각. 기본 간선도 그대로 남는다. 위치를 간선에 붙일 때는 조각에 붙이고, 기본 간선이 막히면 조각도 막는다.
+- 자세한 필드 설명과 참고 구현: capstone_graph `docs/dongchun-editing.md`, `src/capstone_graph/graph_loader.py`(`load_station_graph(..., layers=[...])`).
 
 ## integration/ 파일
 

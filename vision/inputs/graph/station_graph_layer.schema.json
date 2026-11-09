@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/station_graph_layer.schema.json",
+  "title": "Station routing graph layer",
+  "description": "graph.json(기본 그래프)에 더해서 쓰는 레이어 파일 (예: graph_general.json). 기본 그래프는 바꾸지 않고 새 노드·간선만 담는다. 간선의 from/to는 이 레이어의 노드(GN…) 또는 기본 그래프 노드(N…)이고, 기본 노드는 anchors에 반드시 적는다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["metadata", "nodes", "edges", "anchors"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "layer", "version", "description", "base"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1, "description": "기본 그래프의 metadata.name과 같음"},
+        "layer": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$", "description": "레이어 이름 (general)"},
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "description": {"type": "string"},
+        "base": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["file", "sha256", "nodes", "edges"],
+          "description": "함께 만든 기본 그래프. sha256(graph.json 바이트에서 CRLF를 LF로 바꾼 뒤의 해시)이 지금 graph.json의 같은 해시와 같으면 N… id를 그대로 쓰고, 다르면 anchors로 기본 노드를 다시 찾는다.",
+          "properties": {
+            "file": {"type": "string"},
+            "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$", "description": "graph.json 바이트의 줄 끝을 LF로 맞춘 뒤 잰 sha256 (CRLF로 받은 사본도 같은 값)"},
+            "nodes": {"type": "integer", "minimum": 0},
+            "edges": {"type": "integer", "minimum": 0}
+          }
+        }
+      }
+    },
+    "nodes": {"type": "array", "items": {"$ref": "#/$defs/node"}},
+    "edges": {"type": "array", "items": {"$ref": "#/$defs/edge"}},
+    "anchors": {
+      "type": "object",
+      "description": "이 레이어 간선이 쓰는 기본 노드: N… id → 그 노드의 key(있으면) 또는 층·좌표. 기본 그래프를 다시 만들어 id가 바뀌어도 이것으로 다시 찾는다 (key가 있으면 key, 없으면 같은 층에서 0.01 m 안).",
+      "propertyNames": {"pattern": "^N[0-9]+$"},
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["floor", "x", "y"],
+        "properties": {
+          "floor": {"type": "integer"},
+          "x": {"type": "number"},
+          "y": {"type": "number"},
+          "key": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "ref": {"type": "string", "pattern": "^(GN|N)[0-9]+$"},
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "x", "y", "floor", "type"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^GN[0-9]+$"},
+        "name": {"type": "string", "minLength": 1},
+        "x": {"type": "number"},
+        "y": {"type": "number"},
+        "floor": {"type": "integer"},
+        "type": {"enum": ["junction", "corridor"]}
+      }
+    },
+    "edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "from", "to", "distance", "type", "bidirectional", "accessible", "blocked", "tactile"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^GE[0-9]+$"},
+        "from": {"$ref": "#/$defs/ref"},
+        "to": {"$ref": "#/$defs/ref"},
+        "distance": {"type": "number", "exclusiveMinimum": 0},
+        "type": {"enum": ["corridor", "platform_access", "platform", "facility_access", "exit_access", "one_way_passage", "stairs", "elevator", "escalator"]},
+        "bidirectional": {"type": "boolean"},
+        "accessible": {"type": "boolean"},
+        "blocked": {"type": "boolean"},
+        "tactile": {"type": "boolean"},
+        "along": {"type": "string", "pattern": "^E[0-9]+$", "description": "이 간선이 기본 간선 위에 겹쳐 있음 (그 기본 간선 중간에 일반 노드를 두려고 나눈 조각). 기본 간선은 그대로 남아 있다. 참고용."}
+      }
+    }
+  }
+}
