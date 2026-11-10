@@ -307,10 +307,10 @@
   "vision/text_check.py": {
    "src": "cv_test/i1/text_check.py",
    "repo": "localization_design",
-   "src_commit": "693b6c2ab349976636de0f875a2b6c70096ff1c9",
-   "repo_head": "693b6c2ab349976636de0f875a2b6c70096ff1c9",
-   "sha256": "b31da1ed266d0a28b42617e1dbbd18ab51bc0874768d14f01af6e892f0a79996",
-   "bytes": 13136
+   "src_commit": "092df5db8a161633c97279b5dcb57200440d324c",
+   "repo_head": "092df5db8a161633c97279b5dcb57200440d324c",
+   "sha256": "193f675b9ac745b806d879f87044b7e7d8625bd6237977f000df27fcc4e5a818",
+   "bytes": 16669
   },
   "vision/time_filter.py": {
    "src": "cv_test/i1/time_filter.py",
@@ -330,6 +330,6 @@
   }
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
- "synced_at": "2026-11-10T00:31:14",
- "localization_design_head": "939a72283c9471c13f682c9db80409364172c413"
+ "synced_at": "2026-11-10T21:38:27",
+ "localization_design_head": "092df5db8a161633c97279b5dcb57200440d324c"
 }

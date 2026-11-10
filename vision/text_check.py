@@ -13,6 +13,8 @@
 판정 규칙(decide 등)은 11-02 OCR 필터의 ocr_filter.py를 그대로 옮긴 것(완화 규칙 loose 포함, 기본 켬 = 그 보고의 기본안).
 sure=True(11-04 비교용 추가): 다른 종류의 글자 없이 "뜻 있는 글자"라는 이유만으로는 버리지 않고, 표지판 글자와 안 닮은 한글(ad_like)일 때만 버림.
     I1 녹화에서 흐린 진짜 판("티는곳", "가능곳", "Thvalnblor" = This train is bound for)이 원래 규칙으로 버려져서.
+rules=APP_029(11-10 추가, 기본 끔): 시험 앱 판정 보강 0.2.8(11-05)·0.2.9(11-08, 윤재)과 같은 판정. 화장실 바로잡기(keywords.toilet)는 뺌
+    (천장 '← 화장실' 방향 판을 지도의 화장실(문 앞 판)로 바꿔 2차 ex6_ex3 위치 오차 90%가 3.25 → 4.41 m로 나빠짐). 앱 filter_config.json과 값이 같아야 함.
 track_decide는 yolo_ocr_live.py의 판 단위 처리와 같음: 앞 프레임만 봄, 최근 5프레임 중 3번 잡힌 판만 읽음, 못 읽으면 gap초 간격으로 최대 max_reads번,
 판정이 나면 그 뒤로 유지. 표준 라이브러리만 쓴다(vision-integration 브랜치 vision/에 그대로 복사됨 — 원본은 localization_design).
 """
@@ -33,6 +35,22 @@ STATIONS = ("원인재", "인천시청", "부평", "계양", "동막", "송도",
             "검단호수공원", "호수공원", "아라", "신검단")
 SIGN_WORDS = ("나가는 곳", "Way Out", "타는 곳", "Tracks", "표 사는 곳", "Tickets", "종합안내도", "노선도", "안내도",
               "주변지역", "전역출발", "열차", "도착", "출발")   # 역 이름은 짧아 우연히 닮기 쉬워 정확히 맞을 때만 인정(station_in)
+# 시험 앱 0.2.8 + 0.2.9 판정 (화장실 바로잡기 뺌). 앱 App/Config/filter_config.json의 ocr 값과 같게 둠
+APP_029 = dict(
+    fuzzy={"exit": ("스퀘어원", "남동국가산업단지", "산업단지", "동막초등학교", "연수구청", "인천여자중학교", "연수경찰서", "인천연송초등학교"),
+           "monitor": ("이번열차", "This train", "Allow passengers to get off", "min until arrival")},
+    words={"monitor": ("this", "next")},
+    contains={"monitor": ("승차", "하차")},
+    patterns={"monitor": (r"(?<![0-9])([01]?[0-9]|2[0-3]) ?[:：] ?[0-5][0-9](?![0-9])",)},
+    common_fuzzy=("Woninjae", "Incheon City Hall", "Bupyeong", "Gyeyang", "Dongmak", "Songdo Moonlight Festival Park",
+                  "Geomdan Lake Park", "Campus Town", "Technopark", "Central Park", "Bakchon", "Gyulhyeon",
+                  "Jakjeon", "Galsan", "Dongsu", "Sinyeonsu", "Seonhak"),   # 방면 판·모니터의 약한 근거
+    stations=("송도달빛축제공원", "달빛축제공원"),
+    meaningful_conf=0.6,      # 광고로 버리는 신뢰도 (Apple Vision 0.3·0.5·1.0 → 1.0만)
+    first_char=True,          # 다른 종류로 볼 때만: 비슷함 인정에 기준 글자 첫 글자가 읽은 글자에 있어야 함 ("는 곳" ≠ 타는 곳)
+    letters=True,             # 뜻 있는 글자 = 한글 2자 이상 또는 영문 3자 이상 ("11670"·"D7a"로 버리지 않음)
+    distance_marks=True,      # "20m" 같은 거리 표시 = 나가는 곳·남색 판·표 사는 곳의 약한 근거
+)
 
 
 def norm(s):
@@ -51,14 +69,14 @@ def similar(target, text):
     return best
 
 
-def station_in(text):
-    """역 이름 (앞뒤에 다른 한글이 붙은 '부평학원' 등은 제외, '계양행'의 '행'은 허용)."""
+def station_in(text, extra=()):
+    """역 이름 (앞뒤에 다른 한글이 붙은 '부평학원' 등은 제외, '계양행'의 '행'은 허용). extra: 더할 역 이름."""
     tokens = re.split(r"\s+", text)
     if len(norm(text)) <= 4:
         tokens.append(text)
     for token in tokens:
         n = norm(token)
-        for s in sorted(STATIONS, key=len, reverse=True):
+        for s in sorted(STATIONS + tuple(extra), key=len, reverse=True):
             i = n.find(s)
             if i < 0:
                 continue
@@ -74,34 +92,55 @@ def word(text, w):
     return re.search(rf"(?<![a-z]){w}(?![a-z])", text.lower()) is not None
 
 
-def kinds_of(text, th=0.75):
-    """글자 하나 → {종류: 강도}  강도 2 = 그 종류만의 글자, 1 = 여러 종류에 공통인 글자"""
+def kinds_of(text, th=0.75, label=None, rules=None):
+    """글자 하나 → {종류: 강도}  강도 2 = 그 종류만의 글자, 1 = 여러 종류에 공통인 글자.
+    rules: None(11-02 규칙) 또는 APP_029. label: 검출 종류(rules의 first_char에 씀)."""
+    R = rules or {}
+    st = R.get("stations", ())
+    n = norm(text)
+
+    def fz(cls, *targets):
+        targets = targets + R.get("fuzzy", {}).get(cls, ())
+        if R.get("first_char") and label is not None and cls != label:
+            targets = tuple(x for x in targets if norm(x)[:1] and norm(x)[0] in n)
+        return max((similar(x, text) for x in targets), default=0.0) >= th
+
+    def extra(cls):
+        return (any(word(text, w) for w in R.get("words", {}).get(cls, ()))
+                or any(w in text for w in R.get("contains", {}).get(cls, ()))
+                or any(re.search(p, text) for p in R.get("patterns", {}).get(cls, ())))
     k = {}
-    if max(similar("나가는 곳", text), similar("Way Out", text)) >= th or word(text, "exit") or "出口" in text:
+    if fz("exit", "나가는 곳", "Way Out") or word(text, "exit") or "出口" in text or extra("exit"):
         k["exit"] = 2
-    if max(similar("타는 곳", text), similar("Tracks", text)) >= th:
+    if fz("navy", "타는 곳", "Tracks") or extra("navy"):
         k["navy"] = 2
-    if max(similar("표 사는 곳", text), similar("Tickets", text)) >= th or word(text, "ticket"):
+    if fz("ticket_sign", "표 사는 곳", "Tickets") or word(text, "ticket") or extra("ticket_sign"):
         k["ticket_sign"] = 2
     if (word(text, "train") or any(w in text for w in ("전역출발", "전역", "열차", "접근", "출발", "도착"))
-            or re.search(r"[가-힣]{2,}행\b", text) and station_in(text)):
+            or re.search(r"[가-힣]{2,}행\b", text) and station_in(text, st) or fz("monitor") or extra("monitor")):
         k["monitor"] = 2
-    if similar("종합안내도", text) >= th or "노선도" in text or word(text, "route"):
+    if fz("map", "종합안내도") or "노선도" in text or word(text, "route") or extra("map"):
         k["map"] = 2
-    if similar("주변지역", text) >= th or word(text, "vicinity"):
+    if fz("area_map", "주변지역") or word(text, "vicinity") or extra("area_map"):
         k["area_map"] = 2
     if "안내도" in text or word(text, "map") or word(text, "information"):
         k.setdefault("map", 1)
         k.setdefault("area_map", 1)
-    if station_in(text):                       # 역 이름: 방면 판과 도착 안내 모니터에 공통
+    if station_in(text, st) or any(similar(x, text) >= th for x in R.get("common_fuzzy", ())):   # 역 이름: 방면 판과 도착 안내 모니터에 공통
         k.setdefault("navy", 1)
         k.setdefault("monitor", 1)
+    if R.get("distance_marks") and re.search(r"(?<![0-9a-z])[0-9]{1,3} ?m(?![a-z])", text):
+        for c in ("exit", "navy", "ticket_sign"):
+            k.setdefault(c, 1)
     return k
 
 
-def meaningful(text, conf):
-    """뜻 있는 글자인지: 신뢰도 0.5 이상이고 글자 2개 이상."""
-    return conf >= 0.5 and len(norm(text)) >= 2
+def meaningful(text, conf, rules=None):
+    """뜻 있는 글자인지: 신뢰도 0.5(rules면 그 값) 이상이고 글자 2개 이상. rules의 letters면 한글 2자 또는 영문 3자 이상도 필요."""
+    R = rules or {}
+    if R.get("letters") and not (len(re.findall(r"[가-힣]", text)) >= 2 or len(re.findall(r"[A-Za-z]", text)) >= 3):
+        return False
+    return conf >= R.get("meaningful_conf", 0.5) and len(norm(text)) >= 2
 
 
 def jamo(s):
@@ -114,9 +153,9 @@ def jamo(s):
     return "".join(out)
 
 
-def ad_like(text, extra=()):
+def ad_like(text, extra=(), stations=()):
     """한글 3자 이상인데 어떤 표지판 글자와도 자음·모음 기준 절반 넘게 닮지 않음 → 광고 의심 (예: '점심사간', '키스슬')."""
-    if len(re.findall(r"[가-힣]", text)) < 3 or station_in(text):
+    if len(re.findall(r"[가-힣]", text)) < 3 or station_in(text, stations):
         return False
     s = jamo(text)
 
@@ -128,11 +167,12 @@ def ad_like(text, extra=()):
                 best = max(best, difflib.SequenceMatcher(None, t, s[k:k + len(t)]).ratio())
         return best
     # 표지판 글자는 절반만 닮아도, 역 이름(3자 이상)은 70% 이상 닮아야 표지판으로 봄 ('원인저' ≈ 원인재)
-    return near(SIGN_WORDS + extra) < 0.5 and near([x for x in STATIONS if len(x) >= 3]) < 0.7
+    return near(SIGN_WORDS + extra) < 0.5 and near([x for x in STATIONS + tuple(stations) if len(x) >= 3]) < 0.7
 
 
-def decide(cls, reads, loose=True, sure=False):
-    """reads: [(글자, 신뢰도)] → (decision, suggested_class, 맞은 글자, 이유). decision: keep / reject / unknown / skip"""
+def decide(cls, reads, loose=True, sure=False, rules=None):
+    """reads: [(글자, 신뢰도)] → (decision, suggested_class, 맞은 글자, 이유). decision: keep / reject / unknown / skip.
+    rules: None(11-02 규칙, 기본) 또는 APP_029(시험 앱 0.2.9 판정, 화장실 바로잡기 뺌)."""
     if cls not in TEXT_CLASSES:
         return "skip", "", "", "글자로 확인하지 않는 종류"
     pieces = [(t.strip(), c) for t, c in reads if t.strip()]
@@ -140,7 +180,7 @@ def decide(cls, reads, loose=True, sure=False):
     score = defaultdict(int)
     hit = {}
     for t, c in pieces + ([(joined, 1.0)] if len(pieces) > 1 else []):
-        for k, s in kinds_of(t).items():
+        for k, s in kinds_of(t, label=cls, rules=rules).items():
             if s > score[k]:
                 score[k], hit[k] = s, t
     if cls in score:
@@ -150,14 +190,14 @@ def decide(cls, reads, loose=True, sure=False):
         return "reject", strong[0], hit[strong[0]], "다른 종류의 글자"
     if "navy" in score:                       # 역 이름만 읽힘 → 방면 안내판일 가능성이 큼 (약한 근거)
         return "reject", "navy", hit["navy"], "역 이름이 읽힘 (방면 안내판일 가능성)"
-    if not sure and any(meaningful(t, c) for t, c in pieces):
+    if not sure and any(meaningful(t, c, rules) for t, c in pieces):
         return "reject", "", joined, "종류와 안 맞는 글자 (광고 등)"
-    if loose and any(ad_like(t, ("이번열차",) if sure else ()) for t, _ in pieces):
+    if loose and any(ad_like(t, ("이번열차",) if sure else (), (rules or {}).get("stations", ())) for t, _ in pieces):
         return "reject", "", joined, "표지판 글자와 안 닮은 한글 (광고 의심, 완화 규칙)"
     return "unknown", "", "", "뜻 있는 글자를 못 읽음"
 
 
-def track_decide(obs_rows, reads, max_reads=3, gap=0.5, loose=True, sure=False, window=5, min_hits=3):
+def track_decide(obs_rows, reads, max_reads=3, gap=0.5, loose=True, sure=False, window=5, min_hits=3, rules=None):
     """obs_rows: 시각 순 [{detection_id, track_id, t, label, frame}] (frame = 프레임 번호).
     reads: {detection_id: [(글자, 신뢰도), ...]} (읽을 수 있는 모든 관측). → 결정 행 목록. 판(track)마다 앞 프레임만 보고 상태를 갱신."""
     state, out = {}, []
@@ -169,7 +209,7 @@ def track_decide(obs_rows, reads, max_reads=3, gap=0.5, loose=True, sure=False, 
                 and r["t"] - st["last"] >= gap - 1e-6:
             st["n"] += 1
             st["last"] = r["t"]
-            st["dec"], st["to"], st["text"], st["why"] = decide(r["label"], reads.get(r["detection_id"], []), loose, sure)
+            st["dec"], st["to"], st["text"], st["why"] = decide(r["label"], reads.get(r["detection_id"], []), loose, sure, rules)
         if r["label"] not in TEXT_CLASSES:
             status, decision = "skipped", "keep"
         elif st["dec"] == "keep":
