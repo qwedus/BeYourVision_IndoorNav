@@ -203,12 +203,6 @@
         "words": [
           "vicinity"
         ]
-      },
-      "toilet": {
-        "fuzzy": [
-          "화장실",
-          "Toilet"
-        ]
       }
     },
     "common_keywords": [
@@ -311,7 +305,7 @@
       "출발"
     ],
     "_keywords_note": "윤재 ocr_filter.py(11-02) kinds_of·STATIONS·SIGN_WORDS와 같은 내용. fuzzy = 비슷하면(similar_min 이상) 인정, words = 영어 낱말, contains = 그 글자가 들어 있으면, station_haeng = '○○행'(역 이름)",
-    "_vocab_note": "0.2.9(11-08 윤재): 2차 답사 체스트 마운트 녹화 5개에서 '다른 글자'로 버린 진짜 판의 글자로 보강. 출구 행선지, 모니터 문구·시각, 화장실 바로잡기, 종착역 이름, 영어 역 이름",
+    "_vocab_note": "0.2.9(11-08 윤재): 2차 답사 체스트 마운트 녹화 5개에서 '다른 글자'로 버린 진짜 판의 글자로 보강. 출구 행선지, 모니터 문구·시각, 종착역 이름, 영어 역 이름 / 11-09: 화장실 바로잡기 뺌(천장 '← 화장실' 방향 안내판을 지도의 화장실 판과 맞춰 위치가 틀어짐 → 화장실 글자는 다른 글자로 버림)",
     "code_rules": {
       "fuzzy_first_char": true,
       "meaningful_letters": true,

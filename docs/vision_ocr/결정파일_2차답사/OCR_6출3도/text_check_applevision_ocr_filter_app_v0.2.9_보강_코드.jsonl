@@ -1692,7 +1692,7 @@
 {"detection_id": "OCR_20261105_203501/f04260/yolo26n/d2", "track_id": 803, "t": 60360.184656791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04264/yolo26n/d0", "track_id": 798, "t": 60360.317971375, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "검단호수공원 원인재 | Geomdan Lake Park | Woninjae | 타는 곳 | Tracks | 포주 | ®y1*", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04264/yolo26n/d1", "track_id": 803, "t": 60360.317971375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
-{"detection_id": "OCR_20261105_203501/f04264/yolo26n/d2", "track_id": 800, "t": 60360.317971375, "label": "ticket_sign", "decision": "relabel", "text_status": "mismatch", "text": "화장실 | Tolet", "reason": "다른 종류 글자 → toilet", "map_types": ["toilet"]}
+{"detection_id": "OCR_20261105_203501/f04264/yolo26n/d2", "track_id": 800, "t": 60360.317971375, "label": "ticket_sign", "decision": "reject", "text_status": "mismatch", "text": "화장실 | Tolet", "reason": "종류와 안 맞는 글자"}
 {"detection_id": "OCR_20261105_203501/f04264/yolo26n/d3", "track_id": 804, "t": 60360.317971375, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04272/yolo26n/d0", "track_id": 798, "t": 60360.5846005, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "검단호수공원 원인재 | Geomdan Lake Park | Woninjae | 타는 곳 | Tracks | 포주 | ®y1*", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04272/yolo26n/d1", "track_id": 795, "t": 60360.5846005, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
@@ -1704,7 +1704,7 @@
 {"detection_id": "OCR_20261105_203501/f04274/yolo26n/d3", "track_id": 805, "t": 60360.651257875, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04280/yolo26n/d0", "track_id": 798, "t": 60360.851229791, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "검단호수공원 원인재 | Geomdan Lake Park | Woninjae | 타는 곳 | Tracks | 포주 | ®y1*", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04280/yolo26n/d1", "track_id": 796, "t": 60360.851229791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
-{"detection_id": "OCR_20261105_203501/f04280/yolo26n/d2", "track_id": 800, "t": 60360.851229791, "label": "ticket_sign", "decision": "relabel", "text_status": "mismatch", "text": "화장실 | Tolet", "reason": "다른 종류 글자 → toilet", "map_types": ["toilet"]}
+{"detection_id": "OCR_20261105_203501/f04280/yolo26n/d2", "track_id": 800, "t": 60360.851229791, "label": "ticket_sign", "decision": "reject", "text_status": "mismatch", "text": "화장실 | Tolet", "reason": "종류와 안 맞는 글자"}
 {"detection_id": "OCR_20261105_203501/f04280/yolo26n/d3", "track_id": 803, "t": 60360.851229791, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04280/yolo26n/d4", "track_id": 806, "t": 60360.851229791, "label": "navy", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04285/yolo26n/d0", "track_id": 798, "t": 60361.017872916, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "검단호수공원 원인재 | Geomdan Lake Park | Woninjae | 타는 곳 | Tracks | 포주 | ®y1*", "reason": ""}
@@ -1714,8 +1714,8 @@
 {"detection_id": "OCR_20261105_203501/f04293/yolo26n/d0", "track_id": 798, "t": 60361.284502166, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "검단호수공원 원인재 | Geomdan Lake Park | Woninjae | 타는 곳 | Tracks | 포주 | ®y1*", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04293/yolo26n/d1", "track_id": 808, "t": 60361.284502166, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04293/yolo26n/d2", "track_id": 805, "t": 60361.284502166, "label": "exit", "decision": "keep", "text_status": "confirmed", "text": "나가는", "reason": ""}
-{"detection_id": "OCR_20261105_203501/f04293/yolo26n/d3", "track_id": 806, "t": 60361.284502166, "label": "navy", "decision": "relabel", "text_status": "mismatch", "text": "^ | 화장실 | Toilet", "reason": "다른 종류 글자 → toilet", "map_types": ["toilet"]}
-{"detection_id": "OCR_20261105_203501/f04293/yolo26n/d4", "track_id": 800, "t": 60361.284502166, "label": "ticket_sign", "decision": "relabel", "text_status": "mismatch", "text": "화장실 | Tolet", "reason": "다른 종류 글자 → toilet", "map_types": ["toilet"]}
+{"detection_id": "OCR_20261105_203501/f04293/yolo26n/d3", "track_id": 806, "t": 60361.284502166, "label": "navy", "decision": "reject", "text_status": "mismatch", "text": "^ | 화장실 | Toilet", "reason": "종류와 안 맞는 글자"}
+{"detection_id": "OCR_20261105_203501/f04293/yolo26n/d4", "track_id": 800, "t": 60361.284502166, "label": "ticket_sign", "decision": "reject", "text_status": "mismatch", "text": "화장실 | Tolet", "reason": "종류와 안 맞는 글자"}
 {"detection_id": "OCR_20261105_203501/f04301/yolo26n/d0", "track_id": 798, "t": 60361.551131291, "label": "navy", "decision": "keep", "text_status": "confirmed", "text": "검단호수공원 원인재 | Geomdan Lake Park | Woninjae | 타는 곳 | Tracks | 포주 | ®y1*", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04301/yolo26n/d1", "track_id": 809, "t": 60361.551131291, "label": "exit", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
 {"detection_id": "OCR_20261105_203501/f04301/yolo26n/d2", "track_id": 810, "t": 60361.551131291, "label": "ticket_sign", "decision": "keep", "text_status": "unread", "text": "", "reason": ""}
