@@ -136,6 +136,22 @@
    "sha256": "16168010a5672017f43cec31303dc866777fb1763616094c595ea81da4598052",
    "bytes": 215199
   },
+  "vision/inputs/graph/destinations.json": {
+   "src": "data/dongchun/destinations.json",
+   "repo": "capstone_graph",
+   "src_commit": "3ea8b7f88f9b62f1ff333ec14ce70ddd25cef9fd",
+   "repo_head": "3ea8b7f88f9b62f1ff333ec14ce70ddd25cef9fd",
+   "sha256": "e19aaaa5a202ad4c07fef85c866ae15fe96257308fe778433d33d2eb5c86a8d7",
+   "bytes": 13751
+  },
+  "vision/inputs/graph/gates.json": {
+   "src": "data/dongchun/gates.json",
+   "repo": "capstone_graph",
+   "src_commit": "3ea8b7f88f9b62f1ff333ec14ce70ddd25cef9fd",
+   "repo_head": "3ea8b7f88f9b62f1ff333ec14ce70ddd25cef9fd",
+   "sha256": "dc2a92f8a8b726b480fdef65e086140e09e5a49b44b5e4e67861b7bacd56fb62",
+   "bytes": 95949
+  },
   "vision/inputs/graph/graph.json": {
    "src": "data/dongchun/graph.json",
    "repo": "capstone_graph",
@@ -280,6 +296,30 @@
    "sha256": "739401313fde836b7081a763adda14a1bc4f9a38243659f2ae8cebf6398afa51",
    "bytes": 55067
   },
+  "vision/inputs/plan/plan_B01.png": {
+   "src": "landmark/out/survey/plan_B01.png",
+   "repo": "localization_design",
+   "src_commit": "54d1bce75085c566cda50b2d2f201494853e62bf",
+   "repo_head": "bfd9a0ac0c26bbf476f4210fc8e0c3726594dd81",
+   "sha256": "9fe8a7cc6c0366f870cad75bdb1a9f1757fc5e1d30f2e785dcfa1931b61cf1b7",
+   "bytes": 116568
+  },
+  "vision/inputs/plan/plan_B02.png": {
+   "src": "landmark/out/survey/plan_B02.png",
+   "repo": "localization_design",
+   "src_commit": "54d1bce75085c566cda50b2d2f201494853e62bf",
+   "repo_head": "bfd9a0ac0c26bbf476f4210fc8e0c3726594dd81",
+   "sha256": "0ed7640bc42087272fde72ed00c5a360b5711661b1034c296d3a9681b356c489",
+   "bytes": 67660
+  },
+  "vision/inputs/plan/plan_transform.json": {
+   "src": "landmark/out/survey/plan_transform.json",
+   "repo": "localization_design",
+   "src_commit": "54d1bce75085c566cda50b2d2f201494853e62bf",
+   "repo_head": "bfd9a0ac0c26bbf476f4210fc8e0c3726594dd81",
+   "sha256": "3aa2035bcff841c50d04e7c661b9d8824ad2bb7069ec84de3bd546f59e662a43",
+   "bytes": 1487
+  },
   "vision/obs_model.py": {
    "src": "cv_test/pf/obs_model.py",
    "repo": "localization_design",
@@ -330,6 +370,6 @@
   }
  },
  "note": "localization_design cv_test/sync_to_branch.py가 만든 목록. 여기 적힌 파일은 브랜치에서 고치지 말 것 (원본을 고치고 다시 복사). 해시가 다르면 복사 도구가 멈춤",
- "synced_at": "2026-11-10T21:38:27",
- "localization_design_head": "092df5db8a161633c97279b5dcb57200440d324c"
+ "synced_at": "2026-11-13T14:06:35",
+ "localization_design_head": "bfd9a0ac0c26bbf476f4210fc8e0c3726594dd81"
 }

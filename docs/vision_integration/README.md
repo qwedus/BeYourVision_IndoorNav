@@ -25,11 +25,12 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `vision/cv_module/` | `cvmod`(검출 → 방위각·앙각 관측, 표준 라이브러리만) + `config/default.json`(검출 문턱값). 앱 검출을 관측으로 바꿀 때 씀 | **localization_design** (`cv_module/`) |
 | `vision/tools/session_to_replay.py` | 앱 기록 폴더(`detections.jsonl`·`frames.jsonl`·`meta.json`) → `cvmod` 재생 입력 | **ocr_test_app** (`tools/`) |
 | `vision/pdr_simple.py` | 임시 PDR(정답 기준점 사이 걸음 시각 보간에 씀) | **localization_design** (`cv_test/i1/`) |
-| `vision/inputs/graph/` | 길안내용 경로 그래프: `graph.json`(기본, 시각장애인용), `graph_general.json`(일반 보행 덧붙임 레이어, 테스트·디버깅용), 형식 파일 `station_graph.schema.json`·`station_graph_layer.schema.json`. 아래 [경로 그래프 레이어](#경로-그래프-레이어) | **capstone_graph** (`data/`) |
+| `vision/inputs/graph/` | 길안내용 경로 그래프: `graph.json`(기본, 시각장애인용), `graph_general.json`(일반 보행 덧붙임 레이어, 테스트·디버깅용), 형식 파일 `station_graph.schema.json`·`station_graph_layer.schema.json`. 앱용 표 `destinations.json`(목적지 묶음을 노드로 풀어 둔 것, 도면 없는 층의 지점에는 도면 있는 층의 가장 가까운 노드 `plan_node`)·`gates.json`(도면 개찰구 몸체 다각형과 줄·칸. 그래프 개찰구 노드가 없는 줄은 도면에만 있는 모양이라 넣지 않음). 아래 [경로 그래프 레이어](#경로-그래프-레이어) | **capstone_graph** (`data/`) |
 | `vision/MANIFEST.json` | 위 파일마다 원본 저장소·경로·출처 커밋·sha256 | 복사 도구가 만듦 |
+| `vision/inputs/plan/` | 화면용 평면도 그림 `plan_B01.png`·`plan_B02.png`(글자 없음, 벽·기둥·점자블록·개찰구, 20 px/m)와 픽셀 ↔ 좌표 변환 `plan_transform.json` | **localization_design** (`landmark/out/survey/`, 답사 앱에 넣은 것과 같은 파일) |
 | `integration/` | 앱 녹화 → `Session`, indoornav PDR 걸음 추출, 방 뺀 보행 마스크, `VisionFilter` 어댑터, 재생기·실시간 재생기·실행기·검산·비교표·그림 | **이 브랜치** |
 | `integration/recordings/<이름>.json` | 녹화별 설정: 앱 세션 폴더 이름(`session`), 이 PC 녹화 경로(`rec`), 입력·출력 폴더, 정답 기준점, 채점 제외 구간 | **이 브랜치** |
-| `integration/maps/` | 방 뺀 보행 마스크 사본·`map_meta_noroom.json`, 그림 바탕 도면 선 `plan_lines.npz`(벽·점자블록, 출처 `plan_lines.json`) | 마스크는 이 브랜치(`walk_mask.py`), 도면 선은 **capstone_graph** `data/dongchun/plan.gpkg`에서 뽑음 |
+| `integration/maps/` | 방 뺀 보행 마스크 사본·`map_meta_noroom.json`(재생 기본), 정식 도면에서 만든 보행 마스크 `B0x_walk_plan.png`·`map_meta_plan.json`(앱용, `plan_mask.py`), 그림 바탕 도면 선 `plan_lines.npz`(벽·점자블록, 출처 `plan_lines.json`) | 마스크는 이 브랜치(`walk_mask.py`), 도면 선은 **capstone_graph** `data/dongchun/plan.gpkg`에서 뽑음 |
 | `integration/requirements.txt` | 가상환경 패키지(확인한 버전) + indoornav | **이 브랜치** |
 | `integration/out/` | 결과(대부분 저장소에 안 넣음). 2차 녹화는 `integration/out/rec/<이름>/inputs·out` | 실행하면 생김 |
 | `docs/vision_integration/` | 이 설명, 작업 기록, main 수정 건의 | **이 브랜치** |
@@ -71,6 +72,9 @@ indoornav PDR·파티클 필터(`indoornav/`)에 비전 관측(랜드마크 방�
 | `fig_plan.py` | 정식 도면 위 경로 그림 → `<out>/<이름>/fig_plan.png`. 도면 선은 `maps/plan_lines.npz`(geopandas 필요 없음, `--plan <gpkg>`를 주면 원본 도면을 geopandas로 읽음) |
 | `fig_plan_rt.py` | 실시간 권장 조합(`rec`) 경로 그림: `data`(PF 비전 끔을 `rec`로 돌림·PDR만은 실시간 걸음) → `draw` → `<out>/rt_fig/fig_plan_rec.png`, 지금 방식과 나란히 `fig_plan_compare.png` |
 | `plan_lines.py`·`make_plan_lines.py` | 도면 선 읽기 / 원본 도면(gpkg)에서 한 번 뽑기(geopandas 있는 파이썬, 도면이 바뀔 때만) |
+| `plan_mask.py` | 정식 도면에서 보행 마스크를 만듦(보행칸 0.5 m + 벽 단면선 + 개찰구 줄 엶) → `maps/B0x_walk_plan.png`·`map_meta_plan.json`. `--thick`·`--grow`·`--out`으로 비교용 변형. 아래 [정식 도면에서 만든 보행 마스크](#정식-도면에서-만든-보행-마스크) |
+| `exp_plan_mask.py` | 지금 마스크 ↔ 정식 도면 마스크 비교 재생(기본 설정은 안 바꿈). `--make`로 비교용 마스크, 기록마다 실행, `--report`로 `out/plan_mask.md`·`.json` |
+| `export_app_data.py` | 역 자료를 앱(Swift)이 읽는 형식으로 내보냄 → `out/app_data/<역>/`(저장소에 안 넣음). `--check`는 있는 묶음이 지금 입력과 같은지만 봄. 아래 [앱용 역 자료 묶음](#앱용-역-자료-묶음) |
 | `run_recording.py` | 녹화 하나(또는 2차 8개 `all`)를 관측 → PDR → 정답 → 기본 재생 → 실시간 재생 → 그림까지 (아래) |
 | `truth_build.py`·`truth_helper.py` | 설정의 기준점 → 정답 궤적 `truth.csv`·확인 그림 / 기준점 후보·영상 프레임 모음(영상 프레임은 cv2 있는 파이썬 `I1_VISION_PY`) |
 | `rt_pdr.py`·`rt_replay.py`·`run_rt.py` | 실시간 조건 재생: indoornav PDR을 감싼 지연 판정, 기압 수신 시각 판정 / 받은 시각 순 PF 투입·지연 지표 / 단계별 실행(`--stages off,rec`, `--check-ref exp_d58_r20`) |
@@ -167,6 +171,65 @@ uv sync --frozen
 ## 방 뺀 보행 마스크
 
 기존 보행 마스크는 평면도 이미지 색으로 만든 것이라 B01 직원실·매표실, B02 계단·에스컬레이터 구조물 안쪽, 그림 속 글자·지시선까지 걸을 수 있는 곳으로 들어가 있다. 규칙: **기존 보행 마스크 칸 중 역사 패키지 보행칸(가시성 표 `walk`, 0.5 m 격자)에서 0.5 m 넘게 떨어진 칸은 뺌.** B01 2758 → 2316 m², B02 2337 → 1995 m². 정답 궤적은 두 층 모두 100% 안. indoornav `GridMap` 클래스로 그대로 읽음.
+
+## 정식 도면에서 만든 보행 마스크
+
+방 뺀 보행 마스크는 글자·지시선이 들어간 평면도 그림에서 색으로 뽑은 것이라, 방을 빼도 안쪽에 글자·표시 흔적이 남고(B01 22.7 m²) 기둥은 테두리 점만 있다. `plan_mask.py`는 그림을 쓰지 않고 이 브랜치의 도면 자료만으로 마스크를 만든다. 픽셀 격자(축척·원점·크기)는 `maps/dongchun/map_meta.json`과 같아서 `GridMap.load`로 그대로 읽는다.
+
+재료
+- 역사 패키지 보행칸 `walk`: 메시 바닥에서 만든 0.5 m 격자. 방·기둥·계단 구조물 자리는 이미 빠져 있고, 경계는 벽 선보다 반 칸쯤 모자라거나 넘친다
+- 도면 벽 단면선 `maps/plan_lines.npz`: 바닥 + 1.2 m 높이에서 자른 선(벽·기둥·키 큰 구조물). 1.2 m보다 낮은 개찰구 울타리·벤치·낮은 난간은 없다
+- 개찰구 줄 `vision/inputs/graph/gates.json`, 경로 그래프 노드
+
+만드는 순서(층마다)
+1. 보행칸을 픽셀에 칠하고 0.5 m 넓힘 — 벽 선까지의 틈을 메우려는 것. 넘친 부분은 다음 단계에서 잘린다
+2. 벽 선에서 띠 두께(기본 0.3 m)의 절반 안을 막음. PF는 한 걸음을 0.08 m 간격으로 검사하므로(`GridMap.crosses`), 띠가 0.2 m는 되어야 B02 픽셀(7.4 cm)에서도 건너뛰지 않는다
+3. 개찰구 줄(첫 몸체 바깥 끝 ~ 마지막 몸체 바깥 끝)을 통째로 엶. 개찰구는 막지 않기로 함(칸 폭 0.4~1.0 m라 위치 오차가 있으면 파티클이 못 지나감, 11-13)
+4. 경로 그래프 노드와 이어진 영역만 남김. 벽 밖으로 넘친 띠와 승강장 안전문 바깥 띠가 떨어져 나가고, 기둥은 원 모양으로 막힌다
+
+시험: `tests/vision_integration/test_plan_mask.py` (규칙 하나씩 + 실제 자료에서 벽 선을 건너는 걸음을 `GridMap.crosses`가 모두 잡는지, 개찰구 줄이 열려 있는지, 그래프 간선이 막히지 않는지).
+
+**비교 결과(11-13, `exp_plan_mask.py`. 기록별 표는 `--report`가 `integration/out/plan_mask.md`에 만듦, 저장소에는 안 넣음)**: 기록 9개, seed 10개, 지금 마스크 ↔ 벽 띠 0.2 m(`plan_g20`)·0.3 m(`plan_g30`). 판단 기준은 재생 전에 정함.
+
+| | plan_g20 | plan_g30 |
+|---|---|---|
+| 넓이 B01 / B02 (지금 2316 / 1995 m²) | 2315 / 1888 m² | 2273 / 1827 m² |
+| 시간 필터·기본: 9개 평균 오차 중앙 / 90% 차이 | −0.03 / +0.07 m | −0.03 / −0.04 m |
+| 90%가 크게 나빠진 기록 | 없음 | 없음 |
+| 자신 있게 틀린 seed 합 (지금 60) | 63 | 60 |
+| 정답 궤적이 마스크 밖을 더 지나는 기록 | `s2_b_ex2_31` 1.8% | `s2_b_ex2_31` 1.8% |
+| 비전 끔(참고): 9개 평균 오차 중앙 / 90% 차이 | −0.18 / −0.26 m | −0.20 / −0.33 m |
+| 판단 | 기준 3·4번 못 지킴 | 기준 4번 못 지킴 |
+
+- 4번에 걸린 곳은 `s2_b_ex2_31`의 92.6~95.8 s 한 군데: 정답 궤적(기준점 사이를 곧게 이은 선)이 기둥 가장자리를 최대 0.22~0.28 m 스쳐 지나간다. 지금 마스크는 기둥이 테두리 점만 있어서 걸리지 않았다
+- **벽 띠 0.3 m 채택(11-13)**: 4번은 마스크가 틀린 것이 아니라 정답 선이 실제 기둥을 지나가서 걸린 것으로 보고 채택함. `maps/B0x_walk_plan.png`·`map_meta_plan.json`이 그 마스크이고 앱용 묶음에도 이것이 들어감
+- **재생의 기본 마스크는 아직 방 뺀 사본**(`paths.MASK_META` 그대로). 바꾸면 기준 결과(`exp_d58_r20`)와 그것에 맞춘 회귀 시험·표가 모두 달라지므로 따로 정해서 한 번에 바꿈
+
+## 앱용 역 자료 묶음
+
+앱은 numpy(`npz`)·GeoPackage를 못 읽으므로, 이 브랜치의 역 자료를 JSON과 맨 바이트 파일로 바꿔 한 폴더에 모은다. 입력은 이 브랜치 안 파일뿐이고 결과는 저장소에 넣지 않는다(다시 만들면 같은 바이트, 약 15 MB). 개찰구 몸체는 보행 마스크에서 막지 않는다(칸 폭 0.4~1.0 m라 위치 오차가 있으면 파티클이 못 지나감, 11-13 결정).
+
+```
+.venv/Scripts/python integration/export_app_data.py            # → integration/out/app_data/dongchun/
+.venv/Scripts/python integration/export_app_data.py --check    # 있는 묶음이 지금 입력과 같은지만
+```
+
+| 파일 | 내용 | 원본 |
+|---|---|---|
+| `manifest.json` | 형식·좌표 약속·파일 목록(종류·모양·sha256)·입력 해시. 앱은 이것부터 읽음 | |
+| `station.json` | 층, 카메라 높이, 좌표 변환(회전각, 층별 `R`·`T`·`x0`·`y0`·`cell`), 에스컬레이터 끝, 랜드마크 | `vision/inputs/dongchun_station.*` |
+| `<층>_walk.u8`·`_walk_pf.u8`·`_computed.u8` | 0.5 m 격자 (H, W) uint8 0/1 | 같음 |
+| `<층>_dist.f16` | 가시성 표 (랜드마크 수, H, W) float16. `nan` = 안 보임(`computed` 1) 또는 모름(`computed` 0) | 같음 |
+| `<층>_mask.u8` | PF 벽 판정용 보행 마스크 (H, W) uint8 0/1. 축척·원점은 `manifest.json`의 `masks` | `integration/maps/*_walk_plan.png` (정식 도면에서 만든 마스크) |
+| `<층>_walls_xy.f64`·`_off.i32`, `<층>_tactile_…` | 도면 벽 선·점자블록: 이어 붙인 좌표 (N, 2)와 도형 시작 위치(도형 수 + 1) | `integration/maps/plan_lines.npz` |
+| `graph.json`·`graph_general.json`·`destinations.json`·`gates.json` | 경로 그래프·목적지 묶음·개찰구 몸체 (그대로 복사, 줄 끝 LF) | `vision/inputs/graph/` |
+| `plan_<층>.png` | 화면에 띄우는 평면도 그림 (그대로 복사). 픽셀 ↔ 동·북 변환은 `manifest.json`의 `ui_plan` (`en_to_px`·`px_to_en`, 2×3 행렬) | `vision/inputs/plan/` |
+
+- **바이트 약속**: 숫자는 모두 little-endian, 배열은 행 우선. (H, W)에서 칸 (i, j)는 `i*W + j`번째, (L, H, W)에서 (l, i, j)는 `(l*H + i)*W + j`번째 값
+- **좌표 약속**은 `manifest.json`의 `coords`에 식으로 적음(동·북 ↔ 역 좌표 격자 ↔ 지도 aligned ↔ 마스크 픽셀, 나침반 ↔ 지도 각). 위 [좌표·각도·시계 약속](#좌표각도시계-약속)과 같은 내용
+- **읽기 참고 구현**: `export_app_data.load_app_data(폴더)` — `station_pkg.load_station`과 같은 필드를 돌려줌. 내보낸 뒤 자동으로 다시 읽어 원본(`npz`·`png`)과 값이 같은지 확인하고, 다르면 실패로 끝남
+- **시험**: `tests/vision_integration/test_app_data.py` (numpy 없이 `struct`로 읽어 바이트 약속 확인, 마스크 찾기가 `GridMap.free`와 같은지, 목적지 노드가 보행 격자 위인지 등)
+- PF 벽 판정에는 마스크를 씀(정식 도면에서 만든 것: 벽·기둥 막음, 개찰구 엶). 0.5 m 격자는 가시성 표 칸 찾기용
 
 ## 비전 설정
 

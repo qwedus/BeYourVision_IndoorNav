@@ -1,0 +1,126 @@
+{
+ "note": "integration/plan_mask.py가 만든 보행 마스크: 역사 패키지 보행칸(0.5 m)을 0.5 m 넓히고 도면 벽 단면선에서 0.15 m 안을 막고 개찰구 줄을 연 뒤, 경로 그래프 노드와 이어진 영역만 남김. 좌표·축척은 maps/dongchun/map_meta.json과 같음",
+ "aligned_from_enu_rot_deg": -52.73,
+ "floors": {
+  "B01": {
+   "walk_png": "B01_walk_plan.png",
+   "drawn_path_png": "../../maps/dongchun/B01_drawn_path.png",
+   "m_per_px": 0.05276395286020922,
+   "offset_aligned": [
+    -49.1780504625559,
+    53.61588980856604
+   ],
+   "georef_residual_m": [
+    0.048,
+    0.035,
+    0.008,
+    0.011,
+    0.022
+   ],
+   "georef_points": "B01: 종합안내도 23·24·25, 노선도 21·22 / B02: 종합안내도 59·60·61·62 (landmarks_Dongchun.json)"
+  },
+  "B02": {
+   "walk_png": "B02_walk_plan.png",
+   "drawn_path_png": "../../maps/dongchun/B02_drawn_path.png",
+   "m_per_px": 0.07378585785518599,
+   "offset_aligned": [
+    -93.19471885320323,
+    10.526157798066409
+   ],
+   "georef_residual_m": [
+    0.116,
+    0.12,
+    0.017,
+    0.033
+   ],
+   "georef_points": "B01: 종합안내도 23·24·25, 노선도 21·22 / B02: 종합안내도 59·60·61·62 (landmarks_Dongchun.json)"
+  }
+ },
+ "escalators": [
+  {
+   "name": "lower",
+   "top": [
+    14.381,
+    -26.965
+   ],
+   "bottom": [
+    28.913,
+    -26.95
+   ],
+   "note": "에스컬레이터 위 끝 → 아래쪽 승강장"
+  },
+  {
+   "name": "upper",
+   "top": [
+    14.403,
+    -7.96
+   ],
+   "bottom": [
+    28.877,
+    -7.876
+   ],
+   "note": "에스컬레이터 위 끝 → 위쪽 승강장"
+  }
+ ],
+ "route_truth": {
+  "start_px_B01": [
+   1480,
+   1030
+  ],
+  "start_heading_deg_hyp": {
+   "H1_east": 0,
+   "H2_south": -90
+  },
+  "end_B01_px": [
+   1204.6,
+   1527.2
+  ],
+  "end_B02_px": [
+   1755,
+   434
+  ],
+  "start_B01": [
+   28.913,
+   -0.731
+  ],
+  "end_B02": [
+   36.299,
+   -21.497
+  ]
+ },
+ "plan_mask": {
+  "thick_m": 0.3,
+  "grow_m": 0.5,
+  "seed_reach_m": 0.5,
+  "gate_reach_m": 0.1,
+  "rule": "(grow(station walk) & ~band(wall lines)) | gate rows, pieces connected to graph nodes",
+  "report": {
+   "B01": {
+    "walk_m2": 2321.4,
+    "base_m2": 2677.6,
+    "band_in_base_m2": 308.7,
+    "free_m2": 2372.5,
+    "mask_m2": 2272.6,
+    "dropped_m2": 100.0,
+    "opened_m2": 3.6,
+    "pieces": 88,
+    "kept_pieces": 1,
+    "gate_rows": 3,
+    "lost_nodes": []
+   },
+   "B02": {
+    "walk_m2": 2186.8,
+    "base_m2": 2619.4,
+    "band_in_base_m2": 455.5,
+    "free_m2": 2163.9,
+    "mask_m2": 1827.3,
+    "dropped_m2": 336.6,
+    "opened_m2": 0.0,
+    "pieces": 54,
+    "kept_pieces": 2,
+    "gate_rows": 2,
+    "lost_nodes": []
+   }
+  }
+ }
+}

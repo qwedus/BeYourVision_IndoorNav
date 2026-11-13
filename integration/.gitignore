@@ -1,2 +1,6 @@
 # 새 녹화의 풀린 기록·관측·재생 결과 (zip과 recordings/<이름>.json으로 다시 만듦)
 out/rec/
+# 앱용 역 자료 묶음 (export_app_data.py로 다시 만듦, 약 15 MB)
+out/app_data/
+# 보행 마스크 비교용 변형·그림 (exp_plan_mask.py --make로 다시 만듦)
+out/plan_mask/
